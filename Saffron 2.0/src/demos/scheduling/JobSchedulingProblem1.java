@@ -1,7 +1,6 @@
 package demos.scheduling;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class JobSchedulingProblem1
 {
@@ -20,20 +19,20 @@ public class JobSchedulingProblem1
 
 		Task[] tasks = new Task[]
 		{ FP, FW, BW, DE, GC, CW, CR, RP, LP, FA };
-		FA.setPredecessors(Arrays.asList(new Task[]
-		{ FP, FW, BW, GC, DE }));
-		BW.setPredecessors(Arrays.asList(new Task[]
-		{ GC, DE }));
-		GC.setPredecessors(Arrays.asList(new Task[]
-		{ DE }));
-		CW.setPredecessors(Arrays.asList(new Task[]
-		{ DE }));
-		LP.setPredecessors(Arrays.asList(new Task[]
-		{ CR, CW, GC }));
-		RP.setPredecessors(Arrays.asList(new Task[]
-		{ CR, CW, GC }));
-		CR.setPredecessors(Arrays.asList(new Task[]
-		{ CW }));
+		FA.setPredecessors(new Task[]
+		{ FP, FW, BW, GC, DE });
+		BW.setPredecessors(new Task[]
+		{ GC, DE });
+		GC.setPredecessors(new Task[]
+		{ DE });
+		CW.setPredecessors(new Task[]
+		{ DE });
+		LP.setPredecessors(new Task[]
+		{ CR, CW, GC });
+		RP.setPredecessors(new Task[]
+		{ CR, CW, GC });
+		CR.setPredecessors(new Task[]
+		{ CW });
 
 		Processor A1 = new Processor("A1");
 		Processor A2 = new Processor("A2");

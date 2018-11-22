@@ -1,5 +1,6 @@
 package demos.scheduling;
 
+import java.util.Arrays;
 import java.util.List;
 
 import naturalnumbers.NaturalNumber;
@@ -9,13 +10,14 @@ public class Task
 {
 	private long duration;
 
-	private long finish;
+	// private long finish;
 	private String name;
+	private INaturalNumber NNStart;
 	private INaturalNumber NNDuration;
 	private INaturalNumber NNFinish;
-	private INaturalNumber NNStart;
 	private List<Task> predecessors;
-	private long start;
+
+	// private long start;
 
 	public Task(String name, long duration) throws Exception
 	{
@@ -31,11 +33,9 @@ public class Task
 		return duration;
 	}
 
-	public long getFinish()
-	{
-		return finish;
-	}
-
+	/*
+	 * public long getFinish() { return finish; }
+	 */
 	public String getName()
 	{
 		return this.name;
@@ -61,21 +61,17 @@ public class Task
 		return predecessors;
 	}
 
-	public long getStart()
-	{
-		return start;
-	}
-
+	/*
+	 * public long getStart() { return start; }
+	 */
 	public void setDuration(long duration)
 	{
 		this.duration = duration;
 	}
 
-	public void setFinish(long decimal)
-	{
-		this.finish = decimal;
-	}
-
+	/*
+	 * public void setFinish(long decimal) { this.finish = decimal; }
+	 */
 	public void setName(String name)
 	{
 		this.name = name;
@@ -91,20 +87,24 @@ public class Task
 		NNStart = nNStart;
 	}
 
-	public void setPredecessors(List<Task> predecessors)
+	public void setPredecessors(Task[] predecessors)
 	{
-		this.predecessors = predecessors;
+		
+		this.predecessors = Arrays.asList(predecessors);
 	}
-
-	public void setStart(long decimal)
-	{
-		this.start = decimal;
-	}
+	/*
+	 * public void setStart(long decimal) { this.start = decimal; }
+	 */
+	/*
+	 * public String toString() { return "\nTask [name=" + name + ", start=" +
+	 * start + ", duration=" + duration + ", finish=" + finish + "]"; }
+	 */
 
 	@Override
 	public String toString()
 	{
-		return "\nTask [name=" + name + ", start=" + start + ", duration="
-				+ duration + ", finish=" + finish + "]";
+		return "\nTask [name=" + name + ", NNStart=" + NNStart + ", NNDuration="
+				+ NNDuration + ", NNFinish=" + NNFinish + "]";
 	}
+
 }
