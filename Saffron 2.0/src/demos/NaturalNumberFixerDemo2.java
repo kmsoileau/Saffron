@@ -24,7 +24,8 @@ public class NaturalNumberFixerDemo2
 				BooleanLiteral.interpret(s);
 				System.out.print("\ni= " + i);
 				System.out.print("\tX= " + X);
-			} else
+			}
+			else
 				System.out.print("No solution.");
 		}
 	}

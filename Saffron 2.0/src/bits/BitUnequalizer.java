@@ -6,11 +6,15 @@ import bits.exceptions.BitUnequalizerException;
  * An extension of the Problem class which imposes a Boolean relation on two
  * IBooleanVariables. For example, the Problem instance p defined by
  *
- * <p><tt>Problem p=new BitUnequalizer(x,y);</code></p>
+ * <p>
+ * <tt>Problem p=new BitUnequalizer(x,y);</code>
+ * </p>
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
- * <p><tt>x!=y</code></p>
+ * <p>
+ * <tt>x!=y</code>
+ * </p>
  *
  * Note that BitUnequalizer is equivalent to BitNoter.
  *
@@ -31,7 +35,6 @@ public class BitUnequalizer extends Problem implements IProblem
 			throw new BitUnequalizerException(
 					"Null IBooleanVariable was passed to constructor.");
 		this.setClauses(new IClause[]
-		{ Clause.newClause().or(x).or(y),
-				Clause.newClause().orNot(x).orNot(y) });
+		{ Clause.newClause().or(x).or(y), Clause.newClause().orNot(x).orNot(y) });
 	}
 }

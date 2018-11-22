@@ -19,8 +19,9 @@ public class BitStringClearer extends Problem implements IProblem
 	public BitStringClearer(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() != Y.size())
-			throw new BitStringClearerException("X and Y are not of equal size.");
-			//this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new BitStringClearerException(
+					"X and Y are not of equal size.");
+		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			int commonsize = X.size();

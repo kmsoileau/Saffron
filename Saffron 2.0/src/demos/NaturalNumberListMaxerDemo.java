@@ -56,7 +56,8 @@ public class NaturalNumberListMaxerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("maxValue = " + theMaxValue);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

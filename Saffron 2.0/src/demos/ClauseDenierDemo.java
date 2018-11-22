@@ -26,7 +26,7 @@ public class ClauseDenierDemo
 
 		System.out.println(new ClauseDenier(null));
 		System.out.println(new ClauseDenier(new Clause()));
-		System.out.println(
-				new ClauseDenier(Problem.unsolvableProblem().getClause(0)));
+		System.out.println(new ClauseDenier(Problem.unsolvableProblem()
+				.getClause(0)));
 	}
 }

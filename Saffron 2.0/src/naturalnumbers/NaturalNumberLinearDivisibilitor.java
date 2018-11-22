@@ -35,7 +35,7 @@ import bits.Problem;
  *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- *         </pre>
+ * </pre>
  * 
  *         </blockquote>
  * @version 1.0, 10/08/29
@@ -45,8 +45,8 @@ import bits.Problem;
  * @see Problem
  */
 
-public class NaturalNumberLinearDivisibilitor extends Problem
-		implements IProblem
+public class NaturalNumberLinearDivisibilitor extends Problem implements
+		IProblem
 {
 	public NaturalNumberLinearDivisibilitor(INaturalNumber A, INaturalNumber C)
 			throws Exception

@@ -36,7 +36,8 @@ public class NaturalNumberMultiplierDemo2
 			System.out.print("\nX = " + X);
 			System.out.print("\tY = " + Y);
 			System.out.print("\tZ = " + Z);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

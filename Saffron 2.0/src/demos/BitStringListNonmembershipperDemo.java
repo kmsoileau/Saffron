@@ -45,8 +45,8 @@ public class BitStringListNonmembershipperDemo
 				new BitString("000"), new BitString("000"), });
 
 		IProblem problem = new Conjunction(new BitStringFixer(slm),
-				new BitStringListFixer(bsl),
-				new BitStringListNonmembershipper(slm, bsl));
+				new BitStringListFixer(bsl), new BitStringListNonmembershipper(
+						slm, bsl));
 
 		System.out.println(problem);
 
@@ -56,7 +56,8 @@ public class BitStringListNonmembershipperDemo
 		{
 			System.out.println("slm= " + slm);
 			System.out.println("bsl= " + bsl);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

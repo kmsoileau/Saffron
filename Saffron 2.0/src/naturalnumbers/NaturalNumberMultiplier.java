@@ -45,52 +45,48 @@ public class NaturalNumberMultiplier extends Problem implements IProblem
 		if (NaturalNumber.getLength() > 2)
 		{
 			INaturalNumber[] B = new INaturalNumber[NaturalNumber.getLength()];
-			INaturalNumber[] D = new INaturalNumber[NaturalNumber.getLength()
-					- 1];
-			INaturalNumber[] S = new INaturalNumber[NaturalNumber.getLength()
-					- 2];
+			INaturalNumber[] D = new INaturalNumber[NaturalNumber.getLength() - 1];
+			INaturalNumber[] S = new INaturalNumber[NaturalNumber.getLength() - 2];
 
-			B[NaturalNumber.getLength() - 1] = new NaturalNumber(
-					"NNM-" + nnmCount + "_" + "B$"
-							+ (NaturalNumber.getLength() - 1) + "$");
+			B[NaturalNumber.getLength() - 1] = new NaturalNumber("NNM-"
+					+ nnmCount + "_" + "B$" + (NaturalNumber.getLength() - 1)
+					+ "$");
 			IProblem p = null;
-			p = new Conjunction(p,
-					new NaturalNumberBitMultiply(
-							X.getBooleanVariable(NaturalNumber.getLength() - 1),
-							Y, B[NaturalNumber.getLength() - 1]));
-			D[NaturalNumber.getLength() - 2] = new NaturalNumber(
-					"NNM-" + nnmCount + "_" + "D$"
-							+ (NaturalNumber.getLength() - 2) + "$");
-			p = new Conjunction(p,
-					new NaturalNumberDoubler(B[NaturalNumber.getLength() - 1],
-							D[NaturalNumber.getLength() - 2]));
-			B[NaturalNumber.getLength() - 2] = new NaturalNumber(
-					"NNM-" + nnmCount + "_" + "B$"
-							+ (NaturalNumber.getLength() - 2) + "$");
-			p = new Conjunction(p,
-					new NaturalNumberBitMultiply(
-							X.getBooleanVariable(NaturalNumber.getLength() - 2),
-							Y, B[NaturalNumber.getLength() - 2]));
-			S[NaturalNumber.getLength() - 3] = new NaturalNumber(
-					"NNM-" + nnmCount + "_" + "S$"
-							+ (NaturalNumber.getLength() - 3) + "$");
-			p = new Conjunction(p,
-					new NaturalNumberAdder(B[NaturalNumber.getLength() - 2],
-							D[NaturalNumber.getLength() - 2],
-							S[NaturalNumber.getLength() - 3]));
+			p = new Conjunction(p, new NaturalNumberBitMultiply(
+					X.getBooleanVariable(NaturalNumber.getLength() - 1), Y,
+					B[NaturalNumber.getLength() - 1]));
+			D[NaturalNumber.getLength() - 2] = new NaturalNumber("NNM-"
+					+ nnmCount + "_" + "D$" + (NaturalNumber.getLength() - 2)
+					+ "$");
+			p = new Conjunction(p, new NaturalNumberDoubler(
+					B[NaturalNumber.getLength() - 1],
+					D[NaturalNumber.getLength() - 2]));
+			B[NaturalNumber.getLength() - 2] = new NaturalNumber("NNM-"
+					+ nnmCount + "_" + "B$" + (NaturalNumber.getLength() - 2)
+					+ "$");
+			p = new Conjunction(p, new NaturalNumberBitMultiply(
+					X.getBooleanVariable(NaturalNumber.getLength() - 2), Y,
+					B[NaturalNumber.getLength() - 2]));
+			S[NaturalNumber.getLength() - 3] = new NaturalNumber("NNM-"
+					+ nnmCount + "_" + "S$" + (NaturalNumber.getLength() - 3)
+					+ "$");
+			p = new Conjunction(p, new NaturalNumberAdder(
+					B[NaturalNumber.getLength() - 2],
+					D[NaturalNumber.getLength() - 2],
+					S[NaturalNumber.getLength() - 3]));
 			for (int i = NaturalNumber.getLength() - 3; i > 0; i--)
 			{
-				D[i] = new NaturalNumber(
-						"NNM-" + nnmCount + "_" + "D$" + i + "$");
+				D[i] = new NaturalNumber("NNM-" + nnmCount + "_" + "D$" + i
+						+ "$");
 				p = new Conjunction(p, new NaturalNumberDoubler(S[i], D[i]));
-				B[i] = new NaturalNumber(
-						"NNM-" + nnmCount + "_" + "B$" + i + "$");
+				B[i] = new NaturalNumber("NNM-" + nnmCount + "_" + "B$" + i
+						+ "$");
 				p = new Conjunction(p, new NaturalNumberBitMultiply(
 						X.getBooleanVariable(i), Y, B[i]));
-				S[i - 1] = new NaturalNumber(
-						"NNM-" + nnmCount + "_" + "S$" + (i - 1) + "$");
-				p = new Conjunction(p,
-						new NaturalNumberAdder(B[i], D[i], S[i - 1]));
+				S[i - 1] = new NaturalNumber("NNM-" + nnmCount + "_" + "S$"
+						+ (i - 1) + "$");
+				p = new Conjunction(p, new NaturalNumberAdder(B[i], D[i],
+						S[i - 1]));
 			}
 			D[0] = new NaturalNumber("NNM-" + nnmCount + "_" + "D$0$");
 			p = new Conjunction(p, new NaturalNumberDoubler(S[0], D[0]));

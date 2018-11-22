@@ -28,7 +28,7 @@ public class BitStringListFixerDemo2
 			listOfSites[i] = new BitString(4);
 		IProblem[] constraints = new BitStringFixer[]
 		{ new BitStringFixer(listOfSites[0], new boolean[]
-				{ false, false, false, false }),
+		{ false, false, false, false }),
 				new BitStringFixer(listOfSites[1], new boolean[]
 				{ true, false, false, false }),
 				new BitStringFixer(listOfSites[2], new boolean[]
@@ -56,7 +56,8 @@ public class BitStringListFixerDemo2
 			BooleanLiteral.interpret(s);
 			for (int i = 0; i < listOfSites.length; i++)
 				System.out.println(listOfSites[i]);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

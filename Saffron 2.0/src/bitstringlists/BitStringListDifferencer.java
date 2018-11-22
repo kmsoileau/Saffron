@@ -51,9 +51,9 @@ public class BitStringListDifferencer extends Problem implements IProblem
 		for (int i = 0; i < A.size(); i++)
 		{
 			IBitString curr = A.getBitString(i);
-			problem = new Conjunction(problem,
-					new Disjunction(new BitStringListNonmembershipper(curr, B),
-							new BitStringListNonmembershipper(curr, aMinusB)),
+			problem = new Conjunction(problem, new Disjunction(
+					new BitStringListNonmembershipper(curr, B),
+					new BitStringListNonmembershipper(curr, aMinusB)),
 					new Disjunction(new BitStringListMembershipper(curr, B),
 							new BitStringListMembershipper(curr, aMinusB)));
 		}

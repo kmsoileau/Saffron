@@ -27,8 +27,7 @@ public class NaturalNumberDoublerDemo
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 
-		for (long i = 0; i < Math.pow(2., 1. * NaturalNumber.getLength())
-				/ 2; i++)
+		for (long i = 0; i < Math.pow(2., 1. * NaturalNumber.getLength()) / 2; i++)
 		{
 			NaturalNumberFixer bnnfx = new NaturalNumberFixer(X, i);
 
@@ -42,7 +41,8 @@ public class NaturalNumberDoublerDemo
 				BooleanLiteral.interpret(s);
 				System.out.print("\nX= " + X);
 				System.out.print("\tY= " + Y);
-			} else
+			}
+			else
 				System.out.print("No solution.");
 		}
 	}

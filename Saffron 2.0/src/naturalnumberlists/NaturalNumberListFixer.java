@@ -17,10 +17,9 @@ public class NaturalNumberListFixer extends Problem implements IProblem
 		for (int i = 0; i < target.size(); i++)
 			for (int j = 0; j < target.getNaturalNumber(i).size(); j++)
 			{
-				IProblem bf = new BitFixer(
-						target.getNaturalNumber(i).getBooleanVariable(j),
-						target.getNaturalNumber(i).getBooleanVariable(j)
-								.getValue());
+				IProblem bf = new BitFixer(target.getNaturalNumber(i)
+						.getBooleanVariable(j), target.getNaturalNumber(i)
+						.getBooleanVariable(j).getValue());
 				problem = new Conjunction(problem, bf);
 			}
 		this.setClauses(problem.getClauses());

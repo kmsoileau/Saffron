@@ -29,7 +29,6 @@ public class BitNoter extends Problem implements IProblem
 	public BitNoter(IBooleanVariable x, IBooleanVariable y) throws Exception
 	{
 		this.setClauses(new IClause[]
-		{ Clause.newClause().or(x).or(y),
-				Clause.newClause().orNot(x).orNot(y) });
+		{ Clause.newClause().or(x).or(y), Clause.newClause().orNot(x).orNot(y) });
 	}
 }

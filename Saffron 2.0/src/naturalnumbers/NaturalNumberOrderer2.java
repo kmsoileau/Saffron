@@ -25,18 +25,22 @@ public class NaturalNumberOrderer2 extends Problem implements IProblem
 			p0011 = new Conjunction(new BitEqualizer(
 					X.getBooleanVariable(NaturalNumber.getLength() - 1),
 					Y.getBooleanVariable(NaturalNumber.getLength() - 1)));
-			p01 = new Conjunction(new BitFixer(
-					X.getBooleanVariable(NaturalNumber.getLength() - 1), false),
+			p01 = new Conjunction(
+					new BitFixer(
+							X.getBooleanVariable(NaturalNumber.getLength() - 1),
+							false),
 					new BitFixer(
 							Y.getBooleanVariable(NaturalNumber.getLength() - 1),
 							true));
-			p10 = new Conjunction(new BitFixer(
-					X.getBooleanVariable(NaturalNumber.getLength() - 1), true),
+			p10 = new Conjunction(
+					new BitFixer(
+							X.getBooleanVariable(NaturalNumber.getLength() - 1),
+							true),
 					new BitFixer(
 							Y.getBooleanVariable(NaturalNumber.getLength() - 1),
-							false),
-					Problem.unsolvableProblem());
-		} else
+							false), Problem.unsolvableProblem());
+		}
+		else
 		{
 			INaturalNumber Xr = new NaturalNumber();
 			INaturalNumber Yr = new NaturalNumber();
@@ -48,17 +52,20 @@ public class NaturalNumberOrderer2 extends Problem implements IProblem
 					X.getBooleanVariable(NaturalNumber.getLength() - 1),
 					Y.getBooleanVariable(NaturalNumber.getLength() - 1)),
 					recurse);
-			p01 = new Conjunction(new BitFixer(
-					X.getBooleanVariable(NaturalNumber.getLength() - 1), false),
+			p01 = new Conjunction(
+					new BitFixer(
+							X.getBooleanVariable(NaturalNumber.getLength() - 1),
+							false),
 					new BitFixer(
 							Y.getBooleanVariable(NaturalNumber.getLength() - 1),
 							true));
-			p10 = new Conjunction(new BitFixer(
-					X.getBooleanVariable(NaturalNumber.getLength() - 1), true),
+			p10 = new Conjunction(
+					new BitFixer(
+							X.getBooleanVariable(NaturalNumber.getLength() - 1),
+							true),
 					new BitFixer(
 							Y.getBooleanVariable(NaturalNumber.getLength() - 1),
-							false),
-					Problem.unsolvableProblem());
+							false), Problem.unsolvableProblem());
 		}
 		this.setClauses(new Disjunction(p0011, p01, p10).getClauses());
 	}

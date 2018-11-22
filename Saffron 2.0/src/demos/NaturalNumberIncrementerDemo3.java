@@ -33,7 +33,8 @@ public class NaturalNumberIncrementerDemo3
 				BooleanLiteral.interpret(s);
 				System.out.print("\nX= " + X + "\t");
 				System.out.print("Y= " + Y + "\t");
-			} else
+			}
+			else
 				System.out.print("No solution.");
 		}
 	}

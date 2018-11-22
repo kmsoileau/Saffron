@@ -57,7 +57,8 @@ public class NaturalNumberListMinerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("minValue = " + theMinValue);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

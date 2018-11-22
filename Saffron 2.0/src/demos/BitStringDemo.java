@@ -101,8 +101,8 @@ public class BitStringDemo
 		System.out.println("bt3.getName() = " + bt3.getName());
 		System.out.println("bt3.getDataList() = " + bt3.asList());
 		for (int i = 0; i < bt3.size(); i++)
-			System.out.println(
-					"bt3.data$" + i + "] = " + bt3.getBooleanVariable(i));
+			System.out.println("bt3.data$" + i + "] = "
+					+ bt3.getBooleanVariable(i));
 
 		IBitString bt4 = new BitString("xyz", new char[0]);
 		System.out.println("bt4.getName() = " + bt4.getName());

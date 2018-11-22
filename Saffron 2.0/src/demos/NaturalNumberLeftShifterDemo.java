@@ -29,8 +29,7 @@ public class NaturalNumberLeftShifterDemo
 
 		NaturalNumberFixer bnnfx = new NaturalNumberFixer(X, 4);
 
-		NaturalNumberLeftShifter ShiftLeft1 = new NaturalNumberLeftShifter(X,
-				Z);
+		NaturalNumberLeftShifter ShiftLeft1 = new NaturalNumberLeftShifter(X, Z);
 
 		IProblem p = new Conjunction(bnnfx, ShiftLeft1);
 		System.out.println(p);
@@ -41,7 +40,8 @@ public class NaturalNumberLeftShifterDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("X= " + X);
 			System.out.println("Z= " + Z);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

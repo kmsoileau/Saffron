@@ -16,8 +16,8 @@ import naturalnumbertables.exceptions.NaturalNumberTableAnderException;
 
 public class NaturalNumberTableAnder extends Problem implements IProblem
 {
-	public NaturalNumberTableAnder(INaturalNumberTable X, INaturalNumberTable Y,
-			INaturalNumberTable Z) throws Exception
+	public NaturalNumberTableAnder(INaturalNumberTable X,
+			INaturalNumberTable Y, INaturalNumberTable Z) throws Exception
 	{
 		if (!X.isSameSizeAs(Y) || !X.isSameSizeAs(Z))
 			throw new NaturalNumberTableAnderException(

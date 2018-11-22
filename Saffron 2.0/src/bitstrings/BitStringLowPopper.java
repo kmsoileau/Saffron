@@ -21,7 +21,7 @@ public class BitStringLowPopper extends Problem implements IProblem
 	{
 		if (X.size() != Y.size() + 1)
 			throw new BitStringLowPopperException("X.size() != Y.size() + 1");
-			//this.setClauses(Problem.unsolvableProblem().getClauses());
+		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[X.size()];

@@ -32,8 +32,8 @@ public class BitStringAnderDemo
 			boolean value = false;
 			if (Math.random() < .5)
 				value = true;
-			X.setBooleanVariable(row, BooleanVariable
-					.getBooleanVariable(X.getName() + "_" + row));
+			X.setBooleanVariable(row,
+					BooleanVariable.getBooleanVariable(X.getName() + "_" + row));
 			pfix.add(new BitFixer(X.getBooleanVariable(row), value));
 		}
 		IBitString Y = new BitString("Y", new IBooleanVariable[3]);
@@ -42,14 +42,14 @@ public class BitStringAnderDemo
 			boolean value = false;
 			if (Math.random() < .5)
 				value = true;
-			Y.setBooleanVariable(row, BooleanVariable
-					.getBooleanVariable(Y.getName() + "_" + row));
+			Y.setBooleanVariable(row,
+					BooleanVariable.getBooleanVariable(Y.getName() + "_" + row));
 			pfix.add(new BitFixer(Y.getBooleanVariable(row), value));
 		}
 		IBitString Z = new BitString("Z", new IBooleanVariable[3]);
 		for (int row = 0; row < X.size(); row++)
-			Z.setBooleanVariable(row, BooleanVariable
-					.getBooleanVariable(Z.getName() + "_" + row));
+			Z.setBooleanVariable(row,
+					BooleanVariable.getBooleanVariable(Z.getName() + "_" + row));
 
 		IProblem fix = new Conjunction(pfix);
 		IProblem bta = new BitStringAnder(X, Y, Z);
@@ -62,7 +62,8 @@ public class BitStringAnderDemo
 			System.out.println("X= " + X);
 			System.out.println("Y= " + Y);
 			System.out.println("Z= " + Z);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

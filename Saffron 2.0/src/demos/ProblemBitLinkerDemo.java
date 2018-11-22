@@ -28,7 +28,8 @@ public class ProblemBitLinkerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("b=" + b.getValue());
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

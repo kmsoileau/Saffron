@@ -35,7 +35,8 @@ public class NaturalNumberGreatestCommonDivisorDemo
 			System.out.println("X = " + X);
 			System.out.println("Y = " + Y);
 			System.out.println("GCD = " + GCD);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

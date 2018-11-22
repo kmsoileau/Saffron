@@ -19,14 +19,15 @@ public class BitEqualizerDemo
 
 		IProblem bitEqualizer1 = new BitEqualizer(x, y);
 		System.out.println(bitEqualizer1);
-		List<IBooleanLiteral> s = bitEqualizer1
-				.findModel(Problem.defaultSolver());
+		List<IBooleanLiteral> s = bitEqualizer1.findModel(Problem
+				.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("x= " + x.getValue());
 			System.out.println("y= " + y.getValue());
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

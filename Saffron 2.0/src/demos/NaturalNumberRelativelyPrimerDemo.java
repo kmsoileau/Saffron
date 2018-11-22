@@ -41,7 +41,8 @@ public class NaturalNumberRelativelyPrimerDemo
 			BooleanLiteral.interpret(s);
 			System.out.print("\nM = " + M);
 			System.out.print("\tN = " + N);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

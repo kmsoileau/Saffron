@@ -21,8 +21,9 @@ public class BitStringConcatenator extends Problem implements IProblem
 			throws Exception
 	{
 		if (X.size() + Y.size() != Z.size())
-			throw new BitStringConcatenatorException("The sizes of X and Y don't add up to the size of Z.");
-			//this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new BitStringConcatenatorException(
+					"The sizes of X and Y don't add up to the size of Z.");
+		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[Z.size()];

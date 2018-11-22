@@ -20,7 +20,7 @@ public class BitStringSetter extends Problem implements IProblem
 	{
 		if (X.size() != Y.size())
 			throw new BitStringSetterException("X and Y are not of equal size.");
-			//this.setClauses(Problem.unsolvableProblem().getClauses());
+		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			int commonsize = X.size();

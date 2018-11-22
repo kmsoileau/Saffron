@@ -34,15 +34,15 @@ public class BitStringSetterDemo
 			boolean value = false;
 			if (Math.random() < .5)
 				value = true;
-			X.setBooleanVariable(row, BooleanVariable
-					.getBooleanVariable(X.getName() + "_" + row));
+			X.setBooleanVariable(row,
+					BooleanVariable.getBooleanVariable(X.getName() + "_" + row));
 			pfix.add(new BitFixer(X.getBooleanVariable(row), value));
 		}
 
 		IBitString Y = new BitString("Y", new IBooleanVariable[3]);
 		for (int row = 0; row < X.size(); row++)
-			Y.setBooleanVariable(row, BooleanVariable
-					.getBooleanVariable(Y.getName() + "_" + row));
+			Y.setBooleanVariable(row,
+					BooleanVariable.getBooleanVariable(Y.getName() + "_" + row));
 
 		IProblem problem = new Conjunction(new Conjunction(pfix),
 				new BitStringSetter(X, Y));
@@ -53,7 +53,8 @@ public class BitStringSetterDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("X= " + X);
 			System.out.println("Y= " + Y);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

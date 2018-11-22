@@ -16,8 +16,7 @@ public class ConjunctionDemo2
 		System.out.println(problem2);
 		IProblem problem3
 
-				= new Disjunction(Problem.unsolvableProblem(),
-						Problem.trivialProblem());
+		= new Disjunction(Problem.unsolvableProblem(), Problem.trivialProblem());
 		System.out.println(problem3);
 		IProblem problem4 = new Disjunction(Problem.unsolvableProblem(),
 				Problem.unsolvableProblem());

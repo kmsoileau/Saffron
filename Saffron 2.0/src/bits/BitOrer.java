@@ -4,11 +4,15 @@ package bits;
  * An extension of the Problem class which imposes a Boolean relation on three
  * IBooleanVariables. For example, the Problem instance p defined by
  *
- * <p><tt>Problem p=new BitOrer(x,y,z);</code></p>
+ * <p>
+ * <tt>Problem p=new BitOrer(x,y,z);</code>
+ * </p>
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
- * <p><tt>z == ( x | y )</code></p>
+ * <p>
+ * <tt>z == ( x | y )</code>
+ * </p>
  *
  * @author Kerry Michael Soileau
  *         <p>

@@ -31,7 +31,8 @@ public class NaturalNumberLEQerDemo
 			System.out.println(X);
 			System.out.println(Y);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

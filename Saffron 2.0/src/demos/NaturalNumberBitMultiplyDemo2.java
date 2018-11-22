@@ -57,7 +57,8 @@ public class NaturalNumberBitMultiplyDemo2
 				System.out.println(X[i].getName() + "=" + X[i]);
 				System.out.println(Y[i].getName() + "=" + Y[i]);
 			}
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

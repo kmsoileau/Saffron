@@ -24,7 +24,8 @@ public class BitStringBitFixerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println(b);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

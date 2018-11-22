@@ -34,7 +34,8 @@ public class BitXorerDemo
 			System.out.println("x= " + x.getValue());
 			System.out.println("y= " + y.getValue());
 			System.out.println("z= " + z.getValue());
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

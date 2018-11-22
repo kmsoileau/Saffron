@@ -42,7 +42,8 @@ public class ExclusiveDisjunctionDemo
 			System.out.println(bva[1]);
 			System.out.println(bva[2]);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("There is no solution.");
 	}
 }

@@ -22,9 +22,9 @@ import naturalnumbers.NaturalNumberUnequalizer;
  * NaturalNumbers in the source list must have the same length, and there should
  * be a corresponding allocation for the NaturalNumbers in the target.
  *
- * @author Kerry Michael Soileau 
+ * @author Kerry Michael Soileau
  * 
- * <pre>
+ *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.htm
  * </pre>

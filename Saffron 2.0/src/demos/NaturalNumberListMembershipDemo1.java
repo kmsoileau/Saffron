@@ -54,7 +54,8 @@ public class NaturalNumberListMembershipDemo1
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("string = " + string);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

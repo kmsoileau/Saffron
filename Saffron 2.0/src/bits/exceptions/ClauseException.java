@@ -1,24 +1,13 @@
-/*
- * ClauseException.java	1.0 05/10/20
- *
- * Copyright 2005 Positronic Software.
- *
- *
- */
 package bits.exceptions;
 
 /**
- * @author Kerry Michael Soileau <blockquote>
- * 
- *         <pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- *         </pre>
- * 
- *         </blockquote>
- * @version 1.0, 05/10/20
- * @see Exception
- * @see String
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/10/20
  */
 public class ClauseException extends Exception
 {

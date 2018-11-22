@@ -17,7 +17,7 @@ public class BooleanLiteralDemo
 		IBooleanLiteral booleanLiteral3 = BooleanLiteral.getBooleanLiteral(
 				BooleanVariable.getBooleanVariable("x"), true);
 		if (booleanLiteral1 == booleanLiteral3)
-			System.out.println(
-					"booleanLiteral1 is the same object as booleanLiteral3.");
+			System.out
+					.println("booleanLiteral1 is the same object as booleanLiteral3.");
 	}
 }

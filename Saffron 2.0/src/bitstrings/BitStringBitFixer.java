@@ -20,10 +20,11 @@ public class BitStringBitFixer extends Problem implements IProblem
 			throws Exception
 	{
 		if ((bit < 0) || (b.size() - 1 < bit))
-			throw new BitStringBitFixerException("bit < 0 or b.size() - 1 < bit.");
-			//this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new BitStringBitFixerException(
+					"bit < 0 or b.size() - 1 < bit.");
+		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
-			this.setClauses(
-					new BitFixer(b.getBooleanVariable(bit), val).getClauses());
+			this.setClauses(new BitFixer(b.getBooleanVariable(bit), val)
+					.getClauses());
 	}
 }

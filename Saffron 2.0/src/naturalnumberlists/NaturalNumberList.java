@@ -10,12 +10,13 @@ import naturalnumbers.NaturalNumber;
 
 /**
  * Copyright (c) 2005 Positronic Software
+ * 
  * @author Kerry Michael Soileau
  * @version 1.0
  */
 
-public class NaturalNumberList extends BitStringList
-		implements INaturalNumberList
+public class NaturalNumberList extends BitStringList implements
+		INaturalNumberList
 {
 	private static int nNLCount;
 	private INaturalNumber[] arrayN;
@@ -130,8 +131,7 @@ public class NaturalNumberList extends BitStringList
 		n = new Number(n, NaturalNumber.getLength());
 		boolean[] bool = n.getBitArray();
 		IBitString ib = new BitString(name, bool);
-		this.arrayN[index] = new NaturalNumber(this.getName() + "_" + index,
-				ib);
+		this.arrayN[index] = new NaturalNumber(this.getName() + "_" + index, ib);
 	}
 
 	@Override

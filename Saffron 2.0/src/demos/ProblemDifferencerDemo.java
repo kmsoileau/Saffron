@@ -26,14 +26,14 @@ public class ProblemDifferencerDemo
 
 		IProblem p1 = new Problem(new IClause[]
 		{
-				// new Clause().or(bva[0]).orNot(bva[1]).or(bva[2]),
-				new Clause().orNot(bva[0]).orNot(bva[1]).orNot(bva[2]) });
+		// new Clause().or(bva[0]).orNot(bva[1]).or(bva[2]),
+		new Clause().orNot(bva[0]).orNot(bva[1]).orNot(bva[2]) });
 		IProblem p2 = new Problem(new IClause[]
 		{ new Clause().or(bva[0]).orNot(bva[1]).or(bva[2]),
 				new Clause().orNot(bva[0]).orNot(bva[1]).orNot(bva[2]) });
 		System.out.println("The first IProblem was\n" + p1);
 		System.out.println("The second IProblem was\n" + p2);
-		System.out.println(
-				"The difference was\n" + new ProblemDifferencer(p1, p2));
+		System.out.println("The difference was\n"
+				+ new ProblemDifferencer(p1, p2));
 	}
 }

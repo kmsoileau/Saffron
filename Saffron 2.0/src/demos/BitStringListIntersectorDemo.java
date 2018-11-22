@@ -37,20 +37,20 @@ public class BitStringListIntersectorDemo
 	{
 		IBitStringList slm = new BitStringList("y", new boolean[][]
 		{
-				{ true, false, false },
-				{ true, false, true }, });
+		{ true, false, false },
+		{ true, false, true }, });
 		IProblem slmfix = new BitStringListFixer(slm);
 
 		IBitStringList bsl = new BitStringList("slist", new boolean[][]
 		{
-				{ true, false, true },
-				{ true, true, false }, });
+		{ true, false, true },
+		{ true, true, false }, });
 		IProblem bslfix = new BitStringListFixer(bsl);
 
 		IBitStringList target = new BitStringList("combined", new boolean[][]
 		{
-				{ true, true, true },
-				{ true, true, true } });
+		{ true, true, true },
+		{ true, true, true } });
 
 		IProblem problem = new Conjunction(slmfix, bslfix,
 				new BitStringListIntersector(target, slm, bsl));
@@ -65,7 +65,8 @@ public class BitStringListIntersectorDemo
 			System.out.println(slm);
 			System.out.println(bsl);
 			System.out.println(target);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

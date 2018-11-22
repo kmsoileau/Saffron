@@ -36,19 +36,19 @@ public class BitStringListDisjointerDemo /** @todo Test this thoroughly */
 	{
 		IBitStringList slm = new BitStringList("y", new boolean[][]
 		{
-				{ true, false, false },
-				{ true, true, false }, });
+		{ true, false, false },
+		{ true, true, false }, });
 
 		IBitStringList bsl = new BitStringList("slist", new boolean[][]
 		{
-				{ false, true, false },
-				{ false, false, false },
-				{ false, true, false },
-				{ false, true, false }, });
+		{ false, true, false },
+		{ false, false, false },
+		{ false, true, false },
+		{ false, true, false }, });
 
 		IProblem problem = new Conjunction(new BitStringListFixer(slm),
-				new BitStringListFixer(bsl),
-				new BitStringListDisjointer(bsl, slm));
+				new BitStringListFixer(bsl), new BitStringListDisjointer(bsl,
+						slm));
 
 		System.out.println(problem);
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
@@ -57,7 +57,8 @@ public class BitStringListDisjointerDemo /** @todo Test this thoroughly */
 			BooleanLiteral.interpret(s);
 			System.out.println("slm= " + slm);
 			System.out.println("bsl= " + bsl);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

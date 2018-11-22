@@ -47,7 +47,7 @@ class CrossTheRiver extends Problem implements IProblem
 		this.setClauses(new ExclusiveDisjunction(new IProblem[]
 		{ new CrossWithFox(s1, s2), new CrossWithGoose(s1, s2),
 				new CrossWithGrain(s1, s2), new CrossAlone(s1, s2) })
-						.getClauses());
+				.getClauses());
 	}
 }
 
@@ -155,8 +155,8 @@ public class FoxGooseGrainDemo
 		IProblem problem = new Conjunction(initPositions, finalPositions);
 
 		for (int i = 0; i < crossings; i++)
-			problem = new Conjunction(problem,
-					new CrossTheRiver(status[i], status[i + 1]));
+			problem = new Conjunction(problem, new CrossTheRiver(status[i],
+					status[i + 1]));
 
 		for (int i = 0; i < crossings + 1; i++)
 			problem = new Conjunction(problem, new StatusIsGood(status[i]));
@@ -171,17 +171,18 @@ public class FoxGooseGrainDemo
 			{
 				System.out.println("\n"
 						+ (status[i].boat.getValue() ? "\t\t" : "") + "Boat");
-				System.out.println(
-						(status[i].farmer.getValue() ? "\t\t" : "") + "Farmer");
-				System.out.println(
-						(status[i].fox.getValue() ? "\t\t" : "") + "Fox");
-				System.out.println(
-						(status[i].goose.getValue() ? "\t\t" : "") + "Goose");
-				System.out.println(
-						(status[i].grain.getValue() ? "\t\t" : "") + "Grain");
+				System.out.println((status[i].farmer.getValue() ? "\t\t" : "")
+						+ "Farmer");
+				System.out.println((status[i].fox.getValue() ? "\t\t" : "")
+						+ "Fox");
+				System.out.println((status[i].goose.getValue() ? "\t\t" : "")
+						+ "Goose");
+				System.out.println((status[i].grain.getValue() ? "\t\t" : "")
+						+ "Grain");
 				System.out.println("------------------------------------");
 			}
-		} else
+		}
+		else
 			System.out.println("There is no solution.");
 	}
 }
@@ -198,9 +199,9 @@ class GooseIsSafe extends Problem implements IProblem
 {
 	public GooseIsSafe(Status s) throws Exception
 	{
-		this.setClauses(new Disjunction(
-				new ProblemDenier(new FoxAndGooseAloneTogether(s)),
-				new FarmerAndGooseTogether(s)).getClauses());
+		this.setClauses(new Disjunction(new ProblemDenier(
+				new FoxAndGooseAloneTogether(s)), new FarmerAndGooseTogether(s))
+				.getClauses());
 	}
 }
 
@@ -208,9 +209,9 @@ class GrainIsSafe extends Problem implements IProblem
 {
 	public GrainIsSafe(Status s) throws Exception
 	{
-		this.setClauses(
-				new Disjunction(new ProblemDenier(new GooseAndGrainTogether(s)),
-						new FarmerAndGrainTogether(s)).getClauses());
+		this.setClauses(new Disjunction(new ProblemDenier(
+				new GooseAndGrainTogether(s)), new FarmerAndGrainTogether(s))
+				.getClauses());
 	}
 }
 

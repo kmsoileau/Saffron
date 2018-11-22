@@ -33,7 +33,8 @@ public class ConjunctionDemo
 			System.out.println("X= " + X.getValue());
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

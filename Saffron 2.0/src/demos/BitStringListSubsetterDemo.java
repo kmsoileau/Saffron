@@ -45,8 +45,8 @@ public class BitStringListSubsetterDemo
 				new BitString("000"), });
 
 		IProblem problem = new Conjunction(new BitStringListFixer(slm),
-				new BitStringListFixer(bsl),
-				new BitStringListSubsetter(slm, bsl));
+				new BitStringListFixer(bsl), new BitStringListSubsetter(slm,
+						bsl));
 
 		System.out.println(problem);
 
@@ -57,7 +57,8 @@ public class BitStringListSubsetterDemo
 			BooleanLiteral.interpret(s);
 			System.out.println(slm);
 			System.out.println(bsl);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

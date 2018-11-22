@@ -11,6 +11,7 @@ import naturalnumbers.NaturalNumberEqualizer;
  * <p>
  * Copyright (c) 2005 Positronic Software
  * </p>
+ * 
  * @author Kerry Michael Soileau
  * @version 1.0
  */

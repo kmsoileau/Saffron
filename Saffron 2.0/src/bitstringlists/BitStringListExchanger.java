@@ -45,10 +45,10 @@ public class BitStringListExchanger extends Problem implements IProblem
 			if (i != m && i != n)
 				problem = new Conjunction(problem, new BitStringEqualizer(
 						A.getBitString(i), B.getBitString(i)));
-		problem = new Conjunction(problem,
-				new BitStringEqualizer(A.getBitString(m), B.getBitString(n)));
-		problem = new Conjunction(problem,
-				new BitStringEqualizer(A.getBitString(n), B.getBitString(m)));
+		problem = new Conjunction(problem, new BitStringEqualizer(
+				A.getBitString(m), B.getBitString(n)));
+		problem = new Conjunction(problem, new BitStringEqualizer(
+				A.getBitString(n), B.getBitString(m)));
 
 		this.setClauses(problem.getClauses());
 	}

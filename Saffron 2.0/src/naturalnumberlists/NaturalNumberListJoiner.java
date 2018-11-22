@@ -31,9 +31,8 @@ public class NaturalNumberListJoiner extends Problem implements IProblem
 			problem = new Conjunction(problem, new NaturalNumberEqualizer(
 					A.getNaturalNumber(i), join.getNaturalNumber(i)));
 		for (int i = A.size(); i < A.size() + B.size(); i++)
-			problem = new Conjunction(problem,
-					new NaturalNumberEqualizer(B.getNaturalNumber(i - A.size()),
-							join.getNaturalNumber(i)));
+			problem = new Conjunction(problem, new NaturalNumberEqualizer(
+					B.getNaturalNumber(i - A.size()), join.getNaturalNumber(i)));
 
 		this.setClauses(problem.getClauses());
 	}

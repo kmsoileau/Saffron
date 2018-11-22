@@ -51,7 +51,8 @@ public class NaturalNumberLinearDivisibilitorDemo
 			System.out.println("A= " + A);
 			System.out.println("X= " + X);
 			System.out.println("C= " + C);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

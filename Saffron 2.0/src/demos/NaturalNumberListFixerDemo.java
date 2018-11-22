@@ -36,7 +36,8 @@ public class NaturalNumberListFixerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("samp2= " + samp2);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

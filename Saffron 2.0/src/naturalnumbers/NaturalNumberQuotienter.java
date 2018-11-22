@@ -34,7 +34,7 @@ import bits.Problem;
  *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- *         </pre>
+ * </pre>
  * 
  *         </blockquote>
  * @version 1.0, 06/02/08
@@ -57,19 +57,18 @@ public class NaturalNumberQuotienter extends Problem implements IProblem
 		INaturalNumber Product = new NaturalNumber(NaturalNumber.getLength());
 		INaturalNumber RemainderPlusOne = new NaturalNumber(
 				NaturalNumber.getLength());
-		INaturalNumber Difference = new NaturalNumber(
-				NaturalNumber.getLength());
+		INaturalNumber Difference = new NaturalNumber(NaturalNumber.getLength());
 		INaturalNumber One = new NaturalNumber(NaturalNumber.getLength());
 		IProblem problem = null;
-		problem = new Conjunction(problem,
-				new NaturalNumberMultiplier(Divisor, Quotient, Product));
-		problem = new Conjunction(problem,
-				new NaturalNumberAdder(Product, Remainder, Dividend));
+		problem = new Conjunction(problem, new NaturalNumberMultiplier(Divisor,
+				Quotient, Product));
+		problem = new Conjunction(problem, new NaturalNumberAdder(Product,
+				Remainder, Dividend));
 		problem = new Conjunction(problem, new NaturalNumberFixer(One, 1L));
-		problem = new Conjunction(problem,
-				new NaturalNumberAdder(Remainder, One, RemainderPlusOne));
-		problem = new Conjunction(problem,
-				new NaturalNumberAdder(RemainderPlusOne, Difference, Divisor));
+		problem = new Conjunction(problem, new NaturalNumberAdder(Remainder,
+				One, RemainderPlusOne));
+		problem = new Conjunction(problem, new NaturalNumberAdder(
+				RemainderPlusOne, Difference, Divisor));
 
 		this.setClauses(problem.getClauses());
 	}

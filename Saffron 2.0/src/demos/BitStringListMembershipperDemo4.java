@@ -60,7 +60,8 @@ public class BitStringListMembershipperDemo4
 			System.out.println("string1 = " + string1);
 			System.out.println("string2 = " + string2);
 			System.out.println("bsl = " + bsl);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

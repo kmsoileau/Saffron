@@ -31,7 +31,8 @@ public class NaturalNumberCompositorDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println(Z + " is composite.");
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

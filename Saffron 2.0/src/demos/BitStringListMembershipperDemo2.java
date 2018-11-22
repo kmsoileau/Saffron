@@ -72,7 +72,8 @@ public class BitStringListMembershipperDemo2
 			BooleanLiteral.interpret(s);
 			System.out.println("String1 = " + string1);
 			System.out.println("String2 = " + string2);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

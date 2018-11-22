@@ -39,7 +39,8 @@ public class BitExclusiveSelectorDemo1
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

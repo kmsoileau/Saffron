@@ -35,7 +35,8 @@ public class NaturalNumberLeastCommonMultiplerDemo
 			System.out.println("X = " + X);
 			System.out.println("Y = " + Y);
 			System.out.println("LCM = " + LCM);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

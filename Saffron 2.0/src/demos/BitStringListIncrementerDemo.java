@@ -62,7 +62,8 @@ public class BitStringListIncrementerDemo
 			System.out.println(firstList);
 			System.out.println(theBitString);
 			System.out.println(secondList);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

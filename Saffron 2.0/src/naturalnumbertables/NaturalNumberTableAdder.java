@@ -16,8 +16,8 @@ import naturalnumbertables.exceptions.NaturalNumberTableAdderException;
 
 public class NaturalNumberTableAdder extends Problem implements IProblem
 {
-	public NaturalNumberTableAdder(INaturalNumberTable X, INaturalNumberTable Y,
-			INaturalNumberTable Z) throws Exception
+	public NaturalNumberTableAdder(INaturalNumberTable X,
+			INaturalNumberTable Y, INaturalNumberTable Z) throws Exception
 	{
 		if (!X.isSameSizeAs(Y) || !X.isSameSizeAs(Z))
 			throw new NaturalNumberTableAdderException(

@@ -34,17 +34,17 @@ public class BitStringListDerangerDemo
 	{
 		IBitStringList s1 = new BitStringList("x", new boolean[][]
 		{
-				{ true, false, true, false },
-				{ false, true, false, true },
-				{ true, false, false, true },
-				{ false, true, false, false } });
+		{ true, false, true, false },
+		{ false, true, false, true },
+		{ true, false, false, true },
+		{ false, true, false, false } });
 
 		IBitStringList s2 = new BitStringList("y", new boolean[][]
 		{
-				{ true, false, true, false },
-				{ false, true, false, true },
-				{ true, false, false, true },
-				{ false, true, false, false } });
+		{ true, false, true, false },
+		{ false, true, false, true },
+		{ true, false, false, true },
+		{ false, true, false, false } });
 
 		IProblem bslf = new BitStringListFixer(s1);
 		IProblem bsls = new BitStringListDeranger(s1, s2);
@@ -59,7 +59,8 @@ public class BitStringListDerangerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("s1=" + s1);
 			System.out.println("s2=" + s2);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

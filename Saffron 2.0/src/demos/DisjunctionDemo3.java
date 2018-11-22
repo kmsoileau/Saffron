@@ -43,8 +43,8 @@ public class DisjunctionDemo3
 				new IBooleanVariable[]
 				{ b1 });
 		System.out.println(disjunction1);
-		List<IBooleanLiteral> s = disjunction1
-				.findModel(Problem.defaultSolver());
+		List<IBooleanLiteral> s = disjunction1.findModel(Problem
+				.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
@@ -52,7 +52,8 @@ public class DisjunctionDemo3
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
 			System.out.println("b1= " + b1.getValue());
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

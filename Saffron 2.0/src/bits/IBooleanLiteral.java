@@ -1,9 +1,3 @@
-/*
- * IBooleanLiteral.java
- *
- * Copyright 2004-2005 Positronic Software.
- *
- */
 package bits;
 
 import java.util.List;

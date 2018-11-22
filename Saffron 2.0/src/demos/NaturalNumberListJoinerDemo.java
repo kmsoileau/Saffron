@@ -24,8 +24,7 @@ public class NaturalNumberListJoinerDemo
 		{ 212 });
 		IProblem bFix = new NaturalNumberListFixer(b);
 
-		INaturalNumberList target = new NaturalNumberList("target",
-				new long[3]);
+		INaturalNumberList target = new NaturalNumberList("target", new long[3]);
 
 		IProblem problem = new Conjunction(aFix, bFix,
 				new NaturalNumberListJoiner(target, a, b));
@@ -39,7 +38,8 @@ public class NaturalNumberListJoinerDemo
 			System.out.println("slm= " + a);
 			System.out.println("bsl= " + b);
 			System.out.println("target= " + target);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 
 	}

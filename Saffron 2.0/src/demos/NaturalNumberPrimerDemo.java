@@ -32,7 +32,8 @@ public class NaturalNumberPrimerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println(Z);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

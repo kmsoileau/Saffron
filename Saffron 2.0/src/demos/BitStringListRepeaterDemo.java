@@ -18,10 +18,10 @@ public class BitStringListRepeaterDemo
 	{
 		IBitStringList testList = new BitStringList("y", new boolean[][]
 		{
-				{ true, false, false },
-				{ false, true, false },
-				{ false, true, false },
-				{ true, false, false } });
+		{ true, false, false },
+		{ false, true, false },
+		{ false, true, false },
+		{ true, false, false } });
 		IProblem problem = new Conjunction(new BitStringListFixer(testList),
 				new BitStringListRepeater(testList));
 		System.out.println(problem);
@@ -30,7 +30,8 @@ public class BitStringListRepeaterDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("s2= " + testList);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

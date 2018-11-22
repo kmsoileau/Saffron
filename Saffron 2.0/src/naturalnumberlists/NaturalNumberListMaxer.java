@@ -47,8 +47,8 @@ public class NaturalNumberListMaxer extends Problem implements IProblem
 		IProblem[] p = new NaturalNumberOrderer[list.size()];
 		for (int i = 0; i < p.length; i++)
 			p[i] = new NaturalNumberOrderer(list.getNaturalNumber(i), max);
-		IProblem result = new Conjunction(
-				new NaturalNumberListMembership(max, list), new Conjunction(p));
+		IProblem result = new Conjunction(new NaturalNumberListMembership(max,
+				list), new Conjunction(p));
 		this.setClauses(result.getClauses());
 	}
 }

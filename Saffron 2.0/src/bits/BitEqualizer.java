@@ -1,11 +1,3 @@
-/*
- * BitEqualizer.java	1.1 04/10/05
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 import bits.exceptions.BitEqualizerException;

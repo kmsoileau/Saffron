@@ -51,31 +51,27 @@ public class BitStringOrderer extends Problem implements IProblem
 	{
 		if (X.size() == 0)
 			this.setClauses(Problem.trivialProblem().getClauses());
+		else if (Y.size() == 0)
+			throw new BitStringOrdererException("Y has size 0.");
+		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
-			if (Y.size() == 0)
-				throw new BitStringOrdererException("Y has size 0.");
-				//this.setClauses(Problem.unsolvableProblem().getClauses());
-			else
-			{
-				IBooleanVariable X_0 = X.getBooleanVariable(0);
-				IBooleanVariable Y_0 = Y.getBooleanVariable(0);
+		{
+			IBooleanVariable X_0 = X.getBooleanVariable(0);
+			IBooleanVariable Y_0 = Y.getBooleanVariable(0);
 
-				IBitString clippedX = new BitString(X.size() - 1);
-				IBitString clippedY = new BitString(Y.size() - 1);
+			IBitString clippedX = new BitString(X.size() - 1);
+			IBitString clippedY = new BitString(Y.size() - 1);
 
-				IProblem problem = new Disjunction(
-						new Conjunction(new BitFixer(X_0, false),
-								new BitFixer(Y_0, true)),
-						new Conjunction(new Disjunction(
-								new Conjunction(new BitFixer(X_0, false),
-										new BitFixer(Y_0, false)),
-								new Conjunction(new BitFixer(X_0, true),
-										new BitFixer(Y_0, true))),
-								new BitStringLowPopper(Y, clippedY),
-								new BitStringLowPopper(X, clippedX),
-								new BitStringOrderer(clippedX, clippedY)));
+			IProblem problem = new Disjunction(new Conjunction(new BitFixer(
+					X_0, false), new BitFixer(Y_0, true)), new Conjunction(
+					new Disjunction(new Conjunction(new BitFixer(X_0, false),
+							new BitFixer(Y_0, false)), new Conjunction(
+							new BitFixer(X_0, true), new BitFixer(Y_0, true))),
+					new BitStringLowPopper(Y, clippedY),
+					new BitStringLowPopper(X, clippedX), new BitStringOrderer(
+							clippedX, clippedY)));
 
-				this.setClauses(problem.getClauses());
-			}
+			this.setClauses(problem.getClauses());
+		}
 	}
 }

@@ -46,7 +46,7 @@ public class BitFixer extends Problem implements IProblem
 	{
 		this.addClause(Clause.newClause());
 
-		if(v)
+		if (v)
 			this.getClause(0).or(x);
 		else
 			this.getClause(0).orNot(x);

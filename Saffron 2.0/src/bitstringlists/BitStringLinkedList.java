@@ -63,8 +63,8 @@ public class BitStringLinkedList implements IBitStringLinkedList
 
 	public BitStringLinkedList(IBitStringLinkedList list) throws Exception
 	{
-		this("BitStringLinkedList-" + bSLLCount++,
-				list.toArray(new IBitString[0]));
+		this("BitStringLinkedList-" + bSLLCount++, list
+				.toArray(new IBitString[0]));
 	}
 
 	public BitStringLinkedList(int n) throws Exception
@@ -91,9 +91,10 @@ public class BitStringLinkedList implements IBitStringLinkedList
 					new IBooleanVariable[bdata[i].length]);
 			backing.add(o);
 			for (int j = 0; j < this.getBitString(i).size(); j++)
-				this.getBitString(i).setBooleanVariable(j,
-						BooleanVariable.getBooleanVariable(
-								name + "_" + i + "_" + j, bdata[i][j]));
+				this.getBitString(i).setBooleanVariable(
+						j,
+						BooleanVariable.getBooleanVariable(name + "_" + i + "_"
+								+ j, bdata[i][j]));
 		}
 	}
 
@@ -575,8 +576,8 @@ public class BitStringLinkedList implements IBitStringLinkedList
 	@Override
 	public ArrayListSet<IBitString> toList() throws Exception
 	{
-		return (ArrayListSet<IBitString>) backing.subList(0,
-				backing.size() - 1);
+		return (ArrayListSet<IBitString>) backing
+				.subList(0, backing.size() - 1);
 	}
 
 	@Override

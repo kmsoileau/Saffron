@@ -33,7 +33,8 @@ public class NaturalNumberExchangerDemo
 			System.out.println("yBefore=" + yBefore);
 			System.out.println("xAfter=" + xAfter);
 			System.out.println("yAfter=" + yAfter);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

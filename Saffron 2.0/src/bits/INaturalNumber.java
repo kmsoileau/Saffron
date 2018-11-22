@@ -2,8 +2,8 @@ package bits;
 
 /**
  * The <code>INaturalNumber</code> interface must be implemented by any class
- * definition of <code>NaturalNumber</code> contemplated as an alternative to the
- * <code>NaturalNumber</code> class provided by this package.
+ * definition of <code>NaturalNumber</code> contemplated as an alternative to
+ * the <code>NaturalNumber</code> class provided by this package.
  *
  * @author Kerry Michael Soileau
  *         <p>
@@ -16,6 +16,6 @@ package bits;
 public interface INaturalNumber extends IBitString
 {
 	final int DEFAULTLENGTH = 5;
-	
+
 	long toDecimal();
 }

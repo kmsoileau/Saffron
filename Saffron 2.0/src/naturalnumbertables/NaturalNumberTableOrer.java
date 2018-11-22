@@ -29,8 +29,9 @@ public class NaturalNumberTableOrer extends Problem implements IProblem
 			int count = 0;
 			for (int i = 0; i < X.getNumberOfRows(); i++)
 				for (int j = 0; j < X.getNumberOfColumns(); j++)
-					p[count++] = new NaturalNumberOrer(X.getNaturalNumber(i, j),
-							Y.getNaturalNumber(i, j), Z.getNaturalNumber(i, j));
+					p[count++] = new NaturalNumberOrer(
+							X.getNaturalNumber(i, j), Y.getNaturalNumber(i, j),
+							Z.getNaturalNumber(i, j));
 			this.setClauses(new Conjunction(p).getClauses());
 		}
 	}

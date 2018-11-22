@@ -22,8 +22,8 @@ public class BitStringFixer extends Problem implements IProblem
 	{
 		BitStringBitFixer[] bnnbf = new BitStringBitFixer[target.size()];
 		for (int i = 0; i < bnnbf.length; i++)
-			bnnbf[i] = new BitStringBitFixer(target, i,
-					target.getBooleanVariable(i).getValue());
+			bnnbf[i] = new BitStringBitFixer(target, i, target
+					.getBooleanVariable(i).getValue());
 
 		IProblem p = new Conjunction(bnnbf);
 		this.setClauses(p.getClauses());

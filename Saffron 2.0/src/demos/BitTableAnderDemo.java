@@ -37,11 +37,12 @@ public class BitTableAnderDemo
 					value = true;
 				else
 					value = false;
-				X.setBooleanVariable(row, column,
-						BooleanVariable.getBooleanVariable(
-								X.getName() + "_" + row + "_" + column));
-				pfix.add(
-						new BitFixer(X.getBooleanVariable(row, column), value));
+				X.setBooleanVariable(
+						row,
+						column,
+						BooleanVariable.getBooleanVariable(X.getName() + "_"
+								+ row + "_" + column));
+				pfix.add(new BitFixer(X.getBooleanVariable(row, column), value));
 			}
 		IBitTable Y = new BitTable("Y", new IBooleanVariable[3][4]);
 		for (int row = 0; row < Y.numberRows(); row++)
@@ -52,18 +53,21 @@ public class BitTableAnderDemo
 					value = true;
 				else
 					value = false;
-				Y.setBooleanVariable(row, column,
-						BooleanVariable.getBooleanVariable(
-								Y.getName() + "_" + row + "_" + column));
-				pfix.add(
-						new BitFixer(Y.getBooleanVariable(row, column), value));
+				Y.setBooleanVariable(
+						row,
+						column,
+						BooleanVariable.getBooleanVariable(Y.getName() + "_"
+								+ row + "_" + column));
+				pfix.add(new BitFixer(Y.getBooleanVariable(row, column), value));
 			}
 		IBitTable Z = new BitTable("Z", new IBooleanVariable[3][4]);
 		for (int row = 0; row < X.numberRows(); row++)
 			for (int column = 0; column < X.numberColumns(); column++)
-				Z.setBooleanVariable(row, column,
-						BooleanVariable.getBooleanVariable(
-								Z.getName() + "_" + row + "_" + column));
+				Z.setBooleanVariable(
+						row,
+						column,
+						BooleanVariable.getBooleanVariable(Z.getName() + "_"
+								+ row + "_" + column));
 
 		IProblem fix = new Conjunction(pfix);
 		IProblem bta = new BitTableAnder(X, Y, Z);
@@ -76,7 +80,8 @@ public class BitTableAnderDemo
 			System.out.println("X= \n" + X);
 			System.out.println("Y= \n" + Y);
 			System.out.println("Z= \n" + Z);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

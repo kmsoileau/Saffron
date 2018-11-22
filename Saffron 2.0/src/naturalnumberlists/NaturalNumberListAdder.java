@@ -16,7 +16,8 @@ import naturalnumbers.NaturalNumberAdder;
 public class NaturalNumberListAdder extends Problem implements IProblem
 {
 	public NaturalNumberListAdder(INaturalNumberList addend1,
-			INaturalNumberList addend2, INaturalNumberList sum) throws Exception
+			INaturalNumberList addend2, INaturalNumberList sum)
+			throws Exception
 	{
 		if (addend1.size() != addend2.size() || addend1.size() != sum.size())
 			throw new NaturalNumberListAdderException(

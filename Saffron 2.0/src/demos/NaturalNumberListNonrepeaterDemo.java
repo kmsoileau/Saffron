@@ -18,7 +18,8 @@ public class NaturalNumberListNonrepeaterDemo
 	{
 		INaturalNumberList testList = new NaturalNumberList("y", new long[]
 		{ 5, 6, 2, 4 });
-		IProblem problem = new Conjunction(new NaturalNumberListFixer(testList),
+		IProblem problem = new Conjunction(
+				new NaturalNumberListFixer(testList),
 				new NaturalNumberListNonrepeater(testList));
 		System.out.println(problem);
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
@@ -26,7 +27,8 @@ public class NaturalNumberListNonrepeaterDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("s2= " + testList);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

@@ -32,7 +32,8 @@ public class TwoBitAdderDemo
 			ret += bva[2].getValue() ? "1" : "0";
 			ret += bva[3].getValue() ? "1" : "0";
 			return ret;
-		} else
+		}
+		else
 			return null;
 	}
 

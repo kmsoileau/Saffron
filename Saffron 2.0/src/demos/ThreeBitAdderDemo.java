@@ -14,11 +14,11 @@ import bits.ThreeBitAdder;
 
 public class ThreeBitAdderDemo
 {
-	private static String doCase(IBooleanVariable[] bva, boolean b1, boolean b2,
-			boolean b3) throws Exception
+	private static String doCase(IBooleanVariable[] bva, boolean b1,
+			boolean b2, boolean b3) throws Exception
 	{
-		IProblem problemBase = new ThreeBitAdder(bva[0], bva[1], bva[2], bva[3],
-				bva[4]);
+		IProblem problemBase = new ThreeBitAdder(bva[0], bva[1], bva[2],
+				bva[3], bva[4]);
 		IProblem problemSpecific = new Conjunction(new BitFixer(bva[0], b1),
 				new BitFixer(bva[1], b2), new BitFixer(bva[2], b3));
 		IProblem problem = new Conjunction(problemBase, problemSpecific);
@@ -34,7 +34,8 @@ public class ThreeBitAdderDemo
 			ret += bva[3].getValue() ? "1" : "0";
 			ret += bva[4].getValue() ? "1" : "0";
 			return ret;
-		} else
+		}
+		else
 			return null;
 	}
 

@@ -82,8 +82,8 @@ public class BitString implements IBitString
 		this.setName(name);
 		this.setBVData(new IBooleanVariable[data.length]);
 		for (int i = 0; i < data.length; i++)
-			this.setBooleanVariable(i, BooleanVariable
-					.getBooleanVariable(name + "_" + i, data[i]));
+			this.setBooleanVariable(i,
+					BooleanVariable.getBooleanVariable(name + "_" + i, data[i]));
 	}
 
 	public BitString(String name, char[] data) throws Exception
@@ -100,11 +100,11 @@ public class BitString implements IBitString
 				throw new BitStringException(
 						"Construction failed on bad char[] data.");
 			if (data[i] == '0')
-				this.setBooleanVariable(i, BooleanVariable
-						.getBooleanVariable(name + "_" + i, false));
+				this.setBooleanVariable(i, BooleanVariable.getBooleanVariable(
+						name + "_" + i, false));
 			if (data[i] == '1')
-				this.setBooleanVariable(i, BooleanVariable
-						.getBooleanVariable(name + "_" + i, true));
+				this.setBooleanVariable(i, BooleanVariable.getBooleanVariable(
+						name + "_" + i, true));
 		}
 	}
 
@@ -120,8 +120,10 @@ public class BitString implements IBitString
 		{
 			if (data[i] == null)
 				data[i] = BooleanVariable.getBooleanVariable();
-			this.setBooleanVariable(i, BooleanVariable
-					.getBooleanVariable(name + "_" + i, data[i].getValue()));
+			this.setBooleanVariable(
+					i,
+					BooleanVariable.getBooleanVariable(name + "_" + i,
+							data[i].getValue()));
 		}
 	}
 
@@ -155,8 +157,8 @@ public class BitString implements IBitString
 				throw (CloneNotSupportedException) err;
 			else
 			{
-				System.err.println(
-						"Exception: Attempt to clone BitString failed.");
+				System.err
+						.println("Exception: Attempt to clone BitString failed.");
 				return null;
 			}
 		}

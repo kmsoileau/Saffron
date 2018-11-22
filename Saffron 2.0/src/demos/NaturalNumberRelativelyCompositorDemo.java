@@ -41,7 +41,8 @@ public class NaturalNumberRelativelyCompositorDemo
 			System.out.print("\nM = " + M);
 			System.out.print("\tN = " + N);
 			System.out.print("\tCommon Factor Found= " + CF);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

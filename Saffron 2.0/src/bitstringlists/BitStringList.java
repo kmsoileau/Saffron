@@ -1,10 +1,3 @@
-/*
- * BitStringList.java	1.0 05/04/28
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
 package bitstringlists;
 
 import java.util.Collection;
@@ -20,12 +13,25 @@ import bitstringlists.exceptions.BitStringListException;
 import bitstrings.ArrayListSet;
 import bitstrings.BitString;
 
+/**
+ * A wrapper class which encloses an
+ * <code>ArrayListSet<IBitString> listData</code> and a <code>String name</code>
+ * .
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/28
+ */
 public class BitStringList implements IBitStringList
 {
 	private static int bSLCount;
 
-	public static IBitStringList add(IBitStringList first,
-			IBitStringList second) throws Exception
+	public static IBitStringList add(IBitStringList first, IBitStringList second)
+			throws Exception
 	{
 		return BitStringList.add("BitStringList-" + bSLCount++, first, second);
 	}
@@ -100,9 +106,10 @@ public class BitStringList implements IBitStringList
 					new IBooleanVariable[bdata[i].length]);
 			this.getData().add(o);
 			for (int j = 0; j < this.getBitString(i).size(); j++)
-				this.getBitString(i).setBooleanVariable(j,
-						BooleanVariable.getBooleanVariable(
-								name + "_" + i + "_" + j, bdata[i][j]));
+				this.getBitString(i).setBooleanVariable(
+						j,
+						BooleanVariable.getBooleanVariable(name + "_" + i + "_"
+								+ j, bdata[i][j]));
 		}
 	}
 
@@ -231,8 +238,8 @@ public class BitStringList implements IBitStringList
 	{
 		try
 		{
-			return new BitStringList(this.getName(),
-					this.getData().toArray(new IBitString[0]));
+			return new BitStringList(this.getName(), this.getData().toArray(
+					new IBitString[0]));
 		}
 		catch (CloneNotSupportedException err)
 		{
@@ -280,8 +287,8 @@ public class BitStringList implements IBitStringList
 			return false;
 		try
 		{
-			if (!this.getData()
-					.containsAll(((BitStringList) anObject).getData()))
+			if (!this.getData().containsAll(
+					((BitStringList) anObject).getData()))
 				return false;
 		}
 		catch (Exception e)
@@ -290,8 +297,8 @@ public class BitStringList implements IBitStringList
 		}
 		try
 		{
-			if (!((BitStringList) anObject).getData()
-					.containsAll(this.getData()))
+			if (!((BitStringList) anObject).getData().containsAll(
+					this.getData()))
 				return false;
 		}
 		catch (Exception e)
@@ -318,8 +325,7 @@ public class BitStringList implements IBitStringList
 	public IBitString getBitString(int i) throws Exception
 	{
 		if (i < 0 || i > this.size() - 1)
-			throw new BitStringListException(
-					"Attempted to index out of range.");
+			throw new BitStringListException("Attempted to index out of range.");
 		return (this.getData().get(i));
 	}
 
@@ -497,8 +503,7 @@ public class BitStringList implements IBitStringList
 	public void setBitString(int i, IBitString bitString) throws Exception
 	{
 		if (i < 0 || i > this.size() - 1)
-			throw new BitStringListException(
-					"Attempted to index out of range.");
+			throw new BitStringListException("Attempted to index out of range.");
 		if (bitString == null)
 			throw new BitStringListException(
 					"Passed null IBitString to setBitString method.");

@@ -27,7 +27,7 @@ public class BitStringListDemo2
 		System.out.println("s1.getName() = " + s1.getName());
 		System.out.println("s1.size() = " + s1.size());
 		for (int i = 0; i < s1.size(); i++)
-			System.out.println(
-					"s1.getBitString(" + i + ") = " + s1.getBitString(i));
+			System.out.println("s1.getBitString(" + i + ") = "
+					+ s1.getBitString(i));
 	}
 }

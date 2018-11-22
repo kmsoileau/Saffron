@@ -27,8 +27,8 @@ public class NaturalNumberRelativelyPrimer extends Problem implements IProblem
 
 		IProblem p = new Conjunction(new NaturalNumberFixer(One, 1),
 				new NaturalNumberMultiplier(M, A, P),
-				new NaturalNumberMultiplier(N, B, Q),
-				new Disjunction(new NaturalNumberAdder(Q, One, P),
+				new NaturalNumberMultiplier(N, B, Q), new Disjunction(
+						new NaturalNumberAdder(Q, One, P),
 						new NaturalNumberAdder(P, One, Q)));
 
 		this.setClauses(p.getClauses());

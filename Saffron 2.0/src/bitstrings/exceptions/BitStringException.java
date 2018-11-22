@@ -2,6 +2,7 @@ package bitstrings.exceptions;
 
 /**
  * Copyright 2005 Positronic Software
+ * 
  * @author Kerry Michael Soileau
  * @version 1.0
  */

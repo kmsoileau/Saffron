@@ -21,11 +21,11 @@ public class BitStringSubstringer extends Problem implements IProblem
 	public BitStringSubstringer(final IBitString X, final IBitString Y)
 			throws Exception
 	{
-		//final int smaller = X.size();
+		// final int smaller = X.size();
 		int smaller = X.size();
 		if (smaller > Y.size())
 			throw new BitStringSubstringerException("X.size() > Y.size()");
-			//this.setClauses(Problem.unsolvableProblem().getClauses());
+		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem problem = null;

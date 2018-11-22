@@ -13,8 +13,8 @@ import naturalnumberlists.exceptions.NaturalNumberListEqualizerException;
 
 public class NaturalNumberListEqualizer extends Problem implements IProblem
 {
-	public NaturalNumberListEqualizer(INaturalNumberList A,
-			INaturalNumberList B) throws Exception
+	public NaturalNumberListEqualizer(INaturalNumberList A, INaturalNumberList B)
+			throws Exception
 	{
 		if (A == null)
 			throw new NaturalNumberListEqualizerException(
@@ -22,7 +22,8 @@ public class NaturalNumberListEqualizer extends Problem implements IProblem
 		if (B == null)
 			throw new NaturalNumberListEqualizerException(
 					"Passed a null B to constructor.");
-		IProblem problem = new Conjunction(new NaturalNumberListSubsetter(A, B),
+		IProblem problem = new Conjunction(
+				new NaturalNumberListSubsetter(A, B),
 				new NaturalNumberListSubsetter(B, A));
 		this.setClauses(problem.getClauses());
 	}

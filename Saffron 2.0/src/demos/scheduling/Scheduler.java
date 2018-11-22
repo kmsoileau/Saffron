@@ -81,9 +81,10 @@ public class Scheduler
 		for (int i = 0; i < numberTasks; i++)
 		{
 			Task currentPostTask = task[i];
-			System.out.println("Current post task = "+currentPostTask.getName());
+			System.out.println("Current post task = "
+					+ currentPostTask.getName());
 			List<Task> currPreds = currentPostTask.getPredecessors();
-			System.out.println("Predecessors = "+currPreds);
+			System.out.println("Predecessors = " + currPreds);
 			if (currPreds == null)
 				continue;
 			for (int j = 0; j < numberTasks && currPreds.contains(task[j]); j++)

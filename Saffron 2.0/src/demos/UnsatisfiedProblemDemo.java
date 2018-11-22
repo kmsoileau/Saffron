@@ -31,7 +31,8 @@ public class UnsatisfiedProblemDemo
 			System.out.println(bva[0]);
 			System.out.println(bva[1]);
 			System.out.println(bva[2]);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

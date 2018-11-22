@@ -41,8 +41,7 @@ public class BinPacker
 		int numberBins = bins.length;
 		int numberItems = items.length;
 		int stagingIndex = 0;
-		IProblem[] stagingArray = new IProblem[1 + 3 * numberBins
-				+ numberItems];
+		IProblem[] stagingArray = new IProblem[1 + 3 * numberBins + numberItems];
 
 		long maxBin = Integer.MIN_VALUE;
 		for (int i = 0; i < numberBins; i++)
@@ -50,23 +49,21 @@ public class BinPacker
 				maxBin = bins[i].getCapacity();
 		NaturalNumber.setLargestNaturalNumber(maxBin);
 
-		System.out
-				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
-						+ ":" + "\tBuilding partitionProblem...");
+		System.out.println((System.currentTimeMillis() - startTimeMillis)
+				/ 1000. + ":" + "\tBuilding partitionProblem...");
 		IBooleanVariable[][] partition = new IBooleanVariable[numberBins][numberItems];
 		for (int i = 0; i < numberBins; i++)
 		{
 			IBooleanVariable[] currentBin = partition[i];
 			for (int j = 0; j < numberItems; j++)
-				currentBin[j] = BooleanVariable
-						.getBooleanVariable("partition-" + i + "-" + j);
+				currentBin[j] = BooleanVariable.getBooleanVariable("partition-"
+						+ i + "-" + j);
 		}
 		IProblem partitionProblem = new BitArrayPartition(partition);
 		stagingArray[stagingIndex++] = partitionProblem;
 
-		System.out
-				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
-						+ ":" + "\tBuilding adderProblem...");
+		System.out.println((System.currentTimeMillis() - startTimeMillis)
+				/ 1000. + ":" + "\tBuilding adderProblem...");
 		INaturalNumber[] itemSizeNaturalNumberArray = new INaturalNumber[numberItems];
 		for (int i = 0; i < numberItems; i++)
 			itemSizeNaturalNumberArray[i] = new NaturalNumber(
@@ -75,9 +72,9 @@ public class BinPacker
 		IProblem[] adderProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
 		{
-			System.out.println(
-					(System.currentTimeMillis() - startTimeMillis) / 1000. + ":"
-							+ "\t\t\tBuilding adderProblemArray[" + i + "]...");
+			System.out.println((System.currentTimeMillis() - startTimeMillis)
+					/ 1000. + ":" + "\t\t\tBuilding adderProblemArray[" + i
+					+ "]...");
 			condSum[i] = new NaturalNumber("NNCondSum-" + i);
 			adderProblemArray[i] = new ConditionalAdder(
 					itemSizeNaturalNumberArray, partition[i], condSum[i]);
@@ -85,9 +82,8 @@ public class BinPacker
 			stagingArray[stagingIndex++] = adderProblemArray[i];
 		}
 
-		System.out
-				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
-						+ ":" + "\tBuilding binFitterProblem...");
+		System.out.println((System.currentTimeMillis() - startTimeMillis)
+				/ 1000. + ":" + "\tBuilding binFitterProblem...");
 		INaturalNumber[] binCapacityNNArray = new INaturalNumber[numberBins];
 		for (int i = 0; i < numberBins; i++)
 			binCapacityNNArray[i] = new NaturalNumber("BinSize-" + i);
@@ -99,9 +95,8 @@ public class BinPacker
 			stagingArray[stagingIndex++] = binFitProblemArray[i];
 		}
 
-		System.out
-				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
-						+ ":" + "\tBuilding binCapacityFixerProblem...");
+		System.out.println((System.currentTimeMillis() - startTimeMillis)
+				/ 1000. + ":" + "\tBuilding binCapacityFixerProblem...");
 		IProblem[] binCapacityProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
 		{
@@ -110,9 +105,8 @@ public class BinPacker
 			stagingArray[stagingIndex++] = binCapacityProblemArray[i];
 		}
 
-		System.out
-				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
-						+ ":" + "\tBuilding sizesProblem...");
+		System.out.println((System.currentTimeMillis() - startTimeMillis)
+				/ 1000. + ":" + "\tBuilding sizesProblem...");
 		IProblem[] sizesProblemArray = new IProblem[numberItems];
 		for (int i = 0; i < numberItems; i++)
 		{
@@ -121,20 +115,17 @@ public class BinPacker
 			stagingArray[stagingIndex++] = sizesProblemArray[i];
 		}
 
-		System.out
-				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
-						+ ":" + "\tBuilding binPackingProblem...");
+		System.out.println((System.currentTimeMillis() - startTimeMillis)
+				/ 1000. + ":" + "\tBuilding binPackingProblem...");
 		binPackingProblem = new Conjunction(stagingArray);
 
-		System.out
-				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
-						+ ":" + "\tSolving SAT problem...");
-		List<IBooleanLiteral> blList = binPackingProblem
-				.findModel(Problem.defaultSolver());
+		System.out.println((System.currentTimeMillis() - startTimeMillis)
+				/ 1000. + ":" + "\tSolving SAT problem...");
+		List<IBooleanLiteral> blList = binPackingProblem.findModel(Problem
+				.defaultSolver());
 
-		System.out
-				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
-						+ ":" + "\tReturning solution...");
+		System.out.println((System.currentTimeMillis() - startTimeMillis)
+				/ 1000. + ":" + "\tReturning solution...");
 		if (blList != null && blList.size() > 0)
 		{
 			BooleanLiteral.interpret(blList);
@@ -149,11 +140,11 @@ public class BinPacker
 				solution.add(currentBinContents);
 			}
 			BooleanLiteral.reset(blList);
-			System.out
-			.println((System.currentTimeMillis() - startTimeMillis) / 1000.
-					+ ":" + "Finis");
+			System.out.println((System.currentTimeMillis() - startTimeMillis)
+					/ 1000. + ":" + "Finis");
 			return solution;
-		} else
+		}
+		else
 			return null;
 	}
 }

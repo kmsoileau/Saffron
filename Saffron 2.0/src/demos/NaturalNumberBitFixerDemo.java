@@ -28,7 +28,8 @@ public class NaturalNumberBitFixerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("X= " + X);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

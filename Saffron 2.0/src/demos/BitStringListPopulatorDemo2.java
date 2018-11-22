@@ -48,7 +48,8 @@ public class BitStringListPopulatorDemo2
 			BooleanLiteral.interpret(s);
 			System.out.println(bins.toBits());
 			System.out.println(binassignments.toBits());
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

@@ -36,11 +36,10 @@ public class BitStringListDisjointer extends Problem implements IProblem
 		{
 			IProblem res[] = new IProblem[A.size() + B.size()];
 			for (int i = 0; i < A.size(); i++)
-				res[i] = new BitStringListNonmembershipper(A.getBitString(i),
-						B);
+				res[i] = new BitStringListNonmembershipper(A.getBitString(i), B);
 			for (int i = A.size(); i < A.size() + B.size(); i++)
-				res[i] = new BitStringListNonmembershipper(
-						B.getBitString(i - A.size()), A);
+				res[i] = new BitStringListNonmembershipper(B.getBitString(i
+						- A.size()), A);
 			this.setClauses(new Conjunction(res).getClauses());
 		}
 	}

@@ -35,7 +35,8 @@ public class ThreeBitAdderDemo1
 			System.out.println(y);
 			System.out.println(z);
 			System.out.println(c);
-		} else
+		}
+		else
 			System.out.println("There is no solution.");
 	}
 }

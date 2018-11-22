@@ -40,7 +40,7 @@ import bits.Problem;
  *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- *         </pre>
+ * </pre>
  * 
  *         </blockquote>
  * @version 1.0, 06/02/08

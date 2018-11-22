@@ -23,9 +23,8 @@ public class NaturalNumberOdder extends Problem implements IProblem
 		INaturalNumber L = new NaturalNumber();
 
 		IProblem p = new Conjunction(new NaturalNumberFixer(One, 1),
-				new NaturalNumberFixer(Two, 2),
-				new NaturalNumberMultiplier(Two, K, L),
-				new NaturalNumberIncrementer(L, Z));
+				new NaturalNumberFixer(Two, 2), new NaturalNumberMultiplier(
+						Two, K, L), new NaturalNumberIncrementer(L, Z));
 
 		this.setClauses(p.getClauses());
 	}

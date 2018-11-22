@@ -43,8 +43,8 @@ public class BitStringListNonrepeater extends Problem implements IProblem
 		{
 			IBitString b = list.getBitString(i);
 			for (int j = i + 1; j < list.size(); j++)
-				p = new Conjunction(p,
-						new BitStringUnequalizer(b, list.getBitString(j)));
+				p = new Conjunction(p, new BitStringUnequalizer(b,
+						list.getBitString(j)));
 		}
 		if (p == null)
 			this.setClauses((IClause[]) null);

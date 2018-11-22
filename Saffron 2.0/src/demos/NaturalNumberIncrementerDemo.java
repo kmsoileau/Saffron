@@ -50,7 +50,8 @@ public class NaturalNumberIncrementerDemo
 			System.out.println("X= " + X);
 			System.out.println("Y= " + Y);
 			System.out.println("C= " + C);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

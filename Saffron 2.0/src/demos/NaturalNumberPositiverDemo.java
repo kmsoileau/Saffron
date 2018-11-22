@@ -36,7 +36,8 @@ public class NaturalNumberPositiverDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.print("\nX=" + X);
-		} else
+		}
+		else
 			System.out.print("\nNo solution.");
 	}
 }

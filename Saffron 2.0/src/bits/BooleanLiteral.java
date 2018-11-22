@@ -1,11 +1,3 @@
-/*
- * BooleanLiteral.java	1.0 04/09/07
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 import java.util.ArrayList;
@@ -24,21 +16,13 @@ import bits.exceptions.BooleanLiteralException;
  * ensure that any two instances of BooleanLiteral are equal if and only if they
  * agree on the value of barred, and contain equal instances of BooleanVariable.
  *
- * @author Kerry Michael Soileau <blockquote>
- * 
- *         <pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- *         </pre>
- * 
- *         </blockquote>
- * @version 1.0, 04/09/07
- * @see Comparable
- * @see BooleanVariable
- * @see IBooleanVariable
- * @see BooleanLiteral
- * @see IBooleanLiteral
- * @see String
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2004/09/07
  */
 public class BooleanLiteral implements IBooleanLiteral
 {
@@ -47,7 +31,8 @@ public class BooleanLiteral implements IBooleanLiteral
 	/**
 	 * Rather than providing a public constructor for the BooleanLiteral class,
 	 * a static factory method is instead provided. This is to avoid duplication
-	 * of a already-existing IBooleanLiteral. The <tt>HashSet instances</code> is
+	 * of a already-existing IBooleanLiteral. The
+	 * <tt>HashSet instances</code> is
 	 * searched to determine whether an IBooleanLiteral with the desired
 	 * internal IBooleanVariable and barred-ness already exists; if it does, the
 	 * instance is returned. If not, the private constructor is used to create
@@ -101,8 +86,8 @@ public class BooleanLiteral implements IBooleanLiteral
 
 	public static void listLiterals()
 	{
-		IBooleanLiteral[] ary = BooleanLiteral.getInstances()
-				.toArray(new BooleanLiteral[0]);
+		IBooleanLiteral[] ary = BooleanLiteral.getInstances().toArray(
+				new BooleanLiteral[0]);
 		List<IBooleanLiteral> lis = Arrays.asList(ary);
 		Collections.sort(lis);
 		System.out.println(lis);
@@ -172,7 +157,8 @@ public class BooleanLiteral implements IBooleanLiteral
 	}
 
 	/**
-	 * If <tt>o</code> is null, this method returns <tt>false</code>. If <tt>o</code>
+	 * If
+	 * <tt>o</code> is null, this method returns <tt>false</code>. If <tt>o</code>
 	 * is not of type IBooleanLiteral, this method returns <tt>false</code>. If
 	 * the Object passed has a different internal IBooleanVariable, this method
 	 * returns <tt>false</code>. If the "barred-ness" of <tt>this</code> and
@@ -194,11 +180,10 @@ public class BooleanLiteral implements IBooleanLiteral
 		{
 			if (bo.isBarred() != this.isBarred())
 				return false;
+			else if (bov.equals(this.getBooleanVariable()))
+				return true;
 			else
-				if (bov.equals(this.getBooleanVariable()))
-					return true;
-				else
-					return false;
+				return false;
 		}
 	}
 

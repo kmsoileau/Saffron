@@ -30,8 +30,7 @@ public class NaturalNumberXorerDemo
 
 		NaturalNumberFixer bnnfx = new NaturalNumberFixer(X, 4);
 		NaturalNumberFixer bnnfy = new NaturalNumberFixer(Y, 5);
-		NaturalNumberXorer NaturalNumberXorer1 = new NaturalNumberXorer(X, Y,
-				Z);
+		NaturalNumberXorer NaturalNumberXorer1 = new NaturalNumberXorer(X, Y, Z);
 
 		IProblem p1 = new Conjunction(bnnfx, bnnfy);
 		IProblem p = new Conjunction(p1, NaturalNumberXorer1);
@@ -44,7 +43,8 @@ public class NaturalNumberXorerDemo
 			System.out.println("X= " + X);
 			System.out.println("Y= " + Y);
 			System.out.println("Z= " + Z);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

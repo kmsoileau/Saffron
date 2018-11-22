@@ -63,7 +63,8 @@ public class DisjunctionDemo1
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 		// IProblem-1
 		problem = new Disjunction(p1, p2);
@@ -80,7 +81,8 @@ public class DisjunctionDemo1
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 		// IProblem-2
 		problem = new Disjunction(p2, p3, Y);
@@ -97,7 +99,8 @@ public class DisjunctionDemo1
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 		// IProblem-3
 		problem = new Disjunction(p1, p3, p4);
@@ -114,7 +117,8 @@ public class DisjunctionDemo1
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 		// IProblem-4
 		problem = new Disjunction(p1, p2, p3, p4);
@@ -131,7 +135,8 @@ public class DisjunctionDemo1
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 		// IProblem-5
 		problem = new Disjunction(new IProblem[]
@@ -149,7 +154,8 @@ public class DisjunctionDemo1
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 		// IProblem-6
 		problem = new Disjunction(new IProblem[]
@@ -168,7 +174,8 @@ public class DisjunctionDemo1
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 		// IProblem-7
 		problem = new Conjunction(new Disjunction(new IProblem[]
@@ -188,7 +195,8 @@ public class DisjunctionDemo1
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 		// IProblem-8
 		problem = new ConditionalDisjunction(new IProblem[]
@@ -207,7 +215,8 @@ public class DisjunctionDemo1
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

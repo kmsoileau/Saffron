@@ -64,7 +64,8 @@ public class ConditionalAdderDemo1
 			System.out.println("Z = " + Z.getValue());
 			System.out.println("CSUM = " + CSUM);
 			BooleanLiteral.reset(s);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

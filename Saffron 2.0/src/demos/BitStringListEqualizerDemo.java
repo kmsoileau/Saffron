@@ -57,7 +57,8 @@ public class BitStringListEqualizerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("A = " + A);
 			System.out.println("B = " + B);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

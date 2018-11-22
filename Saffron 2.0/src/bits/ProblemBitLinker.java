@@ -4,8 +4,11 @@ package bits;
  * This class links the value of an IBooleanVariable to the truth value of a
  * given IProblem.
  *
- * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
- *         http://kerrysoileau.com/index.html
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
  * @version 1.0
  * @since 2005/12/26
  */

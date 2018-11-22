@@ -45,7 +45,8 @@ public class NaturalNumberListEqualizerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("s1=" + s1);
 			System.out.println("s2=" + s2);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

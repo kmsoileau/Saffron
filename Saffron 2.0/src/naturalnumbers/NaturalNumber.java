@@ -62,7 +62,8 @@ public class NaturalNumber extends BitString implements INaturalNumber
 		{
 			bits = size;
 			hasBeenSet = true;
-		} else
+		}
+		else
 			throw (new NaturalNumberException(
 					"Attempted to change a previously set bit length for the class NaturalNumber."));
 	}
@@ -111,8 +112,7 @@ public class NaturalNumber extends BitString implements INaturalNumber
 		if (!(o instanceof NaturalNumber))
 			return false;
 		else
-			return (this.getName()
-					.compareTo(((NaturalNumber) o).getName())) == 0;
+			return (this.getName().compareTo(((NaturalNumber) o).getName())) == 0;
 	}
 
 	@Override
@@ -131,7 +131,7 @@ public class NaturalNumber extends BitString implements INaturalNumber
 	{
 		return super.getBVArray();
 	}
-	
+
 	@Override
 	public long toDecimal()
 	{

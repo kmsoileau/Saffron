@@ -43,7 +43,8 @@ public class NaturalNumberAnderDemo
 			System.out.println("X= " + X);
 			System.out.println("Y= " + Y);
 			System.out.println("Z= " + Z);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

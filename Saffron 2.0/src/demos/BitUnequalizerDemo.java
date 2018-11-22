@@ -31,7 +31,8 @@ public class BitUnequalizerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("x= " + x.getValue());
 			System.out.println("y= " + y.getValue());
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

@@ -37,7 +37,8 @@ public class NaturalNumberQuotienterDemo
 			System.out.println("Y = " + Divisor);
 			System.out.println("Z = " + Quotient);
 			System.out.println("C = " + Remainder);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

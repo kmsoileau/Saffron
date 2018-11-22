@@ -13,8 +13,8 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
-public class NaturalNumberGreatestCommonDivisor extends Problem
-		implements IProblem
+public class NaturalNumberGreatestCommonDivisor extends Problem implements
+		IProblem
 {
 	public NaturalNumberGreatestCommonDivisor(INaturalNumber M,
 			INaturalNumber N, INaturalNumber GCD) throws Exception

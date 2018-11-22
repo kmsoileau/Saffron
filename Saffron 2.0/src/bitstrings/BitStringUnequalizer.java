@@ -26,7 +26,8 @@ public class BitStringUnequalizer extends Problem implements IProblem
 						Y.getBooleanVariable(i));
 			IProblem p1 = new Disjunction(thba);
 			this.setClauses(p1.getClauses());
-		} else
+		}
+		else
 			this.setClauses(super.trivialProblem().getClauses());
 	}
 }

@@ -53,7 +53,8 @@ public class BitStringMover extends Problem implements IProblem
 			BooleanLiteral.interpret(s);
 			System.out.println(((BitStringList) board1).toBits());
 			System.out.println(((BitStringList) board2).toBits());
-		} else
+		}
+		else
 			System.out.println("There is no solution.");
 	}
 
@@ -72,8 +73,8 @@ public class BitStringMover extends Problem implements IProblem
 			if (i != n)
 				problem = new Conjunction(problem, new BitStringEqualizer(
 						A.getBitString(i), B.getBitString(i)));
-		problem = new Conjunction(problem,
-				new BitStringEqualizer(A.getBitString(m), B.getBitString(n)));
+		problem = new Conjunction(problem, new BitStringEqualizer(
+				A.getBitString(m), B.getBitString(n)));
 
 		this.setClauses(problem.getClauses());
 	}

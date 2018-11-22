@@ -26,8 +26,8 @@ public class ProblemDenierDemo
 				new Clause().or(x_1).orNot(x_3) });
 
 		System.out.println("The given IProblem was \n" + ip + ".");
-		System.out.println(
-				"The denial of this IProblem is the following Problem:");
+		System.out
+				.println("The denial of this IProblem is the following Problem:");
 		IProblem problem = new ProblemDenier(ip);
 		System.out.println(problem);
 
@@ -39,7 +39,8 @@ public class ProblemDenierDemo
 			System.out.println("x_2 = " + x_2.getValue());
 			System.out.println("x_3 = " + x_3.getValue());
 			System.out.println("x_4 = " + x_4.getValue());
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

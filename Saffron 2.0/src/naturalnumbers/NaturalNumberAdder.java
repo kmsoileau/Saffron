@@ -44,7 +44,7 @@ import bits.TwoBitAdder;
  *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- *         </pre>
+ * </pre>
  * 
  *         </blockquote>
  * @version 1.2, 05/03/08

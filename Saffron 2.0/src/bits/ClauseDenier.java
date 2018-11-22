@@ -25,8 +25,9 @@ public class ClauseDenier extends Problem implements IProblem
 	public ClauseDenier(IClause clause) throws Exception
 	{
 		if (clause == null)
-			throw new ClauseDenierException("Null clause passed to constructor.");
-			//this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new ClauseDenierException(
+					"Null clause passed to constructor.");
+		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			Object[] oib = clause.toArray();
@@ -34,11 +35,11 @@ public class ClauseDenier extends Problem implements IProblem
 			{
 				IBooleanLiteral ib = (IBooleanLiteral) (oib[i]);
 				if (ib.isBarred())
-					super.addClause(
-							Clause.newClause().or(ib.getBooleanVariable()));
+					super.addClause(Clause.newClause().or(
+							ib.getBooleanVariable()));
 				else
-					super.addClause(
-							Clause.newClause().orNot(ib.getBooleanVariable()));
+					super.addClause(Clause.newClause().orNot(
+							ib.getBooleanVariable()));
 			}
 		}
 	}

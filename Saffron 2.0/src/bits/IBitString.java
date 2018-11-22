@@ -4,8 +4,8 @@ import java.util.List;
 
 /**
  * The <code>IBitString</code> interface must be implemented by any class
- * definition of <code>BitString</code> contemplated as an alternative to
- * the <code>BitString</code> class provided by this package.
+ * definition of <code>BitString</code> contemplated as an alternative to the
+ * <code>BitString</code> class provided by this package.
  *
  * @author Kerry Michael Soileau
  *         <p>

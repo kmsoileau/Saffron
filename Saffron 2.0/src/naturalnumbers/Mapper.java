@@ -68,8 +68,8 @@ public class Mapper extends Problem implements IProblem
 	private static String binCount(int bitsrequired, long count)
 			throws Exception
 	{
-		return reverse(new NaturalNumber(count).toBits())
-				.substring(NaturalNumber.getLength() - bitsrequired);
+		return reverse(new NaturalNumber(count).toBits()).substring(
+				NaturalNumber.getLength() - bitsrequired);
 	}
 
 	private static IProblem map(IProblem[] p1, IProblem[] p2) throws Exception
@@ -132,23 +132,23 @@ public class Mapper extends Problem implements IProblem
 		ProblemPair[] pp = new ProblemPair[num];
 		int bitsrequired = (int) (Math.ceil(Math.log(1d * num) / Math.log(2d)));
 		for (int i = 0; i < pp.length; i++)
-			pp[i] = new ProblemPair(
-					new BitStringFixer(index, binCount(bitsrequired, i)),
-					new NaturalNumberFixer(valNN, integerArray[i]));
+			pp[i] = new ProblemPair(new BitStringFixer(index, binCount(
+					bitsrequired, i)), new NaturalNumberFixer(valNN,
+					integerArray[i]));
 
 		this.setClauses(new Mapper(pp).getClauses());
 	}
 
-	public Mapper(Integer[] integerArray, IBitString index,
-			INaturalNumber valNN) throws Exception
+	public Mapper(Integer[] integerArray, IBitString index, INaturalNumber valNN)
+			throws Exception
 	{
 		int num = integerArray.length;
 		ProblemPair[] pp = new ProblemPair[num];
 		int bitsrequired = (int) (Math.ceil(Math.log(1d * num) / Math.log(2d)));
 		for (int i = 0; i < pp.length; i++)
-			pp[i] = new ProblemPair(
-					new BitStringFixer(index, binCount(bitsrequired, i)),
-					new NaturalNumberFixer(valNN, integerArray[i]));
+			pp[i] = new ProblemPair(new BitStringFixer(index, binCount(
+					bitsrequired, i)), new NaturalNumberFixer(valNN,
+					integerArray[i]));
 
 		this.setClauses(new Mapper(pp).getClauses());
 	}
@@ -175,9 +175,9 @@ public class Mapper extends Problem implements IProblem
 		ProblemPair[] pp = new ProblemPair[num];
 		int bitsrequired = (int) (Math.ceil(Math.log(1d * num) / Math.log(2d)));
 		for (int i = 0; i < pp.length; i++)
-			pp[i] = new ProblemPair(
-					new BitStringFixer(index, binCount(bitsrequired, i)),
-					new NaturalNumberFixer(valNN, integerArray[i]));
+			pp[i] = new ProblemPair(new BitStringFixer(index, binCount(
+					bitsrequired, i)), new NaturalNumberFixer(valNN,
+					integerArray[i]));
 
 		this.setClauses(new Mapper(pp).getClauses());
 	}

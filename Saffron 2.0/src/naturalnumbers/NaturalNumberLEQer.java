@@ -16,8 +16,7 @@ public class NaturalNumberLEQer extends Problem implements IProblem
 	public NaturalNumberLEQer(INaturalNumber X, INaturalNumber Y)
 			throws Exception
 	{
-		this.setClauses(new Conjunction(
-				new NaturalNumberAdder(X, new NaturalNumber(), Y))
-						.getClauses());
+		this.setClauses(new Conjunction(new NaturalNumberAdder(X,
+				new NaturalNumber(), Y)).getClauses());
 	}
 }

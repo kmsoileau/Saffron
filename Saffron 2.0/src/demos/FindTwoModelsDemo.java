@@ -28,8 +28,8 @@ public class FindTwoModelsDemo
 		// NaturalNumberFixer bnnfx=new NaturalNumberFixer(X,127);
 		NaturalNumberFixer bnnfy = new NaturalNumberFixer(Y, 121);
 
-		NaturalNumberAdder NaturalNumberAdder1 = new NaturalNumberAdder(X, Y, Z,
-				C);
+		NaturalNumberAdder NaturalNumberAdder1 = new NaturalNumberAdder(X, Y,
+				Z, C);
 
 		// IProblem p=new Conjunction(new
 		// Conjunction(bnnfx,bnnfy),NaturalNumberAdder1);
@@ -45,7 +45,8 @@ public class FindTwoModelsDemo
 			System.out.println("Y = " + Y);
 			System.out.println("Z = " + Z);
 			System.out.println("C = " + C);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 		System.out.println("Second model found:");
 		if (s[1] != null && s[1].size() > 0)
@@ -55,7 +56,8 @@ public class FindTwoModelsDemo
 			System.out.println("Y = " + Y);
 			System.out.println("Z = " + Z);
 			System.out.println("C = " + C);
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 }

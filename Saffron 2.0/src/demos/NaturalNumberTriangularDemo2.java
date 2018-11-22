@@ -35,9 +35,10 @@ public class NaturalNumberTriangularDemo2
 		{ new NaturalNumberFixer(Two, 2), new NaturalNumberFixer(TwoZ, 12),
 				new NaturalNumberIncrementer(X, Y),
 				new NaturalNumberMultiplier(X, Y, TwoZ),
-				new NaturalNumberFixer(Z, 6), new NaturalNumberDoubler(Z, TwoZ),
-				// new NaturalNumberMultiplier(Two,Z,TwoZ),
-		});
+				new NaturalNumberFixer(Z, 6),
+				new NaturalNumberDoubler(Z, TwoZ),
+		// new NaturalNumberMultiplier(Two,Z,TwoZ),
+				});
 
 		/*
 		 * p=new Conjunction(new NaturalNumberFixer(Two), new

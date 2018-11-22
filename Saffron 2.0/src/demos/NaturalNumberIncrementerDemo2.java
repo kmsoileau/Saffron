@@ -35,7 +35,8 @@ public class NaturalNumberIncrementerDemo2
 				System.out.print("\nX= " + X + "\t");
 				System.out.print("Y= " + Y + "\t");
 				System.out.print("C= " + C + "\t");
-			} else
+			}
+			else
 				System.out.print("No solution.");
 		}
 	}

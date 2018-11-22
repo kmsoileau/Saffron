@@ -21,7 +21,7 @@ public class BitStringHighPopper extends Problem implements IProblem
 	{
 		if (X.size() != Y.size() + 1)
 			throw new BitStringHighPopperException("X.size() != Y.size() + 1");
-			//this.setClauses(Problem.unsolvableProblem().getClauses());
+		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[X.size()];
