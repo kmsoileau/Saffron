@@ -15,6 +15,16 @@ import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
 
+/**
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2018/11/22
+ */
 public class Scheduler
 {
 	private static IProblem jobSchedulingProblem;
@@ -27,12 +37,10 @@ public class Scheduler
 	public static ArrayList<ArrayList<Task>> schedule(Task[] task,
 			Processor[] proc) throws Exception
 	{
-		long startTimeMillis = System.currentTimeMillis();
 		int numberProcs = proc.length;
 		int numberTasks = task.length;
 		int stagingIndex = 0;
-		IProblem[] stagingArray = new IProblem[1 + 1 + numberTasks
-				* numberTasks * numberProcs + numberTasks];
+		IProblem[] stagingArray = new IProblem[2 + 2 * numberTasks];
 
 		// Partition Problem
 		IBooleanVariable[][] partition = new IBooleanVariable[numberProcs][numberTasks];
@@ -57,10 +65,10 @@ public class Scheduler
 		for (int i = 0; i < numberTasks; i++)
 		{
 			Task currSucc = task[i];
-			ArrayList<IProblem> precProblem = new ArrayList<IProblem>();
 			List<Task> currSuccPreds = currSucc.getPredecessors();
 			if (currSuccPreds == null)
 				continue;
+			ArrayList<IProblem> precProblem = new ArrayList<IProblem>();
 			for (Task currPred : currSuccPreds)
 			{
 				precProblem.add(new NaturalNumberOrderer(
@@ -79,13 +87,9 @@ public class Scheduler
 
 		jobSchedulingProblem = new Conjunction(stagingArray);
 
-		System.out.println((System.currentTimeMillis() - startTimeMillis)
-				/ 1000. + ":" + "\tSolving SAT problem...");
 		List<IBooleanLiteral> blList = jobSchedulingProblem.findModel(Problem
 				.defaultSolver());
 
-		System.out.println((System.currentTimeMillis() - startTimeMillis)
-				/ 1000. + ":" + "\tReturning solution...");
 		if (blList != null && blList.size() > 0)
 		{
 			BooleanLiteral.interpret(blList);
@@ -98,13 +102,6 @@ public class Scheduler
 					if (currentProc[j].getValue())
 						currentProcAssignments.add(task[j]);
 				solution.add(currentProcAssignments);
-			}
-			for (int i = 0; i < numberTasks; i++)
-			{
-				long currStart = task[i].getNNStart().toDecimal();
-				// task[i].setStart(currStart);
-				long currFinish = task[i].getNNFinish().toDecimal();
-				// task[i].setFinish(currFinish);
 			}
 			return solution;
 		}

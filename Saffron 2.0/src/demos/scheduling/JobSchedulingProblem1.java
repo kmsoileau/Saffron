@@ -2,6 +2,16 @@ package demos.scheduling;
 
 import java.util.ArrayList;
 
+/**
+*
+* @author Kerry Michael Soileau
+*         <p>
+*         email: ksoileau2@yahoo.com
+*         <p>
+*         website: http://kerrysoileau.com/index.html
+* @version 1.0
+* @since 2018/11/22
+*/
 public class JobSchedulingProblem1
 {
 	public static void main(String[] args) throws Exception
@@ -36,14 +46,24 @@ public class JobSchedulingProblem1
 
 		Processor A1 = new Processor("A1");
 		Processor A2 = new Processor("A2");
+		Processor A3 = new Processor("A3");
 
 		Processor[] procs = new Processor[]
-		{ A1, A2 };
+		{ A1, A2, A3 };
 
 		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs);
 
-		// System.out.println(Scheduler.getProblem());
 		for (int i = 0; i < procs.length; i++)
-			System.out.println(procs[i].getName() + ": " + solution.get(i));
+		{
+			ArrayList<Task> curr = solution.get(i);
+			System.out.println("\n" + procs[i].getName() + ": ");
+			for (int j = 0; j < curr.size(); j++)
+			{
+				Task currTask = curr.get(j);
+				System.out.println(currTask.getName() + " start: "
+						+ currTask.getNNStart() + " finish: "
+						+ currTask.getNNFinish());
+			}
+		}
 	}
 }
