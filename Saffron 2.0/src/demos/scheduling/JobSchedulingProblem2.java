@@ -27,7 +27,7 @@ public class JobSchedulingProblem2
 		Processor[] procs = new Processor[]
 		{ A1, A2 };
 
-		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs);
+		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs, 100);
 		if (solution != null)
 		{
 			System.out.println(Scheduler.getProblem());

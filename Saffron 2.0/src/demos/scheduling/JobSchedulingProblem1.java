@@ -2,6 +2,8 @@ package demos.scheduling;
 
 import java.util.ArrayList;
 
+import naturalnumbers.NaturalNumber;
+
 /**
 *
 * @author Kerry Michael Soileau
@@ -16,6 +18,8 @@ public class JobSchedulingProblem1
 {
 	public static void main(String[] args) throws Exception
 	{
+		NaturalNumber.setLargestNaturalNumber(100);
+		
 		Task FP = new Task("FP", 7);
 		Task FW = new Task("FW", 7);
 		Task BW = new Task("BW", 7);
@@ -51,8 +55,9 @@ public class JobSchedulingProblem1
 		Processor[] procs = new Processor[]
 		{ A1, A2, A3 };
 
-		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs);
-
+		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs, 30);
+		if(solution==null)
+			return;
 		for (int i = 0; i < procs.length; i++)
 		{
 			ArrayList<Task> curr = solution.get(i);
