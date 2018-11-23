@@ -22,7 +22,7 @@ import bits.exceptions.BooleanLiteralException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2004/09/07
+ * @since 2004/08/26
  */
 public class BooleanLiteral implements IBooleanLiteral
 {

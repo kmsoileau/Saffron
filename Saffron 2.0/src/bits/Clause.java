@@ -19,7 +19,7 @@ import bits.exceptions.ClauseException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.01
- * @since 2005/04/22
+ * @since 2004/08/26
  */
 public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 {

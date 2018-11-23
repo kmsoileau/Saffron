@@ -19,7 +19,7 @@ import bits.exceptions.BooleanVariableException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2006/01/04
+ * @since 2004/08/26
  */
 public class BooleanVariable implements IBooleanVariable
 {

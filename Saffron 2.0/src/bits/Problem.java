@@ -28,7 +28,7 @@ import bits.exceptions.ProblemException;
  * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
  *         http://kerrysoileau.com/index.html
  * @version 1.41
- * @since 2005/07/12
+ * @since 2004/08/26
  */
 public class Problem implements IProblem
 {

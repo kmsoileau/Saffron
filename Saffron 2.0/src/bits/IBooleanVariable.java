@@ -11,7 +11,7 @@ package bits;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.11
- * @since 2005/10/24
+ * @since 2004/08/26
  */
 public interface IBooleanVariable extends Comparable<Object>
 {

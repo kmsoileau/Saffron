@@ -16,7 +16,7 @@ import org.sat4j.specs.ISolver;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.4
- * @since 2006/04/10
+ * @since 2004/08/26
  */
 public interface IProblem extends Iterable<IClause>
 {

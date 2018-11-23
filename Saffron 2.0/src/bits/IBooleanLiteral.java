@@ -15,7 +15,7 @@ import bits.exceptions.BooleanLiteralException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.1
- * @since 2005/07/22
+ * @since 2004/08/26
  */
 public interface IBooleanLiteral extends Comparable<Object>
 {
