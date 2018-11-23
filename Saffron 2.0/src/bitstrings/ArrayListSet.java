@@ -1,26 +1,26 @@
 package bitstrings;
 
-/**
- * Description: Works just like java.util.ArrayList, except it will refuse to
- * add an element if it is equal to an element already appearing in the
- * ArrayListSet. In other words, it's an ArrayList which maintains uniqueness
- * like java.util.Set does.
- * It also provides a sort function, if all of the members are mutually 
- * Comparable.
- *
- * @author  Kerry Michael Soileau
- * <blockquote><pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * </pre></blockquote>
- * @version 1.4
- * @version 1.3 void sort() method added March 4, 2009.
- */
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
+/**
+ * Works just like <code>java.util.ArrayList</code>, except it will refuse to
+ * add an element if it is equal to an element already appearing in the
+ * <code>ArrayListSet</code>. In other words, it's an <code>ArrayList</code>
+ * which maintains uniqueness like <code>java.util.Set</code> does. It also
+ * provides a sort function, if all of the members are mutually
+ * <code>Comparable</code>.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.4
+ * @since 2009/03/04
+ */
 public class ArrayListSet<E> extends ArrayList<E> implements Set<E>
 {
 	private static final long serialVersionUID = -2554176229274064937L;

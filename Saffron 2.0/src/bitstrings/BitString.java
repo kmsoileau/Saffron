@@ -1,25 +1,3 @@
-/*
- * BitString.java	1.2 05/10/27
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-/**
- * An array of fixed length of IBooleanVariables.
- *
- * @author  Kerry Michael Soileau
- * <blockquote><pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * </pre></blockquote>
- * @version 1.1, 05/04/28
- * @see ArrayList
- * @see BitStringException
- * @see IBitString
- * @see IBooleanVariable
- */
-
 package bitstrings;
 
 import java.util.ArrayList;
@@ -30,6 +8,17 @@ import bits.IBitString;
 import bits.IBooleanVariable;
 import bitstrings.exceptions.BitStringException;
 
+/**
+ * An array of fixed length of IBooleanVariables.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.2
+ * @since 2005/10/27
+ */
 public class BitString implements IBitString
 {
 	private static long bSCount;

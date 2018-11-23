@@ -2,7 +2,9 @@ package demos;
 
 import java.util.List;
 
+import bits.BitFixer;
 import bits.BooleanLiteral;
+import bits.Conjunction;
 import bits.IBitString;
 import bits.IBooleanLiteral;
 import bits.IProblem;
@@ -15,8 +17,10 @@ public class BitStringAlternatorDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBitString white = new BitString(new boolean[20]);
-		IProblem problem = new BitStringAlternator(white);
+		IProblem bsa = new BitStringAlternator(white);
+		IProblem fixBit= new BitFixer(white.getBooleanVariable(2),false);
 
+		IProblem problem = new Conjunction(bsa,fixBit);
 		System.out.println(problem);
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
 

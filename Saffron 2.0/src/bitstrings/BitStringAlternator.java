@@ -1,11 +1,3 @@
-/*
- * BitStringAlternater.java	1.0 05/10/21
- *
- * Copyright 2005 Positronic Software.
- *
- *
- */
-
 package bitstrings;
 
 import bits.BitUnequalizer;
@@ -14,6 +6,18 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
 
+/**
+ * Constrains a BitString so that adjacent bits are negations of each other. To
+ * put it another way, the BitString will consist of alternating logical values.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.2
+ * @since 2005/10/27
+ */
 public class BitStringAlternator extends Problem implements IProblem
 {
 	public BitStringAlternator(IBitString X) throws Exception

@@ -23,7 +23,6 @@ public class BitStringAnder extends Problem implements IProblem
 		if ((X.size() != Y.size()) || (X.size() != Z.size()))
 			throw new BitStringAnderException(
 					"X, Y and Z are not of equal size.");
-		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			int commonsize = X.size();
