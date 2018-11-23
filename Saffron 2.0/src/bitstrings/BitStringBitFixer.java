@@ -1,11 +1,3 @@
-/*
- * BitStringBitFixer.java	1.0 05/04/15
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bitstrings;
 
 import bits.BitFixer;
@@ -14,6 +6,18 @@ import bits.IProblem;
 import bits.Problem;
 import bitstrings.exceptions.BitStringBitFixerException;
 
+/**
+ * Constrains the <code>IBooleanVariable</code> at position <code>bit</code> of
+ * <code>IBitString b</code> to equal the boolean value <code>val</code>.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/15
+ */
 public class BitStringBitFixer extends Problem implements IProblem
 {
 	public BitStringBitFixer(IBitString b, int bit, boolean val)
