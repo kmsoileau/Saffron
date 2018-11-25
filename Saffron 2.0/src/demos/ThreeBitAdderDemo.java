@@ -24,9 +24,9 @@ public class ThreeBitAdderDemo
 		IProblem problem = new Conjunction(problemBase, problemSpecific);
 
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
+		String ret = "";
 		if (s != null && s.size() > 0)
 		{
-			String ret = "";
 			BooleanLiteral.interpret(s);
 			ret += bva[0].getValue() ? "1" : "0";
 			ret += bva[1].getValue() ? "1" : "0";
@@ -35,8 +35,7 @@ public class ThreeBitAdderDemo
 			ret += bva[4].getValue() ? "1" : "0";
 			return ret;
 		}
-		else
-			return null;
+		return ret;
 	}
 
 	public static void main(String[] args) throws Exception
@@ -48,7 +47,7 @@ public class ThreeBitAdderDemo
 				BooleanVariable.getBooleanVariable("Z"),
 				BooleanVariable.getBooleanVariable("C") };
 
-		System.out.println("WXYZC");
+		System.out.println("WXYZC\n-----");
 
 		for (Boolean curr1 : new Boolean[]
 		{ false, true })
