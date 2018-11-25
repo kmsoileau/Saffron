@@ -37,9 +37,12 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
+import bits.exceptions.BooleanLiteralException;
 import bitstringlists.exceptions.BitStringListException;
 import bitstrings.BitStringUnequalizer;
+import bitstrings.exceptions.BitStringException;
 
+@SuppressWarnings("unused")
 public class BitStringListDeranger extends Problem implements IProblem
 {
 	public BitStringListDeranger(IBitStringList source, IBitStringList target)

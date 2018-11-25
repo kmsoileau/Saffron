@@ -31,12 +31,12 @@
 
 package naturalnumberlists;
 
+import naturalnumberlists.exceptions.NaturalNumberListException;
+import naturalnumbers.NaturalNumberOrderer;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.exceptions.NaturalNumberListException;
-import naturalnumbers.NaturalNumberOrderer;
 
 public class NaturalNumberListSorter extends Problem implements IProblem
 {

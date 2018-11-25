@@ -25,6 +25,16 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 {
 	private static final long serialVersionUID = -9088489304501148454L;
 
+	public static IClause asClause(IBooleanLiteral[] bl) throws Exception
+	{
+		IClause ret = Clause.newClause();
+		for (int i = 0; i < bl.length; i++)
+		{
+			ret.add((BooleanLiteral) bl[i]);
+		}
+		return ret;
+	}
+
 	/**
 	 * This static method returns a new IClause.
 	 * 
@@ -34,7 +44,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	{
 		return new Clause();
 	}
-
+	
 	/**
 	 * This static method returns a new IClause made up of a random selection of
 	 * IBooleanLiterals created using IBooleanVariables in the given

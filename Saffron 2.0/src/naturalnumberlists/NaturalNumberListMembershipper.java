@@ -1,11 +1,11 @@
 package naturalnumberlists;
 
+import naturalnumberlists.exceptions.NaturalNumberListException;
+import naturalnumbers.NaturalNumberEqualizer;
 import bits.Disjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.exceptions.NaturalNumberListException;
-import naturalnumbers.NaturalNumberEqualizer;
 
 public class NaturalNumberListMembershipper extends Problem implements IProblem
 {

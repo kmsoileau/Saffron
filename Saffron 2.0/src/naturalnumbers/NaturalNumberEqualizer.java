@@ -8,12 +8,12 @@ package naturalnumbers;
  * @author Kerry Michael Soileau
  * @version 1.0
  */
+import naturalnumbers.exceptions.NaturalNumberEqualizerException;
 import bits.BitEqualizer;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.exceptions.NaturalNumberEqualizerException;
 
 public class NaturalNumberEqualizer extends Problem implements IProblem
 {

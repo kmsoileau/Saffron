@@ -1,12 +1,12 @@
 package naturalnumberlists;
 
-import bits.IBitString;
-import bits.INaturalNumber;
-import bits.Number;
-import bitstringlists.BitStringList;
-import bitstrings.BitString;
 import naturalnumberlists.exceptions.NaturalNumberListException;
 import naturalnumbers.NaturalNumber;
+import naturalnumbers.Number;
+import bits.IBitString;
+import bits.INaturalNumber;
+import bitstringlists.BitStringList;
+import bitstrings.BitString;
 
 /**
  * Copyright (c) 2005 Positronic Software

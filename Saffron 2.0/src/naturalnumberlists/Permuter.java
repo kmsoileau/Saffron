@@ -1,12 +1,12 @@
 package naturalnumberlists;
 
+import naturalnumbers.Mapper;
+import naturalnumbers.NaturalNumberEqualizer;
+import naturalnumbers.NaturalNumberFixer;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 import bits.ProblemPair;
-import naturalnumbers.Mapper;
-import naturalnumbers.NaturalNumberEqualizer;
-import naturalnumbers.NaturalNumberFixer;
 
 public class Permuter extends Problem implements IProblem
 {

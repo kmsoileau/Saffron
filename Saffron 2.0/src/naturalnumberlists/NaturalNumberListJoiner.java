@@ -8,11 +8,11 @@
 
 package naturalnumberlists;
 
+import naturalnumberlists.exceptions.NaturalNumberListException;
+import naturalnumbers.NaturalNumberEqualizer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.exceptions.NaturalNumberListException;
-import naturalnumbers.NaturalNumberEqualizer;
 
 public class NaturalNumberListJoiner extends Problem implements IProblem
 {

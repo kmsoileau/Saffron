@@ -1,11 +1,11 @@
 package naturalnumberlists;
 
+import naturalnumberlists.exceptions.NaturalNumberListDerangerException;
+import naturalnumbers.NaturalNumberUnequalizer;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.exceptions.NaturalNumberListDerangerException;
-import naturalnumbers.NaturalNumberUnequalizer;
 
 /*
  * NaturalNumberListDeranger.java	1.0 09/05/21

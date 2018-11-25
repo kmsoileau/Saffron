@@ -1,10 +1,10 @@
 package naturalnumberlists;
 
+import naturalnumberlists.exceptions.NaturalNumberListAdderException;
+import naturalnumbers.NaturalNumberAdder;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.exceptions.NaturalNumberListAdderException;
-import naturalnumbers.NaturalNumberAdder;
 
 /**
  * This performs a "vector" addition of two like-sized INaturalNumberLists. This

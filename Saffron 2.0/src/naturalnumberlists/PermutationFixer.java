@@ -1,10 +1,10 @@
 package naturalnumberlists;
 
+import naturalnumberlists.exceptions.PermutationFixerException;
+import naturalnumbers.NaturalNumberFixer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.exceptions.PermutationFixerException;
-import naturalnumbers.NaturalNumberFixer;
 
 public class PermutationFixer extends Problem implements IProblem
 {

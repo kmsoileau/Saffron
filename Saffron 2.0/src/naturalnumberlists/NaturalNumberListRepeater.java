@@ -27,13 +27,16 @@
 
 package naturalnumberlists;
 
+import naturalnumbers.NaturalNumberEqualizer;
 import bits.Disjunction;
+import bits.IBitString;
 import bits.IClause;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.NaturalNumberEqualizer;
+import bitstrings.BitStringEqualizer;
 
+@SuppressWarnings("unused")
 public class NaturalNumberListRepeater extends Problem implements IProblem
 {
 	public NaturalNumberListRepeater(INaturalNumberList list) throws Exception

@@ -1,9 +1,9 @@
 package naturalnumberlists;
 
+import naturalnumberlists.exceptions.NaturalNumberListException;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.exceptions.NaturalNumberListException;
 
 public class NaturalNumberListSubsetter extends Problem implements IProblem
 {

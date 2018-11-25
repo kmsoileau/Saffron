@@ -1,6 +1,7 @@
 package bits;
 
 import java.util.ArrayList;
+
 import bits.exceptions.BitExclusiveSelectorException;
 
 /**

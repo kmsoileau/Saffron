@@ -12,9 +12,7 @@ package naturalnumbers;
 import naturalnumbers.exceptions.NaturalNumberFixerException;
 import bits.Conjunction;
 import bits.INaturalNumber;
-import bits.INumber;
 import bits.IProblem;
-import bits.Number;
 import bits.Problem;
 
 public class NaturalNumberFixer extends Problem implements IProblem

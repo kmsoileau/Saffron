@@ -1,11 +1,11 @@
 package naturalnumberlists;
 
-import bits.Conjunction;
-import bits.IProblem;
-import bits.Problem;
 import naturalnumberlists.exceptions.NaturalNumberListException;
 import naturalnumberlists.exceptions.NaturalNumberListXorerException;
 import naturalnumbers.NaturalNumberXorer;
+import bits.Conjunction;
+import bits.IProblem;
+import bits.Problem;
 
 public class NaturalNumberListXorer extends Problem implements IProblem
 {

@@ -11,6 +11,7 @@ package naturalnumbers;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import naturalnumbers.exceptions.MapperException;
 import bits.BooleanVariable;
 import bits.Conjunction;
 import bits.Disjunction;
@@ -21,7 +22,6 @@ import bits.IProblem;
 import bits.Problem;
 import bits.ProblemPair;
 import bitstrings.BitStringFixer;
-import naturalnumbers.exceptions.MapperException;
 
 /**
  * <p>

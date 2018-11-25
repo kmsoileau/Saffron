@@ -1,10 +1,10 @@
 package naturalnumberlists;
 
+import naturalnumberlists.exceptions.NaturalNumberListException;
 import bits.BitFixer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.exceptions.NaturalNumberListException;
 
 public class NaturalNumberListFixer extends Problem implements IProblem
 {

@@ -33,11 +33,11 @@
  */
 package naturalnumberlists;
 
+import naturalnumbers.NaturalNumberOrderer;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.NaturalNumberOrderer;
 
 public class NaturalNumberListMaxer extends Problem implements IProblem
 {

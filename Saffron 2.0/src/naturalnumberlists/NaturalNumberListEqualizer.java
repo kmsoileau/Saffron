@@ -1,9 +1,9 @@
 package naturalnumberlists;
 
+import naturalnumberlists.exceptions.NaturalNumberListEqualizerException;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.exceptions.NaturalNumberListEqualizerException;
 
 /**
  * Note that for two INaturalNumberLists to be equal, in the sense enforced by

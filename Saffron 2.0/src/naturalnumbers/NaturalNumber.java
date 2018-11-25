@@ -17,13 +17,14 @@
 
 package naturalnumbers;
 
+import naturalnumbers.exceptions.NaturalNumberException;
 import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
-import bits.Number;
 import bitstrings.BitString;
-import naturalnumbers.exceptions.NaturalNumberException;
+import bitstrings.exceptions.BitStringException;
 
+@SuppressWarnings("unused")
 public class NaturalNumber extends BitString implements INaturalNumber
 {
 	private static int bits = INaturalNumber.DEFAULTLENGTH;

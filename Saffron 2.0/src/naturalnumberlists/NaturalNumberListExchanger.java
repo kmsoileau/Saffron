@@ -1,10 +1,10 @@
 package naturalnumberlists;
 
+import naturalnumberlists.exceptions.NaturalNumberListExchangerException;
+import naturalnumbers.NaturalNumberEqualizer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.exceptions.NaturalNumberListExchangerException;
-import naturalnumbers.NaturalNumberEqualizer;
 
 public class NaturalNumberListExchanger extends Problem implements IProblem
 {

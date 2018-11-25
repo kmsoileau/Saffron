@@ -1,12 +1,12 @@
 package naturalnumbers;
 
+import naturalnumbers.exceptions.ConditionalAdderException;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.exceptions.ConditionalAdderException;
 
 public class ConditionalAdder extends Problem implements IProblem
 {

@@ -27,12 +27,12 @@
 
 package naturalnumberlists;
 
+import naturalnumbers.NaturalNumberUnequalizer;
 import bits.Conjunction;
 import bits.IClause;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.NaturalNumberUnequalizer;
 
 public class NaturalNumberListNonrepeater extends Problem implements IProblem
 {

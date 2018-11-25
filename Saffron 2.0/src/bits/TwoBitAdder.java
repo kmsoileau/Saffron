@@ -21,7 +21,7 @@ package bits;
  *         email: ksoileau2@yahoo.com
  *         <p>
  *         website: http://kerrysoileau.com/index.html
- * @version 1.11
+ * @version 2.0
  * @since 2004/11/24
  */
 public class TwoBitAdder extends Problem implements IProblem
@@ -29,13 +29,35 @@ public class TwoBitAdder extends Problem implements IProblem
 	public TwoBitAdder(IBooleanVariable x, IBooleanVariable y,
 			IBooleanVariable z, IBooleanVariable c) throws Exception
 	{
+		IBooleanLiteral orc = BooleanLiteral.getBooleanLiteral(c, false);
+		IBooleanLiteral orx = BooleanLiteral.getBooleanLiteral(x, false);
+		IBooleanLiteral ory = BooleanLiteral.getBooleanLiteral(y, false);
+		IBooleanLiteral orz = BooleanLiteral.getBooleanLiteral(z, false);
+		IBooleanLiteral ornotc = BooleanLiteral.getBooleanLiteral(c, true);
+		IBooleanLiteral ornotx = BooleanLiteral.getBooleanLiteral(x, true);
+		IBooleanLiteral ornoty = BooleanLiteral.getBooleanLiteral(y, true);
+		IBooleanLiteral ornotz = BooleanLiteral.getBooleanLiteral(z, true);
+
+		IClause c1 = Clause.asClause(new IBooleanLiteral[]
+		{ ornotc, orx });
+		IClause c2 = Clause.asClause(new IBooleanLiteral[]
+		{ ornotc, ory });
+		IClause c3 = Clause.asClause(new IBooleanLiteral[]
+		{ ornotc, ornotz });
+		IClause c4 = Clause.asClause(new IBooleanLiteral[]
+		{ orc, ornoty, orz });
+		IClause c5 = Clause.asClause(new IBooleanLiteral[]
+		{ ornotx, ory, orz });
+		IClause c6 = Clause.asClause(new IBooleanLiteral[]
+		{ ornotx, ornoty, ornotz });
+		IClause c7 = Clause.asClause(new IBooleanLiteral[]
+		{ orx, ory, ornotz });
+		IClause c8 = Clause.asClause(new IBooleanLiteral[]
+		{ orx, ornoty, orz });
+
 		this.setClauses(new IClause[]
-		{ Clause.newClause().orNot(c).or(x), Clause.newClause().orNot(c).or(y),
-				Clause.newClause().orNot(c).orNot(z),
-				Clause.newClause().or(x).or(y).orNot(z),
-				Clause.newClause().or(x).orNot(y).or(z),
-				Clause.newClause().orNot(x).or(y).or(z),
-				Clause.newClause().or(c).orNot(y).or(z),
-				Clause.newClause().orNot(x).orNot(y).orNot(z) });
+		{ c1, c2, c3, c4, c5, c6, c7, c8 }
+
+		);
 	}
 }

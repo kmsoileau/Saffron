@@ -1,6 +1,7 @@
 package bits;
 
 import java.util.List;
+
 import bits.exceptions.AlternativeDenialException;
 
 /**

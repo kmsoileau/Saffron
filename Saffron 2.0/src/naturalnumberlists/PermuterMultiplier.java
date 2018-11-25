@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberEqualizer;
+import naturalnumbers.NaturalNumberFixer;
 import bits.Conjunction;
 import bits.Disjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberEqualizer;
-import naturalnumbers.NaturalNumberFixer;
 
 public class PermuterMultiplier extends Problem implements IProblem
 {
