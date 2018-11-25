@@ -9,15 +9,11 @@ import bits.INaturalNumber;
 public class Task
 {
 	private long duration;
-
-	// private long finish;
 	private String name;
-	private INaturalNumber NNStart;
 	private INaturalNumber NNDuration;
 	private INaturalNumber NNFinish;
+	private INaturalNumber NNStart;
 	private List<Task> predecessors;
-
-	// private long start;
 
 	public Task(String name, long duration) throws Exception
 	{
@@ -33,9 +29,6 @@ public class Task
 		return duration;
 	}
 
-	/*
-	 * public long getFinish() { return finish; }
-	 */
 	public String getName()
 	{
 		return this.name;
@@ -61,17 +54,21 @@ public class Task
 		return predecessors;
 	}
 
-	/*
-	 * public long getStart() { return start; }
-	 */
+	public String predList()
+	{
+		String ret = "";
+		if(this.predecessors==null)
+			return null;
+		for (Task curr : this.predecessors)
+			ret += curr.getName() + ",";
+		return ret + "]";
+	}
+
 	public void setDuration(long duration)
 	{
 		this.duration = duration;
 	}
 
-	/*
-	 * public void setFinish(long decimal) { this.finish = decimal; }
-	 */
 	public void setName(String name)
 	{
 		this.name = name;
@@ -89,22 +86,14 @@ public class Task
 
 	public void setPredecessors(Task[] predecessors)
 	{
-		
+
 		this.predecessors = Arrays.asList(predecessors);
 	}
-	/*
-	 * public void setStart(long decimal) { this.start = decimal; }
-	 */
-	/*
-	 * public String toString() { return "\nTask [name=" + name + ", start=" +
-	 * start + ", duration=" + duration + ", finish=" + finish + "]"; }
-	 */
 
-	@Override
 	public String toString()
 	{
-		return "\nTask [name=" + name + ", NNStart=" + NNStart + ", NNDuration="
-				+ NNDuration + ", NNFinish=" + NNFinish + "]";
+		return "\nTask [name=" + name + ", NNStart=" + NNStart
+				+ ", NNDuration=" + NNDuration + ", NNFinish=" + NNFinish + "]";
 	}
 
 }

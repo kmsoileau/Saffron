@@ -56,8 +56,12 @@ public class JobSchedulingProblem1
 		{ A1, A2, A3 };
 
 		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs, 30);
+		System.out.println(Scheduler.getProblem());
 		if(solution==null)
+		{
+			System.out.println("No solution found.");
 			return;
+		}
 		for (int i = 0; i < procs.length; i++)
 		{
 			ArrayList<Task> curr = solution.get(i);

@@ -1,11 +1,3 @@
-/*
- * BitStringAnder.java	1.0 05/04/15
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bitstrings;
 
 import bits.BitAnder;
@@ -15,6 +7,18 @@ import bits.IProblem;
 import bits.Problem;
 import bitstrings.exceptions.BitStringAnderException;
 
+/**
+ * Constrains the IBitString Z to be the bitwise AND of IBitString X and
+ * IBitString Y.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/15
+ */
 public class BitStringAnder extends Problem implements IProblem
 {
 	public BitStringAnder(IBitString X, IBitString Y, IBitString Z)
