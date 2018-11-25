@@ -32,17 +32,18 @@ public class NaturalNumberAdderDemo1
 {
 	public static void main(String[] args) throws Exception
 	{
-		NaturalNumber.setLength(8);
+		NaturalNumber.setLargestNaturalNumber(2);
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 		INaturalNumber Z = new NaturalNumber("Z");
 		INaturalNumber C = new NaturalNumber("C");
 
-		IProblem p = new NaturalNumberFixer(X, 127).and(
-				new NaturalNumberFixer(Y, 121)).and(
+		IProblem p = new NaturalNumberFixer(X, 1).and(
+				new NaturalNumberFixer(Y, 1)).and(
 				new NaturalNumberAdder(X, Y, Z, C));
+		
+		System.out.println(p);
 
-		System.out.println(((Problem) p).toCode());
 		List<IBooleanLiteral> s = p.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
