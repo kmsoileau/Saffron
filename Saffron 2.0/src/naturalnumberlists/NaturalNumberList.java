@@ -143,7 +143,7 @@ public class NaturalNumberList extends BitStringList implements
 	@Override
 	public String toString()
 	{
-		String res = "$";
+		String res = "[";
 		if (this.size() > 0)
 		{
 			try
@@ -164,6 +164,6 @@ public class NaturalNumberList extends BitStringList implements
 					e.printStackTrace();
 				}
 		}
-		return res + "$";
+		return res + "]";
 	}
 }
