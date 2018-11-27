@@ -15,6 +15,7 @@ import bits.Conjunction;
 import bits.Disjunction;
 import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
+import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
@@ -49,26 +50,33 @@ public class Scheduler
 				task.getNNFinish());
 	}
 
-	static ArrayList<IProblem> doInProcessorPrecProblem(Task[] task,
+	static IProblem[] doInProcessorPrecProblem(Task[] task,
 			Processor[] proc) throws Exception
 	{
-		ArrayList<IProblem> array = new ArrayList<IProblem>();
+		//ArrayList<IProblem> array = new ArrayList<IProblem>();
+		IProblem[] array = new IProblem[proc.length * task.length * task.length];
+		int arrayCounter=0;
 		for (int i = 0; i < proc.length; i++)
 		{
+			System.out.println("h3.2");
 			IBooleanVariable[] currentProc = partition[i];
 			for (int j = 0; j < task.length; j++)
 			{
 				Task t1 = task[j];
 				IBooleanVariable currBV1 = currentProc[j];
-				for (int k = 0; k < task.length; k++)
+				BitFixer currBF = new BitFixer(currBV1, false);
+				INaturalNumber currStart = t1.getNNStart();
+				INaturalNumber currFinish = t1.getNNFinish();
+				for (int k = j+1; k < task.length; k++)
 				{
 					Task t2 = task[k];
+					//System.out.println("Task "+t1.getName()+"/"+"Task "+t2.getName());
 					IBooleanVariable currBV2 = currentProc[k];
-					array.add(new Disjunction(new BitFixer(currBV1, false),
+					array[arrayCounter++]=new Disjunction(currBF,
 							new BitFixer(currBV2, false),
-							new NaturalNumberOrderer(t1.getNNFinish(), t2
+							new NaturalNumberOrderer(currFinish, t2
 									.getNNStart()), new NaturalNumberOrderer(t2
-									.getNNFinish(), t1.getNNStart())));
+									.getNNFinish(), currStart));
 				}
 			}
 		}
@@ -137,11 +145,11 @@ public class Scheduler
 		// IBooleanVariable[][] partition = new
 		// IBooleanVariable[numberProcs][numberTasks];
 		stagingArray[stagingIndex++] = doPartitionProblem(task, proc);
-
+		
 		// Bind Durations Problem
 		IProblem bindDurationsProblem = doBindDurationsProblem(task);
 		stagingArray[stagingIndex++] = new Conjunction(bindDurationsProblem);
-
+		
 		// Impose Precedence Relations
 		for (int i = 0; i < numberTasks; i++)
 		{
@@ -150,18 +158,19 @@ public class Scheduler
 				continue;
 			stagingArray[stagingIndex++] = new Conjunction(precProblem);
 		}
-		stagingArray[stagingIndex++] = new Conjunction(doInProcessorPrecProblem(task,proc));
-
+		//////////////stagingArray[stagingIndex++] = new Conjunction(doInProcessorPrecProblem(task,proc));
+		System.out.println("h4");
 		// Impose Duration Relations
 		for (int i = 0; i < numberTasks; i++)
 		{
 			stagingArray[stagingIndex++] = doDurationRelation(task[i]);
 		}
-
+		System.out.println("h5");
 		// Impose time limit to finish all tasks
 		stagingArray[stagingIndex++] = doTimeLimit(task, timeLimit);
-
+		System.out.println("h6");
 		jobSchedulingProblem = new Conjunction(stagingArray);
+		System.out.println("h7");
 
 		List<IBooleanLiteral> blList = jobSchedulingProblem.findModel(Problem
 				.defaultSolver());

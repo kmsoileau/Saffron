@@ -57,11 +57,11 @@ public class Task
 	public String predList()
 	{
 		String ret = "";
-		if(this.predecessors==null)
+		if (this.predecessors == null)
 			return null;
 		for (Task curr : this.predecessors)
 			ret += curr.getName() + ",";
-		return ret + "]";
+		return ret;
 	}
 
 	public void setDuration(long duration)
@@ -93,7 +93,6 @@ public class Task
 	public String toString()
 	{
 		return "\nTask [name=" + name + ", NNStart=" + NNStart
-				+ ", NNDuration=" + NNDuration + ", NNFinish=" + NNFinish + "]";
+				+ ", NNDuration=" + NNDuration + ", NNFinish=" + NNFinish;
 	}
-
 }

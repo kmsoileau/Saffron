@@ -5,21 +5,21 @@ import java.util.ArrayList;
 import naturalnumbers.NaturalNumber;
 
 /**
-*
-* @author Kerry Michael Soileau
-*         <p>
-*         email: ksoileau2@yahoo.com
-*         <p>
-*         website: http://kerrysoileau.com/index.html
-* @version 1.0
-* @since 2018/11/22
-*/
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2018/11/22
+ */
 public class JobSchedulingProblem1
 {
 	public static void main(String[] args) throws Exception
 	{
-		NaturalNumber.setLargestNaturalNumber(100);
-		
+		NaturalNumber.setLargestNaturalNumber(40);
+
 		Task FP = new Task("FP", 7);
 		Task FW = new Task("FW", 7);
 		Task BW = new Task("BW", 7);
@@ -48,16 +48,13 @@ public class JobSchedulingProblem1
 		CR.setPredecessors(new Task[]
 		{ CW });
 
-		Processor A1 = new Processor("A1");
-		Processor A2 = new Processor("A2");
-		Processor A3 = new Processor("A3");
-
 		Processor[] procs = new Processor[]
-		{ A1, A2, A3 };
+		{ new Processor("A1"), new Processor("A2"), new Processor("A3") };
 
-		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs, 60);
+		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs,
+				40);
 		System.out.println(Scheduler.getProblem());
-		if(solution==null)
+		if (solution == null)
 		{
 			System.out.println("No solution found.");
 			return;
