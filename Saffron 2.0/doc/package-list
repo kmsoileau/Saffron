@@ -10,6 +10,7 @@ bittables.exceptions
 demos
 demos.binpacking
 demos.scheduling
+naturalnumberinterval
 naturalnumberlists
 naturalnumberlists.exceptions
 naturalnumbers
