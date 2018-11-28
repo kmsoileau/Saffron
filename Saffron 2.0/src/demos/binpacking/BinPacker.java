@@ -11,6 +11,10 @@ package demos.binpacking;
 import java.util.ArrayList;
 import java.util.List;
 
+import naturalnumbers.ConditionalAdder;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberOrderer;
 import bits.BitArrayPartition;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
@@ -20,10 +24,6 @@ import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.ConditionalAdder;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberLEQer;
 
 public class BinPacker
 {
@@ -90,7 +90,7 @@ public class BinPacker
 		IProblem[] binFitProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
 		{
-			binFitProblemArray[i] = new NaturalNumberLEQer(condSum[i],
+			binFitProblemArray[i] = new NaturalNumberOrderer(condSum[i],
 					binCapacityNNArray[i]);
 			stagingArray[stagingIndex++] = binFitProblemArray[i];
 		}
