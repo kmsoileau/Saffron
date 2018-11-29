@@ -11,6 +11,7 @@ demos
 demos.binpacking
 demos.scheduling
 naturalnumberinterval
+naturalnumberinterval.exceptions
 naturalnumberlists
 naturalnumberlists.exceptions
 naturalnumbers
