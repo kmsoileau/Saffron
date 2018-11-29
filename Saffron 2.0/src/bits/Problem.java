@@ -505,7 +505,9 @@ public class Problem implements IProblem
 
 	public void removeAllClauses()
 	{
-		this.getClauses().clear();
+		List<IClause> qq = this.getClauses();
+		if(qq!=null && qq.size()>0)
+			qq.clear();
 	}
 
 	public void removeClause(int n)

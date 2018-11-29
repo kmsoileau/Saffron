@@ -2,13 +2,13 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
+import naturalnumberinterval.INaturalNumberInterval;
+import naturalnumberinterval.NaturalNumberInterval;
+import naturalnumberinterval.NaturalNumberIntervalIntersector;
 import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberIntervalIntersector;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
-import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
@@ -16,15 +16,15 @@ public class NaturalNumberIntervalIntersectorDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		INaturalNumber A = new NaturalNumber("A");
-		INaturalNumber B = new NaturalNumber("B");
-		INaturalNumber C = new NaturalNumber("C");
-		INaturalNumber D = new NaturalNumber("D");
+		INaturalNumberInterval L = new NaturalNumberInterval("L");
+		INaturalNumberInterval R = new NaturalNumberInterval("R");
 
 		IProblem[] p = new IProblem[]
-		{ new NaturalNumberFixer(A, 3), new NaturalNumberFixer(B, 4),
-				new NaturalNumberFixer(C, 2), new NaturalNumberFixer(D, 7),
-				new NaturalNumberIntervalIntersector(A, B, C, D) };
+		{ new NaturalNumberFixer(L.getLower(), 3),
+				new NaturalNumberFixer(L.getUpper(), 4),
+				new NaturalNumberFixer(R.getLower(), 2),
+				new NaturalNumberFixer(R.getUpper(), 7),
+				new NaturalNumberIntervalIntersector(L, R) };
 
 		IProblem problem = new Conjunction(p);
 
@@ -33,8 +33,8 @@ public class NaturalNumberIntervalIntersectorDemo
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
-			System.out.println("[A,B] = [" + A + "," + B + "]");
-			System.out.println("[C,D] = [" + C + "," + D + "]");
+			System.out.println("L = " + L);
+			System.out.println("R = " + R);
 		}
 		else
 			System.out.println("No solution.");
