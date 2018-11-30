@@ -7,8 +7,14 @@ bitstrings
 bitstrings.exceptions
 bittables
 bittables.exceptions
-demos
 demos.binpacking
+demos.bits
+demos.bitstringlists
+demos.bitstrings
+demos.bittables
+demos.naturalnumberintervals
+demos.naturalnumberlists
+demos.naturalnumbers
 demos.scheduling
 naturalnumberinterval
 naturalnumberinterval.exceptions
