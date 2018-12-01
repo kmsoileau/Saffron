@@ -1,11 +1,3 @@
-/*
- * BitStringClearer.java	1.0 05/04/15
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bitstrings;
 
 import bits.Conjunction;
@@ -14,6 +6,18 @@ import bits.IProblem;
 import bits.Problem;
 import bitstrings.exceptions.BitStringClearerException;
 
+/**
+ * Constrains the <code>IBooleanVariable</code> at position <code>bit</code> of
+ * <code>IBitString b</code> to equal the boolean value <code>false</code>.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/15
+ */
 public class BitStringClearer extends Problem implements IProblem
 {
 	public BitStringClearer(IBitString X, IBitString Y) throws Exception

@@ -1,11 +1,3 @@
-/*
- * BitStringEqualizer.java	1.0 05/04/15
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bitstrings;
 
 import bits.BitEqualizer;
@@ -15,6 +7,17 @@ import bits.IProblem;
 import bits.Problem;
 import bitstrings.exceptions.BitStringEqualizerException;
 
+/**
+ * Constrains <code>IBitString X</code> to equal <code>IBitString</code> <code>Y</code>.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/15
+ */
 public class BitStringEqualizer extends Problem implements IProblem
 {
 	public BitStringEqualizer(IBitString X, IBitString Y) throws Exception

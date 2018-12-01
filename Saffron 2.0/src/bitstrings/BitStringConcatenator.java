@@ -1,11 +1,3 @@
-/*
- * BitStringConcatenator.java	1.0 05/04/15
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bitstrings;
 
 import bits.BitEqualizer;
@@ -15,6 +7,18 @@ import bits.IProblem;
 import bits.Problem;
 import bitstrings.exceptions.BitStringConcatenatorException;
 
+/**
+ * Constrains <code>IBitString Z</code> to be the concatenation of
+ * <code>IBitString</code>s <code>X</code> and <code>Y</code>.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/15
+ */
 public class BitStringConcatenator extends Problem implements IProblem
 {
 	public BitStringConcatenator(IBitString X, IBitString Y, IBitString Z)
