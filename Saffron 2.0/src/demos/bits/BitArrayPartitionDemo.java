@@ -20,6 +20,7 @@ public class BitArrayPartitionDemo
 		List<IBooleanLiteral> s;
 
 		// IProblem-0
+		System.out.println("IProblem-0");
 		IBooleanVariable[][] partition = new IBooleanVariable[3][4];
 		partitions = partition.length;
 		bits = partition[0].length;
@@ -31,7 +32,7 @@ public class BitArrayPartitionDemo
 						+ "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
-		System.out.println(problem);
+		//System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
@@ -49,6 +50,7 @@ public class BitArrayPartitionDemo
 			System.out.println("No solution.");
 
 		// IProblem-1
+		System.out.println("IProblem-1");
 		partition = new IBooleanVariable[3][1];
 		partitions = partition.length;
 		bits = partition[0].length;
@@ -60,7 +62,7 @@ public class BitArrayPartitionDemo
 						+ "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
-		System.out.println(problem);
+		//System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
@@ -78,6 +80,7 @@ public class BitArrayPartitionDemo
 			System.out.println("No solution.");
 
 		// IProblem-2
+		System.out.println("IProblem-2");
 		partition = new IBooleanVariable[1][4];
 		partitions = partition.length;
 		bits = partition[0].length;
@@ -89,7 +92,7 @@ public class BitArrayPartitionDemo
 						+ "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
-		System.out.println(problem);
+		//System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
@@ -107,6 +110,7 @@ public class BitArrayPartitionDemo
 			System.out.println("No solution.");
 
 		// IProblem-3
+		System.out.println("IProblem-3");
 		partition = new IBooleanVariable[1][0];
 		partitions = partition.length;
 		bits = partition[0].length;
@@ -118,7 +122,7 @@ public class BitArrayPartitionDemo
 						+ "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
-		System.out.println(problem);
+		//System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
@@ -136,6 +140,7 @@ public class BitArrayPartitionDemo
 			System.out.println("No solution.");
 
 		// IProblem-4
+		System.out.println("IProblem-4");
 		partition = new IBooleanVariable[15][16];
 		partitions = partition.length;
 		bits = partition[0].length;
@@ -147,7 +152,7 @@ public class BitArrayPartitionDemo
 						+ "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
-		System.out.println(problem);
+		//System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{

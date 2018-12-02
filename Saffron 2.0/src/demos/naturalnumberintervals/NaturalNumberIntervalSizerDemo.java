@@ -2,9 +2,9 @@ package demos.naturalnumberintervals;
 
 import java.util.List;
 
-import naturalnumberinterval.INaturalNumberInterval;
-import naturalnumberinterval.NaturalNumberInterval;
-import naturalnumberinterval.NaturalNumberIntervalSizer;
+import naturalnumberintervals.INaturalNumberInterval;
+import naturalnumberintervals.NaturalNumberInterval;
+import naturalnumberintervals.NaturalNumberIntervalSizer;
 import bits.BooleanLiteral;
 import bits.IBooleanLiteral;
 import bits.IProblem;

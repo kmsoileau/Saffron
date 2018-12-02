@@ -1,11 +1,3 @@
-/*
- * BitStringFixer.java	1.0 05/04/21
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bitstrings;
 
 import bits.BitFixer;
@@ -16,6 +8,27 @@ import bits.IProblem;
 import bits.Problem;
 import bitstrings.exceptions.BitStringFixerException;
 
+/**
+ * An extension of the <code>Problem</code> class which imposes a constraint on
+ * an <code>IBitString</code>. For example, for <code>IBitString target</code>
+ * and <code>boolean[] c</code>,</code> the <code>Problem</code> instance
+ * <code>p</code> defined by
+ *
+ * <p>
+ * <tt>Problem p=new BitStringFixer(target, c);</code>
+ * </p>
+ *
+ * is satisfied if and only if for each <code>i</code>, the <code>i</code>th bit
+ * is equal to the corresponding bit <code>c[i]</code>.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/21
+ */
 public class BitStringFixer extends Problem implements IProblem
 {
 	public BitStringFixer(IBitString target) throws Exception

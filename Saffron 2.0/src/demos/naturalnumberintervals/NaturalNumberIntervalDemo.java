@@ -2,9 +2,9 @@ package demos.naturalnumberintervals;
 
 import java.util.List;
 
-import naturalnumberinterval.INaturalNumberInterval;
-import naturalnumberinterval.NaturalNumberInterval;
-import naturalnumberinterval.NaturalNumberIntervalFixer;
+import naturalnumberintervals.INaturalNumberInterval;
+import naturalnumberintervals.NaturalNumberInterval;
+import naturalnumberintervals.NaturalNumberIntervalFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
@@ -22,7 +22,7 @@ public class NaturalNumberIntervalDemo
 		{
 				new NaturalNumberIntervalFixer(AB, 3, 4),
 				new NaturalNumberIntervalFixer(CD, 2, 7),
-				new naturalnumberinterval.NaturalNumberIntervalIntersector(AB,
+				new naturalnumberintervals.NaturalNumberIntervalIntersector(AB,
 						CD) };
 
 		IProblem problem = new Conjunction(p);

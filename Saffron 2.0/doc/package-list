@@ -1,6 +1,7 @@
 asdata
 bits
 bits.exceptions
+bitstringgraphs
 bitstringlists
 bitstringlists.exceptions
 bitstrings
@@ -16,8 +17,8 @@ demos.naturalnumberintervals
 demos.naturalnumberlists
 demos.naturalnumbers
 demos.scheduling
-naturalnumberinterval
-naturalnumberinterval.exceptions
+naturalnumberintervals
+naturalnumberintervals.exceptions
 naturalnumberlists
 naturalnumberlists.exceptions
 naturalnumbers

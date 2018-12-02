@@ -5,17 +5,18 @@ import java.util.ArrayList;
 import bits.exceptions.BitArrayPartitionException;
 
 /**
- * For example, suppose <code>partition</code> is as follows: <blockquote>
- * _______________0___1___2__3___4__
- * <p>
+ * For example, suppose <code>partition</code> is as follows:
  * 
- * partition[0]: x00 x01 x02 x03 x04
+ * <code><p>
+ * ____________|___0___1___2___3___4_
  * <p>
- * partition[1]: x10 x11 x12 x13 x14
+ * partition[0]| x00 x01 x02 x03 x04
  * <p>
- * partition[2]: x20 x21 x22 x23 x24
+ * partition[1]| x10 x11 x12 x13 x14
  * <p>
- * </blockquote>
+ * partition[2]| x20 x21 x22 x23 x24
+ * <p>
+ * </code>
  * 
  * where the <code>x</code>'s are <code>IBooleanVariable</code>s. then new
  * <code>BitArrayPartition(
