@@ -9,7 +9,7 @@ import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IClause;
 import bits.IProblem;
-import bits.exceptions.BooleanLiteralException;
+import exceptions.bits.BooleanLiteralException;
 
 public class ClauseAsData implements IClauseAsData
 {

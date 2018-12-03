@@ -2,7 +2,7 @@ package bits;
 
 import java.util.ArrayList;
 
-import bits.exceptions.BitArrayPartitionException;
+import exceptions.bits.BitArrayPartitionException;
 
 /**
  * For example, suppose <code>partition</code> is as follows:

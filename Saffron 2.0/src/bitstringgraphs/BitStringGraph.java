@@ -2,7 +2,7 @@ package bitstringgraphs;
 
 import bits.BooleanVariable;
 import bits.IBooleanVariable;
-import bitstrings.exceptions.BitStringGraphException;
+import exceptions.bitstrings.BitStringGraphException;
 
 /**
  * A class which represents a graph. An IBitStringGraph is essentially a table

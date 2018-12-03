@@ -1,6 +1,6 @@
 package bits;
 
-import bits.exceptions.ProblemDenierException;
+import exceptions.bits.ProblemDenierException;
 
 /**
  * An extension of the Problem class which expresses the denial of a given

@@ -20,15 +20,15 @@ package demos.naturalnumberlists;
 
 import java.util.List;
 
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListFixer;
+import naturalnumberlists.NaturalNumberListSorter;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListFixer;
-import naturalnumberlists.NaturalNumberListSorter;
 
 public class NaturalNumberListSorterDemo
 {

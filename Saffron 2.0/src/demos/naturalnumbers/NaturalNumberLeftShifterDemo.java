@@ -10,15 +10,15 @@ package demos.naturalnumbers;
  */
 import java.util.List;
 
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberLeftShifter;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberLeftShifter;
 
 public class NaturalNumberLeftShifterDemo
 {

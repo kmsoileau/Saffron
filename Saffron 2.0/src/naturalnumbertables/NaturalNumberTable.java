@@ -8,10 +8,10 @@
 
 package naturalnumbertables;
 
+import naturalnumbers.NaturalNumber;
 import bits.IBitString;
 import bits.INaturalNumber;
-import naturalnumbers.NaturalNumber;
-import naturalnumbertables.exceptions.NaturalNumberTableException;
+import exceptions.naturalnumbertables.NaturalNumberTableException;
 
 public class NaturalNumberTable implements INaturalNumberTable
 {

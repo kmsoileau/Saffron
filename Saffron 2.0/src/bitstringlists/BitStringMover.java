@@ -8,9 +8,9 @@ import bits.IBitString;
 import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.exceptions.BitStringListException;
 import bitstrings.BitString;
 import bitstrings.BitStringEqualizer;
+import exceptions.bitstringlists.BitStringListException;
 
 public class BitStringMover extends Problem implements IProblem
 {

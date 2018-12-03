@@ -13,8 +13,8 @@ import java.util.Map;
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.specs.ISolver;
 
-import bits.exceptions.ClauseException;
-import bits.exceptions.ProblemException;
+import exceptions.bits.ClauseException;
+import exceptions.bits.ProblemException;
 
 /**
  * A class which represents a collection of IClause objects, and which amounts

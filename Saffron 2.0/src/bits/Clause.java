@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import bits.exceptions.ClauseException;
+import exceptions.bits.ClauseException;
 
 /**
  * A class which represents a satisfiability clause. IClause is essentially an

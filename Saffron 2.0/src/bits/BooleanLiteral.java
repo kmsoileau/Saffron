@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-import bits.exceptions.BooleanLiteralException;
+import exceptions.bits.BooleanLiteralException;
 
 /**
  * A class which represents a Boolean literal. BooleanLiteral is essentially a

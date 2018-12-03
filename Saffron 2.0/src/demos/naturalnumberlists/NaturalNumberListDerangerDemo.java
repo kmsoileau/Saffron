@@ -18,15 +18,15 @@ package demos.naturalnumberlists;
 
 import java.util.List;
 
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListDeranger;
+import naturalnumberlists.NaturalNumberListFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListDeranger;
-import naturalnumberlists.NaturalNumberListFixer;
 
 public class NaturalNumberListDerangerDemo
 {

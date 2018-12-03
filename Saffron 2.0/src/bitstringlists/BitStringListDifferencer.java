@@ -13,7 +13,7 @@ import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.exceptions.BitStringListDisjointerException;
+import exceptions.bitstringlists.BitStringListDisjointerException;
 
 /**
  * This IProblem imposes the constraint that IBitString T is the difference

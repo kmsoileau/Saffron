@@ -6,7 +6,7 @@ import java.util.List;
 import bits.BooleanVariable;
 import bits.IBitString;
 import bits.IBooleanVariable;
-import bitstrings.exceptions.BitStringException;
+import exceptions.bitstrings.BitStringException;
 
 /**
  * An array of fixed length of IBooleanVariables.

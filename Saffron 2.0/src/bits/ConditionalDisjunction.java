@@ -1,6 +1,6 @@
 package bits;
 
-import bits.exceptions.ConditionalDisjunctionException;
+import exceptions.bits.ConditionalDisjunctionException;
 
 /**
  * Returns an IProblem that is satisfied if and only if at least one of the

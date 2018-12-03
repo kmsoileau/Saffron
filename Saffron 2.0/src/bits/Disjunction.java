@@ -3,7 +3,7 @@ package bits;
 import java.util.ArrayList;
 import java.util.List;
 
-import bits.exceptions.DisjunctionException;
+import exceptions.bits.DisjunctionException;
 
 /**
  * Returns an IProblem that is satisfied if and only at least one of the

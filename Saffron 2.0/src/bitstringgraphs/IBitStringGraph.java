@@ -6,7 +6,7 @@
 package bitstringgraphs;
 
 import bits.IBooleanVariable;
-import bitstrings.exceptions.BitStringGraphException;
+import exceptions.bitstrings.BitStringGraphException;
 
 public interface IBitStringGraph extends Cloneable
 {

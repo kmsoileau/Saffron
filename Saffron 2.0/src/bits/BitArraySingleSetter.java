@@ -1,6 +1,6 @@
 package bits;
 
-import bits.exceptions.BitArraySingleSetterException;
+import exceptions.bits.BitArraySingleSetterException;
 
 /**
  * For any positive integer n, if X_0, X_1, X_2, ... ,X_{n-1} are

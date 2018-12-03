@@ -9,11 +9,11 @@
 
 package naturalnumbers;
 
-import naturalnumbers.exceptions.NaturalNumberFixerException;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import exceptions.naturalnumbers.NaturalNumberFixerException;
 
 public class NaturalNumberFixer extends Problem implements IProblem
 {

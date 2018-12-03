@@ -1,6 +1,6 @@
 package bits;
 
-import bits.exceptions.ProblemDifferencerException;
+import exceptions.bits.ProblemDifferencerException;
 
 /**
  * An extension of the Problem class which expresses the logical difference of

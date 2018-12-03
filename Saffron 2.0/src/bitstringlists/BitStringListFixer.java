@@ -12,7 +12,7 @@ import bits.BitFixer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.exceptions.BitStringListFixerException;
+import exceptions.bitstringlists.BitStringListFixerException;
 
 /**
  * <p>

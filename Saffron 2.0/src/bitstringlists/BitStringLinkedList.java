@@ -9,9 +9,9 @@ import java.util.ListIterator;
 import bits.BooleanVariable;
 import bits.IBitString;
 import bits.IBooleanVariable;
-import bitstringlists.exceptions.BitStringLinkedListException;
 import bitstrings.ArrayListSet;
 import bitstrings.BitString;
+import exceptions.bitstringlists.BitStringLinkedListException;
 
 public class BitStringLinkedList implements IBitStringLinkedList
 {

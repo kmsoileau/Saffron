@@ -2,7 +2,7 @@ package bits;
 
 import java.util.ArrayList;
 
-import bits.exceptions.BitExclusiveSelectorException;
+import exceptions.bits.BitExclusiveSelectorException;
 
 /**
  * An extension of the Problem class which imposes a Boolean relation on three

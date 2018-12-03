@@ -5,7 +5,7 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstrings.exceptions.BitStringEqualizerException;
+import exceptions.bitstrings.BitStringEqualizerException;
 
 /**
  * Constrains <code>IBitString X</code> to equal <code>IBitString</code> <code>Y</code>.

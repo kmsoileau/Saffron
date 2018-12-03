@@ -2,7 +2,7 @@ package bits;
 
 import java.util.List;
 
-import bits.exceptions.ClauseException;
+import exceptions.bits.ClauseException;
 
 /**
  * The <code>IClause</code> interface must be implemented by any class

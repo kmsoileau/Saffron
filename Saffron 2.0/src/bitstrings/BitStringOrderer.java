@@ -43,9 +43,9 @@ import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
-import bits.exceptions.BooleanLiteralException;
-import bitstrings.exceptions.BitStringException;
-import bitstrings.exceptions.BitStringOrdererException;
+import exceptions.bits.BooleanLiteralException;
+import exceptions.bitstrings.BitStringException;
+import exceptions.bitstrings.BitStringOrdererException;
 
 @SuppressWarnings("unused")
 public class BitStringOrderer extends Problem implements IProblem

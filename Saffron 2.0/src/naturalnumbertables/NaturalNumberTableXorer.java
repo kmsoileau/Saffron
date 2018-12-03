@@ -1,9 +1,9 @@
 package naturalnumbertables;
 
+import naturalnumbers.NaturalNumberXorer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.NaturalNumberXorer;
 
 public class NaturalNumberTableXorer extends Problem implements IProblem
 {

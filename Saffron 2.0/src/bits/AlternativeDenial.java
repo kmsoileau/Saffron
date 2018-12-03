@@ -2,7 +2,7 @@ package bits;
 
 import java.util.List;
 
-import bits.exceptions.AlternativeDenialException;
+import exceptions.bits.AlternativeDenialException;
 
 /**
  * An extension of the <code>Problem</code> class which expresses the

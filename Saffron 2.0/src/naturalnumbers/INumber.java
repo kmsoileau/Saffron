@@ -1,6 +1,6 @@
 package naturalnumbers;
 
-import naturalnumbers.exceptions.NumberException;
+import exceptions.naturalnumbers.NumberException;
 
 /**
  * The <code>INumber</code> interface must be implemented by any class

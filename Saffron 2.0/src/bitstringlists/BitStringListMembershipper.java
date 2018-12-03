@@ -4,8 +4,8 @@ import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.exceptions.BitStringListException;
 import bitstrings.BitStringEqualizer;
+import exceptions.bitstringlists.BitStringListException;
 
 /*
  * BitStringListMembershipper.java	1.0 05/04/11

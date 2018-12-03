@@ -2,7 +2,7 @@ package naturalnumberlists.exceptions;
 
 public class NaturalNumberListOrerException extends Exception
 {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2543483219412293957L;
 
 	public NaturalNumberListOrerException(String s)
 	{

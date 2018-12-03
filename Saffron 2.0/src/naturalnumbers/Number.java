@@ -1,6 +1,6 @@
 package naturalnumbers;
 
-import naturalnumbers.exceptions.NumberException;
+import exceptions.naturalnumbers.NumberException;
 
 /**
  * A class which represents a number by wrapping a

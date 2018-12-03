@@ -8,11 +8,11 @@
 
 package naturalnumbertables;
 
+import naturalnumbers.NaturalNumberOrer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.NaturalNumberOrer;
-import naturalnumbertables.exceptions.NaturalNumberTableOrerException;
+import exceptions.naturalnumbertables.NaturalNumberTableOrerException;
 
 public class NaturalNumberTableOrer extends Problem implements IProblem
 {

@@ -12,7 +12,7 @@ import bits.BitEqualizer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import bittables.exceptions.BitTableInequalityIndicatorException;
+import exceptions.bittables.BitTableInequalityIndicatorException;
 
 public class BitTableInequalityIndicator extends Problem implements IProblem
 {

@@ -2,6 +2,8 @@ package demos.bits;
 
 import java.util.List;
 
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
@@ -13,8 +15,6 @@ import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
 
 /**
  * <pre>

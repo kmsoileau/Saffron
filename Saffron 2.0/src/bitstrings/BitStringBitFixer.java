@@ -4,7 +4,7 @@ import bits.BitFixer;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstrings.exceptions.BitStringBitFixerException;
+import exceptions.bitstrings.BitStringBitFixerException;
 
 /**
  * Constrains the <code>IBooleanVariable</code> at position <code>bit</code> of

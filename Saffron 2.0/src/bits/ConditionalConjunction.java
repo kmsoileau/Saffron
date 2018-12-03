@@ -1,6 +1,6 @@
 package bits;
 
-import bits.exceptions.ConditionalConjunctionException;
+import exceptions.bits.ConditionalConjunctionException;
 
 /**
  * Returns an IProblem that is satisfied if and only if all of the following

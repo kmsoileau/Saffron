@@ -2,7 +2,7 @@ package bits;
 
 import java.util.ArrayList;
 
-import bits.exceptions.ConjunctionException;
+import exceptions.bits.ConjunctionException;
 
 /**
  * An extension of the Problem class which creates a new IProblem object from a

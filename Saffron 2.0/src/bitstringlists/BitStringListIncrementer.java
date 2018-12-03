@@ -5,8 +5,8 @@ import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.exceptions.BitStringListIncrementerException;
 import bitstrings.BitStringEqualizer;
+import exceptions.bitstringlists.BitStringListIncrementerException;
 
 /**
  * This IProblem detects whether one IBitStringList, called smaller, is a subset

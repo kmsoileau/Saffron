@@ -17,12 +17,12 @@
 
 package naturalnumbers;
 
-import naturalnumbers.exceptions.NaturalNumberException;
 import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bitstrings.BitString;
-import bitstrings.exceptions.BitStringException;
+import exceptions.bitstrings.BitStringException;
+import exceptions.naturalnumbers.NaturalNumberException;
 
 @SuppressWarnings("unused")
 public class NaturalNumber extends BitString implements INaturalNumber

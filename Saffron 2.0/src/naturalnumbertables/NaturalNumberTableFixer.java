@@ -1,11 +1,11 @@
 package naturalnumbertables;
 
+import naturalnumbers.NaturalNumberFixer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbertables.exceptions.NaturalNumberTableException;
-import naturalnumbertables.exceptions.NaturalNumberTableFixerException;
+import exceptions.naturalnumbertables.NaturalNumberTableException;
+import exceptions.naturalnumbertables.NaturalNumberTableFixerException;
 
 public class NaturalNumberTableFixer extends Problem implements IProblem
 {

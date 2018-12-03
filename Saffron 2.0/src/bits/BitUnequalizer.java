@@ -1,6 +1,6 @@
 package bits;
 
-import bits.exceptions.BitUnequalizerException;
+import exceptions.bits.BitUnequalizerException;
 
 /**
  * An extension of the Problem class which imposes a Boolean relation on two

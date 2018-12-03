@@ -6,7 +6,7 @@ import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
-import bitstrings.exceptions.BitStringFixerException;
+import exceptions.bitstrings.BitStringFixerException;
 
 /**
  * An extension of the <code>Problem</code> class which imposes a constraint on

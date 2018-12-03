@@ -2,13 +2,13 @@ package demos.bits;
 
 import java.util.ArrayList;
 
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberAdder;
+import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberAdder;
-import naturalnumbers.NaturalNumberFixer;
 
 public class FindTwoModelsDemo
 {

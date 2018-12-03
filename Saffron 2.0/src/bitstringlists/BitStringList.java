@@ -9,9 +9,9 @@ import java.util.Set;
 import bits.BooleanVariable;
 import bits.IBitString;
 import bits.IBooleanVariable;
-import bitstringlists.exceptions.BitStringListException;
 import bitstrings.ArrayListSet;
 import bitstrings.BitString;
+import exceptions.bitstringlists.BitStringListException;
 
 /**
  * A wrapper class which encloses an

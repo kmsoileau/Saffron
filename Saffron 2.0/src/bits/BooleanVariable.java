@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-import bits.exceptions.BooleanVariableException;
+import exceptions.bits.BooleanVariableException;
 
 /**
  * A class which represents a Boolean variable. BooleanVariable is essentially a

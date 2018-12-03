@@ -3,8 +3,8 @@ package bitstringlists;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.exceptions.BitStringListException;
 import bitstrings.BitStringEqualizer;
+import exceptions.bitstringlists.BitStringListException;
 
 /**
  * <p>

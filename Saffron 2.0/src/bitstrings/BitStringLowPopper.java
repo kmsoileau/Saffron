@@ -13,7 +13,7 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstrings.exceptions.BitStringLowPopperException;
+import exceptions.bitstrings.BitStringLowPopperException;
 
 public class BitStringLowPopper extends Problem implements IProblem
 {

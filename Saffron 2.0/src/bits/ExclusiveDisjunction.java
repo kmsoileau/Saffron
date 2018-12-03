@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import bits.exceptions.ExclusiveDisjunctionException;
+import exceptions.bits.ExclusiveDisjunctionException;
 
 /**
  * An extension of the Problem class which expresses the exclusive disjunction

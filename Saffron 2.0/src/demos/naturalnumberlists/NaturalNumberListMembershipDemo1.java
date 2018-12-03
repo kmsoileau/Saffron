@@ -2,17 +2,17 @@ package demos.naturalnumberlists;
 
 import java.util.List;
 
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListFixer;
+import naturalnumberlists.NaturalNumberListMembership;
+import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListFixer;
-import naturalnumberlists.NaturalNumberListMembership;
-import naturalnumbers.NaturalNumber;
 
 /**
  * <p>

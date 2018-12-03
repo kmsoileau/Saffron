@@ -35,10 +35,10 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bits.exceptions.BooleanLiteralException;
-import bitstringlists.exceptions.BitStringListException;
 import bitstrings.BitStringOrderer;
-import bitstrings.exceptions.BitStringException;
+import exceptions.bits.BooleanLiteralException;
+import exceptions.bitstringlists.BitStringListException;
+import exceptions.bitstrings.BitStringException;
 
 @SuppressWarnings("unused")
 public class BitStringListSorter extends Problem implements IProblem

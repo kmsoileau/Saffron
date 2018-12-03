@@ -2,14 +2,14 @@ package demos.naturalnumberlists;
 
 import java.util.List;
 
-import bits.BooleanLiteral;
-import bits.Conjunction;
-import bits.IBooleanLiteral;
-import bits.IProblem;
 import naturalnumberlists.INaturalNumberList;
 import naturalnumberlists.NaturalNumberList;
 import naturalnumberlists.NaturalNumberListFixer;
 import naturalnumberlists.NaturalNumberListRepeater;
+import bits.BooleanLiteral;
+import bits.Conjunction;
+import bits.IBooleanLiteral;
+import bits.IProblem;
 
 public class NaturalNumberListRepeaterDemo
 {

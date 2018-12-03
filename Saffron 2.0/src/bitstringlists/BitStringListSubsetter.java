@@ -11,7 +11,7 @@ package bitstringlists;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.exceptions.BitStringListException;
+import exceptions.bitstringlists.BitStringListException;
 
 public class BitStringListSubsetter extends Problem implements IProblem
 {

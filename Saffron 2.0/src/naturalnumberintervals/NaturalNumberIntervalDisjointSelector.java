@@ -1,12 +1,12 @@
 package naturalnumberintervals;
 
-import naturalnumberintervals.exceptions.NaturalNumberIntervalDisjointSelectorException;
 import bits.BitFixer;
 import bits.Conjunction;
 import bits.Disjunction;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
+import exceptions.naturalnumberintervals.NaturalNumberIntervalDisjointSelectorException;
 
 /**
  * An extension of the <code>Problem</code> class which imposes a relation on a

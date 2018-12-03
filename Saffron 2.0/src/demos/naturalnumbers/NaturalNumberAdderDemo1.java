@@ -19,14 +19,14 @@ package demos.naturalnumbers;
 
 import java.util.List;
 
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberAdder;
+import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberAdder;
-import naturalnumbers.NaturalNumberFixer;
 
 public class NaturalNumberAdderDemo1
 {

@@ -10,7 +10,7 @@ import org.sat4j.specs.ContradictionException;
 import org.sat4j.specs.ISolver;
 import org.sat4j.specs.IVecInt;
 
-import bits.exceptions.UnsolvableProblemException;
+import exceptions.bits.UnsolvableProblemException;
 
 /**
  * A reader which is created using an object of type
