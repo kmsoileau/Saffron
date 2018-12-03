@@ -45,7 +45,6 @@ import bits.IProblem;
 import bits.Problem;
 import exceptions.bits.BooleanLiteralException;
 import exceptions.bitstrings.BitStringException;
-import exceptions.bitstrings.BitStringOrdererException;
 
 @SuppressWarnings("unused")
 public class BitStringOrderer extends Problem implements IProblem
@@ -55,8 +54,7 @@ public class BitStringOrderer extends Problem implements IProblem
 		if (X.size() == 0)
 			this.setClauses(Problem.trivialProblem().getClauses());
 		else if (Y.size() == 0)
-			throw new BitStringOrdererException("Y has size 0.");
-		// this.setClauses(Problem.unsolvableProblem().getClauses());
+			this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			IBooleanVariable X_0 = X.getBooleanVariable(0);

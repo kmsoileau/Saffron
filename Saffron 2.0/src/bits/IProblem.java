@@ -61,5 +61,7 @@ public interface IProblem extends Iterable<IClause>
 
 	void sort() throws Exception;
 
+	String toDIMACS() throws Exception;
+
 	String toXML();
 }

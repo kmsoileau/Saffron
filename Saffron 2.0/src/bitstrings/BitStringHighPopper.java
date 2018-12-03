@@ -1,11 +1,3 @@
-/*
- * BitStringHighPopper.java	1.0 05/04/21
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bitstrings;
 
 import bits.BitEqualizer;
@@ -15,13 +7,26 @@ import bits.IProblem;
 import bits.Problem;
 import exceptions.bitstrings.BitStringHighPopperException;
 
+/**
+ * An extension of the <code>Problem</code> class which constrains parameter
+ * <code>Y</code> to equal the <code>IBitString</code> obtained when the bit of
+ * highest index in <code>X</code> is dropped. Naturally, the size of
+ * <code>Y</code> must be one less than the size of <code>X</code>.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/21
+ */
 public class BitStringHighPopper extends Problem implements IProblem
 {
 	public BitStringHighPopper(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() != Y.size() + 1)
 			throw new BitStringHighPopperException("X.size() != Y.size() + 1");
-		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[X.size()];

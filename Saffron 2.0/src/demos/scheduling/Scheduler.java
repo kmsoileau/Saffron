@@ -50,12 +50,22 @@ public class Scheduler
 				task.getNNFinish());
 	}
 
-	static IProblem[] doInProcessorPrecProblem(Task[] task,
-			Processor[] proc) throws Exception
+	/*
+	 * Either 
+	 */
+	static IProblem doit(BitFixer currBF, IBooleanVariable currBV2,
+			INaturalNumber currStart, INaturalNumber currFinish, Task t2) throws Exception
 	{
-		//ArrayList<IProblem> array = new ArrayList<IProblem>();
+		return new Disjunction(currBF, new BitFixer(currBV2, false),
+				new NaturalNumberOrderer(currFinish, t2.getNNStart()),
+				new NaturalNumberOrderer(t2.getNNFinish(), currStart));
+	}
+
+	static IProblem[] doInProcessorPrecProblem(Task[] task, Processor[] proc)
+			throws Exception
+	{
 		IProblem[] array = new IProblem[proc.length * task.length * task.length];
-		int arrayCounter=0;
+		int arrayCounter = 0;
 		for (int i = 0; i < proc.length; i++)
 		{
 			System.out.println("h3.2");
@@ -67,16 +77,12 @@ public class Scheduler
 				BitFixer currBF = new BitFixer(currBV1, false);
 				INaturalNumber currStart = t1.getNNStart();
 				INaturalNumber currFinish = t1.getNNFinish();
-				for (int k = j+1; k < task.length; k++)
+				for (int k = j + 1; k < task.length; k++)
 				{
 					Task t2 = task[k];
-					//System.out.println("Task "+t1.getName()+"/"+"Task "+t2.getName());
 					IBooleanVariable currBV2 = currentProc[k];
-					array[arrayCounter++]=new Disjunction(currBF,
-							new BitFixer(currBV2, false),
-							new NaturalNumberOrderer(currFinish, t2
-									.getNNStart()), new NaturalNumberOrderer(t2
-									.getNNFinish(), currStart));
+					array[arrayCounter++] = doit(currBF, currBV2,
+							currStart, currFinish, t2);
 				}
 			}
 		}
@@ -137,7 +143,7 @@ public class Scheduler
 	{
 		int numberProcs = proc.length;
 		int numberTasks = task.length;
-		partition=new IBooleanVariable[numberProcs][numberTasks];
+		partition = new IBooleanVariable[numberProcs][numberTasks];
 		int stagingIndex = 0;
 		IProblem[] stagingArray = new IProblem[1 + 2 + 2 * numberTasks];
 
@@ -145,11 +151,11 @@ public class Scheduler
 		// IBooleanVariable[][] partition = new
 		// IBooleanVariable[numberProcs][numberTasks];
 		stagingArray[stagingIndex++] = doPartitionProblem(task, proc);
-		
+
 		// Bind Durations Problem
 		IProblem bindDurationsProblem = doBindDurationsProblem(task);
 		stagingArray[stagingIndex++] = new Conjunction(bindDurationsProblem);
-		
+
 		// Impose Precedence Relations
 		for (int i = 0; i < numberTasks; i++)
 		{
@@ -158,7 +164,8 @@ public class Scheduler
 				continue;
 			stagingArray[stagingIndex++] = new Conjunction(precProblem);
 		}
-		//////////////stagingArray[stagingIndex++] = new Conjunction(doInProcessorPrecProblem(task,proc));
+		// ////////////stagingArray[stagingIndex++] = new
+		// Conjunction(doInProcessorPrecProblem(task,proc));
 		System.out.println("h4");
 		// Impose Duration Relations
 		for (int i = 0; i < numberTasks; i++)

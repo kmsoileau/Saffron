@@ -31,11 +31,8 @@ public class BitStringHighPopperDemo
 		ArrayList<IProblem> pfix = new ArrayList<IProblem>();
 		for (int i = 0; i < X.size(); i++)
 		{
-			boolean value;
-			if (Math.random() < .5)
-				value = true;
-			else
-				value = false;
+			boolean value = Math.random() < .5;
+			
 			X.setBooleanVariable(i,
 					BooleanVariable.getBooleanVariable(X.getName() + "_" + i));
 			pfix.add(new BitFixer(X.getBooleanVariable(i), value));

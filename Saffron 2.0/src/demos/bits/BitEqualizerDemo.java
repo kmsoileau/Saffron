@@ -19,6 +19,9 @@ public class BitEqualizerDemo
 
 		IProblem bitEqualizer1 = new BitEqualizer(x, y);
 		System.out.println(bitEqualizer1);
+		
+		System.out.println("DIMACS:\n"+bitEqualizer1.toDIMACS());
+		
 		List<IBooleanLiteral> s = bitEqualizer1.findModel(Problem
 				.defaultSolver());
 		if (s != null && s.size() > 0)
