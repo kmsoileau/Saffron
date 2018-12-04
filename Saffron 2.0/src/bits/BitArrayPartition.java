@@ -8,7 +8,7 @@ import exceptions.bits.BitArrayPartitionException;
  * For example, suppose <code>partition</code> is as follows:
  * 
  * <code><p>
- * ____________|___0___1___2___3___4_
+ * ____________|__0___1___2___3___4_
  * <p>
  * partition[0]| x00 x01 x02 x03 x04
  * <p>
@@ -93,5 +93,10 @@ public class BitArrayPartition extends Problem implements IProblem
 
 		IProblem problem = new Conjunction(p);
 		this.setClauses(problem.getClauses());
+	}
+
+	public BitArrayPartition(Partition partition) throws Exception
+	{
+		this(partition.getBackingArray());
 	}
 }

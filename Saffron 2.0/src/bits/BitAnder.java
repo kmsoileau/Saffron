@@ -2,7 +2,7 @@ package bits;
 
 /**
  * An extension of the
- * <code>Problem class which imposes a Boolean relation on three
+ * <code>Problem</code> class which imposes a Boolean relation on three
  * <code>IBooleanVariable</code>s. For example, the <code>IProblem p</code>
  * defined by
  *

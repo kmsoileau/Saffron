@@ -22,7 +22,7 @@ import exceptions.bits.ProblemException;
  * to a satisfiability problem. Problem is essentially a ArrayList of IClause
  * objects, and additionally provides several useful methods for combining
  * Problem objects, especially performing logical operations such as
- * <tt>and</code> and <tt>or</code> on such objects.
+ * <code>and</code> and <code>or</code> on such objects.
  * 
  * This class is the superclass of numerous generic satisfiability problems.
  *
@@ -88,7 +88,7 @@ public class Problem implements IProblem
 	 * 
 	 * @param clause
 	 *            the array of IClauses to comprise the instance of Problem.
-	 * @throws Exception
+	 * @throws Exception An instance of Exception. 
 	 */
 	public Problem(IClause[] clause) throws Exception
 	{
@@ -106,7 +106,7 @@ public class Problem implements IProblem
 	 * 
 	 * @param v
 	 *            the List of IClauses to comprise the instance of Problem.
-	 * @throws Exception
+	 * @throws Exception An instance of Exception.
 	 */
 	public Problem(List<IClause> v) throws Exception
 	{
@@ -792,17 +792,17 @@ public class Problem implements IProblem
 
 	/**
 	 * <p>
-	 * <?xml version="1.0" encoding="UTF-8" ?>
+	 * &lt;xml version="1.0" encoding="UTF-8" ?&gt;
 	 * <p>
-	 * <!ELEMENT Literal EMPTY >
+	 * &lt;!ELEMENT Literal EMPTY &gt;
 	 * <p>
-	 * <!ATTLIST Literal variable NMTOKEN #REQUIRED >
+	 * &lt;!ATTLIST Literal variable NMTOKEN #REQUIRED &gt;
 	 * <p>
-	 * <!ATTLIST Literal barred ( false | true ) #REQUIRED >
+	 * &lt;!ATTLIST Literal barred ( false | true ) #REQUIRED &gt;
 	 * <p>
-	 * <!ELEMENT Problem ( Clause+ ) >
+	 * &lt;!ELEMENT Problem ( Clause+ ) &gt;
 	 * <p>
-	 * <!ELEMENT Clause ( Literal+ ) >
+	 * &lt;!ELEMENT Clause ( Literal+ ) &gt;
 	 */
 	public String toXML()
 	{
