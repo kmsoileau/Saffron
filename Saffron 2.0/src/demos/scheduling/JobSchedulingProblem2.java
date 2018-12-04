@@ -27,10 +27,10 @@ public class JobSchedulingProblem2
 		Processor[] procs = new Processor[]
 		{ A1, A2 };
 
-		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs, 100);
+		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs, 51);
 		if (solution != null)
 		{
-			System.out.println(Scheduler.getProblem());
+			//System.out.println(Scheduler.getProblem().toDIMACS());
 			for (int i = 0; i < procs.length; i++)
 			{
 				ArrayList<Task> qq = solution.get(i);
