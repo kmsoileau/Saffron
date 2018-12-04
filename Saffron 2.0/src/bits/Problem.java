@@ -691,6 +691,32 @@ public class Problem implements IProblem
 		return ret;
 	}
 
+	public String toDIMACS() throws Exception
+	{
+		int index=1;
+		HashMap<IBooleanVariable,Integer> lookup=new HashMap<IBooleanVariable,Integer>();
+		for(IBooleanVariable curr : this.getBooleanVariables())
+		{
+			lookup.put(curr,index);
+			System.out.println(curr.getName()+"->"+index);
+			index++;
+		}
+		String ret="p cnf "+this.getBooleanVariables().size()+" "+this.numberOfClauses()+"\n";
+		for(IClause currClause : this.getClauses())
+		{
+			for(int i=0;i<currClause.size();i++)
+			{
+				IBooleanLiteral currBL=currClause.getLiteralAt(i);
+				int num=lookup.get(currBL.getBooleanVariable());
+				if(currBL.isBarred())
+					ret+="-";
+				ret+=(num+" ");
+			}
+			ret+="0 \n";
+		}
+		return ret;
+	}
+
 	public long toFile(String s)
 	{
 		File f = new File(s);
@@ -860,31 +886,5 @@ public class Problem implements IProblem
 			p = new Disjunction(p, curr);
 		}
 		return p;
-	}
-
-	public String toDIMACS() throws Exception
-	{
-		int index=1;
-		HashMap<IBooleanVariable,Integer> lookup=new HashMap<IBooleanVariable,Integer>();
-		for(IBooleanVariable curr : this.getBooleanVariables())
-		{
-			lookup.put(curr,index);
-			System.out.println(curr.getName()+"->"+index);
-			index++;
-		}
-		String ret="p cnf "+this.getBooleanVariables().size()+" "+this.numberOfClauses()+"\n";
-		for(IClause currClause : this.getClauses())
-		{
-			for(int i=0;i<currClause.size();i++)
-			{
-				IBooleanLiteral currBL=currClause.getLiteralAt(i);
-				int num=lookup.get(currBL.getBooleanVariable());
-				if(currBL.isBarred())
-					ret+="-";
-				ret+=(num+" ");
-			}
-			ret+="0 \n";
-		}
-		return ret;
 	}
 }
