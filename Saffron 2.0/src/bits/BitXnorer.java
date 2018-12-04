@@ -13,13 +13,13 @@ package bits;
  * For example, when the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p=new BitXnorer(x,y,z);</code>
+ * <code>Problem p=new BitXnorer(x,y,z);</code>
  * </p>
  * 
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>z == ( x &amp; y ) | ( !x &amp; !y )</code>
+ * <code>z == ( x &amp; y ) | ( !x &amp; !y )</code>
  * </p>
  *
  * @author Kerry Michael Soileau

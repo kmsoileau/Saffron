@@ -19,13 +19,13 @@ import bits.Problem;
  * For example, when the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p = new NaturalNumberLinearDivisibilitor(A,X,C);</code>
+ * <code>Problem p = new NaturalNumberLinearDivisibilitor(A,X,C);</code>
  * </p>
  *
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>(A*X+1)|C</code>
+ * <code>(A*X+1)|C</code>
  * </p>
  * , which means the integer A*X+1 divides the integer C. A and X are
  * constrained to be positive integers.

@@ -51,7 +51,8 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * IBooleanVariable[].
 	 * 
 	 * @return IClause
-	 * @throws Exception
+	 * @throws Exception An instance of Exception
+	 * @param bv IBooleanVariable[]
 	 */
 	public static IClause randomClause(IBooleanVariable[] bv) throws Exception
 	{
@@ -77,8 +78,8 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * This method adds a IBooleanLiteral to this.
 	 * 
 	 * @return boolean
-	 * @throws ClauseException
-	 * @throws Exception
+	 * @throws ClauseException An instance of Exception
+	 * @throws Exception An instance of Exception
 	 */
 	@Override
 	public boolean add(BooleanLiteral b) throws Exception
@@ -98,7 +99,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	/**
 	 * This method adds a IBooleanLiteral to this.
 	 * 
-	 * @throws ClauseException
+	 * @throws ClauseException An instance of Exception
 	 */
 	@Override
 	public void addLiteral(IBooleanLiteral bl) throws Exception
@@ -134,7 +135,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * according to size, then on the "lowest" IBooleanLiteral in each IClause.
 	 * 
 	 * @return int
-	 * @throws ClauseException
+	 * @throws ClauseException An instance of Exception
 	 */
 	@Override
 	public int compareTo(IClause o) throws Exception
@@ -163,7 +164,6 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * according to size, then on the "lowest" IBooleanLiteral in each IClause.
 	 * 
 	 * @return int
-	 * @throws ClauseException
 	 */
 	@Override
 	public int compareTo(Object o)
@@ -187,7 +187,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * "lowest" IBooleanLiteral in each IClause.
 	 * 
 	 * @return int
-	 * @throws ClauseException
+	 * @throws ClauseException An instance of Exception
 	 */
 	@Override
 	public boolean contains(IBooleanLiteral bl) throws Exception
@@ -219,7 +219,8 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * </pre>
 	 * 
 	 * @return IBooleanLiteral
-	 * @throws Exception
+	 * @throws Exception An instance of Exception
+	 * @param c IClause
 	 */
 	public IBooleanLiteral differsSinglyFrom(IClause c) throws Exception
 	{
@@ -244,12 +245,13 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 
 	/**
 	 * An IClause A dominates an IClause B if and only if every IBooleanLiteral
-	 * in A can be found in B. In that case, A & B <--> A. Practically speaking,
+	 * in A can be found in B. In that case, A &amp; B &lt;--&gt; A. Practically speaking,
 	 * if A dominates B, then B is redundant and may be deleted from any
 	 * IProblem which includes the IClause A.
 	 * 
 	 * @return boolean
-	 * @throws Exception
+	 * @throws Exception An instance of Exception
+	 * @param clause IClause
 	 */
 	public boolean dominates(IClause clause) throws Exception
 	{
@@ -268,7 +270,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * This method returns an exact copy of this.
 	 * 
 	 * @return Object
-	 * @throws Exception
+	 * @throws Exception An instance of Exception
 	 */
 	public Object duplicate() throws Exception
 	{
@@ -282,7 +284,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * This method determines whether a given IClause is equal to this.
 	 * 
 	 * @return boolean
-	 * @throws Exception
+	 * @throws Exception An instance of Exception
 	 */
 	@Override
 	public boolean equals(IClause o) throws Exception
@@ -372,7 +374,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * this.
 	 * 
 	 * @return IBooleanLiteral
-	 * @throws ClauseException
+	 * @throws ClauseException An instance of Exception
 	 */
 	@Override
 	public IBooleanLiteral getLiteralAt(int n) throws ClauseException
@@ -388,7 +390,8 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * appear if both this and clause, if any.
 	 * 
 	 * @return IClause
-	 * @throws Exception
+	 * @throws Exception An instance of Exception
+	 * @param clause IClause
 	 */
 	public IClause intersection(IClause clause) throws Exception
 	{

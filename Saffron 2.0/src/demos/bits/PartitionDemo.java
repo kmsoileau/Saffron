@@ -10,11 +10,10 @@ import bits.Problem;
 
 public class PartitionDemo
 {
-
 	public static void main(String[] args) throws Exception
 	{
-		int partitions = 3;
-		int bits = 4;
+		int partitions = 2;
+		int bits = 3;
 
 		Partition partition = new Partition(partitions, bits);
 

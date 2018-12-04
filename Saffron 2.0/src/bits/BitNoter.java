@@ -5,13 +5,13 @@ package bits;
  * IBooleanVariables. For example, the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p=new BitNoter(x,y);</code>
+ * <code>Problem p=new BitNoter(x,y);</code>
  * </p>
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
  * <p>
- * <tt>y == !x</code>
+ * <code>y == !x</code>
  * </p>
  *
  * Note that BitNoter is equivalent to BitUnequalizer.

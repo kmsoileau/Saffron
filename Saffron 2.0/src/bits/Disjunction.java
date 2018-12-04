@@ -9,7 +9,6 @@ import exceptions.bits.DisjunctionException;
  * Returns an IProblem that is satisfied if and only at least one of the
  * IProblems passed to it as parameters is satisfied.
  * 
- * </pre>
  *
  * @author Kerry Michael Soileau
  *         <p>
@@ -170,7 +169,8 @@ public class Disjunction extends Problem implements IProblem
 	 *
 	 * Returns an IProblem equivalent to the IProblem p.
 	 * 
-	 * @throws Exception
+	 * @throws Exception An instance of Exception
+	 * @param p IProblem
 	 */
 	public Disjunction(IProblem p) throws Exception
 	{
@@ -187,7 +187,9 @@ public class Disjunction extends Problem implements IProblem
 	 * p_2
 	 * </pre>
 	 * 
-	 * @throws Exception
+	 * @throws Exception An instance of Exception
+	 * @param p1 IProblem
+	 * @param p2 IProblem
 	 */
 	public Disjunction(IProblem p1, IProblem p2) throws Exception
 	{
@@ -214,7 +216,10 @@ public class Disjunction extends Problem implements IProblem
 	 * p_3
 	 * </pre>
 	 * 
-	 * @throws Exception
+	 * @throws Exception An instance of Exception
+	 * @param p1 IProblem
+	 * @param p2 IProblem
+	 * @param p3 IProblem
 	 */
 	public Disjunction(IProblem p1, IProblem p2, IProblem p3) throws Exception
 	{
@@ -234,7 +239,11 @@ public class Disjunction extends Problem implements IProblem
 	 * p_4
 	 * </pre>
 	 * 
-	 * @throws Exception
+	 * @throws Exception An instance of Exception* 
+	 * @param p1 IProblem
+	 * @param p2 IProblem
+	 * @param p3 IProblem
+	 * @param p4 IProblem
 	 */
 	public Disjunction(IProblem p1, IProblem p2, IProblem p3, IProblem p4)
 			throws Exception
@@ -260,7 +269,8 @@ public class Disjunction extends Problem implements IProblem
 	 * where n=problemArray.length.
 	 * </pre>
 	 * 
-	 * @throws Exception
+	 * @throws Exception An instance of Exception
+	 * @param problemArray IProblem[]
 	 */
 	public Disjunction(IProblem[] problemArray) throws Exception
 	{
@@ -304,7 +314,9 @@ public class Disjunction extends Problem implements IProblem
 	 * true, <code>p_i</code> is returned. If no such <code>i</code> exists,
 	 * <code>p_{n-1}</code> is returned.
 	 * 
-	 * @throws Exception
+	 * @throws Exception An instance of Exception
+	 * @param problemArray IProblem[]
+	 * @param booleanVariableArray IBooleanVariable[]
 	 */
 	public Disjunction(IProblem[] problemArray,
 			IBooleanVariable[] booleanVariableArray) throws Exception

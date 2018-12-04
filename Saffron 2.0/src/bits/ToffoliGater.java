@@ -5,7 +5,7 @@ package bits;
  * example, the IProblem p defined by
  *
  * <p>
- * <tt>IProblem p=new ToffoliGater(A,B,C,P,Q,R);</code>
+ * <code>IProblem p=new ToffoliGater(A,B,C,P,Q,R);</code>
  * </p>
  *
  * is satisfied if and only if the following Boolean relation is satisfied:

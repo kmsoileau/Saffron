@@ -12,7 +12,7 @@ import bits.Problem;
  * INaturalNumberIntervals. For example, the Problem instance p defined by
  *
  * <p>
- * <tt>IProblem p=new NaturalNumberIntervalDisjointer(A, B);
+ * <tt>IProblem p=new NaturalNumberIntervalDisjointer(A, B);</tt>
  * </p>
  *
  * is satisfied if and only if the intervals A and B have no members in common.

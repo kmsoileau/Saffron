@@ -15,8 +15,8 @@ import bits.Conjunction;
 import bits.Disjunction;
 import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
-import bits.INaturalNumber;
 import bits.IProblem;
+import bits.Partition;
 import bits.Problem;
 
 /**
@@ -32,7 +32,7 @@ import bits.Problem;
 public class Scheduler
 {
 	private static IProblem jobSchedulingProblem;
-	private static IBooleanVariable[][] partition;
+	private static Partition partition;
 
 	static IProblem doBindDurationsProblem(Task[] task) throws Exception
 	{
@@ -50,17 +50,6 @@ public class Scheduler
 				task.getNNFinish());
 	}
 
-	/*
-	 * Either 
-	 */
-	static IProblem doit(BitFixer currBF, IBooleanVariable currBV2,
-			INaturalNumber currStart, INaturalNumber currFinish, Task t2) throws Exception
-	{
-		return new Disjunction(currBF, new BitFixer(currBV2, false),
-				new NaturalNumberOrderer(currFinish, t2.getNNStart()),
-				new NaturalNumberOrderer(t2.getNNFinish(), currStart));
-	}
-
 	static IProblem[] doInProcessorPrecProblem(Task[] task, Processor[] proc)
 			throws Exception
 	{
@@ -68,21 +57,22 @@ public class Scheduler
 		int arrayCounter = 0;
 		for (int i = 0; i < proc.length; i++)
 		{
-			System.out.println("h3.2");
-			IBooleanVariable[] currentProc = partition[i];
+			IBooleanVariable[] currentProc = partition.getSet(i);
 			for (int j = 0; j < task.length; j++)
 			{
-				Task t1 = task[j];
-				IBooleanVariable currBV1 = currentProc[j];
-				BitFixer currBF = new BitFixer(currBV1, false);
-				INaturalNumber currStart = t1.getNNStart();
-				INaturalNumber currFinish = t1.getNNFinish();
 				for (int k = j + 1; k < task.length; k++)
 				{
-					Task t2 = task[k];
-					IBooleanVariable currBV2 = currentProc[k];
-					array[arrayCounter++] = doit(currBF, currBV2,
-							currStart, currFinish, t2);
+					/*
+					 * Either !currentProc[j] or !currentProc[k] or
+					 * task[j].getNNFinish() <= task[k].getNNStart() or
+					 * task[k].getNNFinish() <= task[j].getNNStart()
+					 */
+					array[arrayCounter++] = new Disjunction(new BitFixer(
+							currentProc[j], false), new BitFixer(
+							currentProc[k], false), new NaturalNumberOrderer(
+							task[j].getNNFinish(), task[k].getNNStart()),
+							new NaturalNumberOrderer(task[k].getNNFinish(),
+									task[j].getNNStart()));
 				}
 			}
 		}
@@ -96,7 +86,7 @@ public class Scheduler
 		int numberTasks = task.length;
 		for (int i = 0; i < numberProcs; i++)
 		{
-			IBooleanVariable[] currentBin = partition[i];
+			IBooleanVariable[] currentBin = partition.getSet(i);
 			for (int j = 0; j < numberTasks; j++)
 				currentBin[j] = BooleanVariable.getBooleanVariable("partition-"
 						+ proc[i].getName() + "-" + task[j].getName());
@@ -143,13 +133,11 @@ public class Scheduler
 	{
 		int numberProcs = proc.length;
 		int numberTasks = task.length;
-		partition = new IBooleanVariable[numberProcs][numberTasks];
+		partition = new Partition(numberProcs, numberTasks);
 		int stagingIndex = 0;
 		IProblem[] stagingArray = new IProblem[1 + 2 + 2 * numberTasks];
 
 		// Partition Problem
-		// IBooleanVariable[][] partition = new
-		// IBooleanVariable[numberProcs][numberTasks];
 		stagingArray[stagingIndex++] = doPartitionProblem(task, proc);
 
 		// Bind Durations Problem
@@ -164,20 +152,20 @@ public class Scheduler
 				continue;
 			stagingArray[stagingIndex++] = new Conjunction(precProblem);
 		}
-		// ////////////stagingArray[stagingIndex++] = new
-		// Conjunction(doInProcessorPrecProblem(task,proc));
-		System.out.println("h4");
+
+		// Impose one job at a time per processor constraint
+		stagingArray[stagingIndex++] = new Conjunction(
+				doInProcessorPrecProblem(task, proc));
+
 		// Impose Duration Relations
 		for (int i = 0; i < numberTasks; i++)
 		{
 			stagingArray[stagingIndex++] = doDurationRelation(task[i]);
 		}
-		System.out.println("h5");
+
 		// Impose time limit to finish all tasks
 		stagingArray[stagingIndex++] = doTimeLimit(task, timeLimit);
-		System.out.println("h6");
 		jobSchedulingProblem = new Conjunction(stagingArray);
-		System.out.println("h7");
 
 		List<IBooleanLiteral> blList = jobSchedulingProblem.findModel(Problem
 				.defaultSolver());
@@ -188,7 +176,7 @@ public class Scheduler
 			ArrayList<ArrayList<Task>> solution = new ArrayList<ArrayList<Task>>();
 			for (int i = 0; i < numberProcs; i++)
 			{
-				IBooleanVariable[] currentProc = partition[i];
+				IBooleanVariable[] currentProc = partition.getSet(i);
 				ArrayList<Task> currentProcAssignments = new ArrayList<Task>();
 				for (int j = 0; j < numberTasks; j++)
 					if (currentProc[j].getValue())

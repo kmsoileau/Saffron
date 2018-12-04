@@ -18,7 +18,7 @@ public class JobSchedulingProblem1
 {
 	public static void main(String[] args) throws Exception
 	{
-		NaturalNumber.setLargestNaturalNumber(40);
+		NaturalNumber.setLargestNaturalNumber(37);
 
 		Task FP = new Task("FP", 7);
 		Task FW = new Task("FW", 7);
@@ -52,7 +52,7 @@ public class JobSchedulingProblem1
 		{ new Processor("A1"), new Processor("A2"), new Processor("A3") };
 
 		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs,
-				40);
+				38);
 		System.out.println(Scheduler.getProblem());
 		if (solution == null)
 		{

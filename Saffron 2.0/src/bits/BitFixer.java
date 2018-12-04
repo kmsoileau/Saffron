@@ -8,13 +8,13 @@ package bits;
  * For example, when the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p=new BitFixer(x,true);</code>
+ * <code>Problem p=new BitFixer(x,true);</code>
  * </p>
  *
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>x==true</code>
+ * <code>x==true</code>
  * </p>
  * 
  * Similarly, when the Problem instance p defined by
@@ -24,7 +24,7 @@ package bits;
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>x==false</code>
+ * <code>x==false</code>
  * </p>
  *
  * @author Kerry Michael Soileau

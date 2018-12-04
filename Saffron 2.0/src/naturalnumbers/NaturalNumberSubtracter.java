@@ -18,13 +18,13 @@ import bits.Problem;
  * For example, when the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p = new NaturalNumberSubtracter(X,Y,Z,C);</code>
+ * <code>Problem p = new NaturalNumberSubtracter(X,Y,Z,C);</code>
  * </p>
  *
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>X == Z + Y</code>
+ * <code>X == Z + Y</code>
  * </p>
  *
  * and the carry bits will be found in C.
@@ -32,7 +32,7 @@ import bits.Problem;
  * If the carry bits are of no interest, one may instead write
  *
  * <p>
- * <tt>Problem p = new NaturalNumberSubtracter(X,Y,Z);</code>
+ * <code>Problem p = new NaturalNumberSubtracter(X,Y,Z);</code>
  * </p>
  *
  * @author Kerry Michael Soileau <blockquote>

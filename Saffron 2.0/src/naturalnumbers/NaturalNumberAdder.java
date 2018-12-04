@@ -22,13 +22,13 @@ import bits.TwoBitAdder;
  * For example, when the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p = new NaturalNumberAdder(X,Y,Z,C);</code>
+ * <code>Problem p = new NaturalNumberAdder(X,Y,Z,C);</code>
  * </p>
  *
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>Z == X + Y</code>
+ * <code>Z == X + Y</code>
  * </p>
  *
  * and the carry bits will be found in C.
@@ -36,7 +36,7 @@ import bits.TwoBitAdder;
  * If the carry bits are of no interest, one may instead write
  *
  * <p>
- * <tt>Problem p = new NaturalNumberAdder(X,Y,Z);</code>
+ * <code>Problem p = new NaturalNumberAdder(X,Y,Z);</code>
  * </p>
  *
  * @author Kerry Michael Soileau <blockquote>

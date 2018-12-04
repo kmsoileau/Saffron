@@ -11,11 +11,11 @@ import exceptions.bitstrings.BitStringFixerException;
 /**
  * An extension of the <code>Problem</code> class which imposes a constraint on
  * an <code>IBitString</code>. For example, for <code>IBitString target</code>
- * and <code>boolean[] c</code>,</code> the <code>Problem</code> instance
+ * and <code>boolean[] c</code>, the <code>Problem</code> instance
  * <code>p</code> defined by
  *
  * <p>
- * <tt>Problem p=new BitStringFixer(target, c);</code>
+ * <code>Problem p=new BitStringFixer(target, c);</code>
  * </p>
  *
  * is satisfied if and only if for each <code>i</code>, the <code>i</code>th bit

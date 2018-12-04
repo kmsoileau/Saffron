@@ -8,7 +8,7 @@ import exceptions.bits.ConjunctionException;
  * An extension of the Problem class which creates a new IProblem object from a
  * collection of IProblem objects that will be satisfied if and only if all of
  * the original IProblems are satisfied. For example, when the IProblem instance
- * p defined by <blockquote>
+ * p defined by
  * 
  * <pre>
  * IProblem p = new Conjunction(new IProblem[]

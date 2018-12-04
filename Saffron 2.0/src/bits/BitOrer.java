@@ -5,13 +5,13 @@ package bits;
  * IBooleanVariables. For example, the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p=new BitOrer(x,y,z);</code>
+ * <code>Problem p=new BitOrer(x,y,z);</code>
  * </p>
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
  * <p>
- * <tt>z == ( x | y )</code>
+ * <code>z == ( x | y )</code>
  * </p>
  *
  * @author Kerry Michael Soileau

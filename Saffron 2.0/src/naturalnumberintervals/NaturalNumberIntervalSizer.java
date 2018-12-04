@@ -14,7 +14,7 @@ import bits.Problem;
  * instance <code>p</code> defined by
  *
  * <p>
- * <tt>IProblem p=new NaturalNumberIntervalSizer(A, 3);
+ * <code>IProblem p=new NaturalNumberIntervalSizer(A, 3);</code>
  * </p>
  *
  * is satisfied if and only if the interval <code>A</code> has exactly 3

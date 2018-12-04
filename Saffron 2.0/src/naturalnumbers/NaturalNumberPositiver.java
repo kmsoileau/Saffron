@@ -18,13 +18,13 @@ import bits.Problem;
  * For example, when the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p = new NaturalNumberPositiver(X);</code>
+ * <code>Problem p = new NaturalNumberPositiver(X);</code>
  * </p>
  *
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>X > 0</code>
+ * <code>X &gt; 0</code>
  * </p>
  * .
  *

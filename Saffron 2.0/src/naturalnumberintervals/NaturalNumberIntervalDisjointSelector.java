@@ -16,7 +16,7 @@ import exceptions.naturalnumberintervals.NaturalNumberIntervalDisjointSelectorEx
  * <code>p</code> defined by
  *
  * <p>
- * <tt>IProblem p=new NaturalNumberIntervalDisjointSelector(I,bool)
+ * <code>IProblem p=new NaturalNumberIntervalDisjointSelector(I,bool)</code>
  * </p>
  *
  * is satisfied if and only if for every <code>i</code>, <code>bool[i]</code> is

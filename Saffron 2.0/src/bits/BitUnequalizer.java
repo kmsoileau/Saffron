@@ -7,13 +7,13 @@ import exceptions.bits.BitUnequalizerException;
  * IBooleanVariables. For example, the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p=new BitUnequalizer(x,y);</code>
+ * <code>Problem p=new BitUnequalizer(x,y);</code>
  * </p>
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
  * <p>
- * <tt>x!=y</code>
+ * <code>x!=y</code>
  * </p>
  *
  * Note that BitUnequalizer is equivalent to BitNoter.

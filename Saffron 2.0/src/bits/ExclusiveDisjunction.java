@@ -11,14 +11,14 @@ import exceptions.bits.ExclusiveDisjunctionException;
  * of two given IProblems. More specifically, the IProblem p defined by
  *
  * <p>
- * <tt>IProblem p=new ExclusiveDisjunction(first,second);</code>
+ * <code>IProblem p=new ExclusiveDisjunction(first,second);</code>
  * </p>
  *
  * is satisfied by an ICertificate c if and only if the IProblem
- * <tt>first</code>
- * is satisfied by <tt>c</code> and the IProblem <tt>second</code> is not satisfied
- * by <tt>c</code> or the IProblem <tt>first</code> is not satisfied by <tt>c</code>
- * and the IProblem <tt>second</code> is satisfied by <tt>c</code>.
+ * <code>first</code>
+ * is satisfied by <code>c</code> and the IProblem <code>second</code> is not satisfied
+ * by <code>c</code> or the IProblem <code>first</code> is not satisfied by <code>c</code>
+ * and the IProblem <code>second</code> is satisfied by <code>c</code>.
  *
  * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
  *         http://kerrysoileau.com/index.html

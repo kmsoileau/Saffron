@@ -7,7 +7,7 @@ import exceptions.bits.ClauseDenierException;
  * IClause. More specifically, the IProblem p defined by
  *
  * <p>
- * <tt>IProblem p=new ClauseDenier(clause);</code>
+ * <code>IProblem p=new ClauseDenier(clause);</code>
  * </p>
  *
  * is satisfied if and only if the IClause clause is not satisfied.

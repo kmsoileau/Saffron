@@ -27,6 +27,7 @@ public interface IBooleanLiteral extends Comparable<Object>
 	 *
 	 * @return IBooleanLiteral with the same internal IBooleanVariable but with
 	 *         opposite barring.
+	 * @throws BooleanLiteralException An instance of Exception
 	 */
 	IBooleanLiteral complement() throws BooleanLiteralException;
 

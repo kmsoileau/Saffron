@@ -47,4 +47,9 @@ public class Partition
 	{
 		return this.partition.length;
 	}
+
+	public IBooleanVariable[] getSet(int i)
+	{
+		return this.partition[i];
+	}
 }

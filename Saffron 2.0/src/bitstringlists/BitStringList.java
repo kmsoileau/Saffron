@@ -15,7 +15,7 @@ import exceptions.bitstringlists.BitStringListException;
 
 /**
  * A wrapper class which encloses an
- * <code>ArrayListSet<IBitString> listData</code> and a <code>String name</code>
+ * <code>ArrayListSet&lt;IBitString&gt; listData</code> and a <code>String name</code>
  * .
  *
  * @author Kerry Michael Soileau

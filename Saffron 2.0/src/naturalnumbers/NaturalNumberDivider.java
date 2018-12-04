@@ -18,13 +18,13 @@ import bits.Problem;
  * For example, when the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p = new NaturalNumberDivider(X,Y,Z);</code>
+ * <code>Problem p = new NaturalNumberDivider(X,Y,Z);</code>
  * </p>
  *
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>X == Z * Y</code>
+ * <code>X == Z * Y</code>
  * </p>
  * .
  *

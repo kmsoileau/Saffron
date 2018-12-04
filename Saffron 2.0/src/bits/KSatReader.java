@@ -14,37 +14,37 @@ import exceptions.bits.UnsolvableProblemException;
 
 /**
  * A reader which is created using an object of type
- * <tt>positronic.satisfiability.elements.ISolver</code> and has a method
- * <tt>parseInstance</code> which translates a
- * <tt>positronic.satisfiability.elements.IProblem</code> object into a
- * corresponding <tt>org.sat4j.specs.IProblem</code> object.
+ * <code>positronic.satisfiability.elements.ISolver</code> and has a method
+ * <code>parseInstance</code> which translates a
+ * <code>positronic.satisfiability.elements.IProblem</code> object into a
+ * corresponding <code>org.sat4j.specs.IProblem</code> object.
  * 
- * For example, here's how a <tt>KSatReader</code> might be used on a
- * <tt>positronic.satisfiability.elements.IProblem</code> called <tt>problem</code>:
+ * For example, here's how a <code>KSatReader</code> might be used on a
+ * <code>positronic.satisfiability.elements.IProblem</code> called <code>problem</code>:
  * 
  * <p>
- * <tt>...</code>
+ * <code>...</code>
  * </p>
  * <p>
- * <tt>ISolver solver = ... // some solver from a solver factory</code>
+ * <code>ISolver solver = ... // some solver from a solver factory</code>
  * </p>
  * <p>
- * <tt>KSatReader reader = new KSatReader(solver);</code>
+ * <code>KSatReader reader = new KSatReader(solver);</code>
  * </p>
  * <p>
- * <tt>positronic.satisfiability.elements.IProblem problem = ... // some problem from KSat API</code>
+ * <code>positronic.satisfiability.elements.IProblem problem = ... // some problem from KSat API</code>
  * </p>
  * <p>
- * <tt>org.sat4j.specs.IProblem sat4jproblem = reader.parseInstance(problem);</code>
+ * <code>org.sat4j.specs.IProblem sat4jproblem = reader.parseInstance(problem);</code>
  * </p>
  * <p>
- * <tt>if (sat4jproblem.isSatisfiable()) {</code>
+ * <code>if (sat4jproblem.isSatisfiable()) {</code>
  * </p>
  * <p>
- * <tt>...</code>
+ * <code>...</code>
  * </p>
  * <p>
- * <tt>}</code>
+ * <code>}</code>
  * </p>
  *
  * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:

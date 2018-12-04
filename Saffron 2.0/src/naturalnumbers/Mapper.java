@@ -25,33 +25,34 @@ import exceptions.naturalnumbers.MapperException;
 
 /**
  * <p>
- * Title: <tt>Mapper</code> class
+ * Title: <code>Mapper</code> class
  * </p>
  * <p>
- * Description: This class, an extension of <tt>Problem</code>, is created from
- * pairs of instances of <tt>Problem</code> passed to one of the <tt>Mapper</code>
- * constructors. An instance of <tt>Mapper</code> is satisfied if and only if for
- * some pair of <tt>Problem</code>'s, both <tt>Problem</code>'s are satisfied. For
+ * Description: This class, an extension of <code>Problem</code>, is created
+ * from pairs of instances of <code>Problem</code> passed to one of the
+ * <code>Mapper</code>
+ * constructors. An instance of <code>Mapper</code> is satisfied if and only if for
+ * some pair of <code>Problem</code>'s, both <code>Problem</code>'s are satisfied. For
  * instance, suppose we define
  * <p>
- * <tt>...</code>
+ * <code>...</code>
  * <p>
- * <tt>IProblem[] ipr1=new IProblem[]{p7,p9,p2};</code>
+ * <code>IProblem[] ipr1=new IProblem[]{p7,p9,p2};</code>
  * <p>
- * <tt>IProblem[] ipr2=new IProblem[]{p3,p8,p1};
+ * <code>IProblem[] ipr2=new IProblem[]{p3,p8,p1};
  * IBooleanVariable[] bool=new IBooleanVariable[]{b1,b2};
  * IProblem map1=new Mapper(ip1,ipr2,bool);
  * ...
  * </code>
  * </p>
  * <p>
- * Then <tt>map1</code> will be satisfied when
+ * Then <code>map1</code> will be satisfied when
  * <p>
- * (1) <tt>p7</code> and <tt>p3</code> are both satisfied, or
+ * (1) <code>p7</code> and <code>p3</code> are both satisfied, or
  * <p>
- * (2) <tt>p9</code> and <tt>p8</code> are both satisfied, or
+ * (2) <code>p9</code> and <code>p8</code> are both satisfied, or
  * <p>
- * (3) <tt>p2</code> and <tt>p1</code> are both satisfied.
+ * (3) <code>p2</code> and <code>p1</code> are both satisfied.
  * <p>
  * Copyright (c) 2005
  * </p>
