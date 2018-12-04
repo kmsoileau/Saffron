@@ -108,6 +108,9 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 	 * Changes this instance to the smallest/simplest equivalence relation
 	 * consistent with the previously added object pairs and the object pair
 	 * currently added.
+	 * 
+	 * @param object1 Object
+	 * @param object2 Object
 	 */
 	public void add(Object object1, Object object2)
 	{
@@ -154,11 +157,13 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 	}
 
 	/**
-	 * Returns <tt>true</code> if o1 R o2, i.e. if o1 is equivalent to o2 under
-	 * this equivalence relation, otherwise <tt>false</code> is returned.
+	 * Returns <code>true</code> if o1 R o2, i.e. if o1 is equivalent to o2 under
+	 * this equivalence relation, otherwise <code>false</code> is returned.
 	 *
-	 * @return <tt>true</code> if o1 is equivalent to o2 under this equivalence
+	 * @return <code>true</code> if o1 is equivalent to o2 under this equivalence
 	 *         relation.
+	 * @param o1 Object
+	 * @param o2 Object
 	 */
 	public boolean areRelated(Object o1, Object o2)
 	{
@@ -171,6 +176,7 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 	 *
 	 * @return A HashSet containing the equivalence class of the object x,
 	 *         namely the set of objects y such that xRy.
+	 * @param x Object
 	 */
 	public HashSet<Object> equivalenceClass(Object x)
 	{
@@ -240,6 +246,7 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 	 * representative ary[i][0].
 	 *
 	 * @return A HashMap.
+	 * @param ary Object[][]
 	 */
 	public HashMap<Object, Object> toHashMap(Object[][] ary)
 	{
