@@ -7,7 +7,7 @@ import exceptions.bits.BitArrayPartitionException;
 /**
  * For example, suppose <code>partition</code> is as follows:
  * 
- * <code><p>
+ * <blockquote>
  * ____________|__0___1___2___3___4_
  * <p>
  * partition[0]| x00 x01 x02 x03 x04
@@ -16,7 +16,7 @@ import exceptions.bits.BitArrayPartitionException;
  * <p>
  * partition[2]| x20 x21 x22 x23 x24
  * <p>
- * </code>
+ * </blockquote>
  * 
  * where the <code>x</code>'s are <code>IBooleanVariable</code>s. then new
  * <code>BitArrayPartition(
@@ -65,30 +65,30 @@ import exceptions.bits.BitArrayPartitionException;
  */
 public class BitArrayPartition extends Problem implements IProblem
 {
-	public BitArrayPartition(IBooleanVariable[][] partition) throws Exception
+	public BitArrayPartition(IBooleanVariable[][] bvArray) throws Exception
 	{
-		if (partition == null)
+		if (bvArray == null)
 			throw new BitArrayPartitionException(
 					"A null partition was passed to constructor.");
-		int partitions = partition.length;
+		int partitions = bvArray.length;
 		if (partitions == 0)
 			throw new BitArrayPartitionException(
 					"A partition of zerolength was passed to constructor.");
-		if (partition[0] == null)
+		if (bvArray[0] == null)
 			throw new BitArrayPartitionException(
 					"A partition with partition[0]==null was passed to constructor.");
-		int bits = partition[0].length;
+		int bits = bvArray[0].length;
 
-		@SuppressWarnings("unchecked")
-		ArrayList<IBooleanVariable>[] bitArrayList = new ArrayList[bits];
+		ArrayList<ArrayList<IBooleanVariable>> bitArrayList = new ArrayList<ArrayList<IBooleanVariable>>();
 		IProblem[] p = new IProblem[bits];
 
 		for (int j = 0; j < bits; j++)
 		{
-			bitArrayList[j] = new ArrayList<IBooleanVariable>();
+			ArrayList<IBooleanVariable> curr = new ArrayList<IBooleanVariable>();
+			bitArrayList.add(curr);
 			for (int i = 0; i < partitions; i++)
-				bitArrayList[j].add(partition[i][j]);
-			p[j] = new BitExclusiveSelector(bitArrayList[j]);
+				curr.add(bvArray[i][j]);
+			p[j] = new BitExclusiveSelector(curr);
 		}
 
 		IProblem problem = new Conjunction(p);
