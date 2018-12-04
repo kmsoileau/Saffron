@@ -11,7 +11,7 @@ import bits.Problem;
  * INaturalNumberIntervals. For example, the Problem instance p defined by
  *
  * <p>
- * <tt>IProblem p=new NaturalNumberIntervalIntersector(A, B);
+ * <code>IProblem p=new NaturalNumberIntervalIntersector(A, B);</code>
  * </p>
  *
  * is satisfied if and only if the intervals A and B have at least one member in
