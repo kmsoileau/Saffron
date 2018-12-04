@@ -12,11 +12,6 @@ import bits.IProblem;
 
 public class FindTwoModelsDemo
 {
-
-	/**
-	 * @param args
-	 * @throws Exception
-	 */
 	public static void main(String[] args) throws Exception
 	{
 		NaturalNumber.setLength(9);
