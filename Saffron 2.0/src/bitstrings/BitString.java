@@ -297,6 +297,11 @@ public class BitString implements IBitString
 		return res;
 	}
 
+	public IBooleanVariable[] toBooleanVariableArray()
+	{
+		return this.data.toArray(new IBooleanVariable[0]);
+	}
+
 	@Override
 	public String toString()
 	{

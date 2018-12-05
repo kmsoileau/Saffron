@@ -10,6 +10,12 @@ import exceptions.naturalnumbers.ConditionalAdderException;
 
 public class ConditionalAdder extends Problem implements IProblem
 {
+	public ConditionalAdder(INaturalNumber[] numbers, IBitString membership,
+			INaturalNumber conditionalSum) throws Exception
+	{
+		this(numbers, membership.toBooleanVariableArray(), conditionalSum);
+	}
+
 	public ConditionalAdder(INaturalNumber[] numbers,
 			IBooleanVariable[] membership, INaturalNumber conditionalSum)
 			throws Exception

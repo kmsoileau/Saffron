@@ -37,5 +37,7 @@ public interface IBitString extends Cloneable
 
 	String toBits();
 
+	IBooleanVariable[] toBooleanVariableArray();
+
 	String toString();
 }
