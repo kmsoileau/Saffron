@@ -6,6 +6,7 @@ bitstrings
 bittables
 demos.binpacking
 demos.bits
+demos.bitstringgraphs
 demos.bitstringlists
 demos.bitstrings
 demos.bittables
@@ -14,6 +15,7 @@ demos.naturalnumberlists
 demos.naturalnumbers
 demos.scheduling
 demos.setsplitting
+demos.subsetsum
 exceptions.bits
 exceptions.bitstringlists
 exceptions.bitstrings

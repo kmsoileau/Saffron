@@ -1,11 +1,3 @@
-/*
- * BitStringLowPopper.java	1.0 05/04/15
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bitstrings;
 
 import bits.BitEqualizer;
@@ -15,6 +7,20 @@ import bits.IProblem;
 import bits.Problem;
 import exceptions.bitstrings.BitStringLowPopperException;
 
+/**
+ * An extension of the <code>Problem</code> class which constrains parameter
+ * <code>Y</code> to equal the <code>IBitString</code> obtained when the bit of
+ * lowest index in <code>X</code> is dropped. Naturally, the size of
+ * <code>Y</code> must be one less than the size of <code>X</code>.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/21
+ */
 public class BitStringLowPopper extends Problem implements IProblem
 {
 	public BitStringLowPopper(IBitString X, IBitString Y) throws Exception

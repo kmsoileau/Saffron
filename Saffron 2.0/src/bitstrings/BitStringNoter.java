@@ -1,11 +1,3 @@
-/*
- * BitStringNoter.java	1.0 05/04/01
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bitstrings;
 
 import bits.BitNoter;
@@ -14,6 +6,20 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
 
+/**
+ * Constrains the <code>IBooleanVariable</code> at position <code>bit</code> of
+ * <code>IBitString Y</code> to equal to the negation of the
+ * <code>IBooleanVariable</code> at position <code>bit</code> of
+ * <code>IBitString X</code>
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/01
+ */
 public class BitStringNoter extends Problem implements IProblem
 {
 	public BitStringNoter(IBitString X, IBitString Y) throws Exception

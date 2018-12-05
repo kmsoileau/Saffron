@@ -55,6 +55,11 @@ public class BitString implements IBitString
 		this("BitString-" + bSCount++, new boolean[bits]);
 	}
 
+	public BitString(List<IBooleanVariable> reduced) throws Exception
+	{
+		this(reduced.toArray(new IBooleanVariable[0]));
+	}
+
 	public BitString(String data) throws Exception
 	{
 		this("BitString-" + bSCount++, data);
