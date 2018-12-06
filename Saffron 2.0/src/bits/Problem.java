@@ -61,8 +61,11 @@ public class Problem implements IProblem
 
 	public static IProblem trivialProblem() throws Exception
 	{
-		return new Problem(new IClause[]
-		{ null });
+		IProblem ret=Problem.newProblem();
+		IClause cl=new Clause();
+		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(new BooleanVariable(), false));
+		ret.addClause(cl);
+		return ret;
 	}
 
 	public static IProblem unsolvableProblem() throws Exception
@@ -583,7 +586,8 @@ public class Problem implements IProblem
 
 	public void setClauses(List<IClause> list) throws Exception
 	{
-		this.removeAllClauses();
+		if(this.size()>0)
+			this.removeAllClauses();
 		if (list != null)
 			this.backing = list;
 	}
