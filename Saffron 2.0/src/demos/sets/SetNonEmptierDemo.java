@@ -14,9 +14,9 @@ public class SetNonEmptierDemo
 	public static void main(String[] args) throws Exception
 	{
 		Set theSet = new Set();
-		theSet.add("A");
-		theSet.add("B");
-		theSet.add("C");
+		theSet.addSupport("A");
+		theSet.addSupport("B");
+		theSet.addSupport("C");
 
 		IProblem problem = new SetNonemptier(theSet);
 
