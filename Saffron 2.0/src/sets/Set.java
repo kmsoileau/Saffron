@@ -7,11 +7,19 @@ import bits.IBooleanVariable;
 
 public class Set
 {
+	private static int setIndex = 0;
 	private HashMap<Object, IBooleanVariable> backing = new HashMap<Object, IBooleanVariable>();
+	private String name;
 
-	public void add(Object key) throws Exception
+	public Set()
 	{
-		add(key, BooleanVariable.getBooleanVariable());
+		this("Set-" + setIndex++);
+	}
+
+	public Set(String name)
+	{
+		super();
+		this.name = name;
 	}
 
 	public void add(Object key, IBooleanVariable bv)
@@ -28,6 +36,16 @@ public class Set
 		}
 	}
 
+	public void addSupport(Object key) throws Exception
+	{
+		add(key, BooleanVariable.getBooleanVariable());
+	}
+
+	public IBooleanVariable get(Object o)
+	{
+		return this.backing.get(o);
+	}
+
 	public HashMap<Object, IBooleanVariable> getBacking()
 	{
 		return backing;
@@ -38,9 +56,24 @@ public class Set
 		return this.getBacking().get(o);
 	}
 
+	public String getName()
+	{
+		return this.name;
+	}
+
+	public IBooleanVariable put(Object o, IBooleanVariable bv)
+	{
+		return this.backing.put(o, bv);
+	}
+
 	public void setBacking(HashMap<Object, IBooleanVariable> backing)
 	{
 		this.backing = backing;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
 	}
 
 	public String toString()

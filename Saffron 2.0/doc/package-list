@@ -26,6 +26,7 @@ exceptions.naturalnumberintervals
 exceptions.naturalnumberlists
 exceptions.naturalnumbers
 exceptions.naturalnumbertables
+exceptions.sets
 naturalnumberintervals
 naturalnumberlists
 naturalnumberlists.exceptions

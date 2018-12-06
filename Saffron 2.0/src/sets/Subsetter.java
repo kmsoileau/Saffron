@@ -1,12 +1,11 @@
 package sets;
 
 import java.util.HashMap;
-import java.util.List;
 
+import bits.BitFixer;
 import bits.BitOrderer;
 import bits.Conjunction;
 import bits.IBooleanVariable;
-import bits.IClause;
 import bits.IProblem;
 import bits.Problem;
 
@@ -34,26 +33,23 @@ public class Subsetter extends Problem implements IProblem
 		
 		if(X.getBacking().size()==0)
 			this.setClauses(Problem.trivialProblem().getClauses());
-
-		IProblem problem = Problem.newProblem();
-
-		boolean success = true;
-		for (Object o : xKeySet.toArray(new Object[0]))
-		{
-			if (!yKeySet.contains(o))
-			{
-				success = false;
-				break;
-			}
-			problem = new Conjunction(problem, new BitOrderer(xBacking.get(o),
-					yBacking.get(o)));
-		}
-		if (success)
-		{
-			List<IClause> ff = Problem.trivialProblem().getClauses();
-			this.setClauses(ff);
-		}
 		else
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+		{
+			IProblem problem = Problem.newProblem();
+
+			for (Object o : xKeySet.toArray(new Object[0]))
+			{
+				if (!yKeySet.contains(o))
+				{
+					problem=new Conjunction(problem,new BitFixer(xBacking.get(o),false));
+				}
+				else
+				{
+					problem = new Conjunction(problem, new BitOrderer(xBacking.get(o),
+							yBacking.get(o)));
+				}
+			}
+			this.setClauses(problem.getClauses());
+		}
 	}
 }
