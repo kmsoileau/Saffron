@@ -3,6 +3,7 @@ package demos.sets;
 import java.util.List;
 
 import sets.Set;
+import sets.SetMembershipper;
 import sets.Subsetter;
 import bits.BooleanLiteral;
 import bits.Conjunction;

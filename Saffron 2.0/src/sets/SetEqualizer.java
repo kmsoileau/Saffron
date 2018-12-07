@@ -31,6 +31,5 @@ public class SetEqualizer extends Problem implements IProblem
 
 		this.setClauses(new Conjunction(new Subsetter(X, Y),
 				new Subsetter(Y, X)).getClauses());
-
 	}
 }

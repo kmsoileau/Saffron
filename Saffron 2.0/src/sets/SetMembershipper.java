@@ -1,36 +1,27 @@
 package sets;
 
-import java.util.HashMap;
-
-import bits.Conjunction;
+import bits.BitFixer;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
+import exceptions.sets.SetMembershipperException;
 
 public class SetMembershipper extends Problem implements IProblem
 {
-	public SetMembershipper(Set X, Set Y) throws Exception
+	public SetMembershipper(Object object, Set set) throws Exception
 	{
-		super();
-		HashMap<Object, IBooleanVariable> xBacking = X.getBacking();
-		if (xBacking == null)
-			throw new SetNonemptierException(
-					"Set with null backing passed to constructor.");
-		java.util.Set<Object> xKeySet = xBacking.keySet();
-		if (xKeySet == null)
-			throw new SetNonemptierException(
-					"Set with null keySet passed to constructor.");
-		HashMap<Object, IBooleanVariable> yBacking = Y.getBacking();
-		if (yBacking == null)
-			throw new SetNonemptierException(
-					"Set with null backing passed to constructor.");
-		java.util.Set<Object> yKeySet = yBacking.keySet();
-		if (yKeySet == null)
-			throw new SetNonemptierException(
-					"Set with null keySet passed to constructor.");
+		if (set == null)
+			throw new SetMembershipperException(
+					"Passed a null Set to constructor.");
+		if (object == null)
+			throw new SetMembershipperException(
+					"Passed a null member Object to constructor.");
+		IBooleanVariable bv = set.contains(object);
+		if (bv == null)
+			throw new SetMembershipperException("Object " + object
+					+ " is not in the support of Set " + set);
 
-		this.setClauses(new Conjunction(new Subsetter(X, Y),
-				new Subsetter(Y, X)).getClauses());
-
+		IProblem problem = new BitFixer(bv, true);
+		this.setClauses(problem.getClauses());
 	}
 }

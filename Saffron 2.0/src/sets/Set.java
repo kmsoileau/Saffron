@@ -57,7 +57,7 @@ public class Set
 		add(key, BooleanVariable.getBooleanVariable());
 	}
 
-	public IBooleanVariable get(Object o)
+	public IBooleanVariable contains(Object o)
 	{
 		return this.backing.get(o);
 	}

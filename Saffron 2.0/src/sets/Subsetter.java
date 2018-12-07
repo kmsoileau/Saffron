@@ -30,8 +30,8 @@ public class Subsetter extends Problem implements IProblem
 		if (yKeySet == null)
 			throw new SetNonemptierException(
 					"Set with null keySet passed to constructor.");
-		
-		if(X.getBacking().size()==0)
+
+		if (X.getBacking().size() == 0)
 			this.setClauses(Problem.trivialProblem().getClauses());
 		else
 		{
@@ -41,12 +41,13 @@ public class Subsetter extends Problem implements IProblem
 			{
 				if (!yKeySet.contains(o))
 				{
-					problem=new Conjunction(problem,new BitFixer(xBacking.get(o),false));
+					problem = new Conjunction(problem, new BitFixer(
+							xBacking.get(o), false));
 				}
 				else
 				{
-					problem = new Conjunction(problem, new BitOrderer(xBacking.get(o),
-							yBacking.get(o)));
+					problem = new Conjunction(problem, new BitOrderer(
+							xBacking.get(o), yBacking.get(o)));
 				}
 			}
 			this.setClauses(problem.getClauses());
