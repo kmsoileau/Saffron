@@ -40,7 +40,7 @@ public class Set
 		for (Object o : hashSet)
 			this.addSupport(o);
 	}
-
+	
 	public Set(Object[] supportArray) throws Exception
 	{
 		// Eventually: this(java.util.Set.of(supportArray));
@@ -50,6 +50,18 @@ public class Set
 	public Set(String name)
 	{
 		super();
+		this.name = name;
+	}
+
+	public <T> Set(String name, HashSet<T> hashSet) throws Exception
+	{
+		this(hashSet);
+		this.setName(name);
+	}
+	
+	public Set(String name, Object[] supportArray) throws Exception
+	{
+		this(supportArray);
 		this.name = name;
 	}
 
