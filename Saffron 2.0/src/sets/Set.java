@@ -1,6 +1,8 @@
 package sets;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import bits.BooleanVariable;
 import bits.IBooleanVariable;
@@ -30,6 +32,19 @@ public class Set
 	public Set()
 	{
 		this("Set-" + setIndex++);
+	}
+
+	public <T> Set(HashSet<T> hashSet) throws Exception
+	{
+		this.backing.clear();
+		for (Object o : hashSet)
+			this.addSupport(o);
+	}
+
+	public Set(Object[] supportArray) throws Exception
+	{
+		// Eventually: this(java.util.Set.of(supportArray));
+		this(new HashSet<Object>(Arrays.asList(supportArray)));
 	}
 
 	public Set(String name)

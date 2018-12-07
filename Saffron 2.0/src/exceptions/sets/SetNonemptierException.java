@@ -1,4 +1,4 @@
-package sets;
+package exceptions.sets;
 
 public class SetNonemptierException extends Exception
 {

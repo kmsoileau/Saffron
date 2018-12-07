@@ -2,6 +2,7 @@ package sets;
 
 import java.util.HashMap;
 
+import exceptions.sets.SetNonemptierException;
 import bits.BitFixer;
 import bits.BitOrderer;
 import bits.Conjunction;
