@@ -77,6 +77,11 @@ public class Set
 		return this.name;
 	}
 
+	public java.util.Set<Object> getSupport()
+	{
+		return this.backing.keySet();
+	}
+
 	public IBooleanVariable put(Object o, IBooleanVariable bv)
 	{
 		return this.backing.put(o, bv);
