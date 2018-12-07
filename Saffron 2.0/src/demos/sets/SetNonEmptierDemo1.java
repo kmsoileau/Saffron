@@ -9,7 +9,7 @@ import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
 
-public class SetNonEmptierDemo
+public class SetNonEmptierDemo1
 {
 	public static void main(String[] args) throws Exception
 	{
