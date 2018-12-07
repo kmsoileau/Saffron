@@ -5,6 +5,22 @@ import java.util.HashMap;
 import bits.BooleanVariable;
 import bits.IBooleanVariable;
 
+/**
+ * A class which represents a subset. Set is essentially an association of a
+ * collection of objects (its <b>support</b>) and corresponding
+ * <code>IBooleanVariable</code>s. The objects whose
+ * <code>IBooleanVariable</code>s evaluate to <code>true</code> form the members
+ * of the Set. This class is useful when one is trying to find a subset of a
+ * given set that satisfies given constraints.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2018/12/06
+ */
 public class Set
 {
 	private static int setIndex = 0;
