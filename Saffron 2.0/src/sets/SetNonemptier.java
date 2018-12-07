@@ -2,12 +2,12 @@ package sets;
 
 import java.util.HashMap;
 
-import exceptions.sets.SetNonemptierException;
 import bits.BitFixer;
 import bits.Disjunction;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
+import exceptions.sets.SetNonemptierException;
 
 public class SetNonemptier extends Problem implements IProblem
 {

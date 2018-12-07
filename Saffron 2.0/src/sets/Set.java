@@ -36,6 +36,7 @@ public class Set
 
 	public <T> Set(HashSet<T> hashSet) throws Exception
 	{
+		this();
 		this.backing.clear();
 		for (Object o : hashSet)
 			this.addSupport(o);

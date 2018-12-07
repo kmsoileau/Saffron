@@ -1,7 +1,6 @@
 package sets;
 
 import naturalnumbers.ConditionalAdder;
-import naturalnumbers.NaturalNumber;
 import bits.IBitString;
 import bits.INaturalNumber;
 import bits.IProblem;
@@ -10,7 +9,8 @@ import bitstrings.BitString;
 
 public class SubsetWeightedTotaler extends Problem implements IProblem
 {
-	public SubsetWeightedTotaler(WeightedSet subset) throws Exception
+	public SubsetWeightedTotaler(WeightedSet subset, INaturalNumber weightedSum)
+			throws Exception
 	{
 		Set bs = subset.getBackingSet();
 		java.util.Set<Object> supp = bs.getSupport();
@@ -18,17 +18,16 @@ public class SubsetWeightedTotaler extends Problem implements IProblem
 		INaturalNumber[] numbers = new INaturalNumber[siz];
 		IBitString membership = new BitString(
 				"SubsetWeightedTotalerMembership", siz);
-		INaturalNumber conditionalSum = new NaturalNumber(
-				"SubsetWeightedTotalerSum");
 
 		int index = 0;
 		for (Object o : supp)
 		{
-			numbers[index++] = ((WeightedObject) o).getWeight();
+			numbers[index] = ((WeightedObject) o).getWeight();
 			membership.setBooleanVariable(index, bs.contains(o));
+			index++;
 		}
 
-		this.setClauses(new ConditionalAdder(numbers, membership,
-				conditionalSum).getClauses());
+		this.setClauses(new ConditionalAdder(numbers, membership, weightedSum)
+				.getClauses());
 	}
 }

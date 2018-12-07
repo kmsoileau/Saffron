@@ -2,13 +2,13 @@ package sets;
 
 import java.util.HashMap;
 
-import exceptions.sets.SetNonemptierException;
 import bits.BitFixer;
 import bits.BitOrderer;
 import bits.Conjunction;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
+import exceptions.sets.SubsetterException;
 
 public class Subsetter extends Problem implements IProblem
 {
@@ -17,19 +17,19 @@ public class Subsetter extends Problem implements IProblem
 		super();
 		HashMap<Object, IBooleanVariable> xBacking = X.getBacking();
 		if (xBacking == null)
-			throw new SetNonemptierException(
+			throw new SubsetterException(
 					"Set with null backing passed to constructor.");
 		java.util.Set<Object> xKeySet = xBacking.keySet();
 		if (xKeySet == null)
-			throw new SetNonemptierException(
+			throw new SubsetterException(
 					"Set with null keySet passed to constructor.");
 		HashMap<Object, IBooleanVariable> yBacking = Y.getBacking();
 		if (yBacking == null)
-			throw new SetNonemptierException(
+			throw new SubsetterException(
 					"Set with null backing passed to constructor.");
 		java.util.Set<Object> yKeySet = yBacking.keySet();
 		if (yKeySet == null)
-			throw new SetNonemptierException(
+			throw new SubsetterException(
 					"Set with null keySet passed to constructor.");
 
 		if (X.getBacking().size() == 0)
