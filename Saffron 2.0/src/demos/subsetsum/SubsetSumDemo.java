@@ -2,24 +2,24 @@ package demos.subsetsum;
 
 import java.util.List;
 
-import naturalnumbers.ConditionalAdder;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
+import sets.SubsetWeightedTotaler;
+import sets.WeightedObject;
+import sets.WeightedSet;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBitString;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import bitstrings.BitString;
 
 public class SubsetSumDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		int desiredSum = 100;
-		
+		int desiredSum = 98;
+
 		Integer[] data = new Integer[]
 		{ 54, 43, 71, 39, 59, 72, 11, 20, 79, 44, 25, 74, 4, 2, 39, 18, 81, 62,
 				48, 45, 82, 94, 76, 27, 3, 77, 77, 68, 8, 50, 70, 62, 76, 10,
@@ -28,27 +28,27 @@ public class SubsetSumDemo
 				73, 13, 58, 91, 52, 91, 13, 37, 44, 12, 72, 67, 90, 31, 79, 50,
 				99, 92, 93, 85, 35, 27, 9, 2, 88, 90, 90, 1, 83, 45, 63, 83,
 				33, 21 };
-	
+
 		int maxSum = 0;
 		for (int i = 0; i < data.length; i++)
 			maxSum += data[i];
 		NaturalNumber.setLargestNaturalNumber(maxSum);
 
-		INaturalNumber[] w = new INaturalNumber[data.length];
+		WeightedSet subset = new WeightedSet();
+		IProblem[] problemArray = new IProblem[data.length + 2];
 		int index = 0;
-		IProblem[] problemArray = new IProblem[w.length + 2];
-		for (int i = 0; i < w.length; i++)
+		for (int i = 0; i < data.length; i++)
 		{
-			w[i] = new NaturalNumber(data[i]);
-			problemArray[index++] = new NaturalNumberFixer(w[i]);
+			WeightedObject curr = new WeightedObject("o" + i);
+			subset.addSupport(curr);
+			problemArray[index++] = new NaturalNumberFixer(curr.getWeight(),
+					data[i]);
 		}
 
-		INaturalNumber W = new NaturalNumber(desiredSum);
-		problemArray[index++] = new NaturalNumberFixer(W);
+		INaturalNumber W = new NaturalNumber();
+		problemArray[index++] = new NaturalNumberFixer(W, desiredSum);
 
-		IBitString membership = new BitString(w.length);
-
-		problemArray[index++] = new ConditionalAdder(w, membership, W);
+		problemArray[index++] = new SubsetWeightedTotaler(subset, W);
 
 		IProblem problem = new Conjunction(problemArray);
 
@@ -56,9 +56,7 @@ public class SubsetSumDemo
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
-			for(int i=0;i<membership.size();i++)
-				if(membership.getBooleanVariable(i).getValue())
-					System.out.print(data[i]+" ");
+			System.out.print(subset.getBackingSet());
 		}
 		else
 			System.out.println("No solution.");
