@@ -8,9 +8,11 @@
 
 package bitstrings;
 
+import bits.BitOrderer;
 import bits.BitOrer;
 import bits.Conjunction;
 import bits.IBitString;
+import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
 import exceptions.bitstrings.BitStringOrerException;
@@ -34,5 +36,20 @@ public class BitStringOrer extends Problem implements IProblem
 						Y.getBooleanVariable(i), Z.getBooleanVariable(i));
 			this.setClauses(new Conjunction(p).getClauses());
 		}
+	}
+
+	public BitStringOrer(IBitString[] X, IBitString Z) throws Exception
+	{
+		int l = X.length;
+		IProblem[] problemArray = new IProblem[l];
+		int arrayIndex = 0;
+		for (int zindex = 0; zindex < l; zindex++)
+			for (int bsindex = 0; bsindex < l; bsindex++)
+			{
+				IBitString currbs = X[bsindex];
+				problemArray[arrayIndex++] = new BitOrderer(
+						currbs.getBooleanVariable(zindex),
+						Z.getBooleanVariable(zindex));
+			}
 	}
 }
