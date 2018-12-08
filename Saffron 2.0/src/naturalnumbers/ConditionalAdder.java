@@ -28,7 +28,7 @@ public class ConditionalAdder extends Problem implements IProblem
 					"numbers or bits array of zero length was passed to constructor."));
 		if (numbers.length != membership.length)
 			throw (new ConditionalAdderException(
-					"numbers or bits array of different lengths were passed to constructor."));
+					"numbers or bits arrays of different lengths were passed to constructor."));
 		if (conditionalSum == null)
 			throw (new ConditionalAdderException(
 					"A null conditionalSum variable was passed to constructor."));

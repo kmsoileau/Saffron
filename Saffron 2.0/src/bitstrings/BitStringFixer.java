@@ -96,4 +96,12 @@ public class BitStringFixer extends Problem implements IProblem
 		IProblem pp = new Conjunction(p);
 		this.setClauses(pp.getClauses());
 	}
+
+	public BitStringFixer(IBitString[] X) throws Exception
+	{
+		IProblem ret=Problem.newProblem();
+		for(int i=0;i<X.length;i++)
+			ret=new Conjunction(ret,new BitStringFixer(X[i]));
+		this.setClauses(ret.getClauses());
+	}
 }
