@@ -47,6 +47,6 @@ public class WeightedObject
 
 	public String toString()
 	{
-		return "[" + weight + "]";
+		return "<" + this.getName()+":"+this.getWeight() + ">";
 	}
 }
