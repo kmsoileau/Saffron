@@ -4,9 +4,9 @@ import java.util.List;
 
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.WeightedObject;
+import naturalnumbers.WeightedSet;
 import sets.SubsetWeightedTotaler;
-import sets.WeightedObject;
-import sets.WeightedSet;
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;

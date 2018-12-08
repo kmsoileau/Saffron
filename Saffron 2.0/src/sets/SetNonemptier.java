@@ -13,6 +13,9 @@ public class SetNonemptier extends Problem implements IProblem
 {
 	public SetNonemptier(Set X) throws Exception
 	{
+		if (X == null)
+			throw new SetNonemptierException(
+					"Null passed to constructor as Set parameter.");
 		HashMap<Object, IBooleanVariable> backing = X.getBacking();
 		if (backing == null)
 			throw new SetNonemptierException(
@@ -23,7 +26,8 @@ public class SetNonemptier extends Problem implements IProblem
 		Object[] keySetArray = keySet.toArray(new Object[0]);
 		for (Object o : keySetArray)
 		{
-			problem = new Disjunction(problem, new BitFixer(backing.get(o), true));
+			problem = new Disjunction(problem, new BitFixer(backing.get(o),
+					true));
 		}
 
 		this.setClauses(problem.getClauses());

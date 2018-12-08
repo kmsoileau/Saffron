@@ -12,10 +12,10 @@ public class SetNonMembershipper extends Problem implements IProblem
 	{
 		if (set == null)
 			throw new SetNonMembershipperException(
-					"Passed a null Set to constructor.");
+					"Null passed to constructor as Set parameter.");
 		if (object == null)
 			throw new SetNonMembershipperException(
-					"Passed a null member Object to constructor.");
+					"Null passed to constructor as Object parameter.");
 		IBooleanVariable bv = set.contains(object);
 		if (bv == null)
 			throw new SetNonMembershipperException("Object " + object

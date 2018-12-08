@@ -1,35 +1,16 @@
 package sets;
 
-import java.util.HashMap;
-
+import exceptions.sets.SetEqualizerException;
 import bits.Conjunction;
-import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
-import exceptions.sets.SetEqualizerException;
 
 public class SetEqualizer extends Problem implements IProblem
 {
 	public SetEqualizer(Set X, Set Y) throws Exception
 	{
-		super();
-		HashMap<Object, IBooleanVariable> xBacking = X.getBacking();
-		if (xBacking == null)
-			throw new SetEqualizerException(
-					"Set with null backing passed to constructor.");
-		java.util.Set<Object> xKeySet = xBacking.keySet();
-		if (xKeySet == null)
-			throw new SetEqualizerException(
-					"Set with null keySet passed to constructor.");
-		HashMap<Object, IBooleanVariable> yBacking = Y.getBacking();
-		if (yBacking == null)
-			throw new SetEqualizerException(
-					"Set with null backing passed to constructor.");
-		java.util.Set<Object> yKeySet = yBacking.keySet();
-		if (yKeySet == null)
-			throw new SetEqualizerException(
-					"Set with null keySet passed to constructor.");
-
+		if(X==null || Y==null)
+			throw new SetEqualizerException("Null passed to constructor as Set parameter.");
 		this.setClauses(new Conjunction(new Subsetter(X, Y),
 				new Subsetter(Y, X)).getClauses());
 	}

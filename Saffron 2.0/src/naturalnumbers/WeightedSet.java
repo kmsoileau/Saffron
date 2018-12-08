@@ -1,5 +1,6 @@
-package sets;
+package naturalnumbers;
 
+import sets.Set;
 import bits.BooleanVariable;
 import exceptions.sets.WeightedSetException;
 

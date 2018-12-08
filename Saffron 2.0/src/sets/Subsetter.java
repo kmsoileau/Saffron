@@ -14,7 +14,9 @@ public class Subsetter extends Problem implements IProblem
 {
 	public Subsetter(Set X, Set Y) throws Exception
 	{
-		super();
+		if (X == null || Y == null)
+			throw new SubsetterException(
+					"Null passed to constructor as Set parameter.");
 		HashMap<Object, IBooleanVariable> xBacking = X.getBacking();
 		if (xBacking == null)
 			throw new SubsetterException(
@@ -32,7 +34,7 @@ public class Subsetter extends Problem implements IProblem
 			throw new SubsetterException(
 					"Set with null keySet passed to constructor.");
 
-		if (X.getBacking().size() == 0)
+		if (xBacking.size() == 0)
 			this.setClauses(Problem.trivialProblem().getClauses());
 		else
 		{
