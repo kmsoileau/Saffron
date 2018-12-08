@@ -5,14 +5,15 @@ import bits.INaturalNumber;
 
 public class WeightedObject
 {
-	private Object name;
+	private String name;
 	private INaturalNumber weight;
+	private Integer weightValue;
 
 	public WeightedObject() throws Exception
 	{
 		this(new NaturalNumber());
 	}
-	
+
 	public WeightedObject(INaturalNumber weight)
 	{
 		super();
@@ -35,7 +36,13 @@ public class WeightedObject
 		return weight;
 	}
 
-	public void setName(Object name)
+	public Integer getWeightValue()
+	{
+		// TODO Auto-generated method stub
+		return this.weightValue;
+	}
+
+	public void setName(String name)
 	{
 		this.name = name;
 	}
@@ -45,8 +52,13 @@ public class WeightedObject
 		this.weight = weight;
 	}
 
+	public void setWeightValue(Integer weightValue)
+	{
+		this.weightValue = weightValue;
+	}
+
 	public String toString()
 	{
-		return "<" + this.getName()+":"+this.getWeight() + ">";
+		return "<" + this.getName() + ":" + this.getWeight() + ">";
 	}
 }
