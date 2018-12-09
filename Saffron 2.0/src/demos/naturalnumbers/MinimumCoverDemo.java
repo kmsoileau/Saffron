@@ -17,7 +17,7 @@ import bitstringlists.BitStringListFixer;
 import bitstringlists.IBitStringList;
 import bitstrings.BitString;
 
-public class 1`
+public class MinimumCoverDemo
 {
 	public static void main(String[] args) throws Exception
 	{
