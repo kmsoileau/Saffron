@@ -1,4 +1,4 @@
-package TBS;
+package exceptions.bitstrings;
 
 public class ConditionalOrerException extends Exception
 {

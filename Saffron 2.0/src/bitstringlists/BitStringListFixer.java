@@ -8,10 +8,10 @@
 
 package bitstringlists;
 
-import bits.BitFixer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import bitstrings.BitStringFixer;
 import exceptions.bitstringlists.BitStringListFixerException;
 
 /**
@@ -38,17 +38,27 @@ import exceptions.bitstringlists.BitStringListFixerException;
  */
 public class BitStringListFixer extends Problem implements IProblem
 {
-	public BitStringListFixer(IBitStringList target) throws Exception
+	public BitStringListFixer(IBitStringList theList) throws Exception
 	{
-		if (target == null)
+		if (theList == null)
 			throw new BitStringListFixerException(
 					"Passed null IBitStringList to constructor.");
-		IProblem problem = null;
-		for (int i = 0; i < target.size(); i++)
-			for (int j = 0; j < target.getBitString(i).size(); j++)
-				problem = new Conjunction(problem, new BitFixer(target
-						.getBitString(i).getBooleanVariable(j), target
-						.getBitString(i).getBooleanVariable(j).getValue()));
+		IProblem problem = Problem.newProblem();
+		for (int i = 0; i < theList.size(); i++)
+			problem = new Conjunction(problem, new BitStringFixer(
+					theList.getBitString(i)));
 		this.setClauses(problem.getClauses());
 	}
+
+	/*
+	 * public BitStringListFixer(IBitStringList theList) throws Exception { if
+	 * (theList == null) throw new BitStringListFixerException(
+	 * "Passed null IBitStringList to constructor."); IProblem problem =
+	 * Problem.newProblem(); for (int i = 0; i < theList.size(); i++) for (int j
+	 * = 0; j < theList.getBitString(i).size(); j++) problem = new
+	 * Conjunction(problem, new BitFixer(theList
+	 * .getBitString(i).getBooleanVariable(j), theList
+	 * .getBitString(i).getBooleanVariable(j).getValue()));
+	 * this.setClauses(problem.getClauses()); }
+	 */
 }
