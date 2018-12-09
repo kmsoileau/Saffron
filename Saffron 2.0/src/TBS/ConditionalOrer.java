@@ -1,19 +1,22 @@
 package TBS;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberAdder;
-import naturalnumbers.NaturalNumberBitMultiply;
-import naturalnumbers.NaturalNumberEqualizer;
+import bits.BitFixer;
 import bits.Conjunction;
+import bits.Disjunction;
 import bits.IBitString;
 import bits.IBooleanVariable;
-import bits.INaturalNumber;
 import bits.IProblem;
+import bits.Problem;
+import bitstrings.BitString;
+import bitstrings.BitStringEqualizer;
+import bitstrings.BitStringFixer;
+import bitstrings.BitStringOrer;
 
-public class ConditionalOrer
+public class ConditionalOrer extends Problem implements IProblem
 {
 	public ConditionalOrer(IBitString[] bitStrings,
 			IBooleanVariable[] membership, IBitString conditionalResult)
+			throws Exception
 	{
 		if (bitStrings.length == 0 || membership.length == 0)
 			throw (new ConditionalOrerException(
@@ -28,38 +31,38 @@ public class ConditionalOrer
 			throw (new ConditionalOrerException(
 					"A conditionalResult of size zero was passed to constructor."));
 
-		IBitString[] subAnswer = new IBitString[bitStrings.length];
-		IBitString[] subTotal = new IBitString[bitStrings.length];
-		subTotal[0] = new BitString();
-		subAnswer[0] = new BitString();
-
-		IProblem[] stagingArray = new IProblem[2 * bitStrings.length + 1];
 		int stagingIndex = 0;
-		stagingArray[stagingIndex++] = new NaturalNumberBitMultiply(
-				membership[0], bitStrings[0], subAnswer[0]);
-		stagingArray[stagingIndex++] = new NaturalNumberEqualizer(subTotal[0],
-				subAnswer[0]);
+		IProblem[] stagingArray = new IProblem[bitStrings.length];
+
+		IBitString zeroBitString = new BitString(bitStrings[0].size());
+		stagingArray[stagingIndex++] = new BitStringFixer(zeroBitString);
+
+		IBitString[] subTotal = new IBitString[bitStrings.length];
+		
+		stagingArray[stagingIndex++] = stagingArray[stagingIndex++] = new Conjunction(
+				//if membership[0] then subTotal[0]=bitStrings[0]
+				new Disjunction(
+						new BitFixer(membership[0], false), new BitStringEqualizer(
+						subTotal[0], bitStrings[0])), 
+				//if !membership[0] then subTotal[0]=nullBitString
+				new Disjunction(
+						new BitFixer(membership[0], true), new BitStringEqualizer(
+						subTotal[0], zeroBitString)));
+		
 		for (int i = 1; i < bitStrings.length; i++)
 		{
-			// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\t\t"+i);
-			subAnswer[i] = new NaturalNumber();
-			subTotal[i] = new NaturalNumber();
-			stagingArray[stagingIndex++] = new NaturalNumberBitMultiply(
-					membership[i], bitStrings[i], subAnswer[i]);
-			stagingArray[stagingIndex++] = new NaturalNumberAdder(
-					subTotal[i - 1], subAnswer[i], subTotal[i]);
-			// System.out.println(stagingIndex);
+			stagingArray[stagingIndex++] = new Conjunction(
+					//if membership[i] then subTotal[i]=subTotal[i-1] | bitStrings[i]
+					new Disjunction(
+							new BitFixer(membership[i], false), new BitStringOrer(
+							subTotal[i-1], bitStrings[i],subTotal[i])), 
+					//if !membership[i] then subTotal[i]=subTotal[i-1]
+					new Disjunction(
+							new BitFixer(membership[i], true), new BitStringEqualizer(
+							subTotal[i], subTotal[i-1])));
 		}
-		// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\\t\tAdding
-		// NaturalNumberEqualizer");
-		stagingArray[stagingIndex++] = new NaturalNumberEqualizer(
-				subTotal[bitStrings.length - 1], conditionalResult);
-		// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\t\tComputing
-		// staging array");
+
 		IProblem problem = new Conjunction(stagingArray);
 		this.setClauses(problem.getClauses());
-
-		// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\tFinishing
-		// ConditionalAdder...");
 	}
 }
