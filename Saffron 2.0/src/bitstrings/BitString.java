@@ -158,7 +158,7 @@ public class BitString implements IBitString
 		}
 	}
 
-	@Override
+	/*
 	public boolean equals(Object anObject)
 	{
 		if (anObject == null)
@@ -171,6 +171,7 @@ public class BitString implements IBitString
 			return false;
 		return true;
 	}
+	*/
 
 	@Override
 	public IBooleanVariable getBooleanVariable(int i) throws Exception

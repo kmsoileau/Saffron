@@ -142,8 +142,7 @@ public class BitStringList implements IBitStringList
 		for (int i = 0; i < n; i++)
 		{
 			IBitString o = new BitString(name + "_" + i, new boolean[bits]);
-			// this.getData().add(o);
-			this.getData().add(o);
+			this.listData.add(o);
 		}
 	}
 
