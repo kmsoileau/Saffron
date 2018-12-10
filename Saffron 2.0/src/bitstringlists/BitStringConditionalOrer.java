@@ -1,4 +1,4 @@
-package bitstrings;
+package bitstringlists;
 
 import bits.BitFixer;
 import bits.Conjunction;
@@ -6,25 +6,33 @@ import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.IBitStringList;
-import exceptions.bitstrings.ConditionalOrerException;
+import bitstrings.BitString;
+import bitstrings.BitStringEqualizer;
+import bitstrings.BitStringFixer;
+import bitstrings.BitStringOrer;
+import exceptions.bitstringlists.BitStringConditionalOrerException;
 
-public class ConditionalOrer extends Problem implements IProblem
+/*
+ * Given a collection C of IBitStrings each of size n, and an IBitString targetBitString of size n,
+ * does there exist a subset of C such that the bitwise 
+ * OR of the members of the subset evaluate to targetBitString?
+ */
+public class BitStringConditionalOrer extends Problem implements IProblem
 {
-	public ConditionalOrer(IBitString[] bitStrings, IBitString membership,
-			IBitString conditionalResult) throws Exception
+	public BitStringConditionalOrer(IBitString[] bitStrings,
+			IBitString membership, IBitString targetBitString) throws Exception
 	{
 		if (bitStrings.length == 0 || membership.size() == 0)
-			throw (new ConditionalOrerException(
+			throw (new BitStringConditionalOrerException(
 					"IBitString or IBooleanVariable array of zero length was passed to constructor."));
 		if (bitStrings.length != membership.size())
-			throw (new ConditionalOrerException(
+			throw (new BitStringConditionalOrerException(
 					"IBitString or IBooleanVariable arrays of different lengths were passed to constructor."));
-		if (conditionalResult == null)
-			throw (new ConditionalOrerException(
+		if (targetBitString == null)
+			throw (new BitStringConditionalOrerException(
 					"A null conditionalResult variable was passed to constructor."));
-		if (conditionalResult.size() == 0)
-			throw (new ConditionalOrerException(
+		if (targetBitString.size() == 0)
+			throw (new BitStringConditionalOrerException(
 					"A conditionalResult of size zero was passed to constructor."));
 
 		int stagingIndex = 0;
@@ -62,17 +70,18 @@ public class ConditionalOrer extends Problem implements IProblem
 							new BitStringEqualizer(subTotal[i], subTotal[i - 1])));
 		}
 
-		stagingArray[stagingIndex++] = new BitStringEqualizer(
-				conditionalResult, subTotal[bitStrings.length - 1]);
+		stagingArray[stagingIndex++] = new BitStringEqualizer(targetBitString,
+				subTotal[bitStrings.length - 1]);
 
 		IProblem problem = new Conjunction(stagingArray);
 		this.setClauses(problem.getClauses());
 	}
 
-	public ConditionalOrer(IBitStringList bitStringList, IBitString membership,
-			IBitString conditionalResult) throws Exception
+	public BitStringConditionalOrer(IBitStringList bitStringList,
+			IBitString membership, IBitString conditionalResult)
+			throws Exception
 	{
 		this(bitStringList.toList().toArray(new IBitString[0]), membership,
-			conditionalResult);
+				conditionalResult);
 	}
 }

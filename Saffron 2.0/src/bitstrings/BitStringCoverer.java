@@ -1,15 +1,14 @@
-package naturalnumbers;
+package bitstrings;
 
+import naturalnumbers.BitStringTotaler;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import bitstringlists.BitStringConditionalOrer;
 import bitstringlists.IBitStringList;
-import bitstrings.BitString;
-import bitstrings.BitStringFixer;
-import bitstrings.ConditionalOrer;
-import exceptions.naturalnumbers.BitStringCovererException;
+import exceptions.bitstrings.BitStringCovererException;
 
 /*
  * Given a collection C of BitStrings each of size n and a positive integer 
@@ -34,7 +33,7 @@ public class BitStringCoverer extends Problem implements IProblem
 		for (int i = 0; i < len; i++)
 			conditionalResult.getBooleanVariable(i).setValue(true);
 
-		this.setClauses(new Conjunction(new ConditionalOrer(C, included, conditionalResult), 
+		this.setClauses(new Conjunction(new BitStringConditionalOrer(C, included, conditionalResult), 
 				new BitStringFixer(conditionalResult), new BitStringTotaler(included, K)).getClauses());
 	}
 }

@@ -2,7 +2,6 @@ package demos.naturalnumbers;
 
 import java.util.List;
 
-import naturalnumbers.BitStringCoverer;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
@@ -16,6 +15,7 @@ import bitstringlists.BitStringList;
 import bitstringlists.BitStringListFixer;
 import bitstringlists.IBitStringList;
 import bitstrings.BitString;
+import bitstrings.BitStringCoverer;
 
 public class BitStringCovererDemo
 {

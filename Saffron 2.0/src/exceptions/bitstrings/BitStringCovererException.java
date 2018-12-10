@@ -1,4 +1,4 @@
-package exceptions.naturalnumbers;
+package exceptions.bitstrings;
 
 public class BitStringCovererException extends Exception
 {

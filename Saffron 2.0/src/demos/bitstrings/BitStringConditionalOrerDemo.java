@@ -7,11 +7,11 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
+import bitstringlists.BitStringConditionalOrer;
 import bitstrings.BitString;
 import bitstrings.BitStringFixer;
-import bitstrings.ConditionalOrer;
 
-public class ConditionalOrerDemo
+public class BitStringConditionalOrerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -22,7 +22,7 @@ public class ConditionalOrerDemo
 		IBitString conditionalResult = new BitString(X[0].size());
 		IBitString membership = new BitString("1010");
 		IProblem problem = new Conjunction(new BitStringFixer(X),
-				new BitStringFixer(membership), new ConditionalOrer(X,
+				new BitStringFixer(membership), new BitStringConditionalOrer(X,
 						membership, conditionalResult));
 
 		List<?> s = problem.findModel(Problem.defaultSolver());
@@ -30,9 +30,9 @@ public class ConditionalOrerDemo
 		{
 			BooleanLiteral.interpret(s);
 			for (int i = 0; i < X.length; i++)
-				System.out.println(X[i]);
-			System.out.println(membership);
-			System.out.println(conditionalResult);
+				if (membership.getBooleanVariable(i).getValue())
+					System.out.println(X[i].toBits());
+			System.out.println(conditionalResult.toBits());
 		}
 		else
 			System.out.println("There is no solution.");

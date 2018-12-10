@@ -1,14 +1,12 @@
 package naturalnumbers;
 
-import naturalnumbers.BitStringCoverer;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberOrderer;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 import bitstringlists.IBitStringList;
+import bitstrings.BitStringCoverer;
 import exceptions.naturalnumbers.MinimumCoverException;
 
 /*
