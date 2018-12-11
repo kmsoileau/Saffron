@@ -1,4 +1,4 @@
-package demos.bitstrings;
+package TBS;
 
 import sets.Set;
 import bits.IBitString;
