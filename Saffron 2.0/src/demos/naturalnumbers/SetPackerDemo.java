@@ -16,14 +16,11 @@ import bitstrings.BitStringFixer;
 
 public class SetPackerDemo
 {
-
 	public static void main(String[] args) throws Exception
 	{
-		IBitString[] C = new IBitString[] { new BitString("01001010"), new
-		BitString("10101010"), new BitString("10000000"), new
-		BitString("00100000") };
-
-		
+		IBitString[] C = new IBitString[]
+		{ new BitString("01001010"), new BitString("10101010"),
+				new BitString("10000000"), new BitString("00100000") };
 
 		IProblem p1 = Problem.newProblem();
 		for (int i = 0; i < C.length; i++)
@@ -41,10 +38,13 @@ public class SetPackerDemo
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
-			System.out.println("C[0]=" + C[0].toBits());
-			System.out.println("membership=" + membership.toBits());
+			System.out.println("Source Data\n-----------");
 			for (int i = 0; i < C.length; i++)
-				System.out.println("C[" + i + "]=" + C[i].toBits());
+				System.out.println(C[i].toBits());
+			System.out.println("\nSolution\n--------");
+			for (int i = 0; i < C.length; i++)
+				if(membership.getBooleanVariable(i).getValue())
+					System.out.println(C[i].toBits());
 		}
 		else
 			System.out.println("No solution.");
