@@ -1,6 +1,5 @@
 package naturalnumbers;
 
-import naturalnumbers.BitStringTotaler;
 import bits.BitFixer;
 import bits.Conjunction;
 import bits.Disjunction;

@@ -2,8 +2,8 @@ package demos.naturalnumbers;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
 import naturalnumbers.BitStringPacker;
+import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;

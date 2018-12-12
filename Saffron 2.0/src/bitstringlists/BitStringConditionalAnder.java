@@ -6,7 +6,6 @@ import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.IBitStringList;
 import bitstrings.BitString;
 import bitstrings.BitStringAnder;
 import bitstrings.BitStringEqualizer;
@@ -18,9 +17,6 @@ import exceptions.tbs.BitStringConditionalAnderException;
  * does there exist a subset of C such that the bitwise 
  * AND of the members of the subset evaluate to targetBitString?
  */
-
-
-// TBS
 public class BitStringConditionalAnder extends Problem implements IProblem
 {
 	public BitStringConditionalAnder(IBitString[] bitStrings,
