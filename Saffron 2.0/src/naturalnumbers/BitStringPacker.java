@@ -22,9 +22,9 @@ import bitstrings.BitStringDisjointer;
  * @version 1.0
  * @since 2018/12/12
  */
-public class SetPacker extends Problem implements IProblem
+public class BitStringPacker extends Problem implements IProblem
 {
-	public SetPacker(IBitString[] C, INaturalNumber K, IBitString membership)
+	public BitStringPacker(IBitString[] C, INaturalNumber K, IBitString membership)
 			throws Exception
 	{
 		int problemIndex = 0;

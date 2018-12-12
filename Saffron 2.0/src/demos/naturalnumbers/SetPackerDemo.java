@@ -3,7 +3,7 @@ package demos.naturalnumbers;
 import java.util.List;
 
 import naturalnumbers.NaturalNumber;
-import naturalnumbers.SetPacker;
+import naturalnumbers.BitStringPacker;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
@@ -32,7 +32,7 @@ public class SetPackerDemo
 		INaturalNumber K = new NaturalNumber(sizeOfPacking);
 
 		List<IBooleanLiteral> s = new Conjunction(p1, new BitStringFixer(K),
-				new SetPacker(C, K, membership)).findModel(Problem
+				new BitStringPacker(C, K, membership)).findModel(Problem
 				.defaultSolver());
 
 		if (s != null && s.size() > 0)
