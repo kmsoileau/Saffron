@@ -4,7 +4,6 @@ bitstringgraphs
 bitstringlists
 bitstrings
 bittables
-demos.binpacking
 demos.bits
 demos.bitstringgraphs
 demos.bitstringlists
@@ -13,10 +12,7 @@ demos.bittables
 demos.naturalnumberintervals
 demos.naturalnumberlists
 demos.naturalnumbers
-demos.scheduling
 demos.sets
-demos.setsplitting
-demos.subsetsum
 exceptions.bits
 exceptions.bitstringlists
 exceptions.bitstrings
@@ -33,4 +29,7 @@ naturalnumberlists.exceptions
 naturalnumbers
 naturalnumbertables
 sets
+showcase
+showcase.binpacking
+showcase.scheduling
 tbs
