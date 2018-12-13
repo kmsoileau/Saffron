@@ -9,11 +9,9 @@ import naturalnumbers.NaturalNumberFixer;
 import naturalnumbers.NaturalNumberOrderer;
 import bits.BitArrayPartition;
 import bits.BitFixer;
-import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Conjunction;
 import bits.Disjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Partition;
@@ -29,11 +27,8 @@ import bits.Problem;
  * @version 1.0
  * @since 2018/11/22
  */
-public class Scheduler
+public class Scheduler extends Problem implements IProblem
 {
-	private static IProblem jobSchedulingProblem;
-	private static Partition partition;
-
 	static IProblem doBindDurationsProblem(Task[] task) throws Exception
 	{
 		int numberTasks = task.length;
@@ -50,8 +45,8 @@ public class Scheduler
 				task.getNNFinish());
 	}
 
-	static IProblem[] doInProcessorPrecProblem(Task[] task, Processor[] proc)
-			throws Exception
+	static IProblem[] doInProcessorPrecProblem(Task[] task, Processor[] proc,
+			Partition partition) throws Exception
 	{
 		IProblem[] array = new IProblem[proc.length * task.length * task.length];
 		int arrayCounter = 0;
@@ -79,8 +74,8 @@ public class Scheduler
 		return array;
 	}
 
-	static IProblem doPartitionProblem(Task[] task, Processor[] proc)
-			throws Exception
+	static IProblem doPartitionProblem(Task[] task, Processor[] proc,
+			Partition partition) throws Exception
 	{
 		int numberProcs = proc.length;
 		int numberTasks = task.length;
@@ -123,22 +118,14 @@ public class Scheduler
 		return new Conjunction(limitProblem, new Conjunction(array));
 	}
 
-	public static IProblem getProblem()
+	public Scheduler(Task[] task, Processor[] proc, int timeLimit,
+			Partition partition) throws Exception
 	{
-		return jobSchedulingProblem;
-	}
-
-	public static ArrayList<ArrayList<Task>> schedule(Task[] task,
-			Processor[] proc, int timeLimit) throws Exception
-	{
-		int numberProcs = proc.length;
 		int numberTasks = task.length;
-		partition = new Partition(numberProcs, numberTasks);
 		int stagingIndex = 0;
 		IProblem[] stagingArray = new IProblem[1 + 2 + 2 * numberTasks];
-
 		// Partition Problem
-		stagingArray[stagingIndex++] = doPartitionProblem(task, proc);
+		stagingArray[stagingIndex++] = doPartitionProblem(task, proc, partition);
 
 		// Bind Durations Problem
 		IProblem bindDurationsProblem = doBindDurationsProblem(task);
@@ -155,7 +142,7 @@ public class Scheduler
 
 		// Impose one job at a time per processor constraint
 		stagingArray[stagingIndex++] = new Conjunction(
-				doInProcessorPrecProblem(task, proc));
+				doInProcessorPrecProblem(task, proc, partition));
 
 		// Impose Duration Relations
 		for (int i = 0; i < numberTasks; i++)
@@ -165,27 +152,7 @@ public class Scheduler
 
 		// Impose time limit to finish all tasks
 		stagingArray[stagingIndex++] = doTimeLimit(task, timeLimit);
-		jobSchedulingProblem = new Conjunction(stagingArray);
 
-		List<IBooleanLiteral> blList = jobSchedulingProblem.findModel(Problem
-				.defaultSolver());
-
-		if (blList != null && blList.size() > 0)
-		{
-			BooleanLiteral.interpret(blList);
-			ArrayList<ArrayList<Task>> solution = new ArrayList<ArrayList<Task>>();
-			for (int i = 0; i < numberProcs; i++)
-			{
-				IBooleanVariable[] currentProc = partition.getSet(i);
-				ArrayList<Task> currentProcAssignments = new ArrayList<Task>();
-				for (int j = 0; j < numberTasks; j++)
-					if (currentProc[j].getValue())
-						currentProcAssignments.add(task[j]);
-				solution.add(currentProcAssignments);
-			}
-			return solution;
-		}
-		else
-			return null;
+		this.setClauses(new Conjunction(stagingArray).getClauses());
 	}
 }

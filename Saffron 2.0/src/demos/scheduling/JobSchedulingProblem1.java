@@ -1,7 +1,14 @@
 package demos.scheduling;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import bits.BooleanLiteral;
+import bits.IBooleanLiteral;
+import bits.IBooleanVariable;
+import bits.IProblem;
+import bits.Partition;
+import bits.Problem;
 import naturalnumbers.NaturalNumber;
 
 /**
@@ -18,7 +25,7 @@ public class JobSchedulingProblem1
 {
 	public static void main(String[] args) throws Exception
 	{
-		NaturalNumber.setLargestNaturalNumber(37);
+		NaturalNumber.setLargestNaturalNumber(51);
 
 		Task FP = new Task("FP", 7);
 		Task FW = new Task("FW", 7);
@@ -51,24 +58,39 @@ public class JobSchedulingProblem1
 		Processor[] procs = new Processor[]
 		{ new Processor("A1"), new Processor("A2"), new Processor("A3") };
 
-		ArrayList<ArrayList<Task>> solution = Scheduler.schedule(tasks, procs,
-				38);
-		System.out.println(Scheduler.getProblem());
-		if (solution == null)
+		int numberProcs = procs.length;
+		int numberTasks = tasks.length;
+		Partition partition = new Partition(numberProcs, numberTasks);
+
+		IProblem jobSchedulingProblem = new Scheduler(tasks, procs, 51,
+				partition);
+
+		List<IBooleanLiteral> blList = jobSchedulingProblem.findModel(Problem
+				.defaultSolver());
+
+		ArrayList<ArrayList<Task>> solution = null;
+		if (blList != null && blList.size() > 0)
 		{
-			System.out.println("No solution found.");
-			return;
-		}
-		for (int i = 0; i < procs.length; i++)
-		{
-			ArrayList<Task> curr = solution.get(i);
-			System.out.println("\n" + procs[i].getName() + ": ");
-			for (int j = 0; j < curr.size(); j++)
+			BooleanLiteral.interpret(blList);
+			solution = new ArrayList<ArrayList<Task>>();
+			for (int i = 0; i < numberProcs; i++)
 			{
-				Task currTask = curr.get(j);
-				System.out.println(currTask.getName() + " start: "
-						+ currTask.getNNStart() + " finish: "
-						+ currTask.getNNFinish());
+				IBooleanVariable[] currentProc = partition.getSet(i);
+				ArrayList<Task> currentProcAssignments = new ArrayList<Task>();
+				for (int j = 0; j < numberTasks; j++)
+					if (currentProc[j].getValue())
+						currentProcAssignments.add(tasks[j]);
+				solution.add(currentProcAssignments);
+			}
+		}
+
+		if (solution != null)
+		{
+			// System.out.println(Scheduler.getProblem().toDIMACS());
+			for (int i = 0; i < procs.length; i++)
+			{
+				ArrayList<Task> qq = solution.get(i);
+				System.out.println(procs[i].getName() + ": " + qq);
 			}
 		}
 	}

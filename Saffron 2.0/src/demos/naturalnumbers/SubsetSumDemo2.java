@@ -1,4 +1,4 @@
-package demos.subsetsum;
+package demos.naturalnumbers;
 
 import java.util.List;
 

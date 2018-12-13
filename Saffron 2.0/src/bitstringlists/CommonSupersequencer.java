@@ -5,6 +5,7 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
 import bitstrings.BitStringSubstringer;
+import exceptions.bitstringlists.CommonSupersequencerException;
 
 /*
  * Given a collection C of IBitStrings each of size n, and an IBitString 
@@ -17,6 +18,11 @@ public class CommonSupersequencer extends Problem implements IProblem
 	public CommonSupersequencer(IBitStringList C, IBitString superSequence)
 			throws Exception
 	{
+		for (int i = 0; i < C.size(); i++)
+			if (C.getBitString(i).size() > superSequence.size())
+				throw new CommonSupersequencerException(
+						"The size of the IBitSring is maller than at least one of the IBitStrings in the IBitStringList.");
+
 		IProblem[] p = new IProblem[C.size()];
 		for (int i = 0; i < C.size(); i++)
 			p[i] = new BitStringSubstringer(C.getBitString(i), superSequence);

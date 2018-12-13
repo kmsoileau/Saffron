@@ -1,4 +1,4 @@
-package demos.setsplitting;
+package demos.sets;
 
 import java.util.List;
 
