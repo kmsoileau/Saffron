@@ -1,10 +1,10 @@
 package exceptions.bitstrings;
 
-public class SetSplitterException extends Exception
+public class BitStringArraySplitterException extends Exception
 {
 	private static final long serialVersionUID = 4238455158937590806L;
 
-	public SetSplitterException(String arg0)
+	public BitStringArraySplitterException(String arg0)
 	{
 		super(arg0);
 	}

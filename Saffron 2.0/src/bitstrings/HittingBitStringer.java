@@ -16,9 +16,9 @@ import bitstrings.BitStringIntersector;
  * @version 1.0
  * @since 2018/12/13
  */
-public class HittingSetter extends Problem implements IProblem
+public class HittingBitStringer extends Problem implements IProblem
 {
-	public HittingSetter(IBitString[] C, IBitString hittingSet) throws Exception
+	public HittingBitStringer(IBitString[] C, IBitString hittingSet) throws Exception
 	{
 		int problemIndex=0;
 		IProblem[] problemArray=new IProblem[C.length];

@@ -4,7 +4,7 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import exceptions.bitstrings.SetSplitterException;
+import exceptions.bitstrings.BitStringArraySplitterException;
 
 /**
  *
@@ -16,19 +16,19 @@ import exceptions.bitstrings.SetSplitterException;
  * @version 1.0
  * @since 2018/12/11
  */
-public class SetSplitter extends Problem implements IProblem
+public class BitStringArraySplitter extends Problem implements IProblem
 {
-	public SetSplitter(IBitString[] X, IBitString S1, IBitString S2)
+	public BitStringArraySplitter(IBitString[] X, IBitString S1, IBitString S2)
 			throws Exception
 	{
 		if (X == null)
-			throw new SetSplitterException(
+			throw new BitStringArraySplitterException(
 					"Null passed to constructor as IBitString array.");
 		if (S1 == null || S2 == null)
-			throw new SetSplitterException(
+			throw new BitStringArraySplitterException(
 					"Null passed to constructor as IBitString.");
 		if (X.length == 0)
-			throw new SetSplitterException(
+			throw new BitStringArraySplitterException(
 					"IBitString array of zero length passed to constructor.");
 
 		IProblem problem = Problem.newProblem();

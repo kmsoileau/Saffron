@@ -10,7 +10,7 @@ import bits.IProblem;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringFixer;
-import bitstrings.SetSplitter;
+import bitstrings.BitStringArraySplitter;
 
 public class SetSplittingDemo
 {
@@ -27,7 +27,7 @@ public class SetSplittingDemo
 		IBitString S1 = new BitString(degree);
 		IBitString S2 = new BitString(degree);
 
-		IProblem problem = new SetSplitter(data, S1, S2);
+		IProblem problem = new BitStringArraySplitter(data, S1, S2);
 
 		for (int i = 0; i < data.length; i++)
 		{

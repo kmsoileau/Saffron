@@ -9,9 +9,9 @@ import bits.IBooleanLiteral;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringFixer;
-import bitstrings.HittingSetter;
+import bitstrings.HittingBitStringer;
 
-public class HittingSetterDemo
+public class HittingBitStringerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -22,7 +22,7 @@ public class HittingSetterDemo
 		IBitString Y = new BitString(C[0].size());
 
 		List<IBooleanLiteral> s = new Conjunction(new BitStringFixer(C),
-				new HittingSetter(C, Y)).findModel(Problem.defaultSolver());
+				new HittingBitStringer(C, Y)).findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
