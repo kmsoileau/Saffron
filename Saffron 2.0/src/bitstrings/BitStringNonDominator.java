@@ -1,10 +1,10 @@
 package bitstrings;
 
+import exceptions.bitstrings.BitStringNonDominatorException;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
 import bits.ProblemDenier;
-import exceptions.bitstrings.BitStringDominatorException;
 /**
  * Satisfied when X is not dominated by Y.
  *
@@ -32,7 +32,7 @@ public class BitStringNonDominator extends Problem implements IProblem
 	public BitStringNonDominator(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() != Y.size())
-			throw new BitStringDominatorException("X and Y are not of equal size.");
+			throw new BitStringNonDominatorException("X and Y are not of equal size.");
 		else
 		{
 			IProblem problem=new ProblemDenier(new BitStringDominator(X,Y));

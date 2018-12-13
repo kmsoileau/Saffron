@@ -1,4 +1,4 @@
-package tbs;
+package bitstrings;
 
 import bits.Conjunction;
 import bits.IBitString;

@@ -5,9 +5,9 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
 
-public class SetBasiser extends Problem implements IProblem
+public class BitStringListBasisser extends Problem implements IProblem
 {
-	public SetBasiser(IBitStringList C, IBitStringList B, IBitString[] included)
+	public BitStringListBasisser(IBitStringList C, IBitStringList B, IBitString[] included)
 			throws Exception
 	{
 		IProblem[] p = new IProblem[C.size()];
