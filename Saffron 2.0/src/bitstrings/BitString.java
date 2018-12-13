@@ -307,7 +307,7 @@ public class BitString implements IBitString
 	{
 		return this.data.toArray(new IBooleanVariable[0]);
 	}
-
+	
 	@Override
 	public String toString()
 	{

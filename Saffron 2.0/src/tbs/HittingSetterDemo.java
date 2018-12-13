@@ -1,0 +1,37 @@
+package tbs;
+
+import java.util.List;
+
+import bits.BooleanLiteral;
+import bits.IBitString;
+import bits.IBooleanLiteral;
+import bits.IProblem;
+import bits.Problem;
+import bitstrings.BitString;
+
+public class HittingSetterDemo
+{
+
+	public static void main(String[] args) throws Exception
+	{
+		IBitString[] C = new IBitString[]
+		{ new BitString("01001010"), new BitString("10101010"),
+				new BitString("00001000"), new BitString("00100000") };
+		
+		IBitString Y=new BitString(C[0].size());
+		IProblem problem = new HittingSetter(C, Y);
+		
+		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
+		if (s != null && s.size() > 0)
+		{
+			BooleanLiteral.interpret(s);
+			for(int i=0;i<C.length;i++)
+				System.out.println(C[i].toBits());
+			System.out.println("\n"+Y.toBits());
+		}
+		else
+			System.out.println("No solution.");
+
+	}
+
+}

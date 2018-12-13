@@ -8,20 +8,17 @@
 
 package demos.bitstrings;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import bits.BitFixer;
 import bits.BooleanLiteral;
-import bits.BooleanVariable;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.IBooleanLiteral;
-import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
 import bitstrings.BitString;
-import bitstrings.BitStringDominator;
+import bitstrings.BitStringFixer;
+import bitstrings.BitStringNonDominator;
 
 public class BitStringNonDominatorDemo
 {
@@ -29,41 +26,12 @@ public class BitStringNonDominatorDemo
 
 	public static void main(String[] args) throws Exception
 	{
-		IBitString X = new BitString("X", new IBooleanVariable[degree]);
-		ArrayList<IProblem> pfix = new ArrayList<IProblem>();
-		for (int i = 0; i < X.size(); i++)
-		{
-			boolean value;
-			if (Math.random() < .5)
-				value = true;
-			else
-				value = false;
-			X.setBooleanVariable(i,
-					BooleanVariable.getBooleanVariable(X.getName() + "_" + i));
-			pfix.add(new BitFixer(X.getBooleanVariable(i), value));
-		}
+		IBitString X = new BitString("0101");
+		IBitString Y = new BitString("1101");
+		
+		IProblem problem = new Conjunction(new BitStringFixer(X),new BitStringFixer(Y),
+				new BitStringNonDominator(X, Y));
 
-		IBitString Y = new BitString("Y", new IBooleanVariable[degree]);
-		for (int i = 0; i < Y.size(); i++)
-		{
-			boolean value;
-			if (Math.random() < .5)
-				value = true;
-			else
-				value = false;
-			Y.setBooleanVariable(i,
-					BooleanVariable.getBooleanVariable(Y.getName() + "_" + i));
-			pfix.add(new BitFixer(Y.getBooleanVariable(i), value));
-		}
-
-		IProblem fix = new Conjunction(pfix);
-		// System.out.println(fix);
-
-		IProblem bta = new BitStringDominator(X, Y);
-		System.out.println(bta);
-
-		IProblem problem = new Conjunction(fix, bta);
-		// System.out.println(problem);
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
