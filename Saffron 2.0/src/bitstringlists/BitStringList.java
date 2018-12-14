@@ -1,22 +1,22 @@
 package bitstringlists;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Set;
 
 import bits.BooleanVariable;
 import bits.IBitString;
 import bits.IBooleanVariable;
-import bitstrings.ArrayListSet;
+//import bitstrings.ArrayListSet;
 import bitstrings.BitString;
 import exceptions.bitstringlists.BitStringListException;
 
 /**
  * A wrapper class which encloses an
- * <code>ArrayListSet&lt;IBitString&gt; listData</code> and a <code>String name</code>
- * .
+ * <code>ArrayListSet&lt;IBitString&gt; listData</code> and a
+ * <code>String name</code> .
  *
  * @author Kerry Michael Soileau
  *         <p>
@@ -54,7 +54,7 @@ public class BitStringList implements IBitStringList
 		return res;
 	}
 
-	private ArrayListSet<IBitString> listData;
+	private ArrayList<IBitString> listData;
 	private String name;
 
 	public BitStringList() throws Exception
@@ -75,6 +75,15 @@ public class BitStringList implements IBitStringList
 	public BitStringList(IBitStringList list) throws Exception
 	{
 		this("BitStringList-" + bSLCount++, list.toArray(new IBitString[0]));
+	}
+
+	public BitStringList(IBooleanVariable[][] iBooleanVariables)
+			throws Exception
+	{
+		int bvlen = iBooleanVariables.length;
+		this.setData(new ArrayList<IBitString>(bvlen));
+		for (int i = 0; i < bvlen; i++)
+			this.listData.add(new BitString(iBooleanVariables[i]));
 	}
 
 	public BitStringList(int n) throws Exception
@@ -99,7 +108,7 @@ public class BitStringList implements IBitStringList
 			throw new BitStringListException(
 					"Passed boolean[][] with bdata.length==0 to constructor.");
 		this.setName(name);
-		this.setData(new ArrayListSet<IBitString>(bdata.length));
+		this.setData(new ArrayList<IBitString>(bdata.length));
 		for (int i = 0; i < bdata.length; i++)
 		{
 			IBitString o = new BitString(name + "_" + i,
@@ -138,7 +147,7 @@ public class BitStringList implements IBitStringList
 	public BitStringList(String name, int n, int bits) throws Exception
 	{
 		this.setName(name);
-		this.setData(new ArrayListSet<IBitString>(n));
+		this.setData(new ArrayList<IBitString>(n));
 		for (int i = 0; i < n; i++)
 		{
 			IBitString o = new BitString(name + "_" + i, new boolean[bits]);
@@ -328,7 +337,7 @@ public class BitStringList implements IBitStringList
 		return (this.getData().get(i));
 	}
 
-	public ArrayListSet<IBitString> getData() throws Exception
+	public ArrayList<IBitString> getData() throws Exception
 	{
 		if (this.listData == null)
 			throw new BitStringListException(
@@ -509,12 +518,12 @@ public class BitStringList implements IBitStringList
 		this.getData().set(i, bitString);
 	}
 
-	public void setData(Set<IBitString> data) throws Exception
+	public void setData(ArrayList<IBitString> arrayList) throws Exception
 	{
-		if (data == null)
+		if (arrayList == null)
 			throw new BitStringListException(
 					"Passed null ArrayListSet to setData method.");
-		this.listData = (ArrayListSet<IBitString>) data;
+		this.listData = (ArrayList<IBitString>) arrayList;
 	}
 
 	public void setName(String name) throws Exception
@@ -531,7 +540,7 @@ public class BitStringList implements IBitStringList
 	{
 		try
 		{
-			Set<IBitString> dt = this.getData();
+			ArrayList<IBitString> dt = this.getData();
 			return dt.size();
 
 		}
@@ -596,7 +605,7 @@ public class BitStringList implements IBitStringList
 	}
 
 	@Override
-	public ArrayListSet<IBitString> toList() throws Exception
+	public ArrayList<IBitString> toList() throws Exception
 	{
 		return this.listData;
 	}

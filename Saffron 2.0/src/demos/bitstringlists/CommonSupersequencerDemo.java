@@ -23,10 +23,12 @@ public class CommonSupersequencerDemo extends Problem implements IProblem
 {
 	public static void main(String[] args) throws Exception
 	{
-		int K = 12;
+		int K = 22;
 
 		IBitStringList X = new BitStringList(new IBitString[]
-		{ new BitString("10101101"), new BitString("11010000") });
+		{ new BitString("01001010"), new BitString("10101010"),
+				new BitString("00001000"), new BitString("00100000"),
+				new BitString("00101000") });
 		IBitString Y = new BitString(K);
 
 		List<IBooleanLiteral> s = new Conjunction(new BitStringListFixer(X),
@@ -35,8 +37,8 @@ public class CommonSupersequencerDemo extends Problem implements IProblem
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
-			System.out.println("X= " + X);
-			System.out.println("Y= " + Y);
+			System.out.println("X= " + X.toBits());
+			System.out.println("Y= " + Y.toBits());
 		}
 		else
 			System.out.println("No solution.");

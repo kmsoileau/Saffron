@@ -8,8 +8,9 @@
 
 package bitstringlists;
 
+import java.util.ArrayList;
+
 import bits.IBitString;
-import bitstrings.ArrayListSet;
 import bitstrings.BitString;
 
 public interface IBitStringList
@@ -32,5 +33,5 @@ public interface IBitStringList
 
 	String toBits();
 
-	ArrayListSet<IBitString> toList() throws Exception;
+	ArrayList<IBitString> toList() throws Exception;
 }
