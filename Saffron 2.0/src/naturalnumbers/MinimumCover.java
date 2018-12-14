@@ -5,8 +5,8 @@ import bits.IBitString;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import bitstringlists.BitStringCoverer;
 import bitstringlists.IBitStringList;
-import bitstrings.BitStringCoverer;
 import exceptions.naturalnumbers.MinimumCoverException;
 
 /*

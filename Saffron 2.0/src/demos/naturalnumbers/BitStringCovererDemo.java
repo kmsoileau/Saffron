@@ -11,11 +11,11 @@ import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import bitstringlists.BitStringCoverer;
 import bitstringlists.BitStringList;
 import bitstringlists.BitStringListFixer;
 import bitstringlists.IBitStringList;
 import bitstrings.BitString;
-import bitstrings.BitStringCoverer;
 
 public class BitStringCovererDemo
 {
