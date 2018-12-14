@@ -9,8 +9,8 @@ import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
 import bitstrings.BitString;
-import bitstrings.BitStringFixer;
 import bitstrings.BitStringArraySplitter;
+import bitstrings.BitStringFixer;
 
 public class SetSplittingDemo
 {

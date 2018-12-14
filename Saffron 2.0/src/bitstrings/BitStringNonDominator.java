@@ -1,10 +1,10 @@
 package bitstrings;
 
-import exceptions.bitstrings.BitStringNonDominatorException;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
 import bits.ProblemDenier;
+import exceptions.bitstrings.BitStringNonDominatorException;
 /**
  * Satisfied when X is not dominated by Y.
  *

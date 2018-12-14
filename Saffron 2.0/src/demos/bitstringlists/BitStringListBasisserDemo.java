@@ -8,9 +8,9 @@ import bits.IBitString;
 import bits.IBooleanLiteral;
 import bits.Problem;
 import bitstringlists.BitStringList;
+import bitstringlists.BitStringListBasisser;
 import bitstringlists.BitStringListFixer;
 import bitstringlists.IBitStringList;
-import bitstringlists.BitStringListBasisser;
 import bitstrings.BitString;
 
 public class BitStringListBasisserDemo

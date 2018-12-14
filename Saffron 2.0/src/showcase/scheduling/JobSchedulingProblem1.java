@@ -3,13 +3,13 @@ package showcase.scheduling;
 import java.util.ArrayList;
 import java.util.List;
 
+import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Partition;
 import bits.Problem;
-import naturalnumbers.NaturalNumber;
 
 /**
  *

@@ -8,11 +8,11 @@
 
 package bitstrings;
 
-import exceptions.bitstrings.BitStringIntersectorException;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
 import bits.ProblemDenier;
+import exceptions.bitstrings.BitStringIntersectorException;
 
 /*
  * Satisfied when X[i]==true and Y[i]==true for somey i.
