@@ -10,7 +10,7 @@ import bits.IProblem;
 import bits.Problem;
 import bitstringlists.BitStringList;
 import bitstringlists.BitStringListFixer;
-import bitstringlists.CommonSuperBitString;
+import bitstringlists.CommonSuperBitStringer;
 import bitstringlists.IBitStringList;
 import bitstrings.BitString;
 
@@ -40,7 +40,7 @@ public class CommonSuperBitStringDemo extends Problem implements IProblem
 		IBitString Y = new BitString(K);
 
 		List<IBooleanLiteral> s = new Conjunction(new BitStringListFixer(X),
-				new CommonSuperBitString(X, Y)).findModel(Problem
+				new CommonSuperBitStringer(X, Y)).findModel(Problem
 				.defaultSolver());
 		if (s != null && s.size() > 0)
 		{

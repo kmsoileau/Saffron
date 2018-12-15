@@ -5,7 +5,7 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
 import bitstrings.BitStringSubstringer;
-import exceptions.bitstringlists.CommonSuperBitStringException;
+import exceptions.bitstringlists.CommonSuperBitStringerException;
 
 /**
  * Given a collection <code>C</code> of <code>IBitStrings</code> of equal size,
@@ -20,16 +20,16 @@ import exceptions.bitstringlists.CommonSuperBitStringException;
  * @version 1.0
  * @since 2018/12/15
  */
-public class CommonSuperBitString extends Problem implements IProblem
+public class CommonSuperBitStringer extends Problem implements IProblem
 {
-	public CommonSuperBitString(IBitString[] C, IBitString superSequence)
+	public CommonSuperBitStringer(IBitString[] C, IBitString superSequence)
 			throws Exception
 	{
 		int len = C.length;
 		int sssize = superSequence.size();
 		for (int i = 0; i < len; i++)
 			if (C[i].size() > sssize)
-				throw new CommonSuperBitStringException(
+				throw new CommonSuperBitStringerException(
 						"The size of the IBitSring is maller than at least one of the IBitStrings in the IBitStringList.");
 
 		IProblem[] p = new IProblem[len];
@@ -39,14 +39,14 @@ public class CommonSuperBitString extends Problem implements IProblem
 		this.setClauses(new Conjunction(p).getClauses());
 	}
 
-	public CommonSuperBitString(IBitStringList C, IBitString superSequence)
+	public CommonSuperBitStringer(IBitStringList C, IBitString superSequence)
 			throws Exception
 	{
 		int size = C.size();
 		int sssize = superSequence.size();
 		for (int i = 0; i < size; i++)
 			if (C.getBitString(i).size() > sssize)
-				throw new CommonSuperBitStringException(
+				throw new CommonSuperBitStringerException(
 						"The size of the IBitSring is maller than at least one of the IBitStrings in the IBitStringList.");
 
 		IProblem[] p = new IProblem[size];

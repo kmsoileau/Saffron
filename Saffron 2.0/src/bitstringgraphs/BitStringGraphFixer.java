@@ -6,6 +6,17 @@ import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
 
+/**
+ * An extension of the IProblem class which fixes the values of an BitStringGraph.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2006/03/31
+ */
 public class BitStringGraphFixer extends Problem
 {
 	public BitStringGraphFixer(IBitStringGraph graph) throws Exception
