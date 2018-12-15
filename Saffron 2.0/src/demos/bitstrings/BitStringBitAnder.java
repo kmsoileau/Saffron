@@ -1,4 +1,4 @@
-package tbs;
+package demos.bitstrings;
 
 import java.util.List;
 
