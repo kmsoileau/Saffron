@@ -24,8 +24,9 @@ public class BitStringNoter extends Problem implements IProblem
 {
 	public BitStringNoter(IBitString X, IBitString Y) throws Exception
 	{
-		if(X==null || Y==null)
-			throw new BitStringNoterException("Null was passed to constructor for IBitString.");
+		if (X == null || Y == null)
+			throw new BitStringNoterException(
+					"Null was passed to constructor for IBitString.");
 		IProblem[] p = new IProblem[X.size()];
 		int count = 0;
 		for (int i = 0; i < p.length; i++)

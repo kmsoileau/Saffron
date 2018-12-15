@@ -26,11 +26,12 @@ public class BitStringIntersectorDemo
 	{
 		IBitString X = new BitString("01011010");
 		IBitString Y = new BitString("00110000");
-		
+
 		IProblem xFix = new BitStringFixer(X);
 		IProblem yFix = new BitStringFixer(Y);
-		
-		IProblem problem = new Conjunction(xFix,yFix,new BitStringIntersector(X,Y));
+
+		IProblem problem = new Conjunction(xFix, yFix,
+				new BitStringIntersector(X, Y));
 
 		System.out.println(problem);
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());

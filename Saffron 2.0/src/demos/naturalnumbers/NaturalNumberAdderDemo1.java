@@ -41,7 +41,7 @@ public class NaturalNumberAdderDemo1
 		IProblem p = new NaturalNumberFixer(X, 1).and(
 				new NaturalNumberFixer(Y, 1)).and(
 				new NaturalNumberAdder(X, Y, Z, C));
-		
+
 		System.out.println(p);
 
 		List<IBooleanLiteral> s = p.findModel(Problem.defaultSolver());

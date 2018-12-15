@@ -31,18 +31,20 @@ public class BooleanLiteral implements IBooleanLiteral
 	/**
 	 * Rather than providing a public constructor for the BooleanLiteral class,
 	 * a static factory method is instead provided. This is to avoid duplication
-	 * of a already-existing IBooleanLiteral. The
-	 * <code>HashSet instances</code> is
-	 * searched to determine whether an IBooleanLiteral with the desired
+	 * of a already-existing IBooleanLiteral. The <code>HashSet instances</code>
+	 * is searched to determine whether an IBooleanLiteral with the desired
 	 * internal IBooleanVariable and barred-ness already exists; if it does, the
 	 * instance is returned. If not, the private constructor is used to create
 	 * the desired IBooleanLiteral, which is then added to the
 	 * <code>HashSet instances</code> and is returned.
 	 * 
-	 * @param bv An IBooleanVariable
-	 * @param barred A boolean
+	 * @param bv
+	 *            An IBooleanVariable
+	 * @param barred
+	 *            A boolean
 	 * @return IBooleanLiteral
-	 * @throws BooleanLiteralException An instance of Exception
+	 * @throws BooleanLiteralException
+	 *             An instance of Exception
 	 */
 	public static IBooleanLiteral getBooleanLiteral(IBooleanVariable bv,
 			boolean barred) throws BooleanLiteralException
@@ -102,8 +104,10 @@ public class BooleanLiteral implements IBooleanLiteral
 	 * Clear all of the values of the IBooleanVariables involved in
 	 * <code>list</code>.
 	 * 
-	 * @param list A List of IBooleanVariables
-	 * @throws BooleanLiteralException An instance of Exception
+	 * @param list
+	 *            A List of IBooleanVariables
+	 * @throws BooleanLiteralException
+	 *             An instance of Exception
 	 */
 	public static void reset(List<?> list) throws BooleanLiteralException
 	{
@@ -162,13 +166,13 @@ public class BooleanLiteral implements IBooleanLiteral
 	}
 
 	/**
-	 * If
-	 * <code>o</code> is null, this method returns <code>false</code>. If <code>o</code>
-	 * is not of type IBooleanLiteral, this method returns <code>false</code>. If
-	 * the Object passed has a different internal IBooleanVariable, this method
-	 * returns <code>false</code>. If the "barred-ness" of <code>this</code> and
-	 * <code>o</code> is different, this method returns <code>false</code>. Otherwise,
-	 * this method returns <code>true</code>.
+	 * If <code>o</code> is null, this method returns <code>false</code>. If
+	 * <code>o</code> is not of type IBooleanLiteral, this method returns
+	 * <code>false</code>. If the Object passed has a different internal
+	 * IBooleanVariable, this method returns <code>false</code>. If the
+	 * "barred-ness" of <code>this</code> and <code>o</code> is different, this
+	 * method returns <code>false</code>. Otherwise, this method returns
+	 * <code>true</code>.
 	 */
 	public boolean equals(Object o)
 	{

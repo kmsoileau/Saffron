@@ -26,8 +26,11 @@ import exceptions.bits.ProblemException;
  * 
  * This class is the superclass of numerous generic satisfiability problems.
  *
- * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
- *         http://kerrysoileau.com/index.html
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
  * @version 1.41
  * @since 2004/08/26
  */
@@ -61,9 +64,10 @@ public class Problem implements IProblem
 
 	public static IProblem trivialProblem() throws Exception
 	{
-		IProblem ret=Problem.newProblem();
-		IClause cl=new Clause();
-		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(new BooleanVariable(), false));
+		IProblem ret = Problem.newProblem();
+		IClause cl = new Clause();
+		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(
+				new BooleanVariable(), false));
 		ret.addClause(cl);
 		return ret;
 	}
@@ -91,7 +95,8 @@ public class Problem implements IProblem
 	 * 
 	 * @param clause
 	 *            the array of IClauses to comprise the instance of Problem.
-	 * @throws Exception An instance of Exception. 
+	 * @throws Exception
+	 *             An instance of Exception.
 	 */
 	public Problem(IClause[] clause) throws Exception
 	{
@@ -109,7 +114,8 @@ public class Problem implements IProblem
 	 * 
 	 * @param v
 	 *            the List of IClauses to comprise the instance of Problem.
-	 * @throws Exception An instance of Exception.
+	 * @throws Exception
+	 *             An instance of Exception.
 	 */
 	public Problem(List<IClause> v) throws Exception
 	{
@@ -510,7 +516,7 @@ public class Problem implements IProblem
 	public void removeAllClauses()
 	{
 		List<IClause> qq = this.getClauses();
-		if(qq!=null && qq.size()>0)
+		if (qq != null && qq.size() > 0)
 			qq.clear();
 	}
 
@@ -586,7 +592,7 @@ public class Problem implements IProblem
 
 	public void setClauses(List<IClause> list) throws Exception
 	{
-		if(this.size()>0)
+		if (this.size() > 0)
 			this.removeAllClauses();
 		if (list != null)
 			this.backing = list;
@@ -697,26 +703,27 @@ public class Problem implements IProblem
 
 	public String toDIMACS() throws Exception
 	{
-		int index=1;
-		HashMap<IBooleanVariable,Integer> lookup=new HashMap<IBooleanVariable,Integer>();
-		for(IBooleanVariable curr : this.getBooleanVariables())
+		int index = 1;
+		HashMap<IBooleanVariable, Integer> lookup = new HashMap<IBooleanVariable, Integer>();
+		for (IBooleanVariable curr : this.getBooleanVariables())
 		{
-			lookup.put(curr,index);
-			System.out.println(curr.getName()+"->"+index);
+			lookup.put(curr, index);
+			System.out.println(curr.getName() + "->" + index);
 			index++;
 		}
-		String ret="p cnf "+this.getBooleanVariables().size()+" "+this.numberOfClauses()+"\n";
-		for(IClause currClause : this.getClauses())
+		String ret = "p cnf " + this.getBooleanVariables().size() + " "
+				+ this.numberOfClauses() + "\n";
+		for (IClause currClause : this.getClauses())
 		{
-			for(int i=0;i<currClause.size();i++)
+			for (int i = 0; i < currClause.size(); i++)
 			{
-				IBooleanLiteral currBL=currClause.getLiteralAt(i);
-				int num=lookup.get(currBL.getBooleanVariable());
-				if(currBL.isBarred())
-					ret+="-";
-				ret+=(num+" ");
+				IBooleanLiteral currBL = currClause.getLiteralAt(i);
+				int num = lookup.get(currBL.getBooleanVariable());
+				if (currBL.isBarred())
+					ret += "-";
+				ret += (num + " ");
 			}
-			ret+="0 \n";
+			ret += "0 \n";
 		}
 		return ret;
 	}

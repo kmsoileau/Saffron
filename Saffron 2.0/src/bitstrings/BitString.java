@@ -159,19 +159,13 @@ public class BitString implements IBitString
 	}
 
 	/*
-	public boolean equals(Object anObject)
-	{
-		if (anObject == null)
-			return false; // Nothing is equal to a null Object.
-		if (!(anObject instanceof IBitString))
-			return false;
-		if (!this.data.containsAll(((IBitString) anObject).asList()))
-			return false;
-		if (!((IBitString) anObject).asList().containsAll(this.asList()))
-			return false;
-		return true;
-	}
-	*/
+	 * public boolean equals(Object anObject) { if (anObject == null) return
+	 * false; // Nothing is equal to a null Object. if (!(anObject instanceof
+	 * IBitString)) return false; if (!this.data.containsAll(((IBitString)
+	 * anObject).asList())) return false; if (!((IBitString)
+	 * anObject).asList().containsAll(this.asList())) return false; return true;
+	 * }
+	 */
 
 	@Override
 	public IBooleanVariable getBooleanVariable(int i) throws Exception
@@ -307,7 +301,7 @@ public class BitString implements IBitString
 	{
 		return this.data.toArray(new IBooleanVariable[0]);
 	}
-	
+
 	@Override
 	public String toString()
 	{

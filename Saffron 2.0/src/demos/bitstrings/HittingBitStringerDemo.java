@@ -22,7 +22,8 @@ public class HittingBitStringerDemo
 		IBitString Y = new BitString(C[0].size());
 
 		List<IBooleanLiteral> s = new Conjunction(new BitStringFixer(C),
-				new HittingBitStringer(C, Y)).findModel(Problem.defaultSolver());
+				new HittingBitStringer(C, Y))
+				.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);

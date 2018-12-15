@@ -7,8 +7,8 @@ import bits.Problem;
 
 public class BitStringListBasisser extends Problem implements IProblem
 {
-	public BitStringListBasisser(IBitStringList C, IBitStringList B, IBitString[] included)
-			throws Exception
+	public BitStringListBasisser(IBitStringList C, IBitStringList B,
+			IBitString[] included) throws Exception
 	{
 		IProblem[] p = new IProblem[C.size()];
 		for (int i = 0; i < C.size(); i++)

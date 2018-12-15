@@ -14,8 +14,6 @@ public class TrivialProblemDemo
 
 		System.out.println(problem);
 
-		
-
 		List<?> s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{

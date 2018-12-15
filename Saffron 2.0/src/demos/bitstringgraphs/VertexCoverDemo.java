@@ -26,7 +26,7 @@ public class VertexCoverDemo
 		int V = 6;
 		IBitString cover = new BitString(V);
 		IBitStringGraph graph = new BitStringGraph(V);
-		
+
 		graph.getData(0, 2).setValue(true);
 		graph.getData(1, 2).setValue(true);
 		graph.getData(2, 0).setValue(true);
@@ -37,14 +37,14 @@ public class VertexCoverDemo
 		graph.getData(3, 5).setValue(true);
 		graph.getData(4, 3).setValue(true);
 		graph.getData(5, 3).setValue(true);
-		
+
 		new BitStringGraphFixer(graph);
-		
-		INaturalNumber bitSum=new NaturalNumber(2);
-		IProblem problem=new NaturalNumberFixer(bitSum);
-		problem= new Conjunction(problem,new BitStringTotaler(cover, bitSum));
-		
-		problem = new Conjunction(problem,new BitStringGraphFixer(graph));
+
+		INaturalNumber bitSum = new NaturalNumber(2);
+		IProblem problem = new NaturalNumberFixer(bitSum);
+		problem = new Conjunction(problem, new BitStringTotaler(cover, bitSum));
+
+		problem = new Conjunction(problem, new BitStringGraphFixer(graph));
 		for (int vertex1 = 0; vertex1 < V; vertex1++)
 			for (int vertex2 = 0; vertex2 < V; vertex2++)
 			{
@@ -55,7 +55,7 @@ public class VertexCoverDemo
 				problem = new Conjunction(problem, currProblem);
 			}
 		System.out.println(problem);
-		
+
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{

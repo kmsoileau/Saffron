@@ -16,7 +16,8 @@ import bits.Problem;
 
 public class BitStringTotaler extends Problem implements IProblem
 {
-	public BitStringTotaler(IBitString X, INaturalNumber bitSum) throws Exception
+	public BitStringTotaler(IBitString X, INaturalNumber bitSum)
+			throws Exception
 	{
 		IProblem problem = Problem.newProblem();
 

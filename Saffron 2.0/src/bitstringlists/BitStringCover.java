@@ -19,13 +19,16 @@ public class BitStringCover extends Problem implements IProblem
 	public BitStringCover(IBitString[] C, IBitString membership)
 			throws Exception
 	{
-		if(C==null)
-			throw new BitStringCoverException("Null passed to constructor as IBitStringList.");
-		if(membership==null)
-			throw new BitStringCoverException("Null passed to constructor as IBitString.");
+		if (C == null)
+			throw new BitStringCoverException(
+					"Null passed to constructor as IBitStringList.");
+		if (membership == null)
+			throw new BitStringCoverException(
+					"Null passed to constructor as IBitString.");
 		int cLength = C.length;
-		if(C.length==0)
-			throw new BitStringCoverException("IBitString array of zero length passed to constructor.");
+		if (C.length == 0)
+			throw new BitStringCoverException(
+					"IBitString array of zero length passed to constructor.");
 
 		IProblem[] q = new IProblem[C[0].size()];
 		for (int i = 0; i < C[0].size(); i++)
@@ -47,14 +50,16 @@ public class BitStringCover extends Problem implements IProblem
 	public BitStringCover(IBitStringList C, IBitString membership)
 			throws Exception
 	{
-		if(C==null)
-			throw new BitStringCoverException("Null passed to constructor as IBitStringList.");
-		if(membership==null)
-			throw new BitStringCoverException("Null passed to constructor as IBitString.");
+		if (C == null)
+			throw new BitStringCoverException(
+					"Null passed to constructor as IBitStringList.");
+		if (membership == null)
+			throw new BitStringCoverException(
+					"Null passed to constructor as IBitString.");
 		int cLength = C.size();
-		if(cLength==0)
-			throw new BitStringCoverException("IBitStringList of zero size passed to constructor.");
-		
+		if (cLength == 0)
+			throw new BitStringCoverException(
+					"IBitStringList of zero size passed to constructor.");
 
 		IProblem[] q = new IProblem[C.getBitString(0).size()];
 		for (int i = 0; i < C.getBitString(0).size(); i++)
@@ -63,13 +68,13 @@ public class BitStringCover extends Problem implements IProblem
 			for (int j = 0; j < cLength; j++)
 			{
 				p[j] = new Conjunction(new BitFixer(
-						membership.getBooleanVariable(j), true), new BitFixer(
-						C.getBitString(j).getBooleanVariable(i), true));
+						membership.getBooleanVariable(j), true), new BitFixer(C
+						.getBitString(j).getBooleanVariable(i), true));
 			}
 			q[i] = new Disjunction(p);
 		}
 
-		this.setClauses(new Conjunction(new BitStringListFixer(C), new Conjunction(
-				q)).getClauses());
+		this.setClauses(new Conjunction(new BitStringListFixer(C),
+				new Conjunction(q)).getClauses());
 	}
 }

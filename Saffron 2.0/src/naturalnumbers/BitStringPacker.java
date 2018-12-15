@@ -23,8 +23,8 @@ import bitstrings.BitStringDisjointer;
  */
 public class BitStringPacker extends Problem implements IProblem
 {
-	public BitStringPacker(IBitString[] C, INaturalNumber K, IBitString membership)
-			throws Exception
+	public BitStringPacker(IBitString[] C, INaturalNumber K,
+			IBitString membership) throws Exception
 	{
 		int problemIndex = 0;
 		IProblem[] problemArray = new IProblem[(C.length - 1) * C.length / 2

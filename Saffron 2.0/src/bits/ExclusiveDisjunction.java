@@ -15,13 +15,16 @@ import exceptions.bits.ExclusiveDisjunctionException;
  * </p>
  *
  * is satisfied by an ICertificate c if and only if the IProblem
- * <code>first</code>
- * is satisfied by <code>c</code> and the IProblem <code>second</code> is not satisfied
- * by <code>c</code> or the IProblem <code>first</code> is not satisfied by <code>c</code>
- * and the IProblem <code>second</code> is satisfied by <code>c</code>.
+ * <code>first</code> is satisfied by <code>c</code> and the IProblem
+ * <code>second</code> is not satisfied by <code>c</code> or the IProblem
+ * <code>first</code> is not satisfied by <code>c</code> and the IProblem
+ * <code>second</code> is satisfied by <code>c</code>.
  *
- * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
- *         http://kerrysoileau.com/index.html
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
  * @version 1.01
  * @since 2007/08/22
  */

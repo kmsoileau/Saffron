@@ -20,7 +20,8 @@ import exceptions.bits.UnsolvableProblemException;
  * corresponding <code>org.sat4j.specs.IProblem</code> object.
  * 
  * For example, here's how a <code>KSatReader</code> might be used on a
- * <code>positronic.satisfiability.elements.IProblem</code> called <code>problem</code>:
+ * <code>positronic.satisfiability.elements.IProblem</code> called
+ * <code>problem</code>:
  * 
  * <p>
  * <code>...</code>
@@ -47,8 +48,11 @@ import exceptions.bits.UnsolvableProblemException;
  * <code>}</code>
  * </p>
  *
- * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
- *         http://kerrysoileau.com/index.html
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
  * @version 1.1
  * @since 2006/01/29
  * 

@@ -1,10 +1,9 @@
 package bits;
 
 /**
- * An extension of the
- * <code>Problem</code> class which imposes a Boolean relation on three
- * <code>IBooleanVariable</code>s. For example, the <code>IProblem p</code>
- * defined by
+ * An extension of the <code>Problem</code> class which imposes a Boolean
+ * relation on three <code>IBooleanVariable</code>s. For example, the
+ * <code>IProblem p</code> defined by
  *
  * <p>
  * <code>IProblem p=new BitAnder(x,y,z);</code>

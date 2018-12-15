@@ -20,15 +20,19 @@ public class MinimumCover extends Problem implements IProblem
 	public MinimumCover(IBitStringList C, IBitString included, INaturalNumber K)
 			throws Exception
 	{
-		if(C==null)
-			throw new MinimumCoverException("Null passed to constructor as IBitStringList.");
-		if(included==null)
-			throw new MinimumCoverException("Null passed to constructor as IBitString.");
-		if(K==null)
-			throw new MinimumCoverException("Null passed to constructor as INaturalNumber.");
-		if(C.size()==0)
-			throw new MinimumCoverException("IBitStringList of zero length passed to constructor.");
-		
+		if (C == null)
+			throw new MinimumCoverException(
+					"Null passed to constructor as IBitStringList.");
+		if (included == null)
+			throw new MinimumCoverException(
+					"Null passed to constructor as IBitString.");
+		if (K == null)
+			throw new MinimumCoverException(
+					"Null passed to constructor as INaturalNumber.");
+		if (C.size() == 0)
+			throw new MinimumCoverException(
+					"IBitStringList of zero length passed to constructor.");
+
 		INaturalNumber sizeOfCover = new NaturalNumber();
 		IProblem problem = new Conjunction(new NaturalNumberOrderer(
 				sizeOfCover, K), new BitStringCoverer(C, included, sizeOfCover));

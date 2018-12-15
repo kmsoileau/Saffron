@@ -19,7 +19,7 @@ public class SubsetSumDemo2
 	public static void main(String[] args) throws Exception
 	{
 		int desiredSum = 100;
-		
+
 		Integer[] data = new Integer[]
 		{ 54, 43, 71, 39, 59, 72, 11, 20, 79, 44, 25, 74, 4, 2, 39, 18, 81, 62,
 				48, 45, 82, 94, 76, 27, 3, 77, 77, 68, 8, 50, 70, 62, 76, 10,
@@ -28,7 +28,7 @@ public class SubsetSumDemo2
 				73, 13, 58, 91, 52, 91, 13, 37, 44, 12, 72, 67, 90, 31, 79, 50,
 				99, 92, 93, 85, 35, 27, 9, 2, 88, 90, 90, 1, 83, 45, 63, 83,
 				33, 21 };
-	
+
 		int maxSum = 0;
 		for (int i = 0; i < data.length; i++)
 			maxSum += data[i];
@@ -56,9 +56,9 @@ public class SubsetSumDemo2
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
-			for(int i=0;i<membership.size();i++)
-				if(membership.getBooleanVariable(i).getValue())
-					System.out.print(data[i]+" ");
+			for (int i = 0; i < membership.size(); i++)
+				if (membership.getBooleanVariable(i).getValue())
+					System.out.print(data[i] + " ");
 		}
 		else
 			System.out.println("No solution.");

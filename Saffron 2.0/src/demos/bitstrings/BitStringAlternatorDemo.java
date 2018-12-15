@@ -18,9 +18,9 @@ public class BitStringAlternatorDemo
 	{
 		IBitString white = new BitString(new boolean[20]);
 		IProblem bsa = new BitStringAlternator(white);
-		IProblem fixBit= new BitFixer(white.getBooleanVariable(2),false);
+		IProblem fixBit = new BitFixer(white.getBooleanVariable(2), false);
 
-		IProblem problem = new Conjunction(bsa,fixBit);
+		IProblem problem = new Conjunction(bsa, fixBit);
 		System.out.println(problem);
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
 

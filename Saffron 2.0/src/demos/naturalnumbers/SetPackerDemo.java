@@ -43,7 +43,7 @@ public class SetPackerDemo
 				System.out.println(C[i].toBits());
 			System.out.println("\nSolution\n--------");
 			for (int i = 0; i < C.length; i++)
-				if(membership.getBooleanVariable(i).getValue())
+				if (membership.getBooleanVariable(i).getValue())
 					System.out.println(C[i].toBits());
 		}
 		else

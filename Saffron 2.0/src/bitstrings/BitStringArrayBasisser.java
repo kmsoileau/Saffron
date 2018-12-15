@@ -4,7 +4,6 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.BitStringConditionalOrer;
 
 public class BitStringArrayBasisser extends Problem implements IProblem
 {

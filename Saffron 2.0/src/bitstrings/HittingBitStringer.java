@@ -17,12 +17,14 @@ import bits.Problem;
  */
 public class HittingBitStringer extends Problem implements IProblem
 {
-	public HittingBitStringer(IBitString[] C, IBitString hittingSet) throws Exception
+	public HittingBitStringer(IBitString[] C, IBitString hittingSet)
+			throws Exception
 	{
-		int problemIndex=0;
-		IProblem[] problemArray=new IProblem[C.length];
-		for(int i=0;i<C.length;i++)
-			problemArray[problemIndex++]=new BitStringIntersector(C[i],hittingSet);
+		int problemIndex = 0;
+		IProblem[] problemArray = new IProblem[C.length];
+		for (int i = 0; i < C.length; i++)
+			problemArray[problemIndex++] = new BitStringIntersector(C[i],
+					hittingSet);
 		this.setClauses(new Conjunction(problemArray).getClauses());
 	}
 }

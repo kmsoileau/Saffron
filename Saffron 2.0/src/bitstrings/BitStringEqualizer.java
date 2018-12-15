@@ -8,7 +8,8 @@ import bits.Problem;
 import exceptions.bitstrings.BitStringEqualizerException;
 
 /**
- * Constrains <code>IBitString X</code> to equal <code>IBitString</code> <code>Y</code>.
+ * Constrains <code>IBitString X</code> to equal <code>IBitString</code>
+ * <code>Y</code>.
  *
  * @author Kerry Michael Soileau
  *         <p>

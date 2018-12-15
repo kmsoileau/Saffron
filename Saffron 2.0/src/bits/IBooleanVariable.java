@@ -40,7 +40,9 @@ public interface IBooleanVariable extends Comparable<Object>
 
 	/**
 	 * Sets the logical value: <code>true</code> or <code>false</code>.
-	 * @param x A boolean
+	 * 
+	 * @param x
+	 *            A boolean
 	 */
 	void setValue(boolean x);
 }

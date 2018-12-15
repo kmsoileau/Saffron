@@ -19,7 +19,7 @@ public class PartitionDemo
 
 		List<IBooleanLiteral> s = new BitArrayPartition(partition)
 				.findModel(Problem.defaultSolver());
-		
+
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);

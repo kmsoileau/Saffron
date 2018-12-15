@@ -7,8 +7,8 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.BitStringConditionalAnder;
 import bitstrings.BitString;
+import bitstrings.BitStringConditionalAnder;
 import bitstrings.BitStringFixer;
 
 public class BitStringConditionalAnderDemo

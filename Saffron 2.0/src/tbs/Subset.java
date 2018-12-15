@@ -11,7 +11,7 @@ public class Subset
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	private final Object[] backing;
 	private IBitString membership;
 
@@ -35,8 +35,8 @@ public class Subset
 	{
 		this.membership = membership;
 	}
-	
-	//To do
+
+	// To do
 	public Set toSet()
 	{
 		return null;

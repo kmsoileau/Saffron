@@ -30,19 +30,20 @@ public class SubsetWeightedTotalerDemo1
 		subset.addSupport(o3);
 
 		IProblem totalProblem = new SubsetWeightedTotaler(subset, sum);
-		
+
 		IProblem presenceProblem = new Conjunction(new BitFixer(subset
 				.getBackingSet().contains(o1), true), new BitFixer(subset
 				.getBackingSet().contains(o2), false), new BitFixer(subset
 				.getBackingSet().contains(o3), true));
-		
+
 		IProblem weightProblem = new Conjunction(new NaturalNumberFixer(
 				o1.getWeight(), 2L),
 				new NaturalNumberFixer(o2.getWeight(), 13L),
 				new NaturalNumberFixer(o3.getWeight(), 5L));
 
 		List<IBooleanLiteral> s = new Conjunction(new IProblem[]
-				{ totalProblem, presenceProblem, weightProblem }).findModel(Problem.defaultSolver());
+		{ totalProblem, presenceProblem, weightProblem }).findModel(Problem
+				.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);

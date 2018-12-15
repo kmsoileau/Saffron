@@ -22,10 +22,12 @@ public class BitStringIntersector extends Problem implements IProblem
 	public BitStringIntersector(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() != Y.size())
-			throw new BitStringIntersectorException("X and Y are not of equal size.");
+			throw new BitStringIntersectorException(
+					"X and Y are not of equal size.");
 		else
 		{
-			this.setClauses(new ProblemDenier(new BitStringDisjointer(X,Y)).getClauses());
+			this.setClauses(new ProblemDenier(new BitStringDisjointer(X, Y))
+					.getClauses());
 		}
 	}
 }

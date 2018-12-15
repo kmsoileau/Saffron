@@ -24,8 +24,9 @@ public class BitStringArrayCoverDemo
 
 		IBitString includedInCover = new BitString(cLength);
 
-		List<IBooleanLiteral> s = new Conjunction(new BitStringFixer(C), new BitStringCover(C, includedInCover))
-				.findModel(Problem.defaultSolver());
+		List<IBooleanLiteral> s = new Conjunction(new BitStringFixer(C),
+				new BitStringCover(C, includedInCover)).findModel(Problem
+				.defaultSolver());
 
 		if (s != null && s.size() > 0)
 		{

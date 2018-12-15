@@ -7,10 +7,18 @@ import bits.Problem;
 import bitstrings.BitStringSubstringer;
 import exceptions.bitstringlists.CommonSuperBitStringException;
 
-/*
- * Given a collection C of IBitStrings each of size n, and an IBitString 
- * targetBitString of size K>=n, does there exist an IBitString of length 
- * K such that every member of C is a substring of targetBitString?
+/**
+ * Given a collection <code>C</code> of <code>IBitStrings</code> of equal size,
+ * the <code>IBitString superSequence</code> is constrained to be such that
+ * every member of <code>C</code> is a substring of <code>superSequence</code>.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2018/12/15
  */
 public class CommonSuperBitString extends Problem implements IProblem
 {

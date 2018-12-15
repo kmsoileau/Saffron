@@ -30,7 +30,8 @@ public class BitStringOrerDemo2
 
 		IBitString Z = new BitString(8);
 
-		IProblem problem = new Conjunction(new BitStringOrer(X, Z), new BitStringFixer(X));
+		IProblem problem = new Conjunction(new BitStringOrer(X, Z),
+				new BitStringFixer(X));
 		System.out.println(problem);
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)

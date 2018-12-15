@@ -24,17 +24,18 @@ public class SubsetterDemo1
 		setB.addSupport("B");
 		setB.addSupport("C");
 
-		IProblem problem = new Conjunction(
-				new SetMembershipper("B", setA),	//setA contains B
-				new SetMembershipper("C", setA), 	//setA contains C
-				new Subsetter(setA, setB));			//setA is a subset of setB
+		IProblem problem = new Conjunction(new SetMembershipper("B", setA), // setA
+																			// contains
+																			// B
+				new SetMembershipper("C", setA), // setA contains C
+				new Subsetter(setA, setB)); // setA is a subset of setB
 
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
-			System.out.println(setA.getName()+"=" + setA);
-			System.out.println(setB.getName()+"=" + setB);
+			System.out.println(setA.getName() + "=" + setA);
+			System.out.println(setB.getName() + "=" + setB);
 		}
 		else
 			System.out.print("No solution.");

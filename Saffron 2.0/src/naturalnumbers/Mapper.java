@@ -30,10 +30,9 @@ import exceptions.naturalnumbers.MapperException;
  * <p>
  * Description: This class, an extension of <code>Problem</code>, is created
  * from pairs of instances of <code>Problem</code> passed to one of the
- * <code>Mapper</code>
- * constructors. An instance of <code>Mapper</code> is satisfied if and only if for
- * some pair of <code>Problem</code>'s, both <code>Problem</code>'s are satisfied. For
- * instance, suppose we define
+ * <code>Mapper</code> constructors. An instance of <code>Mapper</code> is
+ * satisfied if and only if for some pair of <code>Problem</code>'s, both
+ * <code>Problem</code>'s are satisfied. For instance, suppose we define
  * <p>
  * <code>...</code>
  * <p>

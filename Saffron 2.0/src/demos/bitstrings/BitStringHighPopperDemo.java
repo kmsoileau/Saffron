@@ -32,7 +32,7 @@ public class BitStringHighPopperDemo
 		for (int i = 0; i < X.size(); i++)
 		{
 			boolean value = Math.random() < .5;
-			
+
 			X.setBooleanVariable(i,
 					BooleanVariable.getBooleanVariable(X.getName() + "_" + i));
 			pfix.add(new BitFixer(X.getBooleanVariable(i), value));

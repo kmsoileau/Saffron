@@ -18,7 +18,8 @@ public class SetIntersectorDemo4
 		Set setB = new Set("setB", new Object[]
 		{});
 
-		IProblem problem = new Subsetter(setB, setA); // setA is a subset of setB
+		IProblem problem = new Subsetter(setB, setA); // setA is a subset of
+														// setB
 
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)

@@ -15,17 +15,19 @@ import bits.Problem;
  *
  * The Problem instance p defined by
  *
- * <p><code>Problem p=new BitStringOrderer(X,Y);</code></p>
+ * <p>
+ * <code>Problem p=new BitStringOrderer(X,Y);</code>
+ * </p>
  *
  * is satisfied if and only if X is previous or equal to Y in lexicographical
  * order.
  * 
  * @author Kerry Michael Soileau
  *         <p>
- * email: ksoileau2@yahoo.com
+ *         email: ksoileau2@yahoo.com
  *         <p>
- * website: http://kerrysoileau.com/index.html
- *         
+ *         website: http://kerrysoileau.com/index.html
+ * 
  * @version 1.0
  * @since 2005/05/04
  * 

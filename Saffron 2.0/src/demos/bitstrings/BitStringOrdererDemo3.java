@@ -39,7 +39,7 @@ public class BitStringOrdererDemo3
 
 		IProblem problem = new Conjunction(fixX, fixY, bta);
 		System.out.println(problem);
-		
+
 		System.out.println(problem.toDIMACS());
 
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());

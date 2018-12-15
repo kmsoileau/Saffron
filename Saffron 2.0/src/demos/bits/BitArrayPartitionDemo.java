@@ -32,7 +32,7 @@ public class BitArrayPartitionDemo
 						+ "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
-		//System.out.println(problem);
+		// System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
@@ -62,7 +62,7 @@ public class BitArrayPartitionDemo
 						+ "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
-		//System.out.println(problem);
+		// System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
@@ -92,7 +92,7 @@ public class BitArrayPartitionDemo
 						+ "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
-		//System.out.println(problem);
+		// System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
@@ -122,7 +122,7 @@ public class BitArrayPartitionDemo
 						+ "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
-		//System.out.println(problem);
+		// System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
@@ -152,7 +152,7 @@ public class BitArrayPartitionDemo
 						+ "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
-		//System.out.println(problem);
+		// System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{

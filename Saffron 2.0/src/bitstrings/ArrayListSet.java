@@ -113,8 +113,8 @@ public class ArrayListSet<E> extends ArrayList<E> implements Set<E>
 	 *
 	 * @param o
 	 *            element to be added to this set.
-	 * @return <code>true</code> if the set did not already contain the specified
-	 *         element.
+	 * @return <code>true</code> if the set did not already contain the
+	 *         specified element.
 	 */
 	@Override
 	public boolean add(E o)

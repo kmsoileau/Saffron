@@ -17,7 +17,7 @@ public class SetIntersector extends Problem implements IProblem
 {
 	public SetIntersector(Set X, Set Y, Set Z) throws Exception
 	{
-		if(X==null || Y==null || Z==null)
+		if (X == null || Y == null || Z == null)
 			throw new SetIntersectorException(
 					"Null passed to constructor as Set parameter.");
 		HashMap<Object, IBooleanVariable> xBacking = X.getBacking();
