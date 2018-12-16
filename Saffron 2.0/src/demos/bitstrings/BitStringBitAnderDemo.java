@@ -2,15 +2,14 @@ package demos.bitstrings;
 
 import java.util.List;
 
-import bits.BitEqualizer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
-import bitstrings.BitStringConditionalAnder;
 import bitstrings.BitString;
+import bitstrings.BitStringBitAnder;
 import bitstrings.BitStringFixer;
 
 /**
@@ -27,7 +26,7 @@ import bitstrings.BitStringFixer;
  * @version 1.0
  * @since 2018/12/15
  */
-public class BitStringBitAnder
+public class BitStringBitAnderDemo
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -37,17 +36,12 @@ public class BitStringBitAnder
 				new BitString("001100000111000"),
 				new BitString("100000000000000") };
 
-		IBitString membership = new BitString(C.length);
 		IBitString targetBitString = new BitString(C[0].size());
 
 		int pos = 7;
-		IProblem[] p = new IProblem[C.length];
-		for (int i = 0; i < C.length; i++)
-			p[i] = new BitEqualizer(membership.getBooleanVariable(i),
-					C[i].getBooleanVariable(pos));
+
 		IProblem problem = new Conjunction(new BitStringFixer(C),
-				new Conjunction(p), new BitStringConditionalAnder(C,
-						membership, targetBitString));
+				new BitStringBitAnder(C, pos, targetBitString));
 
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
@@ -55,7 +49,6 @@ public class BitStringBitAnder
 			BooleanLiteral.interpret(s);
 			for (int i = 0; i < C.length; i++)
 				System.out.println(C[i].toBits());
-			System.out.println("membership\n" + membership.toBits());
 			System.out.println("targetBitString\n" + targetBitString.toBits());
 		}
 		else
