@@ -114,12 +114,22 @@ public class BitString implements IBitString
 		{
 			if (data[i] == null)
 				data[i] = BooleanVariable.getBooleanVariable();
-			this.setBooleanVariable(
-					i,
-					BooleanVariable.getBooleanVariable(name + "_" + i,
-							data[i].getValue()));
+			this.setBooleanVariable(i, data[i]);
 		}
 	}
+
+	/*
+	 * public BitString(String name, IBooleanVariable[] data) throws Exception {
+	 * if (data == null) throw new
+	 * BitStringException("Null data passed to constructor."); if (name == null
+	 * || "".compareTo(name) == 0) throw new
+	 * BitStringException("Null name passed to constructor.");
+	 * this.setName(name); this.setBVData(new IBooleanVariable[data.length]);
+	 * for (int i = 0; i < data.length; i++) { if (data[i] == null) data[i] =
+	 * BooleanVariable.getBooleanVariable(); this.setBooleanVariable( i,
+	 * BooleanVariable.getBooleanVariable(name + "_" + i, data[i].getValue()));
+	 * } }
+	 */
 
 	public BitString(String name, int bits) throws Exception
 	{
