@@ -8,10 +8,10 @@ import bits.IBitString;
 import bits.IBooleanLiteral;
 import bits.Problem;
 import bitstrings.BitString;
-import bitstrings.BitStringArrayBasisser;
+import bitstrings.BitStringArrayBasiser;
 import bitstrings.BitStringFixer;
 
-public class BitStringArrayBasisserDemo
+public class BitStringArrayBasiserDemo
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -37,7 +37,7 @@ public class BitStringArrayBasisserDemo
 		}
 
 		List<IBooleanLiteral> s = new Conjunction(new BitStringFixer(C),
-				new BitStringArrayBasisser(C, B, included)).findModel(Problem
+				new BitStringArrayBasiser(C, B, included)).findModel(Problem
 				.defaultSolver());
 
 		if (s != null && s.size() > 0)

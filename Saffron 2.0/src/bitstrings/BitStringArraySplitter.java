@@ -8,26 +8,22 @@ import exceptions.bitstrings.BitStringArraySplitterException;
 
 /**
  *
- * Two constraints are imposed by this IProblem:
+ * Two constraints are imposed by this <code>IProblem:
  * <p>
- * 1. S1 and S2 are bitwise negations of each other;
+ * 1. <code>S1 and <code>S2 are bitwise negations of each other;
  * <p>
- * 2. For each i, X[i] is not dominated* by S1;
+ * 2. For each <code>i, <code>X[i] is not dominated* by <code>S1;
  * <p>
- * 3. For each i, X[i] is not dominated by S2;
+ * 3. For each <code>i, <code>X[i] is not dominated by <code>S2;
  * <p>
- * An equivalent statement is that S1 and S2 split each X[i] into nonzero,
- * non-overlapping IBitStrings.
- * 
+ * An equivalent statement is that <code>S1 and <code>S2 split each <code>X[i] 
+ * into nonzero IBitStrings whose bitwise AND is the zero IBitString.
  * <p>
  * *We say that IBitString X is dominated by IBitString Y if and only if the
  * bitwise AND of X and Y equals X.
  * 
- * @author Kerry Michael Soileau
- *         <p>
- *         email: ksoileau2@yahoo.com
- *         <p>
- *         website: http://kerrysoileau.com/index.html
+ * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
+ *         http://kerrysoileau.com/index.html
  * @version 1.0
  * @since 2018/12/11
  */

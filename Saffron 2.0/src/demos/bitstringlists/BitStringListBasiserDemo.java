@@ -8,12 +8,12 @@ import bits.IBitString;
 import bits.IBooleanLiteral;
 import bits.Problem;
 import bitstringlists.BitStringList;
-import bitstringlists.BitStringListBasisser;
+import bitstringlists.BitStringListBasiser;
 import bitstringlists.BitStringListFixer;
 import bitstringlists.IBitStringList;
 import bitstrings.BitString;
 
-public class BitStringListBasisserDemo
+public class BitStringListBasiserDemo
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -35,7 +35,7 @@ public class BitStringListBasisserDemo
 		}
 
 		List<IBooleanLiteral> s = new Conjunction(new BitStringListFixer(C),
-				new BitStringListBasisser(C, B, included)).findModel(Problem
+				new BitStringListBasiser(C, B, included)).findModel(Problem
 				.defaultSolver());
 
 		if (s != null && s.size() > 0)
