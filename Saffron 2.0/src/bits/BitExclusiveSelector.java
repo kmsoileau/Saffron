@@ -5,26 +5,39 @@ import java.util.ArrayList;
 import exceptions.bits.BitExclusiveSelectorException;
 
 /**
- * An extension of the Problem class which imposes a Boolean relation on three
- * IBooleanVariables. For example, the IProblem p defined by
- *
+ * For any positive integer n, if X_0, X_1, X_2, ... ,X_{n-1} are
+ * IBooleanVariables and IBooleanVariable[] array = {X_0, X_1, X_2, ...
+ * ,X_{n-1}}, then
  * <p>
- * <code>IProblem p=new BitExclusiveSelector(x,y,z);</code>
+ * <code>p=new BitExclusiveSelector(array);</code>
  * </p>
- *
- * is satisfied if and only if the following Boolean relation is satisfied:
- *
+ * is satisfied if and only if at <b>EXACTLY</b> one of the following is
+ * satisfied:
  * <p>
- * <code>Exactly one of x, y and z is true, the other two are false.</code>
- * </p>
- *
+ * new BitFixer(X_0, true)
+ * <p>
+ * or
+ * <p>
+ * new BitFixer(X_1, true)
+ * <p>
+ * or
+ * <p>
+ * new BitFixer(X_2, true)
+ * <p>
+ * or
+ * <p>
+ * ...
+ * <p>
+ * new BitFixer(X_{n-1}, true)
+ * 
  * @author Kerry Michael Soileau
  *         <p>
  *         email: ksoileau2@yahoo.com
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2015/03/18
+ * @since Dec 17, 2018
+ * 
  */
 public class BitExclusiveSelector extends Problem implements IProblem
 {

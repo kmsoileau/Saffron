@@ -7,7 +7,8 @@ import bits.IProblem;
 import bits.Problem;
 
 /**
- * An extension of the IProblem class which fixes the values of an BitStringGraph.
+ * An extension of the IProblem class which fixes the values of an
+ * BitStringGraph.
  *
  * @author Kerry Michael Soileau
  *         <p>

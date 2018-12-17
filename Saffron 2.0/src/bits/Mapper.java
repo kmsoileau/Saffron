@@ -13,8 +13,9 @@ public class Mapper extends Problem implements IProblem
 
 	public Mapper(IProblem[] domain, IProblem[] codomain) throws Exception
 	{
-		if(domain.length==0 || codomain.length==0)
-			throw new MapperException("IProblem array of zero length passed to constructor.");
+		if (domain.length == 0 || codomain.length == 0)
+			throw new MapperException(
+					"IProblem array of zero length passed to constructor.");
 		this.domain = domain;
 		this.codomain = codomain;
 

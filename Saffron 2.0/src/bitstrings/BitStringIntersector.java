@@ -14,8 +14,8 @@ import bits.Problem;
 import bits.ProblemDenier;
 import exceptions.bitstrings.BitStringIntersectorException;
 
-/*
- * Satisfied when X[i]==true and Y[i]==true for somey i.
+/**
+ * Satisfied when X[i]==true and Y[i]==true for some i.
  */
 public class BitStringIntersector extends Problem implements IProblem
 {

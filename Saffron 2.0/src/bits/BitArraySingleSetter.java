@@ -36,6 +36,7 @@ import exceptions.bits.BitArraySingleSetterException;
  * @version 1.0
  * @since 2005/02/09
  */
+
 public class BitArraySingleSetter extends Problem implements IProblem
 {
 	public BitArraySingleSetter(IBooleanVariable[] array) throws Exception
