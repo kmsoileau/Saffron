@@ -1,4 +1,4 @@
-package demos.bitstringlists;
+package showcase.commonsuperbitstring;
 
 import java.util.List;
 

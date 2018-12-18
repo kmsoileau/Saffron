@@ -1,4 +1,4 @@
-package demos.bitstringlists;
+package showcase.bitstringarraycover;
 
 import java.util.List;
 
@@ -8,25 +8,23 @@ import bits.IBitString;
 import bits.IBooleanLiteral;
 import bits.Problem;
 import bitstringlists.BitStringCover;
-import bitstringlists.BitStringList;
-import bitstringlists.BitStringListFixer;
-import bitstringlists.IBitStringList;
 import bitstrings.BitString;
+import bitstrings.BitStringFixer;
 
-public class BitStringListCoverDemo
+public class BitStringArrayCoverDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		IBitStringList C = new BitStringList(new IBitString[]
+		IBitString[] C = new IBitString[]
 		{ new BitString("01001010"), new BitString("10111010"),
 				new BitString("00001000"), new BitString("00100100"),
-				new BitString("00101001") });
+				new BitString("00101001") };
 
-		int cLength = C.size();
+		int cLength = C.length;
 
 		IBitString includedInCover = new BitString(cLength);
 
-		List<IBooleanLiteral> s = new Conjunction(new BitStringListFixer(C),
+		List<IBooleanLiteral> s = new Conjunction(new BitStringFixer(C),
 				new BitStringCover(C, includedInCover)).findModel(Problem
 				.defaultSolver());
 
@@ -35,8 +33,7 @@ public class BitStringListCoverDemo
 			BooleanLiteral.interpret(s);
 			for (int i = 0; i < cLength; i++)
 				if (includedInCover.getBooleanVariable(i).getValue())
-					System.out.println("C[" + i + "]="
-							+ C.getBitString(i).toBits());
+					System.out.println("C[" + i + "]=" + C[i].toBits());
 		}
 		else
 			System.out.println("No solution.");

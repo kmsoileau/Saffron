@@ -1,4 +1,4 @@
-package demos.bitstringgraphs;
+package showcase.vertexcover;
 
 import java.util.List;
 

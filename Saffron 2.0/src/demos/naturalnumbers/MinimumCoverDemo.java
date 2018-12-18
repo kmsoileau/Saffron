@@ -2,9 +2,9 @@ package demos.naturalnumbers;
 
 import java.util.List;
 
-import naturalnumbers.MinimumCover;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
+import showcase.minimumcover.MinimumCover;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
@@ -27,7 +27,8 @@ public class MinimumCoverDemo
 
 		IBitStringList C = new BitStringList(new IBitString[]
 		{ new BitString("10000000"), new BitString("01111100"),
-				new BitString("00001000"), new BitString("00000011") });
+				new BitString("00001000"), new BitString("00000011"),
+				new BitString("10110101") });
 
 		IBitString included = new BitString(C.size());
 

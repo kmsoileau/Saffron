@@ -1,4 +1,4 @@
-package demos.bitstrings;
+package showcase.bitstringarraybasis;
 
 import java.util.List;
 

@@ -8,7 +8,7 @@
  * @version 1.0
  * @since Dec 16, 2018
  */
-package demos.bitstrings;
+package showcase.bitstringbithull;
 
 import java.util.List;
 

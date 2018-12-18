@@ -1,5 +1,7 @@
-package naturalnumbers;
+package showcase.minimumcover;
 
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberOrderer;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.INaturalNumber;

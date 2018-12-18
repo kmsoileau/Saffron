@@ -1,4 +1,4 @@
-package demos.naturalnumbers;
+package showcase.setpacker;
 
 import java.util.List;
 

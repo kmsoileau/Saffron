@@ -14,7 +14,7 @@
  * @version 1.0
  */
 
-package demos.bitstringlists;
+package showcase.bitstringlistsort;
 
 import java.util.List;
 

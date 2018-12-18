@@ -1,4 +1,4 @@
-package demos.bitstrings;
+package showcase.hittingset;
 
 import java.util.List;
 

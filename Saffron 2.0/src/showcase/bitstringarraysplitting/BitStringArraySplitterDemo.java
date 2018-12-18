@@ -8,7 +8,7 @@
  * @version 1.0
  * @since Dec 17, 2018
  */
-package demos.bitstrings;
+package showcase.bitstringarraysplitting;
 
 import java.util.List;
 

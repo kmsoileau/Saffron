@@ -1,4 +1,4 @@
-package demos.naturalnumbers;
+package showcase.bitstringcoverer;
 
 import java.util.List;
 
