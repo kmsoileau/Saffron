@@ -37,18 +37,32 @@ public class BitStringBitAnder2
 				new BitString("001100000111000"),
 				new BitString("100000000000000") };
 
+		Clocks.addClock("Kerry");
+		Clocks.addClock("John");
+
+		Clock Kerry = Clocks.getClock("Kerry");
+		Kerry.start();
+		
+		Clock John = Clocks.getClock("John");
+		
+
 		IBitString membership = new BitString(C.length);
 		IBitString targetBitString = new BitString(C[0].size());
+		Kerry.stop();
 
 		int pos = 8;
 		IProblem[] p = new IProblem[C.length];
 		for (int i = 0; i < C.length; i++)
+		{
+			John.start();
 			p[i] = new BitEqualizer(membership.getBooleanVariable(i),
 					C[i].getBooleanVariable(pos));
+			John.stop();
+		}
 		IProblem problem = new Conjunction(new BitStringFixer(C),
 				new Conjunction(p), new BitStringConditionalAnder(C,
 						membership, targetBitString));
-
+		Kerry.start();
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
@@ -60,5 +74,9 @@ public class BitStringBitAnder2
 		}
 		else
 			System.out.println("No solution.");
+
+		Kerry.stop();
+		System.out.println(Kerry.getTotalElapsedTime());
+		System.out.println(John.getTotalElapsedTime());
 	}
 }

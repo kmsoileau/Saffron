@@ -29,7 +29,7 @@ public class NaturalNumberFactorerDemo
 		INaturalNumber Z = new NaturalNumber("Z");
 
 		IProblem p = new Conjunction(new NaturalNumberFixer(Z,
-				9111546325452345231L), new NaturalNumberFactorer(X, Y, Z));
+				9111L), new NaturalNumberFactorer(X, Y, Z));
 
 		System.out.println(p.size() + "clauses generated...");
 
