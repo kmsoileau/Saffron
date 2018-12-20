@@ -8,22 +8,29 @@ import exceptions.bitstrings.BitStringArraySplitterException;
 
 /**
  *
- * Two constraints are imposed by this <code>IProblem:
+ * Two constraints are imposed by this <code>IProblem</code>:
  * <p>
- * 1. <code>S1 and <code>S2 are bitwise negations of each other;
+ * 1. <code>S1</code> and <code>S2</code> are bitwise negations of each other;
  * <p>
- * 2. For each <code>i, <code>X[i] is not dominated* by <code>S1;
+ * 2. For each <code>i</code>, <code>X[i]</code> is not dominated* by
+ * <code>S1</code>;
  * <p>
- * 3. For each <code>i, <code>X[i] is not dominated by <code>S2;
+ * 3. For each <code>i</code>, <code>X[i]</code> is not dominated by
+ * <code>S2</code>;
  * <p>
- * An equivalent statement is that <code>S1 and <code>S2 split each <code>X[i] 
- * into nonzero IBitStrings whose bitwise AND is the zero IBitString.
+ * An equivalent statement is that <code>S1</code> and <code>S2</code> split
+ * each <code>X[i]</code> into nonzero <code>IBitString</code>s whose bitwise
+ * AND is the zero <code>IBitString</code>.
  * <p>
- * *We say that IBitString X is dominated by IBitString Y if and only if the
- * bitwise AND of X and Y equals X.
+ * *We say that <code>IBitString X</code> is dominated by
+ * <code>IBitString Y</code> if and only if the bitwise AND of <code>X</code>
+ * and <code>Y</code> equals <code>X</code>.
  * 
- * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
- *         http://kerrysoileau.com/index.html
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
  * @version 1.0
  * @since 2018/12/11
  */
