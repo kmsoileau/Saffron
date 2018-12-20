@@ -2,6 +2,8 @@ package tbs;
 
 import java.util.List;
 
+import utility.Clock;
+import utility.Clocks;
 import bits.BitEqualizer;
 import bits.BooleanLiteral;
 import bits.Conjunction;

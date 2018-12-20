@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import naturalnumbers.NaturalNumber;
+import naturalnumbers.scheduling.Processor;
+import naturalnumbers.scheduling.Scheduler;
+import naturalnumbers.scheduling.Task;
 import bits.BooleanLiteral;
 import bits.IBooleanLiteral;
 import bits.IBooleanVariable;

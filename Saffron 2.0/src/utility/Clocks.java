@@ -8,7 +8,7 @@
  * @version 1.0
  * @since Dec 19, 2018
  */
-package tbs;
+package utility;
 
 import java.util.HashMap;
 

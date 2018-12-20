@@ -1,4 +1,4 @@
-package showcase.scheduling;
+package naturalnumbers.scheduling;
 
 public class Processor
 {

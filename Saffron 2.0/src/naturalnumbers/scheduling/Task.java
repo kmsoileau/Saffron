@@ -1,4 +1,4 @@
-package showcase.scheduling;
+package naturalnumbers.scheduling;
 
 import java.util.Arrays;
 import java.util.List;

@@ -20,6 +20,7 @@ import bits.IProblem;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringFixer;
+import bitstrings.minimumtestset.MinimumTestSetter;
 
 public class MinimumTestSetterDemo
 {

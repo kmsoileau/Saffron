@@ -6,7 +6,7 @@
  * @version 1.0
  */
 
-package showcase.binpacking;
+package naturalnumbers.binpacking;
 
 import java.util.ArrayList;
 import java.util.List;

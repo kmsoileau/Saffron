@@ -2,6 +2,10 @@ package showcase.binpacking;
 
 import java.util.ArrayList;
 
+import naturalnumbers.binpacking.Bin;
+import naturalnumbers.binpacking.BinPacker;
+import naturalnumbers.binpacking.Item;
+
 public class BinPackingDemo3
 {
 	public static void main(String[] args) throws Exception

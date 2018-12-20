@@ -1,4 +1,4 @@
-package showcase.binpacking;
+package naturalnumbers.binpacking;
 
 public class Bin
 {

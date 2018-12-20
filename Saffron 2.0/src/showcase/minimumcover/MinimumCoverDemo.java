@@ -1,10 +1,10 @@
-package demos.naturalnumbers;
+package showcase.minimumcover;
 
 import java.util.List;
 
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
-import showcase.minimumcover.MinimumCover;
+import naturalnumbers.minimumcover.MinimumCover;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;

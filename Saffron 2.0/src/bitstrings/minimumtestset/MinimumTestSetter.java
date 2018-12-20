@@ -8,7 +8,7 @@
  * @version 1.0
  * @since Dec 20, 2018
  */
-package showcase.minimumtestset;
+package bitstrings.minimumtestset;
 
 import bits.BitFixer;
 import bits.Conjunction;
