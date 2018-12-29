@@ -1,19 +1,17 @@
 package sets;
 
-import java.util.HashMap;
-import java.util.HashSet;
-
-import bits.BooleanVariable;
+import bits.IBitString;
 import bits.IBooleanVariable;
+import bitstrings.BitString;
 import exceptions.sets.SetException;
 
 /**
  * A class which represents a subset. Set is essentially an association of a
- * collection of objects (its <b>support</b>) and corresponding
- * <code>IBooleanVariable</code>s. The objects whose
- * <code>IBooleanVariable</code>s evaluate to <code>true</code> form the members
- * of the Set. This class is useful when one is trying to find a subset of a
- * given set that satisfies given constraints.
+ * collection of objects and corresponding <code>IBitString</code>s. The objects
+ * whose corresponding <code>IBooleanVariable</code>s in the membership
+ * <code>IBitString</code> evaluate to <code>true</code> form the members of the
+ * Set. This class is useful when one is trying to find a subset of a given set
+ * that satisfies given constraints.
  *
  * @author Kerry Michael Soileau
  *         <p>
@@ -21,137 +19,90 @@ import exceptions.sets.SetException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2018/12/06
+ * @since 2018/12/26
  */
 public class Set
 {
+	private static int bitStringSize = 0;
+	private static String[] elementNames = null;
 	private static int setIndex = 0;
-	private HashMap<Object, IBooleanVariable> backing = new HashMap<Object, IBooleanVariable>();
+
+	public static String[] getElementNames()
+	{
+		return Set.elementNames;
+	}
+
+	public static int getSetSupportSize()
+	{
+		return Set.bitStringSize;
+	}
+
+	public static void setElementNames(String[] strings)
+	{
+		Set.elementNames = strings;
+		Set.bitStringSize = strings.length;
+	}
+
+	private Object[] memberObjects;
+	private IBitString membershipBitString;
 	private String name;
 
-	public Set() throws SetException
+	public Set() throws Exception
 	{
 		this("Set-" + setIndex++);
 	}
 
-	public <T> Set(HashSet<T> hashSet) throws Exception
+	public Set(String name) throws Exception
 	{
-		this();
-		if (hashSet == null)
-			throw new SetException(
-					"Null passed to constructor as HashSet parameter.");
-		this.backing.clear();
-		for (Object o : hashSet)
-			this.addSupport(o);
-	}
-
-	public Set(Object[] supportArray) throws Exception
-	{
-		// Eventually: this(java.util.Set.of(supportArray));
-		this();
-		if (supportArray == null)
-			throw new SetException(
-					"Null passed to constructor as HashSet parameter.");
-		this.backing.clear();
-		for (Object o : supportArray)
-			this.addSupport(o);
-	}
-
-	public Set(String name) throws SetException
-	{
-		super();
 		if (name == null)
 			throw new SetException(
 					"Null passed to constructor as name parameter.");
-		this.name = name;
-	}
 
-	public <T> Set(String name, HashSet<T> hashSet) throws Exception
-	{
-		this(hashSet);
-		if (name == null)
-			throw new SetException(
-					"Null passed to constructor as name parameter.");
 		this.setName(name);
+		this.membershipBitString = new BitString(Set.getSetSupportSize());
 	}
 
-	public Set(String name, Object[] supportArray) throws Exception
+	public IBooleanVariable contains(String elementName) throws Exception
 	{
-		this(supportArray);
-		if (name == null)
-			throw new SetException(
-					"Null passed to constructor as name parameter.");
-		this.name = name;
-	}
-
-	public void add(Object key, IBooleanVariable bv) throws SetException
-	{
-		if (key == null)
-			throw new SetException(
-					"Null passed to add method as Object parameter.");
-		if (!backing.containsKey(key))
-			backing.put(key, bv);
-	}
-
-	public void add(Object key, String name) throws Exception
-	{
-		if (name == null)
-			throw new SetException(
-					"Null passed to add method as String parameter.");
-		if (!backing.containsKey(key))
+		String[] names = Set.getElementNames();
+		for (int i = 0; i < Set.getSetSupportSize(); i++)
 		{
-			backing.put(key, BooleanVariable.getBooleanVariable(name));
+			IBooleanVariable ww = this.membershipBitString
+					.getBooleanVariable(i);
+			if (names[i].compareTo(elementName) == 0)
+				return ww;
 		}
+		return null;
 	}
 
-	public void addSupport(Object key) throws Exception
+	public IBooleanVariable getBooleanVariable(int i) throws Exception
 	{
-		if (key == null)
-			throw new SetException(
-					"Null passed to add method as Object parameter.");
-		add(key, BooleanVariable.getBooleanVariable());
+		return this.membershipBitString.getBooleanVariable(i);
 	}
 
-	public IBooleanVariable contains(Object o)
+	public Object[] getMemberObjects()
 	{
-		return this.backing.get(o);
+		return memberObjects;
 	}
 
-	public HashMap<Object, IBooleanVariable> getBacking()
+	public IBitString getMembershipBitString()
 	{
-		return backing;
-	}
-
-	public IBooleanVariable getIBooleanVariable(Object o)
-	{
-		return this.getBacking().get(o);
+		return membershipBitString;
 	}
 
 	public String getName()
 	{
-		return this.name;
+		return name;
 	}
 
-	public java.util.Set<Object> getSupport()
+	public void setMemberObjects(Object[] memberObjects)
 	{
-		return this.backing.keySet();
+		this.memberObjects = memberObjects;
 	}
 
-	public IBooleanVariable put(Object o, IBooleanVariable bv)
-			throws SetException
+	public void setMembershipBitString(IBitString membershipBitString)
 	{
-		if (o == null)
-			throw new SetException(
-					"Null passed to put method as Object parameter.");
-		if (bv == null)
-			throw new SetException(
-					"Null passed to put method as IBooleanVariable parameter.");
-		return this.backing.put(o, bv);
-	}
-
-	public void setBacking(HashMap<Object, IBooleanVariable> backing)
-	{
-		this.backing = backing;
+		this.membershipBitString = membershipBitString;
 	}
 
 	public void setName(String name)
@@ -159,14 +110,20 @@ public class Set
 		this.name = name;
 	}
 
+	@Override
 	public String toString()
 	{
-		String ret = "{ ";
-		for (Object o : this.getBacking().keySet())
-		{
-			if (getIBooleanVariable(o).getValue())
-				ret += o + " ";
-		}
-		return ret + "}";
+		String ret = "";
+		for (int i = 0; i < Set.getSetSupportSize(); i++)
+			try
+			{
+				if (membershipBitString.getBooleanVariable(i).getValue())
+					ret += " " + Set.getElementNames()[i];
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		return "[" + ret + " ]";
 	}
 }

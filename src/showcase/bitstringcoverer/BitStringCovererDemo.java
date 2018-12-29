@@ -11,9 +11,9 @@ import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import bitstringlists.BitStringCoverer;
 import bitstringlists.BitStringList;
 import bitstringlists.BitStringListFixer;
+import bitstringlists.BitStringSizedCoverer;
 import bitstringlists.IBitStringList;
 import bitstrings.BitString;
 
@@ -29,7 +29,7 @@ public class BitStringCovererDemo
 		IBitString included = new BitString(C.size());
 
 		IProblem problem = new Conjunction(new BitStringListFixer(C),
-				new NaturalNumberFixer(K, 3L), new BitStringCoverer(C,
+				new NaturalNumberFixer(K, 3L), new BitStringSizedCoverer(C,
 						included, K));
 
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());

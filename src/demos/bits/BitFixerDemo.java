@@ -1,33 +1,49 @@
 package demos.bits;
 
+import java.util.List;
+
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
-import bits.Conjunction;
-import bits.Disjunction;
+import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
 
+/**
+ * 
+ *************************************** <p>
+ * IProblem-0
+ * 
+ *************************************** <p>
+ * { X }
+ * 
+ *************************************** <p>
+ * 1 clauses generated.
+ * 
+ *************************************** <p>
+ * Sat4j Solution: [ X ]
+ * <p>
+ * Saffron Solution for X: true
+ * 
+ */
 public class BitFixerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		IBooleanVariable x0 = BooleanVariable.getBooleanVariable("x0");
-		IBooleanVariable x1 = BooleanVariable.getBooleanVariable("x1");
-		IProblem bitFixerx0_0 = new BitFixer(x0, false);
-		IProblem bitFixerx0_1 = new BitFixer(x0, true);
-		IProblem bitFixerx1_0 = new BitFixer(x1, false);
-		IProblem bitFixerx1_1 = new BitFixer(x1, true);
-		IProblem p1 = new Conjunction(bitFixerx0_0, bitFixerx1_0);
-		IProblem p2 = new Conjunction(bitFixerx0_0, bitFixerx1_1);
-		IProblem p12 = new Disjunction(p1, p2);
-		System.out.println(p1);
-		System.out.println(p2);
-		System.out.println(p12);
-		System.out.println(bitFixerx0_1);
-		BooleanLiteral.interpret(p12.findModel(Problem.defaultSolver()));
-		System.out.println("x0 = " + x0.getValue());
-		System.out.println("x1 = " + x1.getValue());
+		IBooleanVariable bvX = BooleanVariable.getBooleanVariable("X");
+
+		IProblem problem = new BitFixer(bvX, true);
+
+		System.out.println(problem);
+
+		List<IBooleanLiteral> solutionSat4j = problem.findModel(Problem
+				.defaultSolver());
+
+		System.out.println("Sat4j Solution: " + solutionSat4j);
+
+		BooleanLiteral.interpret(solutionSat4j);
+
+		System.out.println("Saffron Solution for X: " + bvX.getValue());
 	}
 }

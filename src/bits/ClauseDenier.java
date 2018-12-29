@@ -30,16 +30,23 @@ public class ClauseDenier extends Problem implements IProblem
 		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
-			Object[] oib = clause.toArray();
-			for (int i = 0; i < oib.length; i++)
+			if(clause.size()==0)
 			{
-				IBooleanLiteral ib = (IBooleanLiteral) (oib[i]);
-				if (ib.isBarred())
-					super.addClause(Clause.newClause().or(
-							ib.getBooleanVariable()));
-				else
-					super.addClause(Clause.newClause().orNot(
-							ib.getBooleanVariable()));
+				this.setClauses(Problem.trivialProblem().getClauses());
+			}
+			else
+			{
+				Object[] oib = clause.toArray();
+				for (int i = 0; i < oib.length; i++)
+				{
+					IBooleanLiteral ib = (IBooleanLiteral) (oib[i]);
+					if (ib.isBarred())
+						super.addClause(Clause.newClause().or(
+								ib.getBooleanVariable()));
+					else
+						super.addClause(Clause.newClause().orNot(
+								ib.getBooleanVariable()));
+				}
 			}
 		}
 	}

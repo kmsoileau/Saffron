@@ -6,10 +6,6 @@ import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstrings.BitString;
-import bitstrings.BitStringEqualizer;
-import bitstrings.BitStringFixer;
-import bitstrings.BitStringOrer;
 import exceptions.bitstringlists.BitStringConditionalOrerException;
 
 /**
@@ -45,7 +41,7 @@ public class BitStringConditionalOrer extends Problem implements IProblem
 		for (int i = 0; i < bitStrings.length; i++)
 			subTotal[i] = new BitString(bitStrings[0].size());
 
-		stagingArray[stagingIndex++] = stagingArray[stagingIndex++] = new Conjunction(
+		stagingArray[stagingIndex++] = new Conjunction(
 		// if membership[0] then subTotal[0]=bitStrings[0]
 				new Disjunction(new BitFixer(membership.getBooleanVariable(0),
 						false), new BitStringEqualizer(subTotal[0],

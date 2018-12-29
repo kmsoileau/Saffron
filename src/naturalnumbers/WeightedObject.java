@@ -6,7 +6,6 @@ public class WeightedObject
 {
 	private String name;
 	private INaturalNumber weight;
-	private Integer weightValue;
 
 	public WeightedObject() throws Exception
 	{
@@ -35,12 +34,6 @@ public class WeightedObject
 		return weight;
 	}
 
-	public Integer getWeightValue()
-	{
-		// TODO Auto-generated method stub
-		return this.weightValue;
-	}
-
 	public void setName(String name)
 	{
 		this.name = name;
@@ -49,11 +42,6 @@ public class WeightedObject
 	public void setWeight(INaturalNumber weight)
 	{
 		this.weight = weight;
-	}
-
-	public void setWeightValue(Integer weightValue)
-	{
-		this.weightValue = weightValue;
 	}
 
 	public String toString()

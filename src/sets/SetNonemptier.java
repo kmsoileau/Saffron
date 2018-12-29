@@ -1,10 +1,8 @@
 package sets;
 
-import java.util.HashMap;
-
 import bits.BitFixer;
 import bits.Disjunction;
-import bits.IBooleanVariable;
+import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
 import exceptions.sets.SetNonemptierException;
@@ -16,18 +14,14 @@ public class SetNonemptier extends Problem implements IProblem
 		if (X == null)
 			throw new SetNonemptierException(
 					"Null passed to constructor as Set parameter.");
-		HashMap<Object, IBooleanVariable> backing = X.getBacking();
-		if (backing == null)
-			throw new SetNonemptierException(
-					"Set with null backing passed to constructor.");
-		java.util.Set<Object> keySet = backing.keySet();
 
 		IProblem problem = Problem.newProblem();
-		Object[] keySetArray = keySet.toArray(new Object[0]);
-		for (Object o : keySetArray)
+
+		IBitString bs = X.getMembershipBitString();
+		for (int i = 0; i < Set.getSetSupportSize(); i++)
 		{
-			problem = new Disjunction(problem, new BitFixer(backing.get(o),
-					true));
+			problem = new Disjunction(problem, new BitFixer(
+					bs.getBooleanVariable(i), true));
 		}
 
 		this.setClauses(problem.getClauses());

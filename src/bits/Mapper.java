@@ -1,10 +1,6 @@
 package bits;
 
 import exceptions.bits.MapperException;
-import bits.Conjunction;
-import bits.Disjunction;
-import bits.IProblem;
-import bits.Problem;
 
 public class Mapper extends Problem implements IProblem
 {

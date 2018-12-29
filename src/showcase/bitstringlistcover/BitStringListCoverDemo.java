@@ -7,11 +7,11 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IBooleanLiteral;
 import bits.Problem;
-import bitstringlists.BitStringCover;
 import bitstringlists.BitStringList;
 import bitstringlists.BitStringListFixer;
 import bitstringlists.IBitStringList;
 import bitstrings.BitString;
+import bitstrings.BitStringCoverer;
 
 public class BitStringListCoverDemo
 {
@@ -27,7 +27,7 @@ public class BitStringListCoverDemo
 		IBitString includedInCover = new BitString(cLength);
 
 		List<IBooleanLiteral> s = new Conjunction(new BitStringListFixer(C),
-				new BitStringCover(C, includedInCover)).findModel(Problem
+				new BitStringCoverer(C, includedInCover)).findModel(Problem
 				.defaultSolver());
 
 		if (s != null && s.size() > 0)

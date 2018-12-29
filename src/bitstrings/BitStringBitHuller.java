@@ -10,17 +10,13 @@
  */
 package bitstrings;
 
-import exceptions.bitstrings.BitStringBitHullerException;
 import bits.BitFixer;
 import bits.Conjunction;
 import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import bitstrings.BitString;
-import bitstrings.BitStringAnder;
-import bitstrings.BitStringEqualizer;
-import bitstrings.BitStringNoter;
+import exceptions.bitstrings.BitStringBitHullerException;
 
 public class BitStringBitHuller extends Problem implements IProblem
 {

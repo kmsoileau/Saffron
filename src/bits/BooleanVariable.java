@@ -1,9 +1,6 @@
 package bits;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 
 import exceptions.bits.BooleanVariableException;
 
@@ -24,20 +21,40 @@ import exceptions.bits.BooleanVariableException;
  */
 public class BooleanVariable implements IBooleanVariable
 {
+	/**
+	 * The current number of BooleanVariable objects that were constructed
+	 * without a specified name, and for which a application-generated name was
+	 * assigned.
+	 */
 	private static long boolCount;
+
+	/**
+	 * A Set containing every current BooleanVariable object.
+	 */
 	private static HashSet<IBooleanVariable> instances = new HashSet<IBooleanVariable>();
-	private static boolean verbose;
 
-	public static long getBoolCount()
-	{
-		return boolCount;
-	}
-
+	/**
+	 * A factory method. It constructs a new IBooleanVariable with name
+	 * <code>"BooleanVariable-" + boolCount</code> and value <code>false</code>.
+	 * 
+	 * @return A new IBooleanVariable.
+	 * @throws BooleanVariableException
+	 *             if n == null or n=="".
+	 */
 	public static IBooleanVariable getBooleanVariable() throws Exception
 	{
 		return new BooleanVariable();
 	}
 
+	/**
+	 * A factory method. It constructs a new IBooleanVariable with name
+	 * <code>"BooleanVariable-" + boolCount</code> and value <code>x</code>.
+	 * 
+	 * @return A new IBooleanVariable.
+	 * @throws BooleanVariableException
+	 *             if n == null or n=="".
+	 * @param x A boolean
+	 */
 	public static IBooleanVariable getBooleanVariable(boolean x)
 			throws Exception
 	{
@@ -46,8 +63,16 @@ public class BooleanVariable implements IBooleanVariable
 		return res;
 	}
 
-	public static IBooleanVariable getBooleanVariable(String n)
-			throws Exception
+	/**
+	 * A factory method. It constructs a new IBooleanVariable with name
+	 * <code>n</code> and value <code>false</code>.
+	 * 
+	 * @return A new IBooleanVariable.
+	 * @throws BooleanVariableException
+	 *             if n == null or n=="".
+	 * @param n A String
+	 */
+	public static IBooleanVariable getBooleanVariable(String n) throws Exception
 	{
 		if (n == null || "".compareTo(n) == 0)
 			throw new BooleanVariableException(
@@ -63,6 +88,16 @@ public class BooleanVariable implements IBooleanVariable
 		return new BooleanVariable(n);
 	}
 
+	/**
+	 * A factory method. It constructs a new IBooleanVariable with name
+	 * <code>n</code> and value <code>x</code>.
+	 * 
+	 * @return A new IBooleanVariable.
+	 * @throws BooleanVariableException
+	 *             if n == null or n=="".
+	 * @param n A String
+	 * @param x A boolean
+	 */
 	public static IBooleanVariable getBooleanVariable(String n, boolean x)
 			throws Exception
 	{
@@ -77,39 +112,56 @@ public class BooleanVariable implements IBooleanVariable
 		}
 	}
 
+	/**
+	 * @return the Set of <code>instances</code>.
+	 */
 	public static HashSet<IBooleanVariable> getInstances()
 	{
 		return instances;
 	}
 
-	public static void listVariables()
-	{
-		HashSet<IBooleanVariable> s = BooleanVariable.getInstances();
-		IBooleanVariable[] ary = s.toArray(new BooleanVariable[0]);
-		List<IBooleanVariable> lis = Arrays.asList(ary);
-		Collections.sort(lis);
-		System.out.println(lis);
-	}
-
-	public static void setVerbose(boolean verbose)
-	{
-		BooleanVariable.verbose = verbose;
-	}
-
+	/**
+	 * The name of the IBooleanVariable.
+	 */
 	private String name;
+
+	/**
+	 * The value of the IBooleanVariable.
+	 */
 	private boolean value;
 
-	protected BooleanVariable() throws Exception
+	/**
+	 * Constructs a new IBooleanVariable with name
+	 * <code>"BooleanVariable-" + boolCount</code> and value <code>false</code>.
+	 */
+	protected BooleanVariable()
 	{
-		this("BooleanVariable-" + boolCount, false);
+		this.name = "BooleanVariable-" + boolCount;
 		boolCount++;
+		this.setValue(false);
+		BooleanVariable.getInstances().add(this);
 	}
 
+	/**
+	 * Constructs a new IBooleanVariable with name <code>n</code> and value
+	 * <code>false</code>.
+	 * 
+	 * @return A new IBooleanVariable.
+	 * @throws BooleanVariableException
+	 *             if n == null or n=="".
+	 */
 	private BooleanVariable(String n) throws Exception
 	{
 		this(n, false);
 	}
 
+	/**
+	 * Constructs a new IBooleanVariable with name <code>n</code> and value
+	 * <code>x</code>.
+	 * 
+	 * @throws BooleanVariableException
+	 *             if n == null or n=="".
+	 */
 	private BooleanVariable(String n, boolean x) throws Exception
 	{
 		if (n == null || "".compareTo(n) == 0)
@@ -118,11 +170,14 @@ public class BooleanVariable implements IBooleanVariable
 		this.setName(n);
 		this.setValue(x);
 		BooleanVariable.getInstances().add(this);
-		if (this.isVerbose())
-			System.out.println(this.getName());
 	}
 
-	@Override
+	/**
+	 * The result of comparing two IBooleanVariables x and y is exactly the same
+	 * as the result of comparing their names.
+	 * 
+	 * @return <code>x.getName().compareTo(y.getName()).</code>
+	 */
 	public int compareTo(Object o)
 	{
 		String thisName = this.getName();
@@ -131,8 +186,10 @@ public class BooleanVariable implements IBooleanVariable
 	}
 
 	/**
-	 * Two IBooleanVariables are considered equal if and only if they have the
-	 * same name. Their respective values are unimportant.
+	 * Two IBooleanVariables x and y are equal if and only if
+	 * x.getName().compareTo(y.getName())==0.
+	 * 
+	 * @return <code>true</code> if this.getName().compareTo(o.getName())==0.
 	 */
 	@Override
 	public boolean equals(Object anObject)
@@ -146,28 +203,37 @@ public class BooleanVariable implements IBooleanVariable
 				return true;
 			else
 				return false;
-		}
-		else
+		} else
 			return false;
 	}
 
+	/**
+	 * @return the name as String.
+	 */
 	@Override
 	public String getName()
 	{
 		return this.name;
 	}
 
+	/**
+	 * Returns true if <code>value==true</code>, otherwise returns false.
+	 *
+	 * @return a boolean: <code>true</code> or <code>false</code>.
+	 */
 	@Override
 	public boolean getValue()
 	{
 		return this.value;
 	}
 
-	public boolean isVerbose()
-	{
-		return verbose;
-	}
-
+	/**
+	 * Sets the name of the IBooleanVariable.
+	 * 
+	 * @param name A String
+	 * @throws BooleanVariableException
+	 *             if name == null or name=="".
+	 */
 	public void setName(String name) throws BooleanVariableException
 	{
 		if (name == null || "".compareTo(name) == 0)
@@ -176,12 +242,21 @@ public class BooleanVariable implements IBooleanVariable
 		this.name = name;
 	}
 
+	/**
+	 * Sets the logical value: <code>true</code> or <code>false</code>.
+	 * 
+	 * @param x
+	 *            A boolean
+	 */
 	@Override
 	public void setValue(boolean x)
 	{
 		this.value = x;
 	}
 
+	/**
+	 * Returns a string representation of the IBooleanVariable.
+	 */
 	@Override
 	public String toString()
 	{

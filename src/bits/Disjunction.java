@@ -290,7 +290,6 @@ public class Disjunction extends Problem implements IProblem
 	 */
 	public Disjunction(IProblem[] problemArray) throws Exception
 	{
-
 		if (problemArray == null)
 			throw new DisjunctionException(
 					"Null IProblem array passed to or method.");

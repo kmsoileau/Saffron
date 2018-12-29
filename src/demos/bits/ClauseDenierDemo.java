@@ -24,7 +24,7 @@ public class ClauseDenierDemo
 				.println("The denial of this clause is the following Problem:");
 		System.out.println(new ClauseDenier(clause));
 
-		System.out.println(new ClauseDenier(null));
+		//System.out.println(new ClauseDenier(null));
 		System.out.println(new ClauseDenier(new Clause()));
 		System.out.println(new ClauseDenier(Problem.unsolvableProblem()
 				.getClause(0)));

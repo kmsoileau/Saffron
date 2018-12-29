@@ -8,7 +8,7 @@ import exceptions.sets.SetMembershipperException;
 
 public class SetMembershipper extends Problem implements IProblem
 {
-	public SetMembershipper(Object object, Set set) throws Exception
+	public SetMembershipper(String object, Set set) throws Exception
 	{
 		if (set == null)
 			throw new SetMembershipperException(
@@ -17,6 +17,7 @@ public class SetMembershipper extends Problem implements IProblem
 			throw new SetMembershipperException(
 					"Null passed to constructor as Object parameter.");
 		IBooleanVariable bv = set.contains(object);
+
 		if (bv == null)
 			throw new SetMembershipperException("Object " + object
 					+ " is not in the support of Set " + set);

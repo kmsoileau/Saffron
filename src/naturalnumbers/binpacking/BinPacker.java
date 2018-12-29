@@ -1,11 +1,13 @@
 /**
- * 
- * ConditionalAdderDemo.java	1.0 2018/11/05
- * Copyright 2018 Positronic Software
+ *
  * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
  * @version 1.0
+ * @since Nov 5, 2018
  */
-
 package naturalnumbers.binpacking;
 
 import java.util.ArrayList;

@@ -15,12 +15,13 @@ public class SetEqualizerDemo1
 {
 	public static void main(String[] args) throws Exception
 	{
+		Set.setElementNames(new String[]{"A","B","C"});
+		
 		Set setA = new Set();
+		
 
 		Set setB = new Set();
-		setB.addSupport("A");
-		setB.addSupport("B");
-		setB.addSupport("C");
+		
 
 		IProblem problem = new Conjunction(new BitFixer(setB.contains("B"),
 				true), new SetEqualizer(setA, setB));

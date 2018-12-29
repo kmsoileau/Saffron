@@ -14,6 +14,7 @@ import java.util.Map;
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.specs.ISolver;
 
+import utility.EquivalenceRelation;
 import exceptions.bits.ClauseException;
 import exceptions.bits.ProblemException;
 

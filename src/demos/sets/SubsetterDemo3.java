@@ -15,14 +15,11 @@ public class SubsetterDemo3
 {
 	public static void main(String[] args) throws Exception
 	{
+		Set.setElementNames(new String[]
+		{ "A", "B", "C" });
 		Set setA = new Set();
-		setA.addSupport("A");
-		setA.addSupport("B");
-		setA.addSupport("C");
 
 		Set setB = new Set();
-		setB.addSupport("B");
-		setB.addSupport("C");
 
 		IProblem problem = new Conjunction(new SetMembershipper("B", setA),
 				new SetMembershipper("C", setA),

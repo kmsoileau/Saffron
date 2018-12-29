@@ -13,10 +13,11 @@ public class SetIntersectorDemo4
 {
 	public static void main(String[] args) throws Exception
 	{
-		Set setA = new Set("setA", new Object[]
-		{});
-		Set setB = new Set("setB", new Object[]
-		{});
+		Set.setElementNames(new String[]
+		{ "A", "B", "C", "D" });
+
+		Set setA = new Set("setA");
+		Set setB = new Set("setB");
 
 		IProblem problem = new Subsetter(setB, setA); // setA is a subset of
 														// setB

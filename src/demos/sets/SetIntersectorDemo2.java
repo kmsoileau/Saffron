@@ -15,10 +15,11 @@ public class SetIntersectorDemo2
 {
 	public static void main(String[] args) throws Exception
 	{
-		Set setA = new Set("setA", new Object[]
+		Set.setElementNames(new String[]
 		{ "A", "B", "C", "D", "E" });
-		Set setB = new Set("setB", new Object[]
-		{});
+		
+		Set setA = new Set("setA");
+		Set setB = new Set("setB");
 
 		IProblem problem = new Conjunction(new IProblem[]
 		{ new SetMembershipper("B", setA), // setA contains B

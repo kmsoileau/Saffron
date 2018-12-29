@@ -6,10 +6,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
+import utility.ArrayListSet;
 import bits.BooleanVariable;
 import bits.IBitString;
 import bits.IBooleanVariable;
-import bitstrings.ArrayListSet;
 import bitstrings.BitString;
 import exceptions.bitstringlists.BitStringLinkedListException;
 

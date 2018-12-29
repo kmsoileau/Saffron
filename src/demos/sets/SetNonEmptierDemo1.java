@@ -13,10 +13,10 @@ public class SetNonEmptierDemo1
 {
 	public static void main(String[] args) throws Exception
 	{
+		Set.setElementNames(new String[]
+				{ "A", "B", "C" });
+		
 		Set theSet = new Set();
-		theSet.addSupport("A");
-		theSet.addSupport("B");
-		theSet.addSupport("C");
 
 		IProblem problem = new SetNonemptier(theSet);
 
