@@ -1,14 +1,12 @@
 package demos.naturalnumbers;
 
-import java.util.List;
-
 import naturalnumbers.BitStringTotaler;
 import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringFixer;
@@ -25,12 +23,13 @@ public class BitStringTotalerDemo
 
 		IBitString X = new BitString("X", testString);
 
-		List<IBooleanLiteral> s = new Conjunction(new BitStringFixer(X),
+		IProblemMessage s = new Conjunction(new BitStringFixer(X),
 				new BitStringTotaler(X, sum))
 				.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("sum= " + sum);
 		}
 		else

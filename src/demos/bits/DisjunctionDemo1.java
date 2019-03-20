@@ -1,7 +1,5 @@
 package demos.bits;
 
-import java.util.List;
-
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 import bits.BitFixer;
@@ -10,10 +8,10 @@ import bits.BooleanVariable;
 import bits.ConditionalDisjunction;
 import bits.Conjunction;
 import bits.Disjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 /**
@@ -30,7 +28,7 @@ public class DisjunctionDemo1
 {
 	public static void main(String[] args) throws Exception
 	{
-		List<IBooleanLiteral> s;
+		IProblemMessage s;
 
 		IBooleanVariable X = BooleanVariable.getBooleanVariable("X");
 		IBooleanVariable Y = BooleanVariable.getBooleanVariable("Y");
@@ -52,9 +50,10 @@ public class DisjunctionDemo1
 		problem = new Disjunction(p1);
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
@@ -62,7 +61,7 @@ public class DisjunctionDemo1
 			System.out.println("B= " + B);
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
-			BooleanLiteral.reset(s);
+			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
 			System.out.println("No solution.");
@@ -70,9 +69,10 @@ public class DisjunctionDemo1
 		problem = new Disjunction(p1, p2);
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
@@ -80,7 +80,7 @@ public class DisjunctionDemo1
 			System.out.println("B= " + B);
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
-			BooleanLiteral.reset(s);
+			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
 			System.out.println("No solution.");
@@ -88,9 +88,10 @@ public class DisjunctionDemo1
 		problem = new Disjunction(p2, p3, Y);
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
@@ -98,7 +99,7 @@ public class DisjunctionDemo1
 			System.out.println("B= " + B);
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
-			BooleanLiteral.reset(s);
+			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
 			System.out.println("No solution.");
@@ -106,9 +107,10 @@ public class DisjunctionDemo1
 		problem = new Disjunction(p1, p3, p4);
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
@@ -116,7 +118,7 @@ public class DisjunctionDemo1
 			System.out.println("B= " + B);
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
-			BooleanLiteral.reset(s);
+			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
 			System.out.println("No solution.");
@@ -124,9 +126,10 @@ public class DisjunctionDemo1
 		problem = new Disjunction(p1, p2, p3, p4);
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
@@ -134,7 +137,7 @@ public class DisjunctionDemo1
 			System.out.println("B= " + B);
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
-			BooleanLiteral.reset(s);
+			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
 			System.out.println("No solution.");
@@ -143,9 +146,10 @@ public class DisjunctionDemo1
 		{ p1, p2, p3, p4 });
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
@@ -153,7 +157,7 @@ public class DisjunctionDemo1
 			System.out.println("B= " + B);
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
-			BooleanLiteral.reset(s);
+			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
 			System.out.println("No solution.");
@@ -163,9 +167,10 @@ public class DisjunctionDemo1
 		{ X, Y, Z });
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
@@ -173,7 +178,7 @@ public class DisjunctionDemo1
 			System.out.println("B= " + B);
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
-			BooleanLiteral.reset(s);
+			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
 			System.out.println("No solution.");
@@ -184,9 +189,10 @@ public class DisjunctionDemo1
 				new BitFixer(Z, false));
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
@@ -194,7 +200,7 @@ public class DisjunctionDemo1
 			System.out.println("B= " + B);
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
-			BooleanLiteral.reset(s);
+			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
 			System.out.println("No solution.");
@@ -204,9 +210,10 @@ public class DisjunctionDemo1
 		{ X, Y, Z });
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());
@@ -214,7 +221,7 @@ public class DisjunctionDemo1
 			System.out.println("B= " + B);
 			System.out.println("C= " + C);
 			System.out.println("D= " + D);
-			BooleanLiteral.reset(s);
+			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
 			System.out.println("No solution.");

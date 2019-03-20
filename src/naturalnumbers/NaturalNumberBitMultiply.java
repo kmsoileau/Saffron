@@ -8,6 +8,7 @@ package naturalnumbers;
  * @author Kerry Michael Soileau
  * @version 1.0
  */
+import naturalnumberlists.INaturalNumberList;
 import bits.BitAnder;
 import bits.Conjunction;
 import bits.IBooleanVariable;

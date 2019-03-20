@@ -53,7 +53,8 @@ public class BooleanVariable implements IBooleanVariable
 	 * @return A new IBooleanVariable.
 	 * @throws BooleanVariableException
 	 *             if n == null or n=="".
-	 * @param x A boolean
+	 * @param x
+	 *            A boolean
 	 */
 	public static IBooleanVariable getBooleanVariable(boolean x)
 			throws Exception
@@ -70,9 +71,11 @@ public class BooleanVariable implements IBooleanVariable
 	 * @return A new IBooleanVariable.
 	 * @throws BooleanVariableException
 	 *             if n == null or n=="".
-	 * @param n A String
+	 * @param n
+	 *            A String
 	 */
-	public static IBooleanVariable getBooleanVariable(String n) throws Exception
+	public static IBooleanVariable getBooleanVariable(String n)
+			throws Exception
 	{
 		if (n == null || "".compareTo(n) == 0)
 			throw new BooleanVariableException(
@@ -95,8 +98,10 @@ public class BooleanVariable implements IBooleanVariable
 	 * @return A new IBooleanVariable.
 	 * @throws BooleanVariableException
 	 *             if n == null or n=="".
-	 * @param n A String
-	 * @param x A boolean
+	 * @param n
+	 *            A String
+	 * @param x
+	 *            A boolean
 	 */
 	public static IBooleanVariable getBooleanVariable(String n, boolean x)
 			throws Exception
@@ -126,6 +131,12 @@ public class BooleanVariable implements IBooleanVariable
 	private String name;
 
 	/**
+	 * A flag identifying IbooleanVariables of use only to the SAT problem and
+	 * not of interest to the user.
+	 */
+	private boolean utility;
+
+	/**
 	 * The value of the IBooleanVariable.
 	 */
 	private boolean value;
@@ -134,11 +145,12 @@ public class BooleanVariable implements IBooleanVariable
 	 * Constructs a new IBooleanVariable with name
 	 * <code>"BooleanVariable-" + boolCount</code> and value <code>false</code>.
 	 */
-	protected BooleanVariable()
+	private BooleanVariable()
 	{
 		this.name = "BooleanVariable-" + boolCount;
 		boolCount++;
 		this.setValue(false);
+		this.setUtility(true);
 		BooleanVariable.getInstances().add(this);
 	}
 
@@ -169,6 +181,7 @@ public class BooleanVariable implements IBooleanVariable
 					"Null or empty string was passed to a constructor.");
 		this.setName(n);
 		this.setValue(x);
+		this.setUtility(false);
 		BooleanVariable.getInstances().add(this);
 	}
 
@@ -180,6 +193,8 @@ public class BooleanVariable implements IBooleanVariable
 	 */
 	public int compareTo(Object o)
 	{
+		if (o == null)
+			return -1;
 		String thisName = this.getName();
 		String oName = ((IBooleanVariable) o).getName();
 		return thisName.compareTo(oName);
@@ -203,7 +218,8 @@ public class BooleanVariable implements IBooleanVariable
 				return true;
 			else
 				return false;
-		} else
+		}
+		else
 			return false;
 	}
 
@@ -227,10 +243,16 @@ public class BooleanVariable implements IBooleanVariable
 		return this.value;
 	}
 
+	public boolean isUtility()
+	{
+		return utility;
+	}
+
 	/**
 	 * Sets the name of the IBooleanVariable.
 	 * 
-	 * @param name A String
+	 * @param name
+	 *            A String
 	 * @throws BooleanVariableException
 	 *             if name == null or name=="".
 	 */
@@ -240,6 +262,11 @@ public class BooleanVariable implements IBooleanVariable
 			throw new BooleanVariableException(
 					"Null or empty String passed to setName method.");
 		this.name = name;
+	}
+
+	public void setUtility(boolean utility)
+	{
+		this.utility = utility;
 	}
 
 	/**

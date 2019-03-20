@@ -37,12 +37,25 @@ import exceptions.bits.ProblemException;
  */
 public class Problem implements IProblem
 {
-	private static int problemCount;
 	private static PrintStream stream = System.out;
 
 	public static ISolver defaultSolver()
 	{
 		return SolverFactory.newMiniSATHeap();
+	}
+
+	public static String dump(List<?> s)
+	{
+		String ret = "\n";
+		for (Object o : s)
+		{
+			IBooleanLiteral curr = (IBooleanLiteral) o;
+			if (curr.isBarred())
+				ret += (curr.getBooleanVariable().getName() + " = false\n");
+			else
+				ret += (curr.getBooleanVariable().getName() + " = true\n");
+		}
+		return ret;
 	}
 
 	public static IProblem newProblem()
@@ -67,8 +80,9 @@ public class Problem implements IProblem
 	{
 		IProblem ret = Problem.newProblem();
 		IClause cl = new Clause();
-		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(
-				new BooleanVariable(), false));
+		IBooleanVariable bv = BooleanVariable.getBooleanVariable();
+		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv, false));
+		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv, true));
 		ret.addClause(cl);
 		return ret;
 	}
@@ -157,6 +171,11 @@ public class Problem implements IProblem
 		this.addClause(c);
 	}
 
+	/*
+	 * public IProblem and(IProblem p) throws Exception { return new
+	 * Conjunction(new IProblem[]{p,this}); }
+	 */
+
 	public void addClauseVoid(IClause[] c) throws Exception
 	{
 		if (c == null || c.length == 0)
@@ -164,11 +183,6 @@ public class Problem implements IProblem
 		for (int i = 0; i < c.length; i++)
 			this.addClause(c[i]);
 	}
-
-	/*
-	 * public IProblem and(IProblem p) throws Exception { return new
-	 * Conjunction(new IProblem[]{p,this}); }
-	 */
 
 	public IProblem and(IProblem p) throws Exception
 	{
@@ -307,6 +321,34 @@ public class Problem implements IProblem
 		return false;
 	}
 
+	/**
+	 * Removes from each <code>IClause</code> the first occurrence of an
+	 * <code>IBooleanLiteral</code> containing the
+	 * <code>IBooleanVariable util</code>, if it exists in that
+	 * <code>IClause</code>.
+	 * 
+	 * @param util
+	 *            - an IBooleanVariable
+	 * @return Problem
+	 * @throws Exception
+	 *             possibly from the getLiteral method call
+	 */
+	public Problem cull(IBooleanVariable util) throws Exception
+	{
+		ArrayList<IClause> ret = new ArrayList<IClause>();
+		for (IClause c : this)
+		{
+			IBooleanLiteral bl = c.getLiteral(util);
+			if (bl != null)
+			{
+				IClause cl = (IClause) c.clone();
+				cl.remove(bl);
+				ret.add(cl);
+			}
+		}
+		return new Problem(ret);
+	}
+
 	public IProblem eliminateComplementaryPairClauses() throws Exception
 	{
 		IProblem dup = Problem.newProblem();
@@ -353,25 +395,39 @@ public class Problem implements IProblem
 		return false;
 	}
 
-	public ArrayList<IBooleanLiteral> findModel() throws Exception
+	public IProblemMessage findModel() throws Exception
 	{
 		return findModel(Problem.defaultSolver());
 	}
 
-	public ArrayList<IBooleanLiteral> findModel(ISolver solver)
-			throws Exception
+	public IProblemMessage findModel(ISolver solver) throws Exception
 	{
+		if (this.size() == 0)
+			throw new ProblemException(
+					"Empty IProblem was passed to findModel method.");
 		KSatReader reader = new KSatReader(solver);
 		org.sat4j.specs.IProblem sat4jproblem = reader.parseInstance(this);
 		if (!sat4jproblem.isSatisfiable())
-			return new ArrayList<IBooleanLiteral>();
+			return new ProblemMessage(IProblemMessage.NOTSATISFIABLE,
+					new ArrayList<IBooleanLiteral>());
 		ArrayList<IBooleanLiteral> rl = reader.toBooleanLiterals(sat4jproblem
 				.model());
 		IProblem test = this.resolve(rl);
 		if (test.size() > 0)
-			return new ArrayList<IBooleanLiteral>();
-		return rl;
+			return new ProblemMessage(IProblemMessage.NOTSATISFIABLE,
+					new ArrayList<IBooleanLiteral>());
+		return new ProblemMessage(IProblemMessage.SATISFIABLE, rl);
 	}
+
+	/*
+	 * public ArrayList<IBooleanLiteral> findModel(ISolver solver) throws
+	 * Exception { KSatReader reader = new KSatReader(solver);
+	 * org.sat4j.specs.IProblem sat4jproblem = reader.parseInstance(this); if
+	 * (!sat4jproblem.isSatisfiable()) return new ArrayList<IBooleanLiteral>();
+	 * ArrayList<IBooleanLiteral> rl = reader.toBooleanLiterals(sat4jproblem
+	 * .model()); IProblem test = this.resolve(rl); if (test.size() > 0) return
+	 * new ArrayList<IBooleanLiteral>(); return rl; }
+	 */
 
 	public List<IBooleanLiteral> findModelList() throws Exception
 	{
@@ -380,17 +436,17 @@ public class Problem implements IProblem
 
 	public List<IBooleanLiteral> findModelList(ISolver s) throws Exception
 	{
-		return findModel(s);
+		return findModel(s).getLiterals();
 	}
 
-	public ArrayList<?>[] findTwoModels(IBitString b) throws Exception
+	public IProblemMessage[] findTwoModels(IBitString b) throws Exception
 	{
 		return findTwoModels(b.getBVArray());
 	}
 
-	public ArrayList<?>[] findTwoModels(IBooleanVariable b) throws Exception
+	public IProblemMessage[] findTwoModels(IBooleanVariable b) throws Exception
 	{
-		ArrayList<?>[] res = new ArrayList<?>[2];
+		IProblemMessage[] res = new IProblemMessage[2];
 		if (!this.getBooleanVariables().contains(b))
 			throw new ProblemException(
 					"The given IProblem does not depend upon the given IBooleanVariable.");
@@ -398,32 +454,35 @@ public class Problem implements IProblem
 		{
 			IProblem p1 = new Conjunction(this, new BitFixer(b, false));
 			IProblem p2 = new Conjunction(this, new BitFixer(b, true));
-			res[0] = (ArrayList<?>) p1.findModel(Problem.defaultSolver());
-			res[1] = (ArrayList<?>) p2.findModel(Problem.defaultSolver());
+			res[0] = p1.findModel(Problem.defaultSolver());
+			res[1] = p2.findModel(Problem.defaultSolver());
 		}
 		return res;
 	}
 
-	public ArrayList<?>[] findTwoModels(IBooleanVariable b, IProblem problem)
+	public IProblemMessage[] findTwoModels(IBooleanVariable b, IProblem problem)
 			throws Exception
 	{
 		return new Conjunction(this, problem).findTwoModels(b);
 	}
 
-	public ArrayList<?>[] findTwoModels(IBooleanVariable[] b) throws Exception
+	public IProblemMessage[] findTwoModels(IBooleanVariable[] b)
+			throws Exception
 	{
 		IProblem res[] = new IProblem[b.length];
 		for (int i = 0; i < res.length; i++)
 		{
-			ArrayList<?>[] ret = findTwoModels(b[i]);
+			IProblemMessage[] ret = findTwoModels(b[i]);
 			if (ret != null & ret.length == 2 && ret[0] != null
-					&& ret[0].size() > 0 && ret[1] != null && ret[1].size() > 0)
+					&& ret[0].getLiterals().size() > 0
+					&& ret[1].getLiterals() != null
+					&& ret[1].getLiterals().size() > 0)
 				return ret;
 		}
 		return null;
 	}
 
-	public ArrayList<?>[] findTwoModels(INaturalNumber n) throws Exception
+	public IProblemMessage[] findTwoModels(INaturalNumber n) throws Exception
 	{
 		return findTwoModels(n.getBVArray());
 	}
@@ -458,6 +517,24 @@ public class Problem implements IProblem
 	public PrintStream getStream()
 	{
 		return stream;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see bits.IProblem#getUtitilies()
+	 */
+	public ArrayList<IBooleanVariable> getUtitilies() throws Exception
+	{
+		ArrayList<IBooleanVariable> qq = this.getBooleanVariables();
+
+		ArrayList<IBooleanVariable> ret = new ArrayList<IBooleanVariable>();
+		for (IBooleanVariable c : qq)
+		{
+			ret.add(c);
+		}
+
+		return ret;
 	}
 
 	public boolean isEmpty()
@@ -606,15 +683,18 @@ public class Problem implements IProblem
 
 	public int size()
 	{
-		return this.getClauses().size();
+		List<IClause> cls = this.getClauses();
+		int ret = cls.size();
+		return ret;
 	}
 
 	public boolean solve(ISolver solver) throws Exception
 	{
-		List<IBooleanLiteral> s = this.findModel(solver);
-		if (s != null && s.size() > 0)
+		IProblemMessage s = this.findModel(solver);
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			return true;
 		}
 		else
@@ -626,7 +706,7 @@ public class Problem implements IProblem
 		if (this.isEmpty())
 			throw new ProblemException(
 					"Empty IProblem was passed to method solveList.");
-		return this.findModel();
+		return this.findModel().getLiterals();
 	}
 
 	public void sort() throws Exception
@@ -798,19 +878,15 @@ public class Problem implements IProblem
 
 	public String toString()
 	{
-		String res = "***************************************";
-		res += "\n*** IProblem-" + problemCount++;
-		res += "\n***************************************";
+		String res = "\n..";
 		for (int i = 0; i < this.numberOfClauses(); i++)
 		{
 			if (this.getClause(i) != null)
-				res += "\n*** " + "\t" + this.getClause(i).toString();
+				res += "\n.. " + this.getClause(i).toString();
 			else
-				res += "\n*** " + "\t" + "null";
+				res += "\n.. " + "null";
 		}
-		res += "\n***************************************";
-		res += "\n*****\t" + this.numberOfClauses() + " clauses generated.";
-		res += "\n***************************************";
+		res += "\n..";
 		return res;
 	}
 
@@ -841,6 +917,9 @@ public class Problem implements IProblem
 	 * &lt;!ELEMENT Problem ( Clause+ ) &gt;
 	 * <p>
 	 * &lt;!ELEMENT Clause ( Literal+ ) &gt;
+	 */
+	/**
+	 * @return String
 	 */
 	public String toXML()
 	{

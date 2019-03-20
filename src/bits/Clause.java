@@ -344,7 +344,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	}
 
 	/**
-	 * This method return an Object[] of the IBooleanVariables appearing in
+	 * This method returns an Object[] of the IBooleanVariables appearing in
 	 * this.
 	 * 
 	 * @return Object[]
@@ -352,17 +352,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	@Override
 	public IBooleanVariable[] getBooleanVariables()
 	{
-		ArrayList<IBooleanVariable> res = new ArrayList<IBooleanVariable>();
-		Object[] bl = this.toArray();
-		for (int i = 0; i < bl.length; i++)
-		{
-			IBooleanVariable curr = ((IBooleanLiteral) bl[i])
-					.getBooleanVariable();
-			if (!res.contains(curr))
-				res.add(curr);
-		}
-
-		return res.toArray(new IBooleanVariable[0]);
+		return this.getBooleanVariablesList().toArray(new IBooleanVariable[0]);
 	}
 
 	/**
@@ -380,6 +370,61 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		IBooleanLiteral[] bl = this.toArray(new IBooleanLiteral[0]);
 		for (int i = 0; i < bl.length; i++)
 			hs.add(bl[i].getBooleanVariable());
+	}
+
+	/**
+	 * This method returns an ArrayList of the IBooleanVariables appearing in
+	 * this.
+	 * 
+	 * @return ArrayList
+	 */
+	@Override
+	public ArrayList<IBooleanVariable> getBooleanVariablesList()
+	{
+		ArrayList<IBooleanVariable> res = new ArrayList<IBooleanVariable>();
+		Object[] bl = this.toArray();
+		// for (int i = 0; i < bl.length; i++)
+		for (int i = 0; i < bl.length; i++)
+		{
+			IBooleanVariable curr = ((IBooleanLiteral) bl[i])
+					.getBooleanVariable();
+			if (!res.contains(curr))
+				res.add(curr);
+		}
+
+		return res;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see bits.IClause#getIndex(bits.IBooleanLiteral)
+	 */
+	@Override
+	public int getIndex(IBooleanLiteral bl)
+	{
+		return this.indexOf(bl);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see bits.IClause#getLiteral(bits.IBooleanVariable)
+	 */
+	@Override
+	public IBooleanLiteral getLiteral(IBooleanVariable bv)
+			throws ClauseException
+	{
+		for (int i = 0; i < this.size(); i++)
+		{
+			IBooleanLiteral currBL = this.getLiteralAt(i);
+
+			if (currBL.getBooleanVariable().compareTo(bv) == 0)
+			{
+				return currBL;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -481,6 +526,31 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	public boolean isSingleton()
 	{
 		return (this.size() == 1);
+	}
+
+	/**
+	 * An IClause is trivial if and only if it contains some IBooleanVariable
+	 * that is barred and the same IBooleanVariable that is unbarred. This makes
+	 * the IClause trivially satisfied, and makes it eligible for deletion from
+	 * the IProblem in which it resides.
+	 * 
+	 * @return boolean
+	 */
+	public boolean isTrivial()
+	{
+		for (int i = 0; i < this.size(); i++)
+		{
+			IBooleanLiteral first = this.get(i);
+			for (int j = i + 1; j < this.size(); j++)
+			{
+				IBooleanLiteral second = this.get(j);
+				if (first.getBooleanVariable().equals(
+						second.getBooleanVariable())
+						&& first.isBarred() != second.isBarred())
+					return true;
+			}
+		}
+		return false;
 	}
 
 	@Override
@@ -673,29 +743,13 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		return problem;
 	}
 
+	// Implementation-specific methods
+
 	@Override
 	public IBooleanLiteral[] toArray()
 	{
 		return super.toArray(new IBooleanLiteral[0]);
 	}
-
-	/*
-	 * public static boolean dominates(IClause c, IClause d) {
-	 * if(d.size()>=c.size()) return false; for(int i=0;i<d.size();i++) {
-	 * IBooleanLiteral curr=d.getLiteralAt(i); if(!c.contains(curr)) return
-	 * false; } return true; }
-	 */
-
-	/*
-	 * public static IBooleanLiteral differsSinglyFrom(IClause c, IClause d) {
-	 * if(c==null) return null; if(d.size()!=c.size()) return null; IClause
-	 * dminusc=d.minus(c); if(dminusc.size()!=1) return null; IClause
-	 * cminusd=c.minus(d); if(cminusd.size()!=1) return null; IBooleanLiteral
-	 * dminuscbl=dminusc.getLiteralAt(0); IBooleanVariable
-	 * dminuscbv=dminuscbl.getBooleanVariable(); IBooleanVariable
-	 * cminusdbv=cminusd.getLiteralAt(0).getBooleanVariable();
-	 * if(!dminuscbv.equals(cminusdbv)) return null; return dminuscbl; }
-	 */
 
 	@Override
 	public String toCode() throws ClauseException
@@ -707,8 +761,6 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 			ret += "*" + ((BooleanLiteral) this.getLiteralAt(i)).toCode();
 		return ret;
 	}
-
-	// Implementation-specific methods
 
 	@Override
 	public IBooleanLiteral[] toSortedArray()

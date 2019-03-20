@@ -4,6 +4,7 @@ import naturalnumberlists.exceptions.NaturalNumberListException;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.Number;
 import bits.IBitString;
+import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bitstringlists.BitStringList;
 import bitstrings.BitString;
@@ -45,7 +46,11 @@ public class NaturalNumberList extends BitStringList implements
 		this.arrayN = new INaturalNumber[data.length];
 		for (int i = 0; i < data.length; i++)
 		{
-			IBitString b = new BitString(name + "_" + i, data[i].getBVArray());
+			if (data[i] == null)
+				continue;
+
+			IBooleanVariable[] ary = data[i].getBVArray();
+			IBitString b = new BitString(name + "_" + i, ary);
 			this.arrayN[i] = new NaturalNumber(name + "_" + i, b);
 		}
 	}

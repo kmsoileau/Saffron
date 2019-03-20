@@ -1,5 +1,6 @@
 package naturalnumbers;
 
+import naturalnumberlists.INaturalNumberList;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.IBooleanVariable;

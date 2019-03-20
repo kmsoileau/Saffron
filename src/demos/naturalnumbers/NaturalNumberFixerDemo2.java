@@ -1,12 +1,10 @@
 package demos.naturalnumbers;
 
-import java.util.List;
-
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class NaturalNumberFixerDemo2
@@ -17,11 +15,12 @@ public class NaturalNumberFixerDemo2
 
 		for (long i = 0; i < Math.pow(2., 1. * NaturalNumber.getLength()); i++)
 		{
-			List<IBooleanLiteral> s = new NaturalNumberFixer(X, i)
-					.findModel(Problem.defaultSolver());
-			if (s != null && s.size() > 0)
+			IProblemMessage s = new NaturalNumberFixer(X, i).findModel(Problem
+					.defaultSolver());
+			if (s.getStatus() == IProblemMessage.SATISFIABLE
+					&& s.getLiterals().size() > 0)
 			{
-				BooleanLiteral.interpret(s);
+				BooleanLiteral.interpret(s.getLiterals());
 				System.out.print("\ni= " + i);
 				System.out.print("\tX= " + X);
 			}

@@ -1,14 +1,12 @@
 package demos.bits;
 
-import java.util.List;
-
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bits.TwoBitAdder;
 
@@ -22,11 +20,12 @@ public class TwoBitAdderDemo
 				new BitFixer(bva[1], b2));
 		IProblem problem = new Conjunction(problemBase, problemSpecific);
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
 			String ret = "";
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			ret += bva[0].getValue() ? "1" : "0";
 			ret += bva[1].getValue() ? "1" : "0";
 			ret += bva[2].getValue() ? "1" : "0";

@@ -1,7 +1,5 @@
 package demos.naturalnumberintervals;
 
-import java.util.List;
-
 import naturalnumberintervals.INaturalNumberInterval;
 import naturalnumberintervals.NaturalNumberInterval;
 import naturalnumberintervals.NaturalNumberIntervalDisjointSelector;
@@ -10,9 +8,9 @@ import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class NaturalNumberIntervalDisjointSelectorDemo
@@ -47,10 +45,11 @@ public class NaturalNumberIntervalDisjointSelectorDemo
 		IProblem problem = new Conjunction(p);
 
 		System.out.println(problem);
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			if (bool[0].getValue())
 				System.out.println("I1 = " + I1);
 			if (bool[1].getValue())

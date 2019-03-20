@@ -1,7 +1,5 @@
 package demos.bits;
 
-import java.util.ArrayList;
-
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberAdder;
 import naturalnumbers.NaturalNumberFixer;
@@ -9,6 +7,7 @@ import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 
 public class FindTwoModelsDemo
 {
@@ -31,11 +30,11 @@ public class FindTwoModelsDemo
 		IProblem p = new Conjunction(bnnfy, NaturalNumberAdder1);
 
 		System.out.println(p);
-		ArrayList<?>[] s = p.findTwoModels(X.getBooleanVariable(3));
+		IProblemMessage[] s = p.findTwoModels(X.getBooleanVariable(3));
 		System.out.println("First model found:");
-		if (s[0] != null && s[0].size() > 0)
+		if (s[0].getLiterals() != null && s[0].getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s[0]);
+			BooleanLiteral.interpret(s[0].getLiterals());
 			System.out.println("X = " + X);
 			System.out.println("Y = " + Y);
 			System.out.println("Z = " + Z);
@@ -44,9 +43,9 @@ public class FindTwoModelsDemo
 		else
 			System.out.println("No solution.");
 		System.out.println("Second model found:");
-		if (s[1] != null && s[1].size() > 0)
+		if (s[1].getLiterals() != null && s[1].getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s[1]);
+			BooleanLiteral.interpret(s[1].getLiterals());
 			System.out.println("X = " + X);
 			System.out.println("Y = " + Y);
 			System.out.println("Z = " + Z);

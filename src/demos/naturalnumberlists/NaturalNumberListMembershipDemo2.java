@@ -1,7 +1,5 @@
 package demos.naturalnumberlists;
 
-import java.util.List;
-
 import naturalnumberlists.INaturalNumberList;
 import naturalnumberlists.NaturalNumberList;
 import naturalnumberlists.NaturalNumberListFixer;
@@ -10,9 +8,9 @@ import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberUnequalizer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 /**
@@ -61,13 +59,14 @@ public class NaturalNumberListMembershipDemo2
 		System.out.println(problem);
 
 		// Solve the IProblem
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			for (int i = 0; i < s.size(); i++)
-				System.out.println(s.get(i));
-			BooleanLiteral.interpret(s);
+			for (int i = 0; i < s.getLiterals().size(); i++)
+				System.out.println(s.getLiterals().get(i));
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("bsl = " + bsl);
 			System.out.println("String1 = " + string1);
 			System.out.println("String2 = " + string2);

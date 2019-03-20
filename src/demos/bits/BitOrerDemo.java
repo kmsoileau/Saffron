@@ -17,7 +17,8 @@ public class BitOrerDemo
 
 		IProblem bitOrer1 = new BitOrer(x, y, z);
 		System.out.println(bitOrer1);
-		BooleanLiteral.interpret(bitOrer1.findModel(Problem.defaultSolver()));
+		BooleanLiteral.interpret(bitOrer1.findModel(Problem.defaultSolver())
+				.getLiterals());
 		System.out.println("x = " + x.getValue());
 		System.out.println("y = " + y.getValue());
 		System.out.println("z = " + z.getValue());

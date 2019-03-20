@@ -3,6 +3,7 @@ package demos.bits;
 import bits.BooleanVariable;
 import bits.IBooleanVariable;
 import bits.IProblem;
+import bits.Problem;
 import bits.ThreeBitAdder;
 
 public class ThreeSATProblemDemo2
@@ -22,6 +23,6 @@ public class ThreeSATProblemDemo2
 		IProblem p = threeBitAdder1.toThreeSatProblem();
 		System.out.println(p);
 
-		System.out.println(p.toXML());
+		System.out.println(((Problem) p).toXML());
 	}
 }

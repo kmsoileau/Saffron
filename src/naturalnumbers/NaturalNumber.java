@@ -51,7 +51,8 @@ public class NaturalNumber extends BitString implements INaturalNumber
 		if (nn < 1)
 			throw new NaturalNumberException("Error: Attempted to use method "
 					+ "setLargestNaturalNumber with an argument less than 1.");
-		setLength((int) Math.ceil(Math.log(nn + 1d) / Math.log(2)));
+		int len = (int) Math.ceil(Math.log(nn + 1d) / Math.log(2));
+		setLength(len);
 	}
 
 	/*

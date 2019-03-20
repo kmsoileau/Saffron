@@ -17,5 +17,5 @@ public class ConditionalConjunctionException extends Exception
 	public ConditionalConjunctionException(String message)
 	{
 		super(message);
-	} 
+	}
 }

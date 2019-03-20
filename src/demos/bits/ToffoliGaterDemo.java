@@ -1,14 +1,12 @@
 package demos.bits;
 
-import java.util.List;
-
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bits.ToffoliGater;
 
@@ -38,9 +36,9 @@ public class ToffoliGaterDemo
 		System.out.println(p1);
 
 		// Find a solution to the Problem object :
-		List<IBooleanLiteral> v1 = p1.findModel(Problem.defaultSolver());
+		IProblemMessage v1 = p1.findModel(Problem.defaultSolver());
 		System.out.println(v1);
-		BooleanLiteral.interpret(v1);
+		BooleanLiteral.interpret(v1.getLiterals());
 
 		System.out.println("----!------------");
 		System.out.println("A = " + A.getValue());
@@ -50,7 +48,7 @@ public class ToffoliGaterDemo
 		System.out.println("Q = " + Q.getValue());
 		System.out.println("R = " + R.getValue());
 
-		IProblem rp = p1.resolve(v1);
+		IProblem rp = ((Problem) p1).resolve(v1.getLiterals());
 		System.out.println("::::::::::");
 		System.out.println(rp);
 	}

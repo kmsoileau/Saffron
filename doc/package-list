@@ -5,6 +5,7 @@ bitstringlists
 bitstrings
 bittables
 demos.bits
+demos.bitstringgraphs
 demos.bitstringlists
 demos.bitstrings
 demos.bittables
@@ -13,6 +14,7 @@ demos.naturalnumberlists
 demos.naturalnumbers
 demos.sets
 exceptions.bits
+exceptions.bitstringgraphs
 exceptions.bitstringlists
 exceptions.bitstrings
 exceptions.bittables
@@ -22,6 +24,8 @@ exceptions.naturalnumbers
 exceptions.naturalnumbertables
 exceptions.sets
 exceptions.tbs
+in_development
+in_development.disjunction.tests
 naturalnumberintervals
 naturalnumberlists
 naturalnumberlists.exceptions
@@ -36,18 +40,19 @@ showcase.binpacking
 showcase.bitstringarraybasis
 showcase.bitstringarraycover
 showcase.bitstringarraysplitting
-showcase.bitstringbithull
+showcase.bitstringbitatom
 showcase.bitstringcoverer
 showcase.bitstringlistbasis
 showcase.bitstringlistcover
 showcase.bitstringlistsort
 showcase.commonsuperbitstring
+showcase.graphpathfinder
 showcase.hittingset
+showcase.mapcoloring
 showcase.minimumcover
-showcase.minimumtestset
 showcase.scheduling
 showcase.setpacker
 showcase.subsetsum
+showcase.testset
 showcase.vertexcover
-tbs
 utility

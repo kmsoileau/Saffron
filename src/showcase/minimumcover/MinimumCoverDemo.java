@@ -1,16 +1,14 @@
 package showcase.minimumcover;
 
-import java.util.List;
-
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 import naturalnumbers.minimumcover.MinimumSizedCoverer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstringlists.BitStringList;
 import bitstringlists.BitStringListFixer;
@@ -33,12 +31,14 @@ public class MinimumCoverDemo
 		IBitString included = new BitString(C.size());
 
 		IProblem problem = new Conjunction(new BitStringListFixer(C),
-				new NaturalNumberFixer(K), new MinimumSizedCoverer(C, included, K));
+				new NaturalNumberFixer(K), new MinimumSizedCoverer(C, included,
+						K));
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < included.size(); i++)
 				if (included.getBooleanVariable(i).getValue())
 					System.out.println(C.getBitString(i).toBits());

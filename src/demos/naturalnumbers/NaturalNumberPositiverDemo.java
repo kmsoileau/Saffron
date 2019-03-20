@@ -8,16 +8,14 @@ package demos.naturalnumbers;
  * @author Kerry Michael Soileau
  * @version 1.0
  */
-import java.util.List;
-
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 import naturalnumbers.NaturalNumberPositiver;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class NaturalNumberPositiverDemo
@@ -31,10 +29,11 @@ public class NaturalNumberPositiverDemo
 
 		System.out.print(problem);
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.print("\nX=" + X);
 		}
 		else

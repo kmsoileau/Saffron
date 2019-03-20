@@ -30,7 +30,7 @@ public class Clocks
 	{
 		clocks.remove(clocks.get(clockName));
 	}
-	
+
 	public Clocks()
 	{
 		super();

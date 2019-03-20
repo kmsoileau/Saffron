@@ -1,13 +1,11 @@
 package demos.bits;
 
-import java.util.List;
-
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 /**
@@ -37,12 +35,12 @@ public class BitFixerDemo
 
 		System.out.println(problem);
 
-		List<IBooleanLiteral> solutionSat4j = problem.findModel(Problem
+		IProblemMessage solutionSat4j = problem.findModel(Problem
 				.defaultSolver());
 
 		System.out.println("Sat4j Solution: " + solutionSat4j);
 
-		BooleanLiteral.interpret(solutionSat4j);
+		BooleanLiteral.interpret(solutionSat4j.getLiterals());
 
 		System.out.println("Saffron Solution for X: " + bvX.getValue());
 	}

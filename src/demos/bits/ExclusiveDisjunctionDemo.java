@@ -1,15 +1,13 @@
 package demos.bits;
 
-import java.util.List;
-
+import in_development.ExclusiveDisjunction;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Clause;
-import bits.ExclusiveDisjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IClause;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class ExclusiveDisjunctionDemo
@@ -34,14 +32,15 @@ public class ExclusiveDisjunctionDemo
 		IProblem p3 = new ExclusiveDisjunction(p1, p2,
 				Problem.unsolvableProblem());
 		System.out.println(p3);
-		List<IBooleanLiteral> s = p3.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = p3.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println(bva[0]);
 			System.out.println(bva[1]);
 			System.out.println(bva[2]);
-			BooleanLiteral.reset(s);
+			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
 			System.out.println("There is no solution.");

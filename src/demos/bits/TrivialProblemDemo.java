@@ -1,9 +1,8 @@
 package demos.bits;
 
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class TrivialProblemDemo
@@ -14,10 +13,11 @@ public class TrivialProblemDemo
 
 		System.out.println(problem);
 
-		List<?> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 		}
 		else
 			System.out.println("No solution.");

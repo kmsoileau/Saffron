@@ -12,7 +12,7 @@ package bits;
  * @since 2005/10/07
  * 
  * @see naturalnumberlists.Permuter
- * @see naturalnumbers.Mapper
+ * @see bits.Mapper
  */
 public class ProblemPair
 {
@@ -43,5 +43,11 @@ public class ProblemPair
 	public void setSecond(IProblem second)
 	{
 		this.second = second;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "ProblemPair [first=" + first + ", second=" + second + "]";
 	}
 }

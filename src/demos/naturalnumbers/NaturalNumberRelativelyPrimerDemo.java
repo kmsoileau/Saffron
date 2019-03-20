@@ -1,46 +1,51 @@
-package demos.naturalnumbers;
-
 /**
- * <p>Title: TBS</p>
- * <p>Description: TBS</p>
- * <p>Copyright (c) 2005</p>
- * <p>Company: Positronic Software</p>
+ *
  * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
  * @version 1.0
+ * @since Jan 9, 2019
  */
-import java.util.List;
+package demos.naturalnumbers;
 
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 import naturalnumbers.NaturalNumberRelativelyPrimer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class NaturalNumberRelativelyPrimerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		NaturalNumber.setLength(6);
+		NaturalNumber.setLargestNaturalNumber(600);
 		INaturalNumber M = new NaturalNumber();
 		INaturalNumber N = new NaturalNumber();
+		INaturalNumber P = new NaturalNumber();
+		INaturalNumber Q = new NaturalNumber();
 
 		IProblem problem = new Conjunction(new IProblem[]
-		{ new NaturalNumberFixer(M, 21), new NaturalNumberFixer(N, 35),
-				new NaturalNumberRelativelyPrimer(M, N) });
+		{ new NaturalNumberFixer(M, 35), new NaturalNumberFixer(N, 22),
+				new NaturalNumberRelativelyPrimer(M, N, P, Q) });
 
 		System.out.println(problem);
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.print("\nM = " + M);
-			System.out.print("\tN = " + N);
+			System.out.print("\tP = " + P);
+			System.out.print("\nN = " + N);
+			System.out.print("\tQ = " + Q);
 		}
 		else
 			System.out.println("No solution.");

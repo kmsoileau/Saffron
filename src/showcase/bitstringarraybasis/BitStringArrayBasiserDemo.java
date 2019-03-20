@@ -1,11 +1,9 @@
 package showcase.bitstringarraybasis;
 
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
-import bits.IBooleanLiteral;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringArrayBasiser;
@@ -36,13 +34,14 @@ public class BitStringArrayBasiserDemo
 			included[i] = new BitString(bLength);
 		}
 
-		List<IBooleanLiteral> s = new Conjunction(new BitStringFixer(C),
+		IProblemMessage s = new Conjunction(new BitStringFixer(C),
 				new BitStringArrayBasiser(C, B, included)).findModel(Problem
 				.defaultSolver());
 
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < cLength; i++)
 				System.out.println("C[" + i + "]=" + C[i].toBits());
 			for (int i = 0; i < bLength; i++)

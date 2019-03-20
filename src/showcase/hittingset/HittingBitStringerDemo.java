@@ -1,11 +1,9 @@
 package showcase.hittingset;
 
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
-import bits.IBooleanLiteral;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringFixer;
@@ -15,22 +13,24 @@ public class HittingBitStringerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		IBitString[] C=new IBitString[20];
-		for(int i=0;i<C.length;i++)
-			C[i]=new BitString(randomBitstring(8));
-		
+		IBitString[] C = new IBitString[20];
+		for (int i = 0; i < C.length; i++)
+			C[i] = new BitString(randomBitstring(8));
+
 		IBitString Y = new BitString(C[0].size());
 
-		List<IBooleanLiteral> s = new Conjunction(new BitStringFixer(C),
+		IProblemMessage s = new Conjunction(new BitStringFixer(C),
 				new HittingBitStringer(C, Y))
-						.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+				.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < C.length; i++)
 				System.out.println(C[i].toBits());
 			System.out.println("\n" + Y.toBits());
-		} else
+		}
+		else
 			System.out.println("No solution.");
 	}
 

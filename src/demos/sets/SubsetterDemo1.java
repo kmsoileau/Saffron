@@ -1,14 +1,12 @@
 package demos.sets;
 
-import java.util.List;
-
 import sets.Set;
 import sets.SetMembershipper;
 import sets.Subsetter;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class SubsetterDemo1
@@ -25,10 +23,11 @@ public class SubsetterDemo1
 				new SetMembershipper("C", setA), // setA contains C
 				new Subsetter(setA, setB)); // setA is a subset of setB
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println(setA.getName() + "=" + setA);
 			System.out.println(setB.getName() + "=" + setB);
 		}

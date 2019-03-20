@@ -8,13 +8,11 @@ package demos.bitstringlists;
  * @author Kerry Michael Soileau
  * @version 1.0
  */
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringFixer;
@@ -48,12 +46,13 @@ public class BitStringListFixerDemo2
 
 		IProblem bslf2 = new Conjunction(constraints);
 		System.out.println(bslf2);
-		List<IBooleanLiteral> s = bslf2.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = bslf2.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			for (int i = 0; i < s.size(); i++)
-				System.out.println(s.get(i));
-			BooleanLiteral.interpret(s);
+			for (int i = 0; i < s.getLiterals().size(); i++)
+				System.out.println(s.getLiterals().get(i));
+			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < listOfSites.length; i++)
 				System.out.println(listOfSites[i]);
 		}

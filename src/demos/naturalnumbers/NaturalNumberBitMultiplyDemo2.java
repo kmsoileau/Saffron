@@ -1,7 +1,5 @@
 package demos.naturalnumbers;
 
-import java.util.List;
-
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberBitMultiply;
 import naturalnumbers.NaturalNumberFixer;
@@ -9,10 +7,10 @@ import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class NaturalNumberBitMultiplyDemo2
@@ -46,11 +44,12 @@ public class NaturalNumberBitMultiplyDemo2
 				new NaturalNumberFixer(X[3]),
 				new NaturalNumberBitMultiply(b, X, Y) });
 
-		List<IBooleanLiteral> s = p.findModel(Problem.defaultSolver());
+		IProblemMessage s = p.findModel(Problem.defaultSolver());
 
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < b.length; i++)
 			{
 				System.out.println(b[i].getName() + "=" + b[i].getValue());

@@ -8,8 +8,6 @@ package demos.naturalnumbers;
  * @author Kerry Michael Soileau
  * @version 1.0
  */
-import java.util.List;
-
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberDoubler;
 import naturalnumbers.NaturalNumberFixer;
@@ -17,9 +15,9 @@ import naturalnumbers.NaturalNumberIncrementer;
 import naturalnumbers.NaturalNumberMultiplier;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 
 public class NaturalNumberTriangularDemo2
 {
@@ -36,31 +34,16 @@ public class NaturalNumberTriangularDemo2
 				new NaturalNumberIncrementer(X, Y),
 				new NaturalNumberMultiplier(X, Y, TwoZ),
 				new NaturalNumberFixer(Z, 6),
-				new NaturalNumberDoubler(Z, TwoZ),
-		// new NaturalNumberMultiplier(Two,Z,TwoZ),
-				});
+				new NaturalNumberDoubler(Z, TwoZ), });
 
-		/*
-		 * p=new Conjunction(new NaturalNumberFixer(Two), new
-		 * NaturalNumberFixer(Z,6), new
-		 * NaturalNumberTriangular(X,Two,TwoZ,Y,Z));
-		 */
-		List<IBooleanLiteral> s = p.findModel();
+		IProblemMessage s = p.findModel();
 		System.out.println(p);
 		System.out.println(s);
-		BooleanLiteral.interpret(s);
+		BooleanLiteral.interpret(s.getLiterals());
 		System.out.println("X = " + X);
 		System.out.println("Two = " + Two);
 		System.out.println("TwoZ = " + TwoZ);
 		System.out.println("Y = " + Y);
 		System.out.println("Z = " + Z);
-
-		/*
-		 * PartialSolution ps=new PartialSolution(new ArrayListSet(),p);
-		 * ps.eliminateSingletons();
-		 * System.out.println(ps.getBooleanLiterals());
-		 * System.out.println(ps.getProblem());
-		 */
-
 	}
 }

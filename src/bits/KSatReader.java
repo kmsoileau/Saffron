@@ -237,7 +237,9 @@ public class KSatReader
 		{
 			try
 			{
-				cl.add(this.getBL(dimacs[i]));
+				IBooleanLiteral curr = this.getBL(dimacs[i]);
+				if (curr != null)
+					cl.add(curr);
 			}
 			catch (Exception e)
 			{

@@ -1,10 +1,8 @@
 package demos.bits;
 
-import java.util.List;
-
 import bits.BitArrayPartition;
 import bits.BooleanLiteral;
-import bits.IBooleanLiteral;
+import bits.IProblemMessage;
 import bits.Partition;
 import bits.Problem;
 
@@ -17,12 +15,13 @@ public class PartitionDemo
 
 		Partition partition = new Partition(partitions, bits);
 
-		List<IBooleanLiteral> s = new BitArrayPartition(partition)
-				.findModel(Problem.defaultSolver());
+		IProblemMessage s = new BitArrayPartition(partition).findModel(Problem
+				.defaultSolver());
 
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < partitions; i++)
 			{
 				String str = "";
@@ -30,7 +29,7 @@ public class PartitionDemo
 					str += partition.getBV(i, j).getValue() ? "1" : "0";
 				System.out.println(str);
 			}
-			BooleanLiteral.reset(s);
+			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
 			System.out.println("No solution.");

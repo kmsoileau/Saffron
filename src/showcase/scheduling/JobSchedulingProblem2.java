@@ -1,16 +1,15 @@
 package showcase.scheduling;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.scheduling.Processor;
 import naturalnumbers.scheduling.Scheduler;
 import naturalnumbers.scheduling.Task;
 import bits.BooleanLiteral;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Partition;
 import bits.Problem;
 
@@ -44,13 +43,13 @@ public class JobSchedulingProblem2
 		IProblem jobSchedulingProblem = new Scheduler(tasks, procs, 51,
 				partition);
 
-		List<IBooleanLiteral> blList = jobSchedulingProblem.findModel(Problem
+		IProblemMessage blList = jobSchedulingProblem.findModel(Problem
 				.defaultSolver());
 
 		ArrayList<ArrayList<Task>> solution = null;
-		if (blList != null && blList.size() > 0)
+		if (blList.getLiterals() != null && blList.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(blList);
+			BooleanLiteral.interpret(blList.getLiterals());
 			solution = new ArrayList<ArrayList<Task>>();
 			for (int i = 0; i < numberProcs; i++)
 			{

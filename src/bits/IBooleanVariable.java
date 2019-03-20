@@ -38,6 +38,11 @@ public interface IBooleanVariable extends Comparable<Object>
 	boolean getValue();
 
 	/**
+	 * @return boolean
+	 */
+	boolean isUtility();
+
+	/**
 	 * Sets the logical value: <code>true</code> or <code>false</code>.
 	 * 
 	 * @param x

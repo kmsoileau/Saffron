@@ -1,5 +1,7 @@
 package bitstringgraphs;
 
+import java.util.ArrayList;
+
 import bits.BooleanVariable;
 import bits.IBooleanVariable;
 import exceptions.bitstrings.BitStringGraphException;
@@ -41,11 +43,31 @@ public class BitStringGraph implements IBitStringGraph
 
 	public BitStringGraph(String name, int numberOfVertices) throws Exception
 	{
+		if (numberOfVertices < 1)
+			throw new BitStringGraphException(
+					"numberOfVertices less than 1 passed to constructor.");
 		this.setData(new IBooleanVariable[numberOfVertices][numberOfVertices]);
 		this.setName(name);
 		for (int i = 0; i < numberOfVertices; i++)
 			for (int j = 0; j < numberOfVertices; j++)
 				this.setData(i, j, BooleanVariable.getBooleanVariable());
+	}
+
+	public boolean areConnected(int i, int j)
+	{
+		return this.getData(i, j).getValue();
+	}
+
+	public void biconnect(int i, int j)
+	{
+		this.getData(i, j).setValue(true);
+		this.getData(j, i).setValue(true);
+	}
+
+	public void disconnect(int i, int j)
+	{
+		this.getData(i, j).setValue(false);
+		this.getData(j, i).setValue(false);
 	}
 
 	@Override
@@ -66,10 +88,20 @@ public class BitStringGraph implements IBitStringGraph
 		return this.name;
 	}
 
-	@Override
-	public int getNumberOfVertices()
+	public void monoconnect(int i, int j)
 	{
-		return this.getData().length;
+		this.getData(i, j).setValue(true);
+	}
+
+	public ArrayList<Integer> neighbors(int i)
+	{
+		ArrayList<Integer> ret = new ArrayList<Integer>();
+		for (int k = 0; k < this.size(); k++)
+			if (this.areConnected(i, k))
+			{
+				ret.add(k);
+			}
+		return ret;
 	}
 
 	@Override
@@ -95,13 +127,19 @@ public class BitStringGraph implements IBitStringGraph
 	}
 
 	@Override
+	public int size()
+	{
+		return this.getData().length;
+	}
+
+	@Override
 	public String toString()
 	{
-		String ret = "$" + this.getName() + ":";
-		for (int i = 0; i < this.getNumberOfVertices(); i++)
-			for (int j = 0; j < this.getNumberOfVertices(); j++)
+		String ret = ">" + this.getName() + ":";
+		for (int i = 0; i < this.size(); i++)
+			for (int j = 0; j < this.size(); j++)
 				if (this.getData(i, j).getValue())
-					ret += "{" + i + "-" + j + "}";
-		return ret + "$";
+					ret += "{" + i + "->" + j + "}";
+		return ret + "<";
 	}
 }

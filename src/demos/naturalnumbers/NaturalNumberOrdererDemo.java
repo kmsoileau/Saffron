@@ -1,14 +1,12 @@
 package demos.naturalnumbers;
 
-import java.util.List;
-
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 import naturalnumbers.NaturalNumberOrderer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class NaturalNumberOrdererDemo
@@ -26,10 +24,11 @@ public class NaturalNumberOrdererDemo
 		problem.sort();
 		System.out.println(problem);
 		// List s=PartialSolution.solveList(problem);
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X);
 			System.out.println("Y= " + Y);
 		}

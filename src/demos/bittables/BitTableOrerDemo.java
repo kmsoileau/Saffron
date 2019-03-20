@@ -9,15 +9,14 @@ package demos.bittables;
  * @version 1.0
  */
 import java.util.ArrayList;
-import java.util.List;
 
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bittables.BitTable;
 import bittables.BitTableOrer;
@@ -73,10 +72,11 @@ public class BitTableOrerDemo
 		IProblem bta = new BitTableOrer(X, Y, Z);
 		IProblem problem = new Conjunction(fix, bta);
 		System.out.println(problem);
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= \n" + X);
 			System.out.println("Y= \n" + Y);
 			System.out.println("Z= \n" + Z);

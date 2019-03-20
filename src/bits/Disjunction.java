@@ -41,24 +41,28 @@ public class Disjunction extends Problem implements IProblem
 			{ pfalse }, new IBooleanVariable[]
 			{ b });
 
+		if (pfalse.size() == 0)
+			return Disjunction.or(new IProblem[]
+			{ ptrue }, new IBooleanVariable[]
+			{ b });
+
+		if (ptrue.size() == 0)
+			return Disjunction.or(new IProblem[]
+			{ pfalse }, new IBooleanVariable[]
+			{ b });
+
 		List<IClause> clfalse = pfalse.getClauses();
 		ArrayList<IClause> clfalseNew = new ArrayList<IClause>();
 		for (int i = 0; i < clfalse.size(); i++)
 		{
-			IClause q0 = clfalse.get(i);
-			IClause q1 = (IClause) q0.clone();
-			IClause q2 = q1.or(b);
-			clfalseNew.add(q2);
+			clfalseNew.add(((IClause) clfalse.get(i).clone()).or(b));
 		}
 
 		List<IClause> cltrue = ptrue.getClauses();
 		ArrayList<IClause> cltrueNew = new ArrayList<IClause>();
 		for (int i = 0; i < cltrue.size(); i++)
 		{
-			IClause q0 = cltrue.get(i);
-			IClause q1 = (IClause) q0.clone();
-			IClause q2 = q1.orNot(b);
-			cltrueNew.add(q2);
+			cltrueNew.add(((IClause) cltrue.get(i).clone()).orNot(b));
 		}
 
 		return new Conjunction(new Problem(clfalseNew), new Problem(cltrueNew));
@@ -91,16 +95,19 @@ public class Disjunction extends Problem implements IProblem
 		if (n == 0)
 			throw new DisjunctionException(
 					"IProblem array of zero length passed to or method.");
+		IProblem ret = null;
+		;
 		if (n == 1)
-			return problemArray[0];
+			ret = problemArray[0];
 		if (n > 1)
 		{
 			IBooleanVariable[] b = new IBooleanVariable[n - 1];
 			for (int i = 0; i < b.length; i++)
 				b[i] = BooleanVariable.getBooleanVariable();
-			return Disjunction.or(problemArray, b);
+			ret = Disjunction.or(problemArray, b);
 		}
-		return null;
+
+		return ret;
 	}
 
 	/**

@@ -22,8 +22,8 @@ public class BitInequalityIndicatorDemo
 				.compress();
 		System.out.println(bitInequalityIndicator2);
 
-		BooleanLiteral.interpret(bitInequalityIndicator1.findModel(Problem
-				.defaultSolver()));
+		BooleanLiteral.interpret(bitInequalityIndicator1.findModel(
+				Problem.defaultSolver()).getLiterals());
 		System.out.println("x = " + x.getValue());
 		System.out.println("y = " + y.getValue());
 		System.out.println("z = " + z.getValue());

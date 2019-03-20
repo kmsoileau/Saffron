@@ -1,10 +1,10 @@
 package naturalnumberlists;
 
-import naturalnumbers.Mapper;
 import naturalnumbers.NaturalNumberEqualizer;
 import naturalnumbers.NaturalNumberFixer;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.Mapper;
 import bits.Problem;
 import bits.ProblemPair;
 

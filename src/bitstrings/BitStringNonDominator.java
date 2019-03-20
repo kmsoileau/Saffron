@@ -1,9 +1,12 @@
 package bitstrings;
 
+import bits.BitFixer;
+import bits.Conjunction;
+import bits.Disjunction;
 import bits.IBitString;
+import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
-import bits.ProblemDenier;
 import exceptions.bitstrings.BitStringNonDominatorException;
 
 /**
@@ -35,8 +38,17 @@ public class BitStringNonDominator extends Problem implements IProblem
 					"X and Y are not of equal size.");
 		else
 		{
-			IProblem problem = new ProblemDenier(new BitStringDominator(X, Y));
-			this.setClauses(problem.getClauses());
+			int commonsize = X.size();
+			IProblem[] c = new IProblem[commonsize];
+			for (int i = 0; i < X.size(); i++)
+			{
+				IBooleanVariable currX = X.getBooleanVariable(i);
+				IBooleanVariable currY = Y.getBooleanVariable(i);
+				c[i] = new Conjunction(new BitFixer(currX, true), new BitFixer(
+						currY, false));
+			}
+
+			this.setClauses(new Disjunction(c).getClauses());
 		}
 	}
 }

@@ -1,15 +1,13 @@
 package demos.bits;
 
-import java.util.List;
-
 import bits.BitEqualizer;
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class ConjunctionDemo
@@ -26,10 +24,11 @@ public class ConjunctionDemo
 				new BitEqualizer(Y, Z));
 		IProblem problem = new Conjunction(fixY, fixZ, conjunction1);
 		System.out.println(problem);
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
 			System.out.println("Y= " + Y.getValue());
 			System.out.println("Z= " + Z.getValue());

@@ -1,11 +1,9 @@
 package demos.sets;
 
-import java.util.List;
-
 import sets.Set;
 import sets.Subsetter;
 import bits.BooleanLiteral;
-import bits.IBooleanLiteral;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class SubsetterDemo2
@@ -15,11 +13,12 @@ public class SubsetterDemo2
 		Set setA = new Set("Set A");
 		Set setB = new Set("Set B");
 
-		List<IBooleanLiteral> s = new Subsetter(setA, setB).findModel(Problem
+		IProblemMessage s = new Subsetter(setA, setB).findModel(Problem
 				.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println(setA.getName() + "=" + setA);
 			System.out.println(setB.getName() + "=" + setB);
 		}

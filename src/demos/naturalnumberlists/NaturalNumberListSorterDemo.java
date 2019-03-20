@@ -18,16 +18,14 @@
 
 package demos.naturalnumberlists;
 
-import java.util.List;
-
 import naturalnumberlists.INaturalNumberList;
 import naturalnumberlists.NaturalNumberList;
 import naturalnumberlists.NaturalNumberListFixer;
 import naturalnumberlists.NaturalNumberListSorter;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class NaturalNumberListSorterDemo
@@ -63,11 +61,12 @@ public class NaturalNumberListSorterDemo
 		problem.sort();
 		System.out.println(problem);
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		// List s=PartialSolution.solveList(problem);
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("s1=" + s1);
 			System.out.println("s2=" + s2);
 		}

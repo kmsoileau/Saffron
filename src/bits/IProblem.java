@@ -20,23 +20,19 @@ import org.sat4j.specs.ISolver;
  */
 public interface IProblem extends Iterable<IClause>
 {
-	boolean addClause(IClause c) throws Exception;
+	boolean addClause(IClause clause) throws Exception;
 
-	void addClauseVoid(IClause c) throws Exception;
+	void addClauseVoid(IClause clause) throws Exception;
 
-	IProblem and(IProblem p) throws Exception;
+	IProblem and(IProblem problem) throws Exception;
 
-	IProblem combineSinglyMatchingClauses() throws Exception;
+	boolean contains(IClause clause) throws Exception;
 
-	boolean contains(IClause c) throws Exception;
+	IProblemMessage findModel() throws Exception;
 
-	List<IBooleanLiteral> findModel() throws Exception;
+	IProblemMessage findModel(ISolver solver) throws Exception;
 
-	List<IBooleanLiteral> findModel(ISolver defaultSolver) throws Exception;
-
-	List<IBooleanLiteral> findModelList(ISolver defaultSolver) throws Exception;
-
-	ArrayList<?>[] findTwoModels(IBooleanVariable booleanVariable)
+	IProblemMessage[] findTwoModels(IBooleanVariable booleanVariable)
 			throws Exception;
 
 	ArrayList<IBooleanVariable> getBooleanVariables() throws Exception;
@@ -47,21 +43,13 @@ public interface IProblem extends Iterable<IClause>
 
 	int numberOfClauses();
 
-	void removeClause(int pos);
+	void removeClause(int i);
 
-	IProblem resolve(List<IBooleanLiteral> v1) throws Exception;
+	void setClause(int i, IClause clause);
 
-	void setClause(int i, IClause newc);
-
-	void setClauses(IClause[] c) throws Exception;
+	void setClauses(IClause[] clauseArray) throws Exception;
 
 	int size();
 
-	boolean solve(ISolver solver) throws Exception;
-
 	void sort() throws Exception;
-
-	String toDIMACS() throws Exception;
-
-	String toXML();
 }

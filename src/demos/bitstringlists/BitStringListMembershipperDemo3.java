@@ -1,11 +1,9 @@
 package demos.bitstringlists;
 
-import java.util.List;
-
 import bits.Conjunction;
 import bits.IBitString;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstringlists.BitStringList;
 import bitstringlists.BitStringListFixer;
@@ -51,9 +49,10 @@ public class BitStringListMembershipperDemo3
 
 		System.out.println(problem);
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
 			System.out.println("slm= " + slm);
 			System.out.println("bsl= " + bsl);

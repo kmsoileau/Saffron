@@ -1,7 +1,5 @@
 package demos.sets;
 
-import java.util.List;
-
 import naturalnumbers.ConditionalAdder;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
@@ -9,9 +7,9 @@ import sets.Set;
 import sets.WeightedSet;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class SubsetWeightedTotalerDemo1
@@ -42,13 +40,14 @@ public class SubsetWeightedTotalerDemo1
 
 		INaturalNumber sum = new NaturalNumber();
 
-		List<IBooleanLiteral> s = new Conjunction(new Conjunction(p1),
+		IProblemMessage s = new Conjunction(new Conjunction(p1),
 				new ConditionalAdder(subset.getWeights(),
 						subset.getMembership(), sum), new NaturalNumberFixer(
 						sum, desiredSum)).findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			if (subset.getMembership().getBooleanVariable(0).getValue())
 				System.out.print(subset.getWeight(0));
 			for (int i = 1; i < Set.getSetSupportSize(); i++)

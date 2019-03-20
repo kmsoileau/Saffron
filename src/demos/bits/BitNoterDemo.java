@@ -16,7 +16,8 @@ public class BitNoterDemo
 
 		IProblem bitNoter = new BitNoter(x, y);
 		System.out.println(bitNoter);
-		BooleanLiteral.interpret(bitNoter.findModel(Problem.defaultSolver()));
+		BooleanLiteral.interpret(bitNoter.findModel(Problem.defaultSolver())
+				.getLiterals());
 		System.out.println("x = " + x.getValue());
 		System.out.println("y = " + y.getValue());
 	}

@@ -1,14 +1,12 @@
 package demos.bits;
 
-import java.util.List;
-
+import in_development.ProblemBitLinker;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
-import bits.ProblemBitLinker;
 
 public class ProblemBitLinkerDemo
 {
@@ -16,17 +14,18 @@ public class ProblemBitLinkerDemo
 	{
 		IBooleanVariable b = BooleanVariable.getBooleanVariable("b");
 
-		IProblem p = Problem.unsolvableProblem();
+		// IProblem p = Problem.unsolvableProblem();
+		IProblem p = Problem.trivialProblem();
 
 		IProblem testProblem = new ProblemBitLinker(p, b);
 
 		System.out.println(testProblem);
 
-		List<IBooleanLiteral> s = testProblem
-				.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = testProblem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("b=" + b.getValue());
 		}
 		else

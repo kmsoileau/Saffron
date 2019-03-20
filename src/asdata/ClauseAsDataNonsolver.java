@@ -1,7 +1,6 @@
 package asdata;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import bits.BitEqualizer;
 import bits.BitFixer;
@@ -10,10 +9,10 @@ import bits.BooleanVariable;
 import bits.Clause;
 import bits.Conjunction;
 import bits.Disjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IClause;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class ClauseAsDataNonsolver extends Problem implements IProblem
@@ -37,12 +36,12 @@ public class ClauseAsDataNonsolver extends Problem implements IProblem
 
 		System.out.println(prob);
 
-		List<IBooleanLiteral> s = (List<IBooleanLiteral>) prob
-				.findModel(Problem.defaultSolver());
+		IProblemMessage s = prob.findModel(Problem.defaultSolver());
 		System.out.println("Reporting...");
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println(A);
 			System.out.println(B);
 		}

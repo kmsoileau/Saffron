@@ -1,15 +1,13 @@
 package demos.naturalnumbers;
 
-import java.util.List;
-
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 import naturalnumbers.NaturalNumberLinearDivisibilitor;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 /**
@@ -44,10 +42,11 @@ public class NaturalNumberLinearDivisibilitorDemo
 
 		System.out.println(p);
 
-		List<IBooleanLiteral> s = p.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = p.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("A= " + A);
 			System.out.println("X= " + X);
 			System.out.println("C= " + C);

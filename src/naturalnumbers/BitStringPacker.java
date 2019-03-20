@@ -10,8 +10,8 @@ import bits.Problem;
 import bitstrings.BitStringDisjointer;
 
 /**
- * A collection C of sets and a positive integer K: Does C include K mutually
- * disjoint sets?
+ * A collection C of IBitStrings and a positive integer K: Does C include K
+ * mutually "disjoint" IBitStrings?
  * 
  * @author Kerry Michael Soileau
  *         <p>

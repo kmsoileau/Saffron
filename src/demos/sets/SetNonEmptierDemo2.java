@@ -1,12 +1,10 @@
 package demos.sets;
 
-import java.util.List;
-
 import sets.Set;
 import sets.SetNonemptier;
 import bits.BooleanLiteral;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class SetNonEmptierDemo2
@@ -17,10 +15,11 @@ public class SetNonEmptierDemo2
 
 		IProblem problem = new SetNonemptier(theSet);
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.print("theSet= " + theSet);
 		}
 		else

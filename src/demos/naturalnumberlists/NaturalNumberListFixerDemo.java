@@ -8,16 +8,14 @@ package demos.naturalnumberlists;
  * @author Kerry Michael Soileau
  * @version 1.0
  */
-import java.util.List;
-
 import naturalnumberlists.INaturalNumberList;
 import naturalnumberlists.NaturalNumberList;
 import naturalnumberlists.NaturalNumberListFixer;
 import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class NaturalNumberListFixerDemo
@@ -31,10 +29,11 @@ public class NaturalNumberListFixerDemo
 		INaturalNumberList samp2 = new NaturalNumberList("theList", theStrings);
 		IProblem bslf2 = new NaturalNumberListFixer(samp2);
 		System.out.println(bslf2);
-		List<IBooleanLiteral> s = bslf2.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = bslf2.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("samp2= " + samp2);
 		}
 		else

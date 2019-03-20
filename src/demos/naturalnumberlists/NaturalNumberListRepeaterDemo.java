@@ -1,15 +1,13 @@
 package demos.naturalnumberlists;
 
-import java.util.List;
-
 import naturalnumberlists.INaturalNumberList;
 import naturalnumberlists.NaturalNumberList;
 import naturalnumberlists.NaturalNumberListFixer;
 import naturalnumberlists.NaturalNumberListRepeater;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 
 public class NaturalNumberListRepeaterDemo
 {
@@ -21,10 +19,11 @@ public class NaturalNumberListRepeaterDemo
 				new NaturalNumberListFixer(testList),
 				new NaturalNumberListRepeater(testList));
 		System.out.println(problem);
-		List<IBooleanLiteral> s = problem.findModel();
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel();
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("s2= " + testList);
 		}
 		else

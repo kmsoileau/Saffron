@@ -1,12 +1,10 @@
 package demos.sets;
 
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringArraySplitter;
@@ -34,10 +32,11 @@ public class SetSplittingDemo
 			problem = new Conjunction(problem, new BitStringFixer(data[i]));
 		}
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < data.length; i++)
 				System.out.println("data[" + i + "]=" + data[i].toBits());
 			System.out.println("S1= " + S1.toBits());

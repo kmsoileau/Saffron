@@ -1,12 +1,10 @@
 package demos.bitstrings;
 
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringConcatenator;
@@ -32,8 +30,8 @@ public class BitStringConcatenatorDemo
 		IProblem p1 = new Conjunction(bitAnder1, bfx1, bfy1);
 		System.out.println(p1);
 		// Find a solution to the Problem object :
-		List<IBooleanLiteral> v1 = p1.findModel(Problem.defaultSolver());
-		BooleanLiteral.interpret(v1);
+		IProblemMessage v1 = p1.findModel(Problem.defaultSolver());
+		BooleanLiteral.interpret(v1.getLiterals());
 		System.out.println(X);
 		System.out.println(Y);
 		System.out.println(Z);

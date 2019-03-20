@@ -16,16 +16,14 @@
 
 package demos.naturalnumberlists;
 
-import java.util.List;
-
 import naturalnumberlists.INaturalNumberList;
 import naturalnumberlists.NaturalNumberList;
 import naturalnumberlists.NaturalNumberListDeranger;
 import naturalnumberlists.NaturalNumberListFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class NaturalNumberListDerangerDemo
@@ -45,10 +43,11 @@ public class NaturalNumberListDerangerDemo
 
 		System.out.println(problem);
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("s1=" + s1);
 			System.out.println("s2=" + s2);
 		}

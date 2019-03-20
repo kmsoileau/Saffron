@@ -10,13 +10,11 @@
  */
 package showcase.bitstringarraysplitting;
 
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringArraySplitter;
@@ -39,10 +37,11 @@ public class BitStringArraySplitterDemo
 		IProblem problem = new Conjunction(new BitStringFixer(C),
 				new BitStringArraySplitter(C, S1, S2));
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("S1= " + S1.toBits());
 			System.out.println("S2= " + S2.toBits());
 		}

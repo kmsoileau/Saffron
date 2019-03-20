@@ -1,11 +1,10 @@
 package demos.bitstrings;
 
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringConditionalAnder;
@@ -25,10 +24,11 @@ public class BitStringConditionalAnderDemo
 				new BitStringFixer(membership), new BitStringConditionalAnder(
 						X, membership, conditionalResult));
 
-		List<?> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < X.length; i++)
 				if (membership.getBooleanVariable(i).getValue())
 					System.out.println(X[i].toBits());

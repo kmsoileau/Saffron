@@ -1,32 +1,27 @@
 package demos.bits;
 
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.Clause;
-import bits.IBooleanLiteral;
 import bits.IClause;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
-import bits.ProblemDenier;
 
 public class ClauseDemo
 {
 	public static void main(String[] args) throws Exception
 	{
 		IClause clause = new Clause();
-		IProblem problem0 = new Problem();
-		problem0.addClause(clause);
-		System.out.println(problem0);
-
-		IProblem problem = new ProblemDenier(problem0);
+		IProblem problem = new Problem();
+		problem.addClause(clause);
 
 		System.out.println(problem);
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("Satisfied by any certificate.");
 		}
 		else

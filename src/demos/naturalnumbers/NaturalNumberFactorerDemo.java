@@ -8,16 +8,14 @@ package demos.naturalnumbers;
  * @author Kerry Michael Soileau
  * @version 1.0
  */
-import java.util.List;
-
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFactorer;
 import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 
 public class NaturalNumberFactorerDemo
 {
@@ -28,14 +26,14 @@ public class NaturalNumberFactorerDemo
 		INaturalNumber Y = new NaturalNumber("Y");
 		INaturalNumber Z = new NaturalNumber("Z");
 
-		IProblem p = new Conjunction(new NaturalNumberFixer(Z,
-				9111L), new NaturalNumberFactorer(X, Y, Z));
+		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 9111L),
+				new NaturalNumberFactorer(X, Y, Z));
 
 		System.out.println(p.size() + "clauses generated...");
 
-		List<IBooleanLiteral> s = p.findModel();
+		IProblemMessage s = p.findModel();
 
-		BooleanLiteral.interpret(s);
+		BooleanLiteral.interpret(s.getLiterals());
 
 		System.out.println("X = " + X);
 		System.out.println("Y = " + Y);

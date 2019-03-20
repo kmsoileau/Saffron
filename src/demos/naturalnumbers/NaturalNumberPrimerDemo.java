@@ -8,16 +8,14 @@ package demos.naturalnumbers;
  * @author Kerry Michael Soileau
  * @version 1.0
  */
-import java.util.List;
-
+import in_development.NaturalNumberPrimer;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberPrimer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 
 public class NaturalNumberPrimerDemo
 {
@@ -26,11 +24,12 @@ public class NaturalNumberPrimerDemo
 		INaturalNumber Z = new NaturalNumber("Z");
 		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 13L),
 				new NaturalNumberPrimer(Z));
-		List<IBooleanLiteral> s = p.findModel();
+		IProblemMessage s = p.findModel();
 		System.out.println(s);
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println(Z);
 		}
 		else

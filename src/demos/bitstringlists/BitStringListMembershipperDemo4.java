@@ -1,12 +1,10 @@
 package demos.bitstringlists;
 
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bitstringlists.BitStringList;
 import bitstringlists.BitStringListMembershipper;
 import bitstringlists.IBitStringList;
@@ -52,11 +50,12 @@ public class BitStringListMembershipperDemo4
 
 		System.out.println(bslm1);
 
-		List<IBooleanLiteral> s = bslm1.findModel();
+		IProblemMessage s = bslm1.findModel();
 
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("string1 = " + string1);
 			System.out.println("string2 = " + string2);
 			System.out.println("bsl = " + bsl);

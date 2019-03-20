@@ -3,6 +3,7 @@ package naturalnumbers;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.Mapper;
 import bits.Problem;
 import exceptions.naturalnumbers.NaturalNumberMapperException;
 

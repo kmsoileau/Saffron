@@ -1,15 +1,13 @@
 package demos.bits;
 
-import java.util.List;
-
 import bits.BitFixer;
 import bits.BitOrderer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class BitOrdererDemo
@@ -32,10 +30,11 @@ public class BitOrdererDemo
 		IProblem p1 = new Conjunction(bitOrderer1, bfx1, bfy1);
 		System.out.println(p1);
 		// Find a solution to the Problem object :
-		List<IBooleanLiteral> s = p1.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = p1.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("x = " + x.getValue());
 			System.out.println("y = " + y.getValue());
 		}

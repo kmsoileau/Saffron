@@ -9,7 +9,6 @@ package naturalnumbers;
  * @version 1.0
  */
 import bits.Conjunction;
-import bits.Disjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
@@ -19,18 +18,20 @@ public class NaturalNumberRelativelyPrimer extends Problem implements IProblem
 	public NaturalNumberRelativelyPrimer(INaturalNumber M, INaturalNumber N)
 			throws Exception
 	{
-		INaturalNumber One = new NaturalNumber();
+		this(M, N, new NaturalNumber(), new NaturalNumber());
+	}
+
+	public NaturalNumberRelativelyPrimer(INaturalNumber M, INaturalNumber N,
+			INaturalNumber P, INaturalNumber Q) throws Exception
+	{
 		INaturalNumber A = new NaturalNumber();
 		INaturalNumber B = new NaturalNumber();
-		INaturalNumber P = new NaturalNumber();
-		INaturalNumber Q = new NaturalNumber();
+		INaturalNumber One = new NaturalNumber();
+		IProblem problem = new Conjunction(new IProblem[]
+		{ new NaturalNumberFixer(One, 1), new NaturalNumberMultiplier(M, A, P),
+				new NaturalNumberMultiplier(N, B, Q),
+				new NaturalNumberAdder(Q, One, P) });
 
-		IProblem p = new Conjunction(new NaturalNumberFixer(One, 1),
-				new NaturalNumberMultiplier(M, A, P),
-				new NaturalNumberMultiplier(N, B, Q), new Disjunction(
-						new NaturalNumberAdder(Q, One, P),
-						new NaturalNumberAdder(P, One, Q)));
-
-		this.setClauses(p.getClauses());
+		this.setClauses(problem.getClauses());
 	}
 }

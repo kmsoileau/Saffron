@@ -8,8 +8,6 @@ package demos.naturalnumbers;
  * @author Kerry Michael Soileau
  * @version 1.0
  */
-import java.util.List;
-
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 import naturalnumbers.NaturalNumberIncrementer;
@@ -17,9 +15,9 @@ import naturalnumbers.NaturalNumberMultiplier;
 import naturalnumbers.NaturalNumberOrderer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 
 public class NaturalNumberTriangularDemo
 {
@@ -45,10 +43,10 @@ public class NaturalNumberTriangularDemo
 		 * NaturalNumberFixer(Z,6), new
 		 * NaturalNumberTriangular(X,Two,TwoZ,Y,Z));
 		 */
-		List<IBooleanLiteral> s = p.findModel();
+		IProblemMessage s = p.findModel();
 		System.out.println(p);
 		System.out.println(s);
-		BooleanLiteral.interpret(s);
+		BooleanLiteral.interpret(s.getLiterals());
 		System.out.println("X = " + X);
 		System.out.println("Two = " + Two);
 		System.out.println("TwoZ = " + TwoZ);

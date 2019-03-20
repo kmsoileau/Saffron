@@ -1,12 +1,10 @@
 package bitstringlists;
 
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
-import bits.IBooleanLiteral;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringEqualizer;
@@ -47,10 +45,11 @@ public class BitStringMover extends Problem implements IProblem
 		IProblem problem = new Conjunction(new BitStringListFixer(board1),
 				new BitStringMover(board1, board2, 4, 1));
 
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println(((BitStringList) board1).toBits());
 			System.out.println(((BitStringList) board2).toBits());
 		}

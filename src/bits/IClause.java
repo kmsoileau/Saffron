@@ -1,5 +1,6 @@
 package bits;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import exceptions.bits.ClauseException;
@@ -36,6 +37,12 @@ public interface IClause extends Comparable<Object>
 	IBooleanVariable[] getBooleanVariables();
 
 	void getBooleanVariables(List<IBooleanVariable> hs) throws Exception;
+
+	ArrayList<IBooleanVariable> getBooleanVariablesList();
+
+	int getIndex(IBooleanLiteral bl);
+
+	IBooleanLiteral getLiteral(IBooleanVariable bv) throws ClauseException;
 
 	IBooleanLiteral getLiteralAt(int n) throws Exception;
 

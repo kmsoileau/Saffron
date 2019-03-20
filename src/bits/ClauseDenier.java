@@ -24,28 +24,31 @@ public class ClauseDenier extends Problem implements IProblem
 {
 	public ClauseDenier(IClause clause) throws Exception
 	{
+		// System.out.println("Current clause is "+clause);
 		if (clause == null)
 			throw new ClauseDenierException(
 					"Null clause passed to constructor.");
-		// this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
-			if(clause.size()==0)
+			if (clause.size() == 0)
 			{
 				this.setClauses(Problem.trivialProblem().getClauses());
 			}
 			else
 			{
-				Object[] oib = clause.toArray();
-				for (int i = 0; i < oib.length; i++)
+				for (IBooleanLiteral ib : clause.toArray())
 				{
-					IBooleanLiteral ib = (IBooleanLiteral) (oib[i]);
+					IBooleanVariable curr = ib.getBooleanVariable();
+					IClause cl;
 					if (ib.isBarred())
-						super.addClause(Clause.newClause().or(
-								ib.getBooleanVariable()));
+					{
+						cl = Clause.newClause().or(curr);
+					}
 					else
-						super.addClause(Clause.newClause().orNot(
-								ib.getBooleanVariable()));
+					{
+						cl = Clause.newClause().orNot(curr);
+					}
+					super.addClause(cl);
 				}
 			}
 		}

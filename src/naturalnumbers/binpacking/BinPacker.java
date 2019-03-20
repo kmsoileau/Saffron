@@ -11,7 +11,6 @@
 package naturalnumbers.binpacking;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import naturalnumbers.ConditionalAdder;
 import naturalnumbers.NaturalNumber;
@@ -21,10 +20,10 @@ import bits.BitArrayPartition;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Conjunction;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 
 public class BinPacker
@@ -123,14 +122,14 @@ public class BinPacker
 
 		System.out.println((System.currentTimeMillis() - startTimeMillis)
 				/ 1000. + ":" + "\tSolving SAT problem...");
-		List<IBooleanLiteral> blList = binPackingProblem.findModel(Problem
+		IProblemMessage blList = binPackingProblem.findModel(Problem
 				.defaultSolver());
 
 		System.out.println((System.currentTimeMillis() - startTimeMillis)
 				/ 1000. + ":" + "\tReturning solution...");
-		if (blList != null && blList.size() > 0)
+		if (blList.getLiterals() != null && blList.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(blList);
+			BooleanLiteral.interpret(blList.getLiterals());
 			ArrayList<ArrayList<Item>> solution = new ArrayList<ArrayList<Item>>();
 			for (int i = 0; i < numberBins; i++)
 			{
@@ -141,7 +140,7 @@ public class BinPacker
 						currentBinContents.add(items[j]);
 				solution.add(currentBinContents);
 			}
-			BooleanLiteral.reset(blList);
+			BooleanLiteral.reset(blList.getLiterals());
 			System.out.println((System.currentTimeMillis() - startTimeMillis)
 					/ 1000. + ":" + "Finis");
 			return solution;

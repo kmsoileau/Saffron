@@ -1,13 +1,11 @@
 package demos.bitstrings;
 
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.IBitString;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
+import bits.IProblemMessage;
 import bits.Problem;
 import bitstrings.BitString;
 import bitstrings.BitStringFixer;
@@ -20,10 +18,11 @@ public class BitStringFixerDemo
 		IProblem problem = new BitStringFixer(samp1, new boolean[]
 		{ true, false, true });
 		System.out.print(problem);
-		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("\n" + samp1.getName() + "= " + samp1);
 
 		}
@@ -35,9 +34,10 @@ public class BitStringFixerDemo
 		{ true, false, true, false });
 		System.out.print(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("\n" + samp2.getName() + "= " + samp2);
 
 		}
@@ -48,9 +48,10 @@ public class BitStringFixerDemo
 		problem = new BitStringFixer(samp3, new BitString("101"));
 		System.out.print(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("\n" + samp3.getName() + "= " + samp3);
 
 		}
@@ -62,9 +63,10 @@ public class BitStringFixerDemo
 		problem = new BitStringFixer(samp4, new BitString("101"));
 		System.out.print(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("\n" + samp4.getName() + "= " + samp4);
 
 		}
@@ -78,9 +80,10 @@ public class BitStringFixerDemo
 		problem = new BitStringFixer(samp5);
 		System.out.print(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("\n" + samp5.getName() + "= " + samp5);
 
 		}
@@ -95,9 +98,10 @@ public class BitStringFixerDemo
 		{ false, false, true });
 		System.out.print(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s != null && s.size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE
+				&& s.getLiterals().size() > 0)
 		{
-			BooleanLiteral.interpret(s);
+			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("\n" + samp6.getName() + "= " + samp6);
 
 		}
