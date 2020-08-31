@@ -43,8 +43,7 @@ public class NaturalNumberLinearDivisibilitorDemo
 		System.out.println(p);
 
 		IProblemMessage s = p.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("A= " + A);

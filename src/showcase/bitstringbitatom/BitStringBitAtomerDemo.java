@@ -19,9 +19,9 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstrings.BitString;
-import bitstrings.BitStringBitAtomer;
-import bitstrings.BitStringFixer;
+import bits.strings.BitString;
+import bits.strings.BitStringBitAtomer;
+import bits.strings.BitStringFixer;
 
 public class BitStringBitAtomerDemo extends Problem implements IProblem
 {
@@ -47,8 +47,7 @@ public class BitStringBitAtomerDemo extends Problem implements IProblem
 			IProblemMessage s = new Conjunction(new BitStringFixer(C),
 					new BitStringBitAtomer(C, pos, atomBitString))
 					.findModel(Problem.defaultSolver());
-			if (s.getStatus() == IProblemMessage.SATISFIABLE
-					&& s.getLiterals().size() > 0)
+			if (s.getStatus() == IProblemMessage.SATISFIABLE)
 			{
 				BooleanLiteral.interpret(s.getLiterals());
 				// System.out.println("Atom(" + pos + ")=\t"

@@ -21,8 +21,7 @@ public class TwoBitAdderDemo
 		IProblem problem = new Conjunction(problemBase, problemSpecific);
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			String ret = "";
 			BooleanLiteral.interpret(s.getLiterals());

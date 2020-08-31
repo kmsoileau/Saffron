@@ -1,14 +1,6 @@
 package naturalnumbers;
 
-/**
- * <p>Title: NaturalNumberBitMultiply</p>
- * <p>Description: TBS</p>
- * <p>Copyright (c) 2005</p>
- * <p>Company: Positronic Software</p>
- * @author Kerry Michael Soileau
- * @version 1.0
- */
-import naturalnumberlists.INaturalNumberList;
+import naturalnumbers.lists.INaturalNumberList;
 import bits.BitAnder;
 import bits.Conjunction;
 import bits.IBooleanVariable;
@@ -16,6 +8,16 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
+/**
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Mar 3, 2005
+ */
 public class NaturalNumberBitMultiply extends Problem implements IProblem
 {
 	public NaturalNumberBitMultiply(IBooleanVariable b, INaturalNumber X,

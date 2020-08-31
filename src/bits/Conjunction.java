@@ -2,7 +2,7 @@ package bits;
 
 import java.util.ArrayList;
 
-import exceptions.bits.ConjunctionException;
+import bits.exceptions.ConjunctionException;
 
 /**
  * An extension of the Problem class which creates a new IProblem object from a
@@ -33,7 +33,7 @@ import exceptions.bits.ConjunctionException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.2
- * @since 2005/04/08
+ * @since Apr 8, 2005
  */
 public class Conjunction extends Problem implements IProblem
 {
@@ -94,11 +94,29 @@ public class Conjunction extends Problem implements IProblem
 		{ p1, p2, p3, p4 });
 	}
 
+	public Conjunction(IProblem p1, IProblem p2, IProblem p3, IProblem p4,
+			IProblem p5) throws Exception
+	{
+		this(new IProblem[]
+		{ p1, p2, p3, p4, p5 });
+	}
+
 	public Conjunction(IProblem[] group) throws Exception
 	{
 		IProblem p = Conjunction.and(group);
 		if (p != null)
 			this.setClauses(p.getClauses());
+	}
+
+	public Conjunction(IProblem[][] p) throws Exception
+	{
+		ArrayList<IProblem> q = new ArrayList<IProblem>();
+		for (IProblem[] curr : p)
+		{
+			q.add(new Conjunction(curr));
+		}
+
+		this.setClauses(new Conjunction(q).getClauses());
 	}
 
 	/*

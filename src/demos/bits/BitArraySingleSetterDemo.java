@@ -23,8 +23,7 @@ public class BitArraySingleSetterDemo
 
 		IProblemMessage s = bitArraySingleSetter1.findModel(Problem
 				.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < array.length; i++)

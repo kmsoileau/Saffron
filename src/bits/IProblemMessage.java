@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 public interface IProblemMessage
 {
-	int NOTSATISFIABLE = 0;
 	int SATISFIABLE = 1;
+	int UNSATISFIABLE = 0;
 
 	ArrayList<IBooleanLiteral> getLiterals();
 

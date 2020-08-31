@@ -18,7 +18,7 @@ import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import bitstrings.BitString;
+import bits.strings.BitString;
 
 public class BitStringTotaler2 extends Problem implements IProblem
 {

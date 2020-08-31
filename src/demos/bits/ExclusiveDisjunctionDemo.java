@@ -33,8 +33,7 @@ public class ExclusiveDisjunctionDemo
 				Problem.unsolvableProblem());
 		System.out.println(p3);
 		IProblemMessage s = p3.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println(bva[0]);

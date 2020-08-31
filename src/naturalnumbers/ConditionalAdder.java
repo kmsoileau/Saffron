@@ -1,13 +1,13 @@
 package naturalnumbers;
 
-import naturalnumberlists.INaturalNumberList;
+import naturalnumbers.exceptions.ConditionalAdderException;
+import naturalnumbers.lists.INaturalNumberList;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import exceptions.naturalnumbers.ConditionalAdderException;
 
 public class ConditionalAdder extends Problem implements IProblem
 {
@@ -21,9 +21,6 @@ public class ConditionalAdder extends Problem implements IProblem
 			IBooleanVariable[] membership, INaturalNumber conditionalSum)
 			throws Exception
 	{
-		// long startTimeMillis=System.currentTimeMillis();
-		// System.out.println("\t\t\t\tStarting ConditionalAdder...");
-
 		if (numbers.length == 0 || membership.length == 0)
 			throw (new ConditionalAdderException(
 					"numbers or bits array of zero length was passed to constructor."));
@@ -50,26 +47,17 @@ public class ConditionalAdder extends Problem implements IProblem
 				subAnswer[0]);
 		for (int i = 1; i < numbers.length; i++)
 		{
-			// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\t\t"+i);
 			subAnswer[i] = new NaturalNumber();
 			subTotal[i] = new NaturalNumber();
 			stagingArray[stagingIndex++] = new NaturalNumberBitMultiply(
 					membership[i], numbers[i], subAnswer[i]);
 			stagingArray[stagingIndex++] = new NaturalNumberAdder(
 					subTotal[i - 1], subAnswer[i], subTotal[i]);
-			// System.out.println(stagingIndex);
 		}
-		// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\\t\tAdding
-		// NaturalNumberEqualizer");
 		stagingArray[stagingIndex++] = new NaturalNumberEqualizer(
 				subTotal[numbers.length - 1], conditionalSum);
-		// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\t\tComputing
-		// staging array");
 		IProblem problem = new Conjunction(stagingArray);
 		this.setClauses(problem.getClauses());
-
-		// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\tFinishing
-		// ConditionalAdder...");
 	}
 
 	public ConditionalAdder(INaturalNumberList numbersArray,

@@ -1,65 +1,66 @@
 package showcase.vertexcover;
 
-import naturalnumbers.BitStringTotaler;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import bits.BitFixer;
+import graphs.DirectedGraph;
+import graphs.IDirectedGraph;
+import graphs.VertexCoverer;
 import bits.BooleanLiteral;
-import bits.Conjunction;
-import bits.Disjunction;
 import bits.IBitString;
-import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstringgraphs.BitStringGraph;
-import bitstringgraphs.BitStringGraphFixer;
-import bitstringgraphs.IBitStringGraph;
-import bitstrings.BitString;
+import bits.strings.BitString;
 
 public class VertexCoverDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		int V = 6;
+		/**
+		 * Set Java variables:
+		 */
+
+		int V = 6; // The number of vertices
+		int K = 2; // The number of vertices in the cover
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
+		IDirectedGraph G = new DirectedGraph(V);
+		G.biconnect(0, 2);
+		G.biconnect(1, 2);
+		G.biconnect(2, 3);
+		G.biconnect(3, 4);
+		G.biconnect(3, 5);
+
 		IBitString cover = new BitString(V);
-		IBitStringGraph graph = new BitStringGraph(V);
 
-		graph.getData(0, 2).setValue(true);
-		graph.getData(1, 2).setValue(true);
-		graph.getData(2, 0).setValue(true);
-		graph.getData(2, 1).setValue(true);
-		graph.getData(2, 3).setValue(true);
-		graph.getData(3, 2).setValue(true);
-		graph.getData(3, 4).setValue(true);
-		graph.getData(3, 5).setValue(true);
-		graph.getData(4, 3).setValue(true);
-		graph.getData(5, 3).setValue(true);
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
 
-		new BitStringGraphFixer(graph);
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
 
-		INaturalNumber bitSum = new NaturalNumber(2);
-		IProblem problem = new NaturalNumberFixer(bitSum);
-		problem = new Conjunction(problem, new BitStringTotaler(cover, bitSum));
+		IProblem problem = new VertexCoverer(G, K, cover);
 
-		problem = new Conjunction(problem, new BitStringGraphFixer(graph));
-		for (int vertex1 = 0; vertex1 < V; vertex1++)
-			for (int vertex2 = 0; vertex2 < V; vertex2++)
-			{
-				IProblem currProblem = new Disjunction(new BitFixer(
-						graph.getData(vertex1, vertex2), false), new BitFixer(
-						cover.getBooleanVariable(vertex1), true), new BitFixer(
-						cover.getBooleanVariable(vertex2), true));
-				problem = new Conjunction(problem, currProblem);
-			}
-		System.out.println(problem);
+		/**
+		 * Solve the IProblem:
+		 */
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
-			System.out.println("cover= " + cover.toBits());
+			System.out.print("GRAPH\n" + G);
+			System.out.print("\n\nSOLUTION\nCover Vertices:");
+			for (int i = 0; i < cover.size(); i++)
+				if (cover.getBooleanVariable(i).getValue())
+					System.out.print(" " + i);
 		}
 		else
 			System.out.println("No solution.");

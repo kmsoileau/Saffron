@@ -8,8 +8,7 @@ import bits.Clause;
 import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IClause;
-import bits.IProblem;
-import exceptions.bits.BooleanLiteralException;
+import bits.exceptions.BooleanLiteralException;
 
 public class ClauseAsData implements IClauseAsData
 {
@@ -33,33 +32,6 @@ public class ClauseAsData implements IClauseAsData
 	public static ArrayList<IBooleanVariable> getVARIABLES()
 	{
 		return VARIABLES;
-	}
-
-	public static void main(String[] args) throws Exception
-	{
-		IBooleanVariable A = BooleanVariable.getBooleanVariable("A");
-		IBooleanVariable B = BooleanVariable.getBooleanVariable("B");
-
-		ArrayList<IBooleanVariable> ary = new ArrayList<IBooleanVariable>();
-		ary.add(A);
-		ary.add(B);
-		ClauseAsData.declare(ary);
-
-		IClauseAsData c1 = new ClauseAsData();
-		System.out.println("c1 = " + c1);
-
-		IClauseAsData c2 = new ClauseAsData("clause2");
-		System.out.println(c2.getName() + " = " + c2);
-
-		IClauseAsData c3 = new ClauseAsData("clause2");
-		c3.occurrenceIndicator(A).setValue(true);
-		c3.barredIndicator(A).setValue(true);
-		c3.occurrenceIndicator(B).setValue(true);
-		System.out.println(c3.getName() + " = " + c3);
-		IClause theClause = c3.toClause();
-		System.out.println(c3.getName() + " = " + theClause);
-		IProblem p = ((Clause) theClause).unsatisfiedClause();
-		System.out.println(p);
 	}
 
 	public IBooleanVariable[] barred;
@@ -101,17 +73,20 @@ public class ClauseAsData implements IClauseAsData
 					+ ClauseAsData.VARIABLES.get(i).getName() + "_barred_" + i);
 	}
 
+	@Override
 	public IBooleanVariable barredIndicator(IBooleanVariable bv)
 			throws Exception
 	{
 		return this.barred[ClauseAsData.findIndex(bv)];
 	}
 
+	@Override
 	public String getName()
 	{
 		return name;
 	}
 
+	@Override
 	public IBooleanVariable occurrenceIndicator(IBooleanVariable bv)
 			throws Exception
 	{
@@ -123,6 +98,7 @@ public class ClauseAsData implements IClauseAsData
 		this.name = name;
 	}
 
+	@Override
 	public IClause toClause() throws Exception
 	{
 		IClause ret = Clause.newClause();
@@ -137,6 +113,7 @@ public class ClauseAsData implements IClauseAsData
 		return ret;
 	}
 
+	@Override
 	public String toString()
 	{
 		String res = "{";

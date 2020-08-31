@@ -9,6 +9,7 @@ import bits.Disjunction;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
+import bits.ProblemDenier;
 
 class BoatAndFarmerTogether extends Problem implements IProblem
 {

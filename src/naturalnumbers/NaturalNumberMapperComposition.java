@@ -6,14 +6,15 @@ import bits.IProblem;
 import bits.Problem;
 
 /**
- * <p>
- * Copyright (c) 2005 Positronic Software
- * </p>
- * 
+ *
  * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
  * @version 1.0
+ * @since Mar 4, 2005
  */
-
 public class NaturalNumberMapperComposition extends Problem implements IProblem
 {
 	public NaturalNumberMapperComposition(NaturalNumberMapper first,

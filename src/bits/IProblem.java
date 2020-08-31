@@ -50,6 +50,6 @@ public interface IProblem extends Iterable<IClause>
 	void setClauses(IClause[] clauseArray) throws Exception;
 
 	int size();
-
+	
 	void sort() throws Exception;
 }

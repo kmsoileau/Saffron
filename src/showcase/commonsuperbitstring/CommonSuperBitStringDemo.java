@@ -6,11 +6,11 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstringlists.BitStringList;
-import bitstringlists.BitStringListFixer;
-import bitstringlists.CommonSuperBitStringer;
-import bitstringlists.IBitStringList;
-import bitstrings.BitString;
+import bits.strings.BitString;
+import bits.strings.lists.BitStringList;
+import bits.strings.lists.BitStringListFixer;
+import bits.strings.lists.CommonSuperBitStringer;
+import bits.strings.lists.IBitStringList;
 
 /**
  * Given a collection C of IBitStrings each of size n, and an IBitString
@@ -40,8 +40,7 @@ public class CommonSuperBitStringDemo extends Problem implements IProblem
 		IProblemMessage s = new Conjunction(new BitStringListFixer(X),
 				new CommonSuperBitStringer(X, Y)).findModel(Problem
 				.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.toBits());

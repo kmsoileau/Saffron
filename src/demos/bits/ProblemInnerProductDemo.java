@@ -38,8 +38,7 @@ public class ProblemInnerProductDemo extends Problem implements IProblem
 		IProblemMessage s = new Conjunction(new ProblemInnerProduct(P, Q),
 				new NaturalNumberFixer(X, 1))
 				.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X=" + X);

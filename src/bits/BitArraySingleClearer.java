@@ -1,6 +1,6 @@
 package bits;
 
-import exceptions.bits.BitArraySingleClearerException;
+import bits.exceptions.BitArraySingleClearerException;
 
 /**
  * For any positive integer n, if X_0, X_1, X_2, ... ,X_{n-1} are
@@ -34,7 +34,7 @@ import exceptions.bits.BitArraySingleClearerException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2005/02/09
+ * @since Feb 9, 2005
  */
 public class BitArraySingleClearer extends Problem implements IProblem
 {

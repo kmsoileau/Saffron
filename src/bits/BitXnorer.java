@@ -28,7 +28,7 @@ package bits;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2005/04/13
+ * @since Apr 13, 2005
  */
 public class BitXnorer extends Problem implements IProblem
 {

@@ -1,7 +1,5 @@
 package naturalnumbers;
 
-import bits.IBooleanVariable;
-import bits.IClause;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
@@ -26,23 +24,15 @@ import bits.Problem;
  * <p>
  * <code>X == Z * Y</code>
  * </p>
- * .
- *
- * @author Kerry Michael Soileau <blockquote>
  * 
- *         <pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * </pre>
- * 
- *         </blockquote>
- * @version 1.0, 06/02/08
- * @see IBooleanVariable
- * @see IClause
- * @see IProblem
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Jun 2, 2008
  */
-
 public class NaturalNumberDivider extends Problem implements IProblem
 {
 	public NaturalNumberDivider(INaturalNumber X, INaturalNumber Y,

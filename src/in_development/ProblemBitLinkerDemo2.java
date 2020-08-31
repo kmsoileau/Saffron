@@ -12,6 +12,7 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import bits.ProblemDenier;
 
 public class ProblemBitLinkerDemo2
 {
@@ -33,8 +34,7 @@ public class ProblemBitLinkerDemo2
 
 		System.out.println("p");
 		IProblemMessage s = p.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("b=" + b.getValue());
@@ -45,8 +45,7 @@ public class ProblemBitLinkerDemo2
 
 		System.out.println("problemDenier");
 		s = new ProblemDenier(p).findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("b=" + b.getValue());
@@ -57,8 +56,7 @@ public class ProblemBitLinkerDemo2
 
 		System.out.println("result");
 		s = result.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("b=" + b.getValue());
@@ -69,8 +67,7 @@ public class ProblemBitLinkerDemo2
 
 		System.out.println("testProblem");
 		s = testProblem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("b=" + b.getValue());

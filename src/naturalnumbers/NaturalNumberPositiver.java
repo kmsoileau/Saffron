@@ -1,13 +1,12 @@
 package naturalnumbers;
 
 import bits.Conjunction;
-import bits.IBooleanVariable;
-import bits.IClause;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
 /**
+ * 
  * An extension of the Problem class which constrains an INaturalNumber to be
  * positive.
  *
@@ -27,22 +26,15 @@ import bits.Problem;
  * <code>X &gt; 0</code>
  * </p>
  * .
- *
- * @author Kerry Michael Soileau <blockquote>
  * 
- *         <pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * </pre>
- * 
- *         </blockquote>
- * @version 1.0, 10/08/29
- * @see IBooleanVariable
- * @see IClause
- * @see IProblem
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Aug 29, 2010
  */
-
 public class NaturalNumberPositiver extends Problem implements IProblem
 {
 	public NaturalNumberPositiver(INaturalNumber X) throws Exception
@@ -54,8 +46,7 @@ public class NaturalNumberPositiver extends Problem implements IProblem
 			throws Exception
 	{
 		INaturalNumber One = new NaturalNumber(1);
-		IProblem add1 = new NaturalNumberAdder(OneLess, One, X);
-		IProblem problem = new Conjunction(new NaturalNumberFixer(One), add1);
-		this.setClauses(problem.getClauses());
+		this.setClauses(new Conjunction(new NaturalNumberFixer(One),
+				new NaturalNumberAdder(OneLess, One, X)).getClauses());
 	}
 }

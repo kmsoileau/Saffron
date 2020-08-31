@@ -6,9 +6,9 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstrings.BitString;
-import bitstrings.BitStringArraySplitter;
-import bitstrings.BitStringFixer;
+import bits.strings.BitString;
+import bits.strings.BitStringArraySplitter;
+import bits.strings.BitStringFixer;
 
 public class SetSplittingDemo
 {
@@ -33,8 +33,7 @@ public class SetSplittingDemo
 		}
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < data.length; i++)

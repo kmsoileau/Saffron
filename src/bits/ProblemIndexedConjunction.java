@@ -1,7 +1,6 @@
 package bits;
 
-import in_development.ProblemBitLinker;
-import exceptions.bits.ProblemIndexedConjunctionException;
+import bits.exceptions.ProblemIndexedConjunctionException;
 
 /**
  * The <code>IProblem prob</code> defined by

@@ -1,6 +1,6 @@
 package bits;
 
-import exceptions.bits.ConditionalDisjunctionException;
+import bits.exceptions.ConditionalDisjunctionException;
 
 /**
  * Returns an IProblem that is satisfied if and only if at least one of the
@@ -24,10 +24,16 @@ import exceptions.bits.ConditionalDisjunctionException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2018/11/04
+ * @since Nov 4, 2018
  */
 public class ConditionalDisjunction extends Problem implements IProblem
 {
+	public ConditionalDisjunction(IProblem[] problemArray,
+ IBitString bitString) throws Exception
+	{
+		this(problemArray, bitString.toBooleanVariableArray());
+	}
+
 	public ConditionalDisjunction(IProblem[] problemArray,
 			IBooleanVariable[] booleanVariableArray) throws Exception
 	{

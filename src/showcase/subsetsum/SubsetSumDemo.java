@@ -12,7 +12,7 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstrings.BitString;
+import bits.strings.BitString;
 
 /**
  * Finds a subset of integers that sums to <code>desiredSum,</code> which in
@@ -77,8 +77,7 @@ public class SubsetSumDemo
 		 */
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			ArrayList<Integer> Aprime = new ArrayList<Integer>();

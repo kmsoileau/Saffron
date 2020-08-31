@@ -2,7 +2,7 @@ package bits;
 
 import java.util.HashSet;
 
-import exceptions.bits.BooleanVariableException;
+import bits.exceptions.BooleanVariableException;
 
 /**
  * A class which represents a Boolean variable. BooleanVariable is essentially a
@@ -17,7 +17,7 @@ import exceptions.bits.BooleanVariableException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2004/08/26
+ * @since Aug 26, 2004
  */
 public class BooleanVariable implements IBooleanVariable
 {
@@ -131,12 +131,6 @@ public class BooleanVariable implements IBooleanVariable
 	private String name;
 
 	/**
-	 * A flag identifying IbooleanVariables of use only to the SAT problem and
-	 * not of interest to the user.
-	 */
-	private boolean utility;
-
-	/**
 	 * The value of the IBooleanVariable.
 	 */
 	private boolean value;
@@ -150,7 +144,6 @@ public class BooleanVariable implements IBooleanVariable
 		this.name = "BooleanVariable-" + boolCount;
 		boolCount++;
 		this.setValue(false);
-		this.setUtility(true);
 		BooleanVariable.getInstances().add(this);
 	}
 
@@ -181,7 +174,6 @@ public class BooleanVariable implements IBooleanVariable
 					"Null or empty string was passed to a constructor.");
 		this.setName(n);
 		this.setValue(x);
-		this.setUtility(false);
 		BooleanVariable.getInstances().add(this);
 	}
 
@@ -191,6 +183,7 @@ public class BooleanVariable implements IBooleanVariable
 	 * 
 	 * @return <code>x.getName().compareTo(y.getName()).</code>
 	 */
+	@Override
 	public int compareTo(Object o)
 	{
 		if (o == null)
@@ -243,11 +236,6 @@ public class BooleanVariable implements IBooleanVariable
 		return this.value;
 	}
 
-	public boolean isUtility()
-	{
-		return utility;
-	}
-
 	/**
 	 * Sets the name of the IBooleanVariable.
 	 * 
@@ -264,11 +252,6 @@ public class BooleanVariable implements IBooleanVariable
 		this.name = name;
 	}
 
-	public void setUtility(boolean utility)
-	{
-		this.utility = utility;
-	}
-
 	/**
 	 * Sets the logical value: <code>true</code> or <code>false</code>.
 	 * 
@@ -281,6 +264,12 @@ public class BooleanVariable implements IBooleanVariable
 		this.value = x;
 	}
 
+	@Override
+	public String toBit()
+	{
+		return this.value ? "1" : "0";
+	}
+
 	/**
 	 * Returns a string representation of the IBooleanVariable.
 	 */
@@ -289,4 +278,5 @@ public class BooleanVariable implements IBooleanVariable
 	{
 		return "<" + getName() + "=" + this.getValue() + ">";
 	}
+
 }

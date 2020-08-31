@@ -1,10 +1,10 @@
 package sets;
 
+import sets.exceptions.SubsetterException;
 import bits.BitOrderer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import exceptions.sets.SubsetterException;
 
 public class Subsetter extends Problem implements IProblem
 {

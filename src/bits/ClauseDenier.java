@@ -1,6 +1,6 @@
 package bits;
 
-import exceptions.bits.ClauseDenierException;
+import bits.exceptions.ClauseDenierException;
 
 /**
  * An extension of the Problem class which expresses the denial of a given
@@ -18,7 +18,7 @@ import exceptions.bits.ClauseDenierException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2005/10/18
+ * @since Oct 18, 2005
  */
 public class ClauseDenier extends Problem implements IProblem
 {

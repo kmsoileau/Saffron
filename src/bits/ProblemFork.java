@@ -10,7 +10,7 @@
  */
 package bits;
 
-import exceptions.bits.ProblemForkException;
+import bits.exceptions.ProblemForkException;
 
 /**
  * An extension of the Problem class which Is equivalent to

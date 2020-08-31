@@ -2,7 +2,7 @@ package bits;
 
 import java.util.ArrayList;
 
-import exceptions.bits.BitExclusiveSelectorException;
+import bits.exceptions.BitExclusiveSelectorException;
 
 /**
  * For any positive integer n, if X_0, X_1, X_2, ... ,X_{n-1} are
@@ -37,7 +37,6 @@ import exceptions.bits.BitExclusiveSelectorException;
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
  * @since Dec 17, 2018
- * 
  */
 public class BitExclusiveSelector extends Problem implements IProblem
 {
@@ -45,6 +44,12 @@ public class BitExclusiveSelector extends Problem implements IProblem
 			throws Exception
 	{
 		this(bitArrayList.toArray(new IBooleanVariable[0]));
+	}
+
+	public BitExclusiveSelector(IBitString string) throws Exception
+	{
+		this.setClauses(new bits.BitExclusiveSelector(string.getBVArray())
+				.getClauses());
 	}
 
 	public BitExclusiveSelector(IBooleanVariable x, IBooleanVariable y)

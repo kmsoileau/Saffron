@@ -5,11 +5,11 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstringlists.BitStringList;
-import bitstringlists.BitStringListBasiser;
-import bitstringlists.BitStringListFixer;
-import bitstringlists.IBitStringList;
-import bitstrings.BitString;
+import bits.strings.BitString;
+import bits.strings.lists.BitStringList;
+import bits.strings.lists.BitStringListBasiser;
+import bits.strings.lists.BitStringListFixer;
+import bits.strings.lists.IBitStringList;
 
 public class BitStringListBasiserDemo
 {
@@ -26,25 +26,24 @@ public class BitStringListBasiserDemo
 		for (int i = 0; i < B.size(); i++)
 			B.set(i, new BitString(C.getBitString(0).size()));
 
-		IBitString[] included = new IBitString[C.size()];
+		IBitStringList included = new BitStringList();
 		for (int i = 0; i < C.size(); i++)
 		{
-			included[i] = new BitString(B.size());
+			included.add(new BitString(B.size()));
 		}
 
 		IProblemMessage s = new Conjunction(new BitStringListFixer(C),
 				new BitStringListBasiser(C, B, included)).findModel(Problem
 				.defaultSolver());
 
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("C=" + C.toBits());
 			System.out.println("B=" + B.toBits());
 			for (int i = 0; i < C.size(); i++)
 				System.out.println("included[" + i + "]="
-						+ included[i].toBits());
+						+ included.getBitString(i).toBits());
 		}
 		else
 			System.out.println("No solution.");

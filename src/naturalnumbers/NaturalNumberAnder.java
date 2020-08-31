@@ -1,19 +1,21 @@
 package naturalnumbers;
 
-/**
- * <p>Title: TBS</p>
- * <p>Description: TBS</p>
- * <p>Copyright (c) 2005</p>
- * <p>Company: Positronic Software</p>
- * @author Kerry Michael Soileau
- * @version 1.0
- */
 import bits.BitAnder;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
+/**
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Mar 3, 2005
+ */
 public class NaturalNumberAnder extends Problem implements IProblem
 {
 	public NaturalNumberAnder(INaturalNumber X, INaturalNumber Y,

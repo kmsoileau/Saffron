@@ -1,21 +1,22 @@
 package naturalnumbers;
 
+import naturalnumbers.exceptions.NaturalNumberMapperException;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Mapper;
 import bits.Problem;
-import exceptions.naturalnumbers.NaturalNumberMapperException;
 
 /**
- * <p>
- * Copyright (c) 2005 Positronic Software
- * </p>
- * 
+ *
  * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
  * @version 1.0
+ * @since Mar 4, 2019
  */
-
 public class NaturalNumberMapper extends Problem implements IProblem
 {
 	private INaturalNumber domainVariable;

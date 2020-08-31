@@ -31,8 +31,7 @@ public class BitOrdererDemo
 		System.out.println(p1);
 		// Find a solution to the Problem object :
 		IProblemMessage s = p1.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("x = " + x.getValue());

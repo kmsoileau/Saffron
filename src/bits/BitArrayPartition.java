@@ -2,7 +2,7 @@ package bits;
 
 import java.util.ArrayList;
 
-import exceptions.bits.BitArrayPartitionException;
+import bits.exceptions.BitArrayPartitionException;
 
 /**
  * For example, suppose <code>partition</code> is as follows:
@@ -60,7 +60,7 @@ import exceptions.bits.BitArrayPartitionException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2018/11/05
+ * @since Nov 5, 2018
  */
 public class BitArrayPartition extends Problem implements IProblem
 {

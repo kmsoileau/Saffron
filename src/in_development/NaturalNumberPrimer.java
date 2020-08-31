@@ -16,6 +16,7 @@ import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import bits.ProblemDenier;
 
 public class NaturalNumberPrimer extends Problem implements IProblem
 {

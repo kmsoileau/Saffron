@@ -9,8 +9,8 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstrings.BitString;
-import bitstrings.BitStringFixer;
+import bits.strings.BitString;
+import bits.strings.BitStringFixer;
 
 /**
  * Let U be a nonempty set, S a family of subsets of U. Do there exist n subsets
@@ -67,8 +67,7 @@ public class SetPackerDemo
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("Source Data\n-----------");

@@ -16,9 +16,9 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstrings.BitString;
-import bitstrings.BitStringFixer;
-import bitstrings.MinimumTestSetter;
+import bits.strings.BitString;
+import bits.strings.BitStringFixer;
+import bits.strings.MinimumTestSetter;
 
 /**
  * Let U be a nonempty set, S a family of subsets of U. Does there exist a sub
@@ -90,8 +90,7 @@ public class MinimumTestSetterDemo
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 

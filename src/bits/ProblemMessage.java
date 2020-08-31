@@ -1,3 +1,7 @@
+package bits;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author Kerry Michael Soileau
@@ -8,10 +12,6 @@
  * @version 1.0
  * @since Jan 7, 2019
  */
-package bits;
-
-import java.util.ArrayList;
-
 public class ProblemMessage implements IProblemMessage
 {
 	private ArrayList<IBooleanLiteral> literals;
@@ -24,11 +24,13 @@ public class ProblemMessage implements IProblemMessage
 		this.literals = literals;
 	}
 
+	@Override
 	public ArrayList<IBooleanLiteral> getLiterals()
 	{
 		return literals;
 	}
 
+	@Override
 	public int getStatus()
 	{
 		return status;

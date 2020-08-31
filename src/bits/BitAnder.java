@@ -21,7 +21,7 @@ package bits;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.2
- * @since 2005/02/09
+ * @since Feb 9, 2005
  */
 public class BitAnder extends Problem implements IProblem
 {

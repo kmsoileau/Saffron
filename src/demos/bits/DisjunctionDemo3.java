@@ -36,14 +36,12 @@ public class DisjunctionDemo3
 		IBooleanVariable Z = BooleanVariable.getBooleanVariable("Z");
 		IBooleanVariable b1 = BooleanVariable.getBooleanVariable("b1");
 
-		Disjunction disjunction1 = new Disjunction(new IProblem[]
-		{ new BitEqualizer(X, Y), new BitEqualizer(Y, Z) },
-				new IBooleanVariable[]
-				{ b1 });
+		Disjunction disjunction1 = new Disjunction(new IBooleanVariable[]
+		{ b1 }, new IProblem[]
+		{ new BitEqualizer(X, Y), new BitEqualizer(Y, Z) });
 		System.out.println(disjunction1);
 		IProblemMessage s = disjunction1.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());

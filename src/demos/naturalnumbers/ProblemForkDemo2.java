@@ -43,8 +43,7 @@ public class ProblemForkDemo2
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("b=" + b.getValue());

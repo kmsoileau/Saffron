@@ -5,9 +5,9 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstrings.BitString;
-import bitstrings.BitStringArrayBasiser;
-import bitstrings.BitStringFixer;
+import bits.strings.BitString;
+import bits.strings.BitStringArrayBasiser;
+import bits.strings.BitStringFixer;
 
 public class BitStringArrayBasiserDemo
 {
@@ -19,10 +19,12 @@ public class BitStringArrayBasiserDemo
 				new BitString("00001000"), new BitString("00100000"),
 				new BitString("00101000") };
 
+		int basisSize = 4;
+
 		int cLength = C.length;
 
 		// Collection of basis IBitStrings
-		IBitString[] B = new IBitString[4];
+		IBitString[] B = new IBitString[basisSize];
 		for (int i = 0; i < B.length; i++)
 			B[i] = new BitString(C[0].size());
 
@@ -38,8 +40,7 @@ public class BitStringArrayBasiserDemo
 				new BitStringArrayBasiser(C, B, included)).findModel(Problem
 				.defaultSolver());
 
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < cLength; i++)

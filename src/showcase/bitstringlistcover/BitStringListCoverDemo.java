@@ -5,11 +5,11 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstringlists.BitStringList;
-import bitstringlists.BitStringListFixer;
-import bitstringlists.IBitStringList;
-import bitstrings.BitString;
-import bitstrings.BitStringCoverer;
+import bits.strings.BitString;
+import bits.strings.BitStringArrayCoverer;
+import bits.strings.lists.BitStringList;
+import bits.strings.lists.BitStringListFixer;
+import bits.strings.lists.IBitStringList;
 
 public class BitStringListCoverDemo
 {
@@ -25,11 +25,10 @@ public class BitStringListCoverDemo
 		IBitString includedInCover = new BitString(cLength);
 
 		IProblemMessage s = new Conjunction(new BitStringListFixer(C),
-				new BitStringCoverer(C, includedInCover)).findModel(Problem
-				.defaultSolver());
+				new BitStringArrayCoverer(C, includedInCover))
+				.findModel(Problem.defaultSolver());
 
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < cLength; i++)

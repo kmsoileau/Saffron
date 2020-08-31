@@ -13,11 +13,11 @@ package sets;
 import java.util.Arrays;
 
 import naturalnumbers.NaturalNumber;
+import sets.exceptions.WeightedSetException;
 import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
-import bitstrings.BitString;
-import exceptions.sets.WeightedSetException;
+import bits.strings.BitString;
 
 public class WeightedSet
 {

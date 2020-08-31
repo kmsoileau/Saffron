@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import exceptions.bits.ClauseException;
+import bits.exceptions.ClauseException;
 
 /**
  * A class which represents a satisfiability clause. IClause is essentially an
@@ -19,7 +19,7 @@ import exceptions.bits.ClauseException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.01
- * @since 2004/08/26
+ * @since Aug 26, 2004
  */
 public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 {

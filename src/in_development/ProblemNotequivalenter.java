@@ -4,7 +4,8 @@ import bits.Conjunction;
 import bits.Disjunction;
 import bits.IProblem;
 import bits.Problem;
-import exceptions.bits.ProblemNotequivalenterException;
+import bits.ProblemDenier;
+import bits.exceptions.ProblemNotequivalenterException;
 
 /**
  * An extension of the Problem class which expresses the logical nonequivalence

@@ -3,7 +3,7 @@ package bits;
 import java.util.ArrayList;
 import java.util.List;
 
-import exceptions.bits.DisjunctionException;
+import bits.exceptions.DisjunctionException;
 
 /**
  * Returns an IProblem that is satisfied if and only at least one of the
@@ -27,7 +27,6 @@ public class Disjunction extends Problem implements IProblem
 	 * to the Problem <code>ptrue</code>. Likewise, if <code>b</code> is false,
 	 * <code>p</code> is equivalent to the Problem <code>pfalse</code>.
 	 * 
-	 * @throws Exception
 	 */
 	private static IProblem or(IProblem ptrue, IProblem pfalse,
 			IBooleanVariable b) throws Exception
@@ -84,7 +83,6 @@ public class Disjunction extends Problem implements IProblem
 	 * p_{n-1}
 	 * </pre>
 	 * 
-	 * @throws Exception
 	 */
 	private static IProblem or(IProblem[] problemArray) throws Exception
 	{
@@ -137,9 +135,16 @@ public class Disjunction extends Problem implements IProblem
 	 *         In effect, for the first <code>i</code> such that
 	 *         <code>x_i</code> is true, <code>p_i</code> is returned. If no
 	 *         such <code>i</code> exists, <code>p_{n-1}</code> is returned.
+	 * 
+	 * @param problemArray
+	 *            IProblem[]
+	 * @param booleanVariableArray
+	 *            IBooleanVariable[]
 	 * @throws Exception
+	 *             _
+	 * 
 	 */
-	private static IProblem or(IProblem[] problemArray,
+	public static IProblem or(IProblem[] problemArray,
 			IBooleanVariable[] booleanVariableArray) throws Exception
 	{
 		if (problemArray == null)
@@ -170,6 +175,21 @@ public class Disjunction extends Problem implements IProblem
 			return r[0];
 		}
 		return null;
+	}
+
+	/**
+	 *
+	 * Returns an IProblem equivalent to the logical OR of the IProblems in
+	 * problemList.
+	 * 
+	 * @throws Exception
+	 *             An instance of Exception
+	 * @param problemList
+	 *            IProblem ArrayList
+	 */
+	public Disjunction(ArrayList<IProblem> problemList) throws Exception
+	{
+		this(problemList.toArray(new IProblem[0]));
 	}
 
 	/**
@@ -209,7 +229,7 @@ public class Disjunction extends Problem implements IProblem
 		{ p1, p2 });
 	}
 
-	public Disjunction(IProblem ptrue, IProblem pfalse, IBooleanVariable b)
+	public Disjunction(IBooleanVariable b, IProblem ptrue, IProblem pfalse)
 			throws Exception
 	{
 		IProblem p = Disjunction.or(ptrue, pfalse, b);
@@ -300,9 +320,15 @@ public class Disjunction extends Problem implements IProblem
 		if (problemArray == null)
 			throw new DisjunctionException(
 					"Null IProblem array passed to or method.");
+		// if (problemArray.length == 0)
+		// throw new DisjunctionException(
+		// "IProblem array of zero length passed to or method.");
 		if (problemArray.length == 0)
-			throw new DisjunctionException(
-					"IProblem array of zero length passed to or method.");
+		{
+			this.setClauses(Problem.unsolvableProblem().getClauses());
+			return;
+		}
+
 		IProblem p = Disjunction.or(problemArray);
 		if (p != null)
 			this.setClauses(p.getClauses());
@@ -343,8 +369,8 @@ public class Disjunction extends Problem implements IProblem
 	 * @param booleanVariableArray
 	 *            IBooleanVariable[]
 	 */
-	public Disjunction(IProblem[] problemArray,
-			IBooleanVariable[] booleanVariableArray) throws Exception
+	public Disjunction(IBooleanVariable[] booleanVariableArray,
+			IProblem[] problemArray) throws Exception
 	{
 		if (problemArray == null)
 			throw new DisjunctionException(

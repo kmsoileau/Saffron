@@ -11,7 +11,7 @@ package bits;
  * @version 1.3
  * @since 2005/10/07
  * 
- * @see naturalnumberlists.Permuter
+ * @see naturalnumbers.lists.Permuter
  * @see bits.Mapper
  */
 public class ProblemPair

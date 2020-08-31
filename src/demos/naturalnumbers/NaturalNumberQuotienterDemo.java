@@ -22,20 +22,20 @@ public class NaturalNumberQuotienterDemo
 
 		IProblem p = new Conjunction(new IProblem[]
 		{ new NaturalNumberQuotienter(Dividend, Divisor, Quotient, Remainder),
-				new NaturalNumberFixer(Quotient, 194L),
-				new NaturalNumberFixer(Remainder, 9L), });
+				new NaturalNumberFixer(Dividend, 203L),
+				new NaturalNumberFixer(Divisor, 3L),
+				 });
 
 		System.out.println(p);
 
 		IProblemMessage s = p.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
-			System.out.println("X = " + Dividend);
-			System.out.println("Y = " + Divisor);
-			System.out.println("Z = " + Quotient);
-			System.out.println("C = " + Remainder);
+			System.out.println("Dividend = " + Dividend);
+			System.out.println("Divisor = " + Divisor);
+			System.out.println("Quotient = " + Quotient);
+			System.out.println("Remainder = " + Remainder);
 		}
 		else
 			System.out.println("No solution.");

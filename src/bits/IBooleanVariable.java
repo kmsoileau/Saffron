@@ -21,6 +21,7 @@ public interface IBooleanVariable extends Comparable<Object>
 	 * 
 	 * @return <code>true</code> if this.getName().compareTo(o.getName())==0.
 	 */
+	@Override
 	boolean equals(Object o);
 
 	/**
@@ -38,15 +39,12 @@ public interface IBooleanVariable extends Comparable<Object>
 	boolean getValue();
 
 	/**
-	 * @return boolean
-	 */
-	boolean isUtility();
-
-	/**
 	 * Sets the logical value: <code>true</code> or <code>false</code>.
 	 * 
 	 * @param x
 	 *            A boolean
 	 */
 	void setValue(boolean x);
+
+	String toBit();
 }

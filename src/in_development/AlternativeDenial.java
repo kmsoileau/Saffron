@@ -5,7 +5,8 @@ import java.util.List;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import exceptions.bits.AlternativeDenialException;
+import bits.ProblemDenier;
+import bits.exceptions.AlternativeDenialException;
 
 /**
  * An extension of the <code>Problem</code> class which expresses the

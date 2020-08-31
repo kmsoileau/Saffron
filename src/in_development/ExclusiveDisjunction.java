@@ -8,7 +8,8 @@ import bits.Conjunction;
 import bits.Disjunction;
 import bits.IProblem;
 import bits.Problem;
-import exceptions.bits.ExclusiveDisjunctionException;
+import bits.ProblemDenier;
+import bits.exceptions.ExclusiveDisjunctionException;
 
 /**
  * An extension of the Problem class which expresses the exclusive disjunction

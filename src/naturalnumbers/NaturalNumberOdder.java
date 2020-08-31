@@ -1,18 +1,20 @@
 package naturalnumbers;
 
-/**
- * <p>Title: TBS</p>
- * <p>Description: TBS</p>
- * <p>Copyright (c) 2005</p>
- * <p>Company: Positronic Software</p>
- * @author Kerry Michael Soileau
- * @version 1.0
- */
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
+/**
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Mar 4, 2005
+ */
 public class NaturalNumberOdder extends Problem implements IProblem
 {
 	public NaturalNumberOdder(INaturalNumber Z) throws Exception

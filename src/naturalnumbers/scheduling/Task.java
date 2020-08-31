@@ -90,6 +90,7 @@ public class Task
 		this.predecessors = Arrays.asList(predecessors);
 	}
 
+	@Override
 	public String toString()
 	{
 		return "\nTask [name=" + name + ", NNStart=" + NNStart

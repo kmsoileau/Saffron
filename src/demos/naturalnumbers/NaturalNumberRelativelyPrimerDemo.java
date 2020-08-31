@@ -1,5 +1,5 @@
 /**
- *
+ * 
  * @author Kerry Michael Soileau
  *         <p>
  *         email: ksoileau2@yahoo.com
@@ -25,27 +25,26 @@ public class NaturalNumberRelativelyPrimerDemo
 	public static void main(String[] args) throws Exception
 	{
 		NaturalNumber.setLargestNaturalNumber(600);
-		INaturalNumber M = new NaturalNumber();
-		INaturalNumber N = new NaturalNumber();
-		INaturalNumber P = new NaturalNumber();
-		INaturalNumber Q = new NaturalNumber();
+		INaturalNumber X = new NaturalNumber();
+		INaturalNumber Y = new NaturalNumber();
+		INaturalNumber A = new NaturalNumber();
+		INaturalNumber B = new NaturalNumber();
 
 		IProblem problem = new Conjunction(new IProblem[]
-		{ new NaturalNumberFixer(M, 35), new NaturalNumberFixer(N, 22),
-				new NaturalNumberRelativelyPrimer(M, N, P, Q) });
+		{ new NaturalNumberFixer(X, 35), new NaturalNumberFixer(Y, 22),
+				new NaturalNumberRelativelyPrimer(X, Y, A, B) });
 
 		System.out.println(problem);
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
-			System.out.print("\nM = " + M);
-			System.out.print("\tP = " + P);
-			System.out.print("\nN = " + N);
-			System.out.print("\tQ = " + Q);
+			System.out.print("\nX = " + X);
+			System.out.print("\tA = " + A);
+			System.out.print("\nY = " + Y);
+			System.out.print("\tB = " + B);
 		}
 		else
 			System.out.println("No solution.");

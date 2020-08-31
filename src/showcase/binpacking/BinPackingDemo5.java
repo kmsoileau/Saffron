@@ -41,7 +41,7 @@ public class BinPackingDemo5
 
 		Bin[] bins = new Bin[10];
 		for (int i = 0; i < bins.length; i++)
-			bins[i] = new Bin("Bin-0" + i, 54000000000L);
+			bins[i] = new Bin("Bin-0" + i, 50000000000L);
 
 		ArrayList<ArrayList<Item>> solution = BinPacker.pack(items, bins);
 

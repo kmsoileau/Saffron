@@ -29,8 +29,7 @@ public class ProblemBitLinkerDemo3
 		System.out.println(testProblem);
 
 		IProblemMessage s = testProblem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("b=" + b.getValue());

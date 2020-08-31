@@ -6,6 +6,7 @@ import bits.Disjunction;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
+import bits.ProblemDenier;
 
 /**
  * This class links the value of an IBooleanVariable to the truth value of a

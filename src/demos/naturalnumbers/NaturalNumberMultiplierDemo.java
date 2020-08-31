@@ -21,7 +21,6 @@ public class NaturalNumberMultiplierDemo
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 		INaturalNumber Z = new NaturalNumber("Z");
-		// INaturalNumber C=new NaturalNumber("C");
 
 		INaturalNumber N1 = new NaturalNumber("N1");
 		INaturalNumber N2 = new NaturalNumber("N2");
@@ -29,9 +28,7 @@ public class NaturalNumberMultiplierDemo
 
 		IProblem p = new Conjunction(
 				new IProblem[]
-				{
-						// new NaturalNumberMultiplier(X,Y,Z,C),
-						new NaturalNumberMultiplier(X, Y, Z),
+				{ new NaturalNumberMultiplier(X, Y, Z),
 						new NaturalNumberFixer(Z, 194L),
 						new NaturalNumberFixer(two, 2L),
 						new NaturalNumberAdder(N1, two, X),
@@ -41,8 +38,7 @@ public class NaturalNumberMultiplierDemo
 		System.out.println(p);
 
 		IProblemMessage s = p.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("N1 = " + N1);

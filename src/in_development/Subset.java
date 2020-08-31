@@ -2,7 +2,7 @@ package in_development;
 
 import sets.Set;
 import bits.IBitString;
-import bitstrings.BitString;
+import bits.strings.BitString;
 
 public class Subset
 {

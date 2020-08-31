@@ -1,29 +1,22 @@
 package naturalnumbers;
 
-import exceptions.naturalnumbers.NumberException;
+import naturalnumbers.exceptions.NumberException;
 
 /**
  * A class which represents a number by wrapping a
  * <code>boolean[] bitArray</code>, a <code>String
  * name</code> and a <code>boolean overflow</code>.
- *
+ * 
  * @author Kerry Michael Soileau
  *         <p>
  *         email: ksoileau2@yahoo.com
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2005/05/04
+ * @since May 4, 2005
  */
 public class Number implements INumber
 {
-	public static void main(String[] args) throws NumberException
-	{
-		Number number1 = new Number(2401l);
-		Number number2 = new Number(number1, 12);
-		System.out.println(number1.toString());
-		System.out.println(number2.toString());
-	}
 
 	private boolean[] bitArray;
 	private String name;

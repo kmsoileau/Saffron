@@ -15,6 +15,7 @@ import bits.Disjunction;
 import bits.IProblem;
 import bits.Mapper;
 import bits.Problem;
+import bits.ProblemDenier;
 
 public class Noninjectioner extends Problem implements IProblem
 {

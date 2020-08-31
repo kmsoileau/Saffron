@@ -20,7 +20,7 @@ package bits;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.11
- * @since 2004/11/24
+ * @since Nov 24, 2004
  */
 public class BitOrer extends Problem implements IProblem
 {

@@ -1,3 +1,5 @@
+package bits;
+
 /**
  *
  * @author Kerry Michael Soileau
@@ -8,8 +10,6 @@
  * @version 1.0
  * @since Dec 24, 2018
  */
-package bits;
-
 public class ProblemVector
 {
 	private IProblem[] backing;

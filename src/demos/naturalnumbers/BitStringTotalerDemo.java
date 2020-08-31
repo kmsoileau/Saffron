@@ -8,8 +8,8 @@ import bits.IBitString;
 import bits.INaturalNumber;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstrings.BitString;
-import bitstrings.BitStringFixer;
+import bits.strings.BitString;
+import bits.strings.BitStringFixer;
 
 public class BitStringTotalerDemo
 {
@@ -26,8 +26,7 @@ public class BitStringTotalerDemo
 		IProblemMessage s = new Conjunction(new BitStringFixer(X),
 				new BitStringTotaler(X, sum))
 				.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("sum= " + sum);

@@ -34,8 +34,7 @@ public class NaturalNumberDoublerDemo
 
 			IProblem p = new Conjunction(bnnfx, NaturalNumberDoubler1);
 			IProblemMessage s = p.findModel(Problem.defaultSolver());
-			if (s.getStatus() == IProblemMessage.SATISFIABLE
-					&& s.getLiterals().size() > 0)
+			if (s.getStatus() == IProblemMessage.SATISFIABLE)
 			{
 				BooleanLiteral.interpret(s.getLiterals());
 				System.out.print("\nX= " + X);

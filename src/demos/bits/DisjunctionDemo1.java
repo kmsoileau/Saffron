@@ -50,8 +50,7 @@ public class DisjunctionDemo1
 		problem = new Disjunction(p1);
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
@@ -69,8 +68,7 @@ public class DisjunctionDemo1
 		problem = new Disjunction(p1, p2);
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
@@ -85,11 +83,10 @@ public class DisjunctionDemo1
 		else
 			System.out.println("No solution.");
 		// IProblem-2
-		problem = new Disjunction(p2, p3, Y);
+		problem = new Disjunction(Y, p2, p3);
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
@@ -107,8 +104,7 @@ public class DisjunctionDemo1
 		problem = new Disjunction(p1, p3, p4);
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
@@ -126,8 +122,7 @@ public class DisjunctionDemo1
 		problem = new Disjunction(p1, p2, p3, p4);
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
@@ -146,8 +141,7 @@ public class DisjunctionDemo1
 		{ p1, p2, p3, p4 });
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
@@ -162,13 +156,12 @@ public class DisjunctionDemo1
 		else
 			System.out.println("No solution.");
 		// IProblem-6
-		problem = new Disjunction(new IProblem[]
-		{ p1, p2, p3, p4 }, new IBooleanVariable[]
-		{ X, Y, Z });
+		problem = new Disjunction(new IBooleanVariable[]
+		{ X, Y, Z }, new IProblem[]
+		{ p1, p2, p3, p4 });
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
@@ -183,14 +176,13 @@ public class DisjunctionDemo1
 		else
 			System.out.println("No solution.");
 		// IProblem-7
-		problem = new Conjunction(new Disjunction(new IProblem[]
-		{ p1, p2, p3, p4 }, new IBooleanVariable[]
-		{ X, Y, Z }), new BitFixer(X, false), new BitFixer(Y, false),
+		problem = new Conjunction(new Disjunction(new IBooleanVariable[]
+		{ X, Y, Z }, new IProblem[]
+		{ p1, p2, p3, p4 }), new BitFixer(X, false), new BitFixer(Y, false),
 				new BitFixer(Z, false));
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());
@@ -210,8 +202,7 @@ public class DisjunctionDemo1
 		{ X, Y, Z });
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X.getValue());

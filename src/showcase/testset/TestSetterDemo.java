@@ -16,9 +16,9 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstrings.BitString;
-import bitstrings.BitStringFixer;
-import bitstrings.TestSetter;
+import bits.strings.BitString;
+import bits.strings.BitStringFixer;
+import bits.strings.TestSetter;
 
 public class TestSetterDemo
 {
@@ -40,8 +40,7 @@ public class TestSetterDemo
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 

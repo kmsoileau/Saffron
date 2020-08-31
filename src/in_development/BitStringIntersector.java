@@ -15,7 +15,7 @@ import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
-import exceptions.bitstrings.BitStringIntersectorException;
+import bits.strings.exceptions.BitStringIntersectorException;
 
 /**
  * Satisfied when X[i]==true and Y[i]==true for some i.

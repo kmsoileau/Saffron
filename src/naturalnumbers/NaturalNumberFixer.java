@@ -1,22 +1,53 @@
-/**
- * <p>An IProblem which constrains an INaturalNumber to a
- * particular value.</p>
- * <p>Copyright (c) 2005 Positronic Software</p>
- * @author Kerry Michael Soileau
- * @version 1.0
- * 2009/05/21
- */
-
 package naturalnumbers;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import naturalnumbers.exceptions.NaturalNumberFixerException;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import exceptions.naturalnumbers.NaturalNumberFixerException;
 
+/**
+ * <p>
+ * An IProblem which constrains an INaturalNumber to a particular value.
+ * </p>
+ * 
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since May 21, 2009
+ */
 public class NaturalNumberFixer extends Problem implements IProblem
 {
+	public NaturalNumberFixer(ArrayList<NaturalNumberPair> pairs)
+			throws Exception
+	{
+		IProblem[] p = new IProblem[pairs.size()];
+		for (int i = 0; i < pairs.size(); i++)
+		{
+			p[i] = new NaturalNumberFixer(pairs.get(i));
+		}
+
+		this.setClauses(new Conjunction(p).getClauses());
+	}
+
+	public NaturalNumberFixer(Collection<INaturalNumber> values)
+			throws Exception
+	{
+		ArrayList<IProblem> p = new ArrayList<IProblem>();
+		for (INaturalNumber curr : values)
+		{
+			p.add(new NaturalNumberFixer(curr));
+		}
+
+		this.setClauses(new Conjunction(p).getClauses());
+	}
+
 	public NaturalNumberFixer(INaturalNumber n) throws Exception
 	{
 		if (n == null)
@@ -75,5 +106,43 @@ public class NaturalNumberFixer extends Problem implements IProblem
 				bnnbf[i] = new NaturalNumberBitFixer(b, i, false);
 		IProblem p = new Conjunction(bnnbf);
 		this.setClauses(p.getClauses());
+	}
+
+	public NaturalNumberFixer(INaturalNumber[] n1) throws Exception
+	{
+		IProblem[] p = new IProblem[n1.length];
+		for (int i = 0; i < n1.length; i++)
+			p[i] = new NaturalNumberFixer(n1[i]);
+		this.setClauses(new Conjunction(p).getClauses());
+	}
+
+	public NaturalNumberFixer(NaturalNumberPair naturalNumberPair)
+			throws Exception
+	{
+		IProblem problem = new Conjunction(new NaturalNumberFixer(
+				naturalNumberPair.getFirst()), new NaturalNumberFixer(
+				naturalNumberPair.getSecond()));
+		this.setClauses(problem.getClauses());
+	}
+
+	public NaturalNumberFixer(NaturalNumberTriple naturalNumberTriple)
+			throws Exception
+	{
+		IProblem problem = new Conjunction(new NaturalNumberFixer(
+				naturalNumberTriple.getFirst()), new NaturalNumberFixer(
+				naturalNumberTriple.getSecond()), new NaturalNumberFixer(
+				naturalNumberTriple.getThird()));
+		this.setClauses(problem.getClauses());
+	}
+
+	public NaturalNumberFixer(NaturalNumberTriple[] triples) throws Exception
+	{
+		IProblem[] p = new IProblem[triples.length];
+		for (int i = 0; i < triples.length; i++)
+		{
+			p[i] = new NaturalNumberFixer(triples[i]);
+		}
+
+		this.setClauses(new Conjunction(p).getClauses());
 	}
 }

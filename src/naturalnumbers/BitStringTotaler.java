@@ -8,6 +8,8 @@
 
 package naturalnumbers;
 
+import java.util.ArrayList;
+
 import bits.Conjunction;
 import bits.IBitString;
 import bits.INaturalNumber;
@@ -19,18 +21,16 @@ public class BitStringTotaler extends Problem implements IProblem
 	public BitStringTotaler(IBitString X, INaturalNumber bitSum)
 			throws Exception
 	{
-		IProblem problem = Problem.newProblem();
-
 		INaturalNumber[] allOnes = new NaturalNumber[X.size()];
+		ArrayList<IProblem> p = new ArrayList<IProblem>();
 		for (int i = 0; i < X.size(); i++)
 		{
 			allOnes[i] = new NaturalNumber();
-			problem = new Conjunction(problem, new NaturalNumberFixer(
-					allOnes[i], 1L));
+			p.add(new NaturalNumberFixer(allOnes[i], 1L));
 		}
 
-		problem = new Conjunction(problem, new ConditionalAdder(allOnes, X,
-				bitSum));
+		IProblem problem = new Conjunction(new Conjunction(p),
+				new ConditionalAdder(allOnes, X, bitSum));
 
 		this.setClauses(problem.getClauses());
 	}

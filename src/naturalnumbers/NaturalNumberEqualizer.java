@@ -1,20 +1,22 @@
 package naturalnumbers;
 
-/**
- * <p>Title: TBS</p>
- * <p>Description: TBS</p>
- * <p>Copyright (c) 2005</p>
- * <p>Company: Positronic Software</p>
- * @author Kerry Michael Soileau
- * @version 1.0
- */
+import naturalnumbers.exceptions.NaturalNumberEqualizerException;
 import bits.BitEqualizer;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import exceptions.naturalnumbers.NaturalNumberEqualizerException;
 
+/**
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Mar 3, 2005
+ */
 public class NaturalNumberEqualizer extends Problem implements IProblem
 {
 	public NaturalNumberEqualizer(INaturalNumber X, INaturalNumber Y)
@@ -22,7 +24,7 @@ public class NaturalNumberEqualizer extends Problem implements IProblem
 	{
 		if (X == null || Y == null)
 			throw new NaturalNumberEqualizerException(
-					"A null conditionalSum variable was passed to constructor.");
+					"A null INaturalNumber was passed to constructor.");
 
 		IProblem[] thba = new Problem[NaturalNumber.getLength()];
 		for (int i = 0; i < NaturalNumber.getLength(); i++)

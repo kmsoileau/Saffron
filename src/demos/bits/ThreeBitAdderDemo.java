@@ -23,8 +23,7 @@ public class ThreeBitAdderDemo
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		String ret = "";
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			ret += bva[0].getValue() ? "1" : "0";

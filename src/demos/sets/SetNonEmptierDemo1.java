@@ -19,8 +19,7 @@ public class SetNonEmptierDemo1
 		IProblem problem = new SetNonemptier(theSet);
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.print("theSet= " + theSet);

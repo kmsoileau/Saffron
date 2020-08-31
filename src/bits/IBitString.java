@@ -39,5 +39,6 @@ public interface IBitString extends Cloneable
 
 	IBooleanVariable[] toBooleanVariableArray();
 
+	@Override
 	String toString();
 }

@@ -32,8 +32,7 @@ public class BitArrayPartitionDemo
 		problem = new BitArrayPartition(partition);
 		// System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < partitions; i++)
@@ -63,8 +62,7 @@ public class BitArrayPartitionDemo
 		problem = new BitArrayPartition(partition);
 		// System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < partitions; i++)
@@ -94,8 +92,7 @@ public class BitArrayPartitionDemo
 		problem = new BitArrayPartition(partition);
 		// System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < partitions; i++)
@@ -125,8 +122,7 @@ public class BitArrayPartitionDemo
 		problem = new BitArrayPartition(partition);
 		// System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < partitions; i++)
@@ -156,8 +152,7 @@ public class BitArrayPartitionDemo
 		problem = new BitArrayPartition(partition);
 		// System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < partitions; i++)

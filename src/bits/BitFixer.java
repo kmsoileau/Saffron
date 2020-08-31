@@ -1,5 +1,7 @@
 package bits;
 
+import java.util.ArrayList;
+
 /**
  * An extension of the Problem class which implements a Boolean constraint. This
  * constraint is satisfied if and only if the IBooleanVariable x has a given
@@ -33,7 +35,7 @@ package bits;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.1
- * @since 2004/10/05
+ * @since Oct 5, 2004
  */
 public class BitFixer extends Problem implements IProblem
 {
@@ -50,5 +52,14 @@ public class BitFixer extends Problem implements IProblem
 			this.getClause(0).or(x);
 		else
 			this.getClause(0).orNot(x);
+	}
+
+	public BitFixer(IBooleanVariable[] membership) throws Exception
+	{
+		ArrayList<IProblem> p = new ArrayList<IProblem>();
+		for (int i = 0; i < membership.length; i++)
+			p.add(new BitFixer(membership[i]));
+
+		this.setClauses(new Conjunction(p).getClauses());
 	}
 }

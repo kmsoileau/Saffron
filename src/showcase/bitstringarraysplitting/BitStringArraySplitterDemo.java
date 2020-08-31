@@ -16,9 +16,9 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstrings.BitString;
-import bitstrings.BitStringArraySplitter;
-import bitstrings.BitStringFixer;
+import bits.strings.BitString;
+import bits.strings.BitStringArraySplitter;
+import bits.strings.BitStringFixer;
 
 public class BitStringArraySplitterDemo
 {
@@ -38,8 +38,7 @@ public class BitStringArraySplitterDemo
 				new BitStringArraySplitter(C, S1, S2));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("S1= " + S1.toBits());

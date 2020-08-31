@@ -2,8 +2,18 @@ package bits;
 
 import java.util.ArrayList;
 
-import exceptions.bits.MapperException;
+import bits.exceptions.MapperException;
 
+/**
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Jan 21, 2019
+ */
 public class Mapper extends Problem implements IProblem
 {
 	private static IProblem map(IProblem[] p1, IProblem[] p2,
@@ -25,7 +35,7 @@ public class Mapper extends Problem implements IProblem
 		IProblem[] d = new IProblem[p1.length];
 		for (int i = 0; i < d.length; i++)
 			d[i] = new Conjunction(p1[i], p2[i]);
-		IProblem e = new Disjunction(d, b);
+		IProblem e = new Disjunction(b, d);
 		return e;
 	}
 
@@ -40,9 +50,9 @@ public class Mapper extends Problem implements IProblem
 
 		int len = list.size();
 
-		if (len == 0)
-			throw new MapperException(
-					"ProblemPair ArrayList of zero size passed to constructor.");
+		// if (len == 0)
+		// throw new MapperException(
+		// "ProblemPair ArrayList of zero size passed to constructor.");
 
 		this.domain = new IProblem[len];
 		this.codomain = new IProblem[len];
@@ -66,9 +76,9 @@ public class Mapper extends Problem implements IProblem
 		if (dlength != codomain.length)
 			throw new MapperException(
 					"IProblem arrays of unequal length passed to constructor.");
-		if (dlength == 0)
-			throw new MapperException(
-					"IProblem arrays of zero length passed to constructor.");
+		// if (dlength == 0)
+		// throw new MapperException(
+		// "IProblem arrays of zero length passed to constructor.");
 
 		this.domain = domain;
 		this.codomain = codomain;
@@ -87,7 +97,11 @@ public class Mapper extends Problem implements IProblem
 	{
 		IProblem p = map(p1, p2, b);
 		if (p != null)
+		{
+			this.domain = p1;
+			this.codomain = p2;
 			this.setClauses(p.getClauses());
+		}
 	}
 
 	/**
@@ -106,9 +120,9 @@ public class Mapper extends Problem implements IProblem
 
 		int len = array.length;
 
-		if (len == 0)
-			throw new MapperException(
-					"ProblemPair array of zero length passed to constructor.");
+		// if (len == 0)
+		// throw new MapperException(
+		// "ProblemPair array of zero length passed to constructor.");
 
 		this.domain = new IProblem[len];
 		this.codomain = new IProblem[len];
@@ -122,6 +136,41 @@ public class Mapper extends Problem implements IProblem
 		this.setClauses(new Mapper(this.domain, this.codomain).getClauses());
 	}
 
+	public Mapper(ProblemPair[] array, IBooleanVariable[] b) throws Exception
+	{
+		IProblem[] left = new IProblem[array.length];
+		IProblem[] right = new IProblem[array.length];
+		for (int i = 0; i < array.length; i++)
+		{
+			left[i] = array[i].getFirst();
+			right[i] = array[i].getSecond();
+		}
+		Mapper qq = new Mapper(left, right, b);
+
+		this.domain = qq.domain;
+		this.codomain = qq.codomain;
+		this.setClauses(qq.getClauses());
+	}
+
+	public Mapper(ProblemTriple[] array) throws Exception
+	{
+		if (array == null)
+			throw new MapperException(
+					"Null ProblemTriple array passed to constructor.");
+
+		int len = array.length;
+
+		this.domain = new IProblem[len];
+		this.codomain = new IProblem[len];
+
+		for (int i = 0; i < len; i++)
+		{
+			this.domain[i] = array[i].getFirst();
+			this.codomain[i] = new Conjunction(array[i].getSecond(),
+					array[i].getThird());
+		}
+	}
+
 	public IProblem getCodomain(int i)
 	{
 		return this.codomain[i];
@@ -132,6 +181,7 @@ public class Mapper extends Problem implements IProblem
 		return this.domain[i];
 	}
 
+	@Override
 	public int size()
 	{
 		return this.domain.length;

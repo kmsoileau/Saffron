@@ -1,10 +1,5 @@
 package naturalnumbers;
 
-/**
- * <p>Copyright: Copyright (c) 2005 Positronic Software</p>
- * @author Kerry Michael Soileau
- * @version 1.0
- */
 import bits.BitFixer;
 import bits.Conjunction;
 import bits.Disjunction;
@@ -13,6 +8,16 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
+/**
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Mar 3, 2005
+ */
 public class NaturalNumberFromBitConverter extends Problem implements IProblem
 {
 	public NaturalNumberFromBitConverter(INaturalNumber b, IBooleanVariable bv)

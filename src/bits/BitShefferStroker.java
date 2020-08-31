@@ -20,7 +20,7 @@ package bits;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2015/03/18
+ * @since Mar 18, 2015
  */
 public class BitShefferStroker extends Problem implements IProblem
 {

@@ -25,8 +25,7 @@ public class NaturalNumberOrdererDemo
 		System.out.println(problem);
 		// List s=PartialSolution.solveList(problem);
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X);

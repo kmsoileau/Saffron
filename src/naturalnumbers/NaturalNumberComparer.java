@@ -1,18 +1,23 @@
 package naturalnumbers;
 
-/**
- * Copyright (c) 2005 Positronic Software
- * @author Kerry Michael Soileau
- * @version 1.0
- */
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
-//Satisfied when X is STRICTLY LESS THAN Y.
+/**
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Mar 3, 2005
+ */
 public class NaturalNumberComparer extends Problem implements IProblem
 {
+	// Satisfied when X is STRICTLY LESS THAN Y.
 	public NaturalNumberComparer(INaturalNumber X, INaturalNumber Y)
 			throws Exception
 	{

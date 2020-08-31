@@ -22,7 +22,7 @@ package bits;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 2.0
- * @since 2018/11/25
+ * @since 2004/11/304
  */
 public class ThreeBitAdder extends Problem implements IProblem
 {

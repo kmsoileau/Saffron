@@ -1,6 +1,6 @@
 package bits;
 
-import exceptions.bits.ConditionalConjunctionException;
+import bits.exceptions.ConditionalConjunctionException;
 
 /**
  * Returns an IProblem that is satisfied if and only if all of the following
@@ -28,7 +28,7 @@ import exceptions.bits.ConditionalConjunctionException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2018/11/04
+ * @since Nov 4, 2018
  */
 public class ConditionalConjunction extends Problem implements IProblem
 {
@@ -53,8 +53,8 @@ public class ConditionalConjunction extends Problem implements IProblem
 
 		IProblem[] subProblems = new IProblem[numberOfProblems];
 		for (int i = 0; i < numberOfProblems; i++)
-			subProblems[i] = new Disjunction(problemArray[i],
-					Problem.trivialProblem(), booleanVariableArray[i]);
+			subProblems[i] = new Disjunction(booleanVariableArray[i],
+					problemArray[i], Problem.trivialProblem());
 
 		this.setClauses(new Conjunction(subProblems).getClauses());
 	}

@@ -1,6 +1,6 @@
 package bits;
 
-import exceptions.bits.BitEqualizerException;
+import bits.exceptions.BitEqualizerException;
 
 /**
  * An extension of the Problem class which imposes a Boolean relation on two
@@ -22,7 +22,7 @@ import exceptions.bits.BitEqualizerException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.11
- * @since 2005/11/30
+ * @since Nov 30, 2005
  */
 public class BitEqualizer extends Problem implements IProblem
 {

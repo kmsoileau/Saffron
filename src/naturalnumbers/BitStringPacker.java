@@ -7,7 +7,7 @@ import bits.IBitString;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import bitstrings.BitStringDisjointer;
+import bits.strings.BitStringDisjointer;
 
 /**
  * A collection C of IBitStrings and a positive integer K: Does C include K

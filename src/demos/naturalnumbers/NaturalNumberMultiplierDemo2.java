@@ -17,19 +17,13 @@ public class NaturalNumberMultiplierDemo2
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 		INaturalNumber Z = new NaturalNumber("Z");
-		// INaturalNumber C=new NaturalNumber("C");
 
-		IProblem p;
-		IProblemMessage s;
-
-		p = new Conjunction(new IProblem[]
+		IProblem p = new Conjunction(new IProblem[]
 		{ new NaturalNumberMultiplier(X, Y, Z), new NaturalNumberFixer(X, 8),
-				new NaturalNumberFixer(Y, 1), });
-		// System.out.println(p);
+				new NaturalNumberFixer(Y, 3), });
 
-		s = p.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		IProblemMessage s = p.findModel(Problem.defaultSolver());
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.print("\nX = " + X);

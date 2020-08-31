@@ -22,8 +22,7 @@ public class NaturalNumberBitFixerDemo
 		INaturalNumber X = new NaturalNumber("X");
 		NaturalNumberBitFixer nnbf = new NaturalNumberBitFixer(X, 3, true);
 		IProblemMessage s = nnbf.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X= " + X);

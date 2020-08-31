@@ -20,7 +20,7 @@ package bits;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.1
- * @since 2004/10/05
+ * @since Oct 5, 2004
  */
 public class BitInequalityIndicator extends Problem implements IProblem
 {

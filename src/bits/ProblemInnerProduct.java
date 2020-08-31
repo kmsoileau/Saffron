@@ -1,6 +1,6 @@
 package bits;
 
-import exceptions.bits.ProblemInnerProductException;
+import bits.exceptions.ProblemInnerProductException;
 
 /**
  * The <code>IProblem prob</code> defined by

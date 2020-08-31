@@ -17,12 +17,12 @@
 
 package naturalnumbers;
 
+import naturalnumbers.exceptions.NaturalNumberException;
 import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
-import bitstrings.BitString;
-import exceptions.bitstrings.BitStringException;
-import exceptions.naturalnumbers.NaturalNumberException;
+import bits.strings.BitString;
+import bits.strings.exceptions.BitStringException;
 
 @SuppressWarnings("unused")
 public class NaturalNumber extends BitString implements INaturalNumber
@@ -124,18 +124,7 @@ public class NaturalNumber extends BitString implements INaturalNumber
 	}
 
 	@Override
-	public void setName(String s) throws Exception
-	{
-		super.setName(s);
-	}
-
-	public IBooleanVariable[] toBVArray() throws Exception
-	{
-		return super.getBVArray();
-	}
-
-	@Override
-	public long toDecimal()
+	public long getValue()
 	{
 		long total = 0L;
 		for (int i = getLength() - 1; i >= 0; i--)
@@ -158,8 +147,19 @@ public class NaturalNumber extends BitString implements INaturalNumber
 	}
 
 	@Override
+	public void setName(String s) throws Exception
+	{
+		super.setName(s);
+	}
+
+	public IBooleanVariable[] toBVArray() throws Exception
+	{
+		return super.getBVArray();
+	}
+
+	@Override
 	public String toString()
 	{
-		return "" + this.toDecimal();
+		return "" + this.getValue();
 	}
 }

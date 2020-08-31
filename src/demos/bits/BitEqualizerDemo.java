@@ -21,8 +21,7 @@ public class BitEqualizerDemo
 		System.out.println("DIMACS:\n" + ((Problem) bitEqualizer1).toDIMACS());
 
 		IProblemMessage s = bitEqualizer1.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("x= " + x.getValue());

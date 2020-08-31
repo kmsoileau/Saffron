@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-import exceptions.bits.BooleanLiteralException;
+import bits.exceptions.BooleanLiteralException;
 
 /**
  * A class which represents a Boolean literal. BooleanLiteral is essentially a
@@ -22,7 +22,7 @@ import exceptions.bits.BooleanLiteralException;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2004/08/26
+ * @since Aug 26, 2004
  */
 public class BooleanLiteral implements IBooleanLiteral
 {
@@ -174,6 +174,7 @@ public class BooleanLiteral implements IBooleanLiteral
 	 * method returns <code>false</code>. Otherwise, this method returns
 	 * <code>true</code>.
 	 */
+	@Override
 	public boolean equals(Object o)
 	{
 		if (o == null)

@@ -21,10 +21,10 @@ import bits.Conjunction;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstringlists.BitStringList;
-import bitstringlists.BitStringListFixer;
-import bitstringlists.BitStringListSorter;
-import bitstringlists.IBitStringList;
+import bits.strings.lists.BitStringList;
+import bits.strings.lists.BitStringListFixer;
+import bits.strings.lists.BitStringListSorter;
+import bits.strings.lists.IBitStringList;
 
 public class BitStringListSorterDemo
 {
@@ -62,8 +62,7 @@ public class BitStringListSorterDemo
 		System.out.println(problem);
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("s1=" + s1);

@@ -3,7 +3,8 @@ package in_development;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
-import exceptions.bits.ProblemDifferencerException;
+import bits.ProblemDenier;
+import bits.exceptions.ProblemDifferencerException;
 
 /**
  * An extension of the Problem class which expresses the logical difference of

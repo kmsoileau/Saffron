@@ -15,8 +15,7 @@ public class SubsetterDemo2
 
 		IProblemMessage s = new Subsetter(setA, setB).findModel(Problem
 				.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println(setA.getName() + "=" + setA);

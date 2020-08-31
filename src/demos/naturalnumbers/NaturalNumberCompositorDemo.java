@@ -25,8 +25,7 @@ public class NaturalNumberCompositorDemo
 		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 30L),
 				new NaturalNumberCompositor(Z));
 		IProblemMessage s = p.findModel();
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println(Z + " is composite.");

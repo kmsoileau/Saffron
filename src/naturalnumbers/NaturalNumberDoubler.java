@@ -1,14 +1,5 @@
 package naturalnumbers;
 
-/**
- * <p>Title: TBS</p>
- * <p>Description: TBS</p>
- * <p>Copyright (c) 2004</p>
- * <p>Company: Positronic Software</p>
- * @author Kerry Michael Soileau
- * @version 1.0
- */
-
 import bits.BitEqualizer;
 import bits.BitFixer;
 import bits.Conjunction;
@@ -16,6 +7,16 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
+/**
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Mar 3, 2004
+ */
 public class NaturalNumberDoubler extends Problem implements IProblem
 {
 	public NaturalNumberDoubler(INaturalNumber X, INaturalNumber Z)

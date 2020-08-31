@@ -38,6 +38,7 @@ public class ProblemAsData implements IProblemAsData
 		return clauses;
 	}
 
+	@Override
 	public IClauseAsData[] getClausesArray()
 	{
 		return this.getClauses().toArray(new IClauseAsData[0]);
@@ -53,6 +54,7 @@ public class ProblemAsData implements IProblemAsData
 		return this.clauses.remove(index);
 	}
 
+	@Override
 	public IProblem toProblem() throws Exception
 	{
 		IProblem ret = Problem.newProblem();

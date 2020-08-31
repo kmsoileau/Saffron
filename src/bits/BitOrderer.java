@@ -32,7 +32,7 @@ package bits;
  *         <p>
  *         website: http://kerrysoileau.com/index.html
  * @version 1.0
- * @since 2005/05/04
+ * @since May 4, 2005
  */
 public class BitOrderer extends Problem implements IProblem
 {

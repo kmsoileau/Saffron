@@ -30,8 +30,7 @@ public class NaturalNumberMultiplierDemo3
 						new NaturalNumberFixer(Y, j), });
 
 				s = p.findModel(Problem.defaultSolver());
-				if (s.getStatus() == IProblemMessage.SATISFIABLE
-						&& s.getLiterals().size() > 0)
+				if (s.getStatus() == IProblemMessage.SATISFIABLE)
 				{
 					BooleanLiteral.interpret(s.getLiterals());
 					System.out.print("\nX = " + X);

@@ -1,6 +1,6 @@
 package naturalnumbers;
 
-import exceptions.naturalnumbers.NumberException;
+import naturalnumbers.exceptions.NumberException;
 
 /**
  * The <code>INumber</code> interface must be implemented by any class
@@ -17,6 +17,7 @@ import exceptions.naturalnumbers.NumberException;
  */
 public interface INumber
 {
+	@Override
 	public boolean equals(Object anObject);
 
 	public boolean getBit(int i) throws NumberException;

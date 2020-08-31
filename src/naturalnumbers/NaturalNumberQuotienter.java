@@ -1,8 +1,6 @@
 package naturalnumbers;
 
 import bits.Conjunction;
-import bits.IBooleanVariable;
-import bits.IClause;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
@@ -28,48 +26,30 @@ import bits.Problem;
  * <code>X == Z * Y</code>
  * </p>
  * .
- *
- * @author Kerry Michael Soileau <blockquote>
  * 
- *         <pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * </pre>
- * 
- *         </blockquote>
- * @version 1.0, 06/02/08
- * @see IBooleanVariable
- * @see IClause
- * @see IProblem
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Feb 08, 2006
  */
-
 public class NaturalNumberQuotienter extends Problem implements IProblem
 {
 	public NaturalNumberQuotienter(INaturalNumber Dividend,
 			INaturalNumber Divisor, INaturalNumber Quotient,
 			INaturalNumber Remainder) throws Exception
 	{
-		// Product=Divisor*Quotient
-		// Dividend=Product+Remainder
-		// RemainderPlusOne=Remainder++
-		// RemainderPlusOne<=Divisor
-		INaturalNumber Product = new NaturalNumber(NaturalNumber.getLength());
-		INaturalNumber RemainderPlusOne = new NaturalNumber(
-				NaturalNumber.getLength());
-		INaturalNumber Difference = new NaturalNumber(NaturalNumber.getLength());
-		INaturalNumber One = new NaturalNumber(NaturalNumber.getLength());
-		IProblem problem = null;
-		problem = new Conjunction(problem, new NaturalNumberMultiplier(Divisor,
-				Quotient, Product));
-		problem = new Conjunction(problem, new NaturalNumberAdder(Product,
-				Remainder, Dividend));
-		problem = new Conjunction(problem, new NaturalNumberFixer(One, 1L));
-		problem = new Conjunction(problem, new NaturalNumberAdder(Remainder,
-				One, RemainderPlusOne));
-		problem = new Conjunction(problem, new NaturalNumberAdder(
-				RemainderPlusOne, Difference, Divisor));
+		INaturalNumber Product = new NaturalNumber();
 
-		this.setClauses(problem.getClauses());
+		// Divisor*Quotient==Product
+		IProblem p1 = new NaturalNumberMultiplier(Divisor, Quotient, Product);
+		// Product+Remainder==Dividend i.e. Divisor*Quotient+Remainder==Dividend
+		IProblem p2 = new NaturalNumberAdder(Product, Remainder, Dividend);
+		// Remainder<Divisor
+		IProblem p3 = new NaturalNumberStrictOrderer(Remainder, Divisor);
+
+		this.setClauses(new Conjunction(p1, p2, p3).getClauses());
 	}
 }

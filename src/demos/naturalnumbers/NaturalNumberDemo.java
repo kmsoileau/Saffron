@@ -3,7 +3,7 @@ package demos.naturalnumbers;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.Number;
 import bits.IBitString;
-import bitstrings.BitString;
+import bits.strings.BitString;
 
 /**
  * <p>

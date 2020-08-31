@@ -10,6 +10,10 @@
  */
 package showcase.mapcoloring;
 
+import graphs.IUndirectedGraph;
+import graphs.MapColorer;
+import graphs.UndirectedGraph;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -20,9 +24,6 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstringgraphs.BitStringGraph;
-import bitstringgraphs.IBitStringGraph;
-import bitstringgraphs.MapColorer;
 
 public class MapColorerDemo
 {
@@ -72,7 +73,7 @@ public class MapColorerDemo
 		/**
 		 * Create Saffron objects and arrays:
 		 */
-		IBitStringGraph skeleton = new BitStringGraph(numberOfRegions);
+		IUndirectedGraph skeleton = new UndirectedGraph(numberOfRegions);
 		INaturalNumber[] coloring = new INaturalNumber[skeleton.size()];
 
 		/**
@@ -84,7 +85,7 @@ public class MapColorerDemo
 			Integer left = directory.get(s);
 			for (String currRight : map.get(s))
 			{
-				skeleton.biconnect(left, directory.get(currRight));
+				skeleton.connect(left, directory.get(currRight));
 			}
 		}
 
@@ -100,8 +101,7 @@ public class MapColorerDemo
 		 * Solve the IProblem:
 		 */
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 

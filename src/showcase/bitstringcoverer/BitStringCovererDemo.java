@@ -9,11 +9,11 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstringlists.BitStringList;
-import bitstringlists.BitStringListFixer;
-import bitstringlists.BitStringSizedCoverer;
-import bitstringlists.IBitStringList;
-import bitstrings.BitString;
+import bits.strings.BitString;
+import bits.strings.lists.BitStringList;
+import bits.strings.lists.BitStringListFixer;
+import bits.strings.lists.BitStringSizedCoverer;
+import bits.strings.lists.IBitStringList;
 
 public class BitStringCovererDemo
 {
@@ -32,8 +32,7 @@ public class BitStringCovererDemo
 						included, K));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < included.size(); i++)

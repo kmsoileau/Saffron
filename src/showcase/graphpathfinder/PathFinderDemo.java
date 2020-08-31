@@ -10,15 +10,15 @@
  */
 package showcase.graphpathfinder;
 
+import graphs.DirectedGraph;
+import graphs.IDirectedGraph;
+import graphs.PathFinder;
 import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import bitstringgraphs.BitStringGraph;
-import bitstringgraphs.IBitStringGraph;
-import bitstringgraphs.PathFinder;
 
 public class PathFinderDemo
 {
@@ -30,10 +30,10 @@ public class PathFinderDemo
 
 		int numberOfVertices = 8;
 
-		int startVertex = 3;
-		int endVertex = 6;
+		int startVertex = 1;
+		int endVertex = 7;
 
-		int K = 9;
+		int K = 4;
 
 		/**
 		 * Set globals:
@@ -43,30 +43,19 @@ public class PathFinderDemo
 		 * Create Saffron objects and arrays:
 		 */
 
-		// IBitStringGraph G = new BitStringGraph(numberOfVertices);
-		// G.monoconnect(0, 1);
-		// G.monoconnect(0, 3);
-		// G.monoconnect(1, 1);
-		// G.monoconnect(1, 2);
-		// G.monoconnect(1, 4);
-		// G.biconnect(2, 4);
-		// G.monoconnect(2, 5);
-		// G.monoconnect(3, 4);
-		// G.monoconnect(4, 6);
-		// G.monoconnect(5, 7);
-		// G.monoconnect(6, 5);
-		// G.monoconnect(6, 7);
-
-		IBitStringGraph G = new BitStringGraph(numberOfVertices);
+		IDirectedGraph G = new DirectedGraph(numberOfVertices);
 		G.monoconnect(0, 1);
+		G.monoconnect(0, 3);
+		G.monoconnect(1, 1);
 		G.monoconnect(1, 2);
-		G.monoconnect(2, 3);
+		G.monoconnect(1, 4);
+		G.biconnect(2, 4);
+		G.monoconnect(2, 5);
 		G.monoconnect(3, 4);
-		G.monoconnect(4, 5);
-		G.monoconnect(5, 6);
-		G.monoconnect(6, 6);
+		G.monoconnect(4, 6);
+		G.monoconnect(5, 7);
+		G.monoconnect(6, 5);
 		G.monoconnect(6, 7);
-		G.monoconnect(7, 4);
 
 		INaturalNumber[] vertex = new NaturalNumber[K + 1];
 		for (int i = 0; i <= K; i++)
@@ -88,8 +77,7 @@ public class PathFinderDemo
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.print("GRAPH\n");

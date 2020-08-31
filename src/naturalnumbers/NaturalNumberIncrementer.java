@@ -9,6 +9,16 @@ import bits.IProblem;
 import bits.Problem;
 import bits.TwoBitAdder;
 
+/**
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Mar 3, 2019
+ */
 public class NaturalNumberIncrementer extends Problem implements IProblem
 {
 	public NaturalNumberIncrementer(INaturalNumber X, INaturalNumber Y)

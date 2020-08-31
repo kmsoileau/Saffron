@@ -16,8 +16,8 @@ public class GeoProblemDemo extends Problem implements IProblem
 		IBooleanVariable y = BooleanVariable.getBooleanVariable("y");
 
 		IProblem p1 = new Problem();
-		p1.addClause((IClause) new Clause().or(x).orNot(y));
-		p1.addClause((IClause) new Clause().orNot(x).or(y));
+		p1.addClause(new Clause().or(x).orNot(y));
+		p1.addClause(new Clause().orNot(x).or(y));
 
 		// Combine the constraints into a Problem object :
 

@@ -26,8 +26,7 @@ public class ThreeBitAdderDemo1
 		System.out.println(threeBitAdder1);
 
 		IProblemMessage s = threeBitAdder1.findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println(w);

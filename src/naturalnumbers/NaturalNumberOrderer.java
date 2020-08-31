@@ -6,6 +6,16 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
+/**
+*
+* @author Kerry Michael Soileau
+*         <p>
+*         email: ksoileau2@yahoo.com
+*         <p>
+*         website: http://kerrysoileau.com/index.html
+* @version 1.0
+* @since Mar 4, 2019
+*/
 public class NaturalNumberOrderer extends Problem implements IProblem
 {
 	private static int nNOCount;

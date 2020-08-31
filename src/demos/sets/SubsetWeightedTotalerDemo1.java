@@ -44,8 +44,7 @@ public class SubsetWeightedTotalerDemo1
 				new ConditionalAdder(subset.getWeights(),
 						subset.getMembership(), sum), new NaturalNumberFixer(
 						sum, desiredSum)).findModel(Problem.defaultSolver());
-		if (s.getStatus() == IProblemMessage.SATISFIABLE
-				&& s.getLiterals().size() > 0)
+		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			if (subset.getMembership().getBooleanVariable(0).getValue())

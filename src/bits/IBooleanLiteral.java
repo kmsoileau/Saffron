@@ -2,7 +2,7 @@ package bits;
 
 import java.util.List;
 
-import exceptions.bits.BooleanLiteralException;
+import bits.exceptions.BooleanLiteralException;
 
 /**
  * The <code>IBooleanLiteral</code> interface must be implemented by any class
