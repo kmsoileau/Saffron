@@ -610,7 +610,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	}
 
 	@Override
-	public IBooleanLiteral removeClause(int i)
+	public IBooleanLiteral removeBooleanLiteral(int i)
 	{
 		return super.remove(i);
 	}
@@ -680,7 +680,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 				{
 					// System.out.println("Substituting "+(IBooleanLiteral)tr+"
 					// for "+this.get(i));
-					this.removeClause(i);
+					this.removeBooleanLiteral(i);
 					this.add((IBooleanLiteral) tr);
 					didsomething = true;
 				}
@@ -709,7 +709,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 				{
 					// System.out.println("Substituting "+(IBooleanLiteral)tr+"
 					// for "+this.get(i));
-					c.removeClause(i);
+					c.removeBooleanLiteral(i);
 					c.add((BooleanLiteral) tr);
 					didsomething = true;
 				}

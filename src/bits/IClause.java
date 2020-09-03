@@ -60,7 +60,7 @@ public interface IClause extends Comparable<Object>
 
 	boolean remove(IBooleanLiteral b);
 
-	IBooleanLiteral removeClause(int i);
+	IBooleanLiteral removeBooleanLiteral(int i);
 
 	IClause resolve(IBooleanLiteral ib) throws Exception;
 
