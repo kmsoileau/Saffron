@@ -1,6 +1,5 @@
 package demos.bits;
 
-import in_development.AlternativeDenial;
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
@@ -8,6 +7,7 @@ import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import in_development.AlternativeDenial;
 
 public class AlternativeDenialDemo
 {

@@ -1,6 +1,5 @@
 package demos.bits;
 
-import in_development.ExclusiveDisjunction;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Clause;
@@ -9,6 +8,7 @@ import bits.IClause;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import in_development.ExclusiveDisjunction;
 
 public class ExclusiveDisjunctionDemo
 {

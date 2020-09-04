@@ -1,13 +1,13 @@
 package demos.naturalnumbers;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberOrderer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberOrderer;
 
 public class NaturalNumberOrdererDemo
 {

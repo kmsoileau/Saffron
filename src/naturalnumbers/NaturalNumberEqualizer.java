@@ -1,11 +1,11 @@
 package naturalnumbers;
 
-import naturalnumbers.exceptions.NaturalNumberEqualizerException;
 import bits.BitEqualizer;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.exceptions.NaturalNumberEqualizerException;
 
 /**
  *

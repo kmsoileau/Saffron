@@ -1,12 +1,12 @@
 package naturalnumbers;
 
-import naturalnumbers.lists.INaturalNumberList;
 import bits.BitAnder;
 import bits.Conjunction;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.lists.INaturalNumberList;
 
 /**
  *

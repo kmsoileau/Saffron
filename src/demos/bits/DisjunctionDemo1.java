@@ -1,7 +1,5 @@
 package demos.bits;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
@@ -13,6 +11,8 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
 
 /**
  * <pre>

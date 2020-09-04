@@ -1,13 +1,13 @@
 package demos.bits;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberAdder;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberAdder;
+import naturalnumbers.NaturalNumberFixer;
 
 public class FindTwoModelsDemo
 {

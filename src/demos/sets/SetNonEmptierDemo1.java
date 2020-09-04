@@ -1,11 +1,11 @@
 package demos.sets;
 
-import sets.Set;
-import sets.SetNonemptier;
 import bits.BooleanLiteral;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import sets.Set;
+import sets.SetNonemptier;
 
 public class SetNonEmptierDemo1
 {

@@ -30,6 +30,8 @@ public interface IClause extends Comparable<Object>
 
 	boolean contains(IBooleanLiteral bl) throws Exception;
 
+	boolean contains(IBooleanVariable bl) throws Exception;
+
 	boolean equals(IClause o) throws Exception;
 
 	boolean evaluate();

@@ -1,11 +1,11 @@
 package demos.naturalnumbers;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblemMessage;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
 
 public class NaturalNumberFixerDemo2
 {

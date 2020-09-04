@@ -1,9 +1,9 @@
 package sets;
 
-import sets.exceptions.SetException;
 import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.strings.BitString;
+import sets.exceptions.SetException;
 
 /**
  * A class which represents a subset. Set is essentially an association of a

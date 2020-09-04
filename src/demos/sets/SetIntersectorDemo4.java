@@ -1,11 +1,11 @@
 package demos.sets;
 
-import sets.Set;
-import sets.Subsetter;
 import bits.BooleanLiteral;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import sets.Set;
+import sets.Subsetter;
 
 public class SetIntersectorDemo4
 {

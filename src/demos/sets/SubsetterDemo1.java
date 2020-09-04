@@ -1,13 +1,13 @@
 package demos.sets;
 
-import sets.Set;
-import sets.SetMembershipper;
-import sets.Subsetter;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import sets.Set;
+import sets.SetMembershipper;
+import sets.Subsetter;
 
 public class SubsetterDemo1
 {

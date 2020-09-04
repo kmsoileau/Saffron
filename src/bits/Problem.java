@@ -14,9 +14,9 @@ import java.util.Map;
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.specs.ISolver;
 
-import utility.EquivalenceRelation;
 import bits.exceptions.ClauseException;
 import bits.exceptions.ProblemException;
+import utility.EquivalenceRelation;
 
 /**
  * A class which represents a collection of IClause objects, and which amounts

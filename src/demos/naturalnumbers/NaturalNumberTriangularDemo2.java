@@ -1,5 +1,10 @@
 package demos.naturalnumbers;
 
+import bits.BooleanLiteral;
+import bits.Conjunction;
+import bits.INaturalNumber;
+import bits.IProblem;
+import bits.IProblemMessage;
 /**
  * <p>Title: TBS</p>
  * <p>Description: TBS</p>
@@ -13,11 +18,6 @@ import naturalnumbers.NaturalNumberDoubler;
 import naturalnumbers.NaturalNumberFixer;
 import naturalnumbers.NaturalNumberIncrementer;
 import naturalnumbers.NaturalNumberMultiplier;
-import bits.BooleanLiteral;
-import bits.Conjunction;
-import bits.INaturalNumber;
-import bits.IProblem;
-import bits.IProblemMessage;
 
 public class NaturalNumberTriangularDemo2
 {

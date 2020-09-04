@@ -1,7 +1,5 @@
 package in_development;
 
-import utility.Clock;
-import utility.Clocks;
 import bits.BitEqualizer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
@@ -12,6 +10,8 @@ import bits.Problem;
 import bits.strings.BitString;
 import bits.strings.BitStringConditionalAnder;
 import bits.strings.BitStringFixer;
+import utility.Clock;
+import utility.Clocks;
 
 /**
  * Given a collection <code>C</code> of <code>IBitString</code>s each of size

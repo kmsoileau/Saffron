@@ -1,14 +1,14 @@
 package demos.naturalnumbers;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberIncrementer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberIncrementer;
 
 /**
  * <p>

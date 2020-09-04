@@ -1,5 +1,10 @@
 package demos.naturalnumbers;
 
+import bits.BooleanLiteral;
+import bits.Conjunction;
+import bits.INaturalNumber;
+import bits.IProblem;
+import bits.IProblemMessage;
 /**
  * <p>Title: TBS</p>
  * <p>Description: TBS</p>
@@ -11,11 +16,6 @@ package demos.naturalnumbers;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFactorer;
 import naturalnumbers.NaturalNumberFixer;
-import bits.BooleanLiteral;
-import bits.Conjunction;
-import bits.INaturalNumber;
-import bits.IProblem;
-import bits.IProblemMessage;
 
 public class NaturalNumberFactorerDemo
 {

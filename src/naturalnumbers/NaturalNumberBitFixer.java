@@ -1,5 +1,10 @@
 package naturalnumbers;
 
+import bits.BitFixer;
+import bits.Conjunction;
+import bits.INaturalNumber;
+import bits.IProblem;
+import bits.Problem;
 /**
  * <p>Title: TBS</p>
  * <p>Description: TBS</p>
@@ -9,11 +14,6 @@ package naturalnumbers;
  * @version 1.0
  */
 import naturalnumbers.exceptions.NaturalNumberBitFixerException;
-import bits.BitFixer;
-import bits.Conjunction;
-import bits.INaturalNumber;
-import bits.IProblem;
-import bits.Problem;
 
 public class NaturalNumberBitFixer extends Problem implements IProblem
 {

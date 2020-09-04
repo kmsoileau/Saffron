@@ -3,10 +3,6 @@ package naturalnumbers.scheduling;
 import java.util.ArrayList;
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberAdder;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberOrderer;
 import bits.BitArrayPartition;
 import bits.BitFixer;
 import bits.BooleanVariable;
@@ -16,6 +12,10 @@ import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Partition;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberAdder;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberOrderer;
 
 /**
  *

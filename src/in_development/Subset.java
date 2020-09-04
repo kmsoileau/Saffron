@@ -1,8 +1,8 @@
 package in_development;
 
-import sets.Set;
 import bits.IBitString;
 import bits.strings.BitString;
+import sets.Set;
 
 public class Subset
 {

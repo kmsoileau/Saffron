@@ -1,12 +1,12 @@
 package demos.bits;
 
-import in_development.ProblemBitLinker;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import in_development.ProblemBitLinker;
 
 public class ProblemBitLinkerDemo
 {

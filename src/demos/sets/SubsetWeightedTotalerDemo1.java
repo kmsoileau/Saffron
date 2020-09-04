@@ -1,16 +1,16 @@
 package demos.sets;
 
-import naturalnumbers.ConditionalAdder;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import sets.Set;
-import sets.WeightedSet;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import naturalnumbers.ConditionalAdder;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import sets.Set;
+import sets.WeightedSet;
 
 public class SubsetWeightedTotalerDemo1
 {

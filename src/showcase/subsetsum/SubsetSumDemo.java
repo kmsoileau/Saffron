@@ -2,9 +2,6 @@ package showcase.subsetsum;
 
 import java.util.ArrayList;
 
-import naturalnumbers.ConditionalAdder;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
@@ -13,6 +10,9 @@ import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
 import bits.strings.BitString;
+import naturalnumbers.ConditionalAdder;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
 
 /**
  * Finds a subset of integers that sums to <code>desiredSum,</code> which in

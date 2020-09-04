@@ -1,16 +1,16 @@
 package demos.naturalnumbers;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberAdder;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberMultiplier;
-import naturalnumbers.NaturalNumberOrderer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberAdder;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberMultiplier;
+import naturalnumbers.NaturalNumberOrderer;
 
 public class NaturalNumberMultiplierDemo
 {

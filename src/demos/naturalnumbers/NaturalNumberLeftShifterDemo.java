@@ -1,5 +1,11 @@
 package demos.naturalnumbers;
 
+import bits.BooleanLiteral;
+import bits.Conjunction;
+import bits.INaturalNumber;
+import bits.IProblem;
+import bits.IProblemMessage;
+import bits.Problem;
 /**
  * <p>Title: TBS</p>
  * <p>Description: TBS</p>
@@ -11,12 +17,6 @@ package demos.naturalnumbers;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 import naturalnumbers.NaturalNumberLeftShifter;
-import bits.BooleanLiteral;
-import bits.Conjunction;
-import bits.INaturalNumber;
-import bits.IProblem;
-import bits.IProblemMessage;
-import bits.Problem;
 
 public class NaturalNumberLeftShifterDemo
 {

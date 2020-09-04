@@ -1,14 +1,14 @@
 package showcase.vertexcover;
 
-import graphs.DirectedGraph;
-import graphs.IDirectedGraph;
-import graphs.VertexCoverer;
 import bits.BooleanLiteral;
 import bits.IBitString;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
 import bits.strings.BitString;
+import graphs.DirectedGraph;
+import graphs.IDirectedGraph;
+import graphs.VertexCoverer;
 
 public class VertexCoverDemo
 {

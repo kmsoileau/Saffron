@@ -10,9 +10,6 @@
  */
 package naturalnumbers.minimumcover;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberOrderer;
-import naturalnumbers.exceptions.MinimumCoverException;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.INaturalNumber;
@@ -20,6 +17,9 @@ import bits.IProblem;
 import bits.Problem;
 import bits.strings.BitStringSizedCoverer;
 import bits.strings.lists.IBitStringList;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberOrderer;
+import naturalnumbers.exceptions.MinimumCoverException;
 
 /*
  * Given a collection C of BitStrings each of size n and a positive integer K, 

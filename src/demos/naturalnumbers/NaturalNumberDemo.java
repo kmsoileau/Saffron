@@ -1,9 +1,9 @@
 package demos.naturalnumbers;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.Number;
 import bits.IBitString;
 import bits.strings.BitString;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.Number;
 
 /**
  * <p>

@@ -2,16 +2,16 @@ package showcase.scheduling;
 
 import java.util.ArrayList;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.scheduling.Processor;
-import naturalnumbers.scheduling.Scheduler;
-import naturalnumbers.scheduling.Task;
 import bits.BooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Partition;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.scheduling.Processor;
+import naturalnumbers.scheduling.Scheduler;
+import naturalnumbers.scheduling.Task;
 
 /**
  *

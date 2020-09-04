@@ -10,8 +10,6 @@
  */
 package demos.naturalnumbers;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
@@ -22,6 +20,8 @@ import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
 import bits.ProblemFork;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
 
 public class ProblemForkDemo1
 {

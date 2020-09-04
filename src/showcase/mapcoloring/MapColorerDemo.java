@@ -10,20 +10,19 @@
  */
 package showcase.mapcoloring;
 
-import graphs.IUndirectedGraph;
-import graphs.MapColorer;
-import graphs.UndirectedGraph;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import graphs.IUndirectedGraph;
+import graphs.MapColorer;
+import graphs.UndirectedGraph;
+import naturalnumbers.NaturalNumber;
 
 public class MapColorerDemo
 {

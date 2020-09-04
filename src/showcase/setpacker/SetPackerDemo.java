@@ -1,7 +1,5 @@
 package showcase.setpacker;
 
-import naturalnumbers.BitStringPacker;
-import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
@@ -11,6 +9,8 @@ import bits.IProblemMessage;
 import bits.Problem;
 import bits.strings.BitString;
 import bits.strings.BitStringFixer;
+import naturalnumbers.BitStringPacker;
+import naturalnumbers.NaturalNumber;
 
 /**
  * Let U be a nonempty set, S a family of subsets of U. Do there exist n subsets

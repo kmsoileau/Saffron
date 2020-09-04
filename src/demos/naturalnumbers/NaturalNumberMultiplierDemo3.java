@@ -1,14 +1,14 @@
 package demos.naturalnumbers;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberMultiplier;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberMultiplier;
 
 public class NaturalNumberMultiplierDemo3
 {

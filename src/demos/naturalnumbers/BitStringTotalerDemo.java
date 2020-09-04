@@ -1,7 +1,5 @@
 package demos.naturalnumbers;
 
-import naturalnumbers.BitStringTotaler;
-import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
@@ -10,6 +8,8 @@ import bits.IProblemMessage;
 import bits.Problem;
 import bits.strings.BitString;
 import bits.strings.BitStringFixer;
+import naturalnumbers.BitStringTotaler;
+import naturalnumbers.NaturalNumber;
 
 public class BitStringTotalerDemo
 {

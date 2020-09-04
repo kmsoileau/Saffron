@@ -1,11 +1,11 @@
 package sets;
 
-import sets.exceptions.SetNonemptierException;
 import bits.BitFixer;
 import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
+import sets.exceptions.SetNonemptierException;
 
 public class SetNonemptier extends Problem implements IProblem
 {

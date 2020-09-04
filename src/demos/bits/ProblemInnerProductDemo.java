@@ -10,8 +10,6 @@
  */
 package demos.bits;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.INaturalNumber;
@@ -19,6 +17,8 @@ import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
 import bits.ProblemInnerProduct;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
 
 public class ProblemInnerProductDemo extends Problem implements IProblem
 {

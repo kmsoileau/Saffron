@@ -1,8 +1,5 @@
 package showcase.minimumcover;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.minimumcover.MinimumSizedCoverer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
@@ -14,6 +11,9 @@ import bits.strings.BitString;
 import bits.strings.lists.BitStringList;
 import bits.strings.lists.BitStringListFixer;
 import bits.strings.lists.IBitStringList;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.minimumcover.MinimumSizedCoverer;
 
 public class MinimumCoverDemo
 {

@@ -3,8 +3,8 @@ package naturalnumbers.scheduling;
 import java.util.Arrays;
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
 import bits.INaturalNumber;
+import naturalnumbers.NaturalNumber;
 
 public class Task
 {

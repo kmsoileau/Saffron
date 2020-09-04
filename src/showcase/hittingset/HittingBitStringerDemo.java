@@ -1,7 +1,5 @@
 package showcase.hittingset;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
@@ -12,6 +10,8 @@ import bits.Problem;
 import bits.strings.BitString;
 import bits.strings.BitStringFixer;
 import bits.strings.HittingBitStringer;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
 
 public class HittingBitStringerDemo
 {

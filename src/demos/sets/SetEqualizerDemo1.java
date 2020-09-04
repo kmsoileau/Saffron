@@ -1,13 +1,13 @@
 package demos.sets;
 
-import sets.Set;
-import sets.SetEqualizer;
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import sets.Set;
+import sets.SetEqualizer;
 
 public class SetEqualizerDemo1
 {

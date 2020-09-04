@@ -3,11 +3,11 @@ package naturalnumbers;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import naturalnumbers.exceptions.NaturalNumberFixerException;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.exceptions.NaturalNumberFixerException;
 
 /**
  * <p>

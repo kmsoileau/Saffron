@@ -1,12 +1,12 @@
 package demos.bits;
 
-import in_development.ProblemDifferencer;
 import bits.BooleanVariable;
 import bits.Clause;
 import bits.IBooleanVariable;
 import bits.IClause;
 import bits.IProblem;
 import bits.Problem;
+import in_development.ProblemDifferencer;
 
 /**
  * Change History June 26, 2009 Changed "System.out.println("The difference

@@ -10,15 +10,15 @@
  */
 package showcase.graphpathfinder;
 
-import graphs.DirectedGraph;
-import graphs.IDirectedGraph;
-import graphs.PathFinder;
-import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import graphs.DirectedGraph;
+import graphs.IDirectedGraph;
+import graphs.PathFinder;
+import naturalnumbers.NaturalNumber;
 
 public class PathFinderDemo
 {

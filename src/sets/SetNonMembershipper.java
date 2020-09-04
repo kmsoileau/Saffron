@@ -1,10 +1,10 @@
 package sets;
 
-import sets.exceptions.SetNonMembershipperException;
 import bits.BitFixer;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
+import sets.exceptions.SetNonMembershipperException;
 
 public class SetNonMembershipper extends Problem implements IProblem
 {

@@ -1,5 +1,10 @@
 package in_development;
 
+import bits.Conjunction;
+import bits.INaturalNumber;
+import bits.IProblem;
+import bits.Problem;
+import bits.ProblemDenier;
 /**
  * <p>Title: TBS</p>
  * <p>Description: TBS</p>
@@ -12,11 +17,6 @@ import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberCompositor;
 import naturalnumbers.NaturalNumberFixer;
 import naturalnumbers.NaturalNumberOrderer;
-import bits.Conjunction;
-import bits.INaturalNumber;
-import bits.IProblem;
-import bits.Problem;
-import bits.ProblemDenier;
 
 public class NaturalNumberPrimer extends Problem implements IProblem
 {

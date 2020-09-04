@@ -12,7 +12,6 @@ package showcase.bitstringbitatom;
 
 import java.util.ArrayList;
 
-import utility.Bitstrings;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBitString;
@@ -22,6 +21,7 @@ import bits.Problem;
 import bits.strings.BitString;
 import bits.strings.BitStringBitAtomer;
 import bits.strings.BitStringFixer;
+import utility.Bitstrings;
 
 public class BitStringBitAtomerDemo extends Problem implements IProblem
 {

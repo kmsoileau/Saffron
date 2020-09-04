@@ -12,10 +12,6 @@ package naturalnumbers.binpacking;
 
 import java.util.ArrayList;
 
-import naturalnumbers.ConditionalAdder;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberOrderer;
 import bits.BitArrayPartition;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
@@ -25,6 +21,10 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import naturalnumbers.ConditionalAdder;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberOrderer;
 
 public class BinPacker
 {

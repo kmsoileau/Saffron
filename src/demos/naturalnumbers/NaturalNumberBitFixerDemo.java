@@ -1,5 +1,9 @@
 package demos.naturalnumbers;
 
+import bits.BooleanLiteral;
+import bits.INaturalNumber;
+import bits.IProblemMessage;
+import bits.Problem;
 /**
  * <p>Title: TBS</p>
  * <p>Description: TBS</p>
@@ -10,10 +14,6 @@ package demos.naturalnumbers;
  */
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberBitFixer;
-import bits.BooleanLiteral;
-import bits.INaturalNumber;
-import bits.IProblemMessage;
-import bits.Problem;
 
 public class NaturalNumberBitFixerDemo
 {

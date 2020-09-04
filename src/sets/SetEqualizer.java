@@ -1,9 +1,9 @@
 package sets;
 
-import sets.exceptions.SetEqualizerException;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import sets.exceptions.SetEqualizerException;
 
 public class SetEqualizer extends Problem implements IProblem
 {

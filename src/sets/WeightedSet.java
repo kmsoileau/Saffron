@@ -12,12 +12,12 @@ package sets;
 
 import java.util.Arrays;
 
-import naturalnumbers.NaturalNumber;
-import sets.exceptions.WeightedSetException;
 import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.strings.BitString;
+import naturalnumbers.NaturalNumber;
+import sets.exceptions.WeightedSetException;
 
 public class WeightedSet
 {
