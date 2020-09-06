@@ -26,6 +26,7 @@ public class Clocks
 		return clocks.get(clockName);
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	public static void removeClock(String clockName)
 	{
 		clocks.remove(clocks.get(clockName));
