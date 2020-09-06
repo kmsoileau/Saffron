@@ -48,7 +48,7 @@ public class ArrayListSet<E> extends ArrayList<E> implements Set<E>
 		for (int i = 0; i < vectorSet1.size(); i++)
 			System.out.println(vectorSet1.get(i));
 		System.out.println("..................");
-		// vectorSet1.sort();
+		vectorSet1.sort(null);
 		for (int i = 0; i < vectorSet1.size(); i++)
 			System.out.println(vectorSet1.get(i));
 		System.out.println("..................");
