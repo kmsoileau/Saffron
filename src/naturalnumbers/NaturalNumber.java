@@ -21,7 +21,6 @@ import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.strings.BitString;
-import bits.strings.exceptions.BitStringException;
 import naturalnumbers.exceptions.NaturalNumberException;
 
 @SuppressWarnings("unused")
