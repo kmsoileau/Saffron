@@ -1,0 +1,70 @@
+/**
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Feb 25, 2019
+ */
+package integers;
+
+import bits.Conjunction;
+import bits.Disjunction;
+import bits.IProblem;
+import bits.Problem;
+
+/**
+ * 
+ *
+ */
+public class IntegerArrayMaxer extends Problem implements IProblem
+{
+	public IntegerArrayMaxer(IInteger[] d, IInteger maxEntry) throws Exception
+	{
+		int n = d.length;
+
+		IProblem[] q = new IProblem[n];
+		for (int i = 0; i < n; i++)
+		{
+			IProblem[] p = new IProblem[n - 1];
+			IInteger cand = d[i];
+			int index = 0;
+			for (int j = 0; j < n; j++)
+			{
+				if (j == i)
+					continue;
+				p[index++] = new IntegerOrderer(d[j], cand);
+			}
+			q[i] = new Conjunction(new Conjunction(p), new IntegerEqualizer(
+					maxEntry, cand));
+		}
+
+		this.setClauses(new Disjunction(q).getClauses());
+	}
+
+	public IntegerArrayMaxer(IInteger[] d, IInteger maxIndex, IInteger maxEntry)
+			throws Exception
+	{
+		int n = d.length;
+
+		IProblem[] q = new IProblem[n];
+		for (int i = 0; i < n; i++)
+		{
+			IProblem[] p = new IProblem[n - 1];
+			IInteger cand = d[i];
+			int index = 0;
+			for (int j = 0; j < n; j++)
+			{
+				if (j == i)
+					continue;
+				p[index++] = new IntegerOrderer(d[j], cand);
+			}
+			q[i] = new Conjunction(new Conjunction(p), new IntegerFixer(
+					maxIndex, i), new IntegerEqualizer(maxEntry, cand));
+		}
+
+		this.setClauses(new Disjunction(q).getClauses());
+	}
+}
