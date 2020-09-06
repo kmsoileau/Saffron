@@ -390,6 +390,7 @@ public class Problem implements IProblem
 		}
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	public boolean equals(List<IBooleanLiteral> p)
 	{
 		if (!(p instanceof List))
