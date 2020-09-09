@@ -11,12 +11,10 @@ import bits.Problem;
  */
 public class BitStringConditionalOrer extends Problem implements IProblem
 {
-	public BitStringConditionalOrer(IBitStringList bitStringList,
-			IBitString membership, IBitString conditionalResult)
+	public BitStringConditionalOrer(IBitStringList bitStringList, IBitString membership, IBitString conditionalResult)
 			throws Exception
 	{
-		this.setClauses(new bits.strings.BitStringConditionalOrer(bitStringList
-				.toList().toArray(new IBitString[0]), membership,
-				conditionalResult).getClauses());
+		this.setClauses(new bits.strings.BitStringConditionalOrer(bitStringList.toList().toArray(new IBitString[0]),
+				membership, conditionalResult).getClauses());
 	}
 }

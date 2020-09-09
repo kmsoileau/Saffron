@@ -27,16 +27,13 @@ public class ProblemInnerProductDemo extends Problem implements IProblem
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 		IProblem[] P = new IProblem[]
-		{ new NaturalNumberFixer(X, 0), new NaturalNumberFixer(X, 1),
-				new NaturalNumberFixer(X, 1), new NaturalNumberFixer(X, 0),
-				new NaturalNumberFixer(X, 1) };
+		{ new NaturalNumberFixer(X, 0), new NaturalNumberFixer(X, 1), new NaturalNumberFixer(X, 1),
+				new NaturalNumberFixer(X, 0), new NaturalNumberFixer(X, 1) };
 		IProblem[] Q = new IProblem[]
-		{ new NaturalNumberFixer(Y, 1), new NaturalNumberFixer(Y, 2),
-				new NaturalNumberFixer(Y, 3), new NaturalNumberFixer(Y, 4),
-				new NaturalNumberFixer(Y, 5) };
+		{ new NaturalNumberFixer(Y, 1), new NaturalNumberFixer(Y, 2), new NaturalNumberFixer(Y, 3),
+				new NaturalNumberFixer(Y, 4), new NaturalNumberFixer(Y, 5) };
 
-		IProblemMessage s = new Conjunction(new ProblemInnerProduct(P, Q),
-				new NaturalNumberFixer(X, 1))
+		IProblemMessage s = new Conjunction(new ProblemInnerProduct(P, Q), new NaturalNumberFixer(X, 1))
 				.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

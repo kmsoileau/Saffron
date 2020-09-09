@@ -26,23 +26,19 @@ import naturalnumbers.rectangles.exceptions.NaturalNumberRectangleDisjointerExce
  * @version 1.0
  * @since 2019/02/02
  */
-public class NaturalNumberRectangleDisjointer extends Problem implements
-		IProblem
+public class NaturalNumberRectangleDisjointer extends Problem implements IProblem
 {
-	public NaturalNumberRectangleDisjointer(INaturalNumberRectangle rect1,
-			INaturalNumberRectangle rect2) throws Exception
+	public NaturalNumberRectangleDisjointer(INaturalNumberRectangle rect1, INaturalNumberRectangle rect2)
+			throws Exception
 	{
 		if (rect1 == null || rect2 == null)
 			throw new NaturalNumberRectangleDisjointerException(
 					"Null INaturalNumberRectangle was passed to constructor.");
-		this.setClauses(new Disjunction(new NaturalNumberIntervalDisjointer(
-				rect1.getBase(), rect2.getBase()),
-				new NaturalNumberIntervalDisjointer(rect1.getAltitude(), rect2
-						.getAltitude())).getClauses());
+		this.setClauses(new Disjunction(new NaturalNumberIntervalDisjointer(rect1.getBase(), rect2.getBase()),
+				new NaturalNumberIntervalDisjointer(rect1.getAltitude(), rect2.getAltitude())).getClauses());
 	}
 
-	public NaturalNumberRectangleDisjointer(INaturalNumberRectangle[] rect)
-			throws Exception
+	public NaturalNumberRectangleDisjointer(INaturalNumberRectangle[] rect) throws Exception
 	{
 		if (rect == null)
 			throw new NaturalNumberRectangleDisjointerException(

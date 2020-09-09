@@ -25,9 +25,8 @@ public class BitTableOrer extends Problem implements IProblem
 			int count = 0;
 			for (int i = 0; i < X.numberRows(); i++)
 				for (int j = 0; j < X.numberColumns(); j++)
-					p[count++] = new BitOrer(X.getBooleanVariable(i, j),
-							Y.getBooleanVariable(i, j), Z.getBooleanVariable(i,
-									j));
+					p[count++] = new BitOrer(X.getBooleanVariable(i, j), Y.getBooleanVariable(i, j),
+							Z.getBooleanVariable(i, j));
 			this.setClauses(new Conjunction(p).getClauses());
 		}
 	}

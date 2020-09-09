@@ -25,8 +25,7 @@ public class BitStringMapper extends Problem implements IProblem
 	private IBitString domainVariable;
 	private IBitString rangeVariable;
 
-	public BitStringMapper(IBitString[] ary1, IBitString[] ary2, IBitString X,
-			IBitString Y) throws Exception
+	public BitStringMapper(IBitString[] ary1, IBitString[] ary2, IBitString X, IBitString Y) throws Exception
 	{
 		if (ary1.length == 0 || ary2.length == 0 || ary1.length != ary2.length)
 			this.setClauses(Problem.unsolvableProblem().getClauses());
@@ -46,8 +45,7 @@ public class BitStringMapper extends Problem implements IProblem
 		}
 	}
 
-	public BitStringMapper(IBitStringList x, IBitStringList y, IBitString X,
-			IBitString Y) throws Exception
+	public BitStringMapper(IBitStringList x, IBitStringList y, IBitString X, IBitString Y) throws Exception
 	{
 		this(x.toArray(), y.toArray(), X, Y);
 	}

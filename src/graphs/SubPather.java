@@ -38,15 +38,13 @@ public class SubPather extends Problem implements IProblem
 			ArrayList<IProblem> p = new ArrayList<IProblem>();
 			for (int j = 0; j < G.size(); j++)
 			{
-				p.add(new Conjunction(new BitFixer(G.getData(i, j), true),
-						new BitFixer(membership[j], true)));
+				p.add(new Conjunction(new BitFixer(G.getData(i, j), true), new BitFixer(membership[j], true)));
 			}
 
-			q.add(new Disjunction(new Disjunction(new BitFixer(membership[i],
-					false), new BitFixer(isLast[i], true)), new Disjunction(p)));
+			q.add(new Disjunction(new Disjunction(new BitFixer(membership[i], false), new BitFixer(isLast[i], true)),
+					new Disjunction(p)));
 		}
 
-		this.setClauses(new Conjunction(new BitArraySingleSetter(isLast),
-				new Conjunction(q)).getClauses());
+		this.setClauses(new Conjunction(new BitArraySingleSetter(isLast), new Conjunction(q)).getClauses());
 	}
 }

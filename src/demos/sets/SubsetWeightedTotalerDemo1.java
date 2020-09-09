@@ -41,9 +41,8 @@ public class SubsetWeightedTotalerDemo1
 		INaturalNumber sum = new NaturalNumber();
 
 		IProblemMessage s = new Conjunction(new Conjunction(p1),
-				new ConditionalAdder(subset.getWeights(),
-						subset.getMembership(), sum), new NaturalNumberFixer(
-						sum, desiredSum)).findModel(Problem.defaultSolver());
+				new ConditionalAdder(subset.getWeights(), subset.getMembership(), sum),
+				new NaturalNumberFixer(sum, desiredSum)).findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

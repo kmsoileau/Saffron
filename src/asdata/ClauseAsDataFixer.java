@@ -24,13 +24,11 @@ public class ClauseAsDataFixer extends Problem implements IProblem
 				IBooleanLiteral v = clause.getLiteralAt(lit);
 				if (v.getBooleanVariable().equals(bv))
 				{
-					prob = new Conjunction(prob, new BitFixer(occurs, true),
-							new BitFixer(barred, v.isBarred()));
+					prob = new Conjunction(prob, new BitFixer(occurs, true), new BitFixer(barred, v.isBarred()));
 					continue label;
 				}
 			}
-			prob = new Conjunction(prob, new BitFixer(occurs, false),
-					new BitFixer(barred, false));
+			prob = new Conjunction(prob, new BitFixer(occurs, false), new BitFixer(barred, false));
 		}
 
 		this.setClauses(prob.getClauses());

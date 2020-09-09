@@ -19,12 +19,10 @@ import bits.strings.exceptions.BitStringsSingularDifferencerException;
 
 public class BitStringsSingularDifferencer extends Problem implements IProblem
 {
-	public BitStringsSingularDifferencer(IBitString B1, IBitString B2)
-			throws Exception
+	public BitStringsSingularDifferencer(IBitString B1, IBitString B2) throws Exception
 	{
 		if (B1.size() != B2.size())
-			throw new BitStringsSingularDifferencerException(
-					"X and Y are not of equal size.");
+			throw new BitStringsSingularDifferencerException("X and Y are not of equal size.");
 		else
 		{
 			int len = B1.size();
@@ -37,13 +35,9 @@ public class BitStringsSingularDifferencer extends Problem implements IProblem
 				for (int j = 0; j < len; j++)
 				{
 					if (dBit == j)
-						pInner[index++] = new BitUnequalizer(
-								B1.getBooleanVariable(j),
-								B2.getBooleanVariable(j));
+						pInner[index++] = new BitUnequalizer(B1.getBooleanVariable(j), B2.getBooleanVariable(j));
 					else
-						pInner[index++] = new BitEqualizer(
-								B1.getBooleanVariable(j),
-								B2.getBooleanVariable(j));
+						pInner[index++] = new BitEqualizer(B1.getBooleanVariable(j), B2.getBooleanVariable(j));
 				}
 				pOuter[dBit] = new Conjunction(pInner);
 			}

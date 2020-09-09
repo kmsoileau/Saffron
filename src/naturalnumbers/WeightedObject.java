@@ -3,15 +3,15 @@ package naturalnumbers;
 import bits.INaturalNumber;
 
 /**
-*
-* @author Kerry Michael Soileau
-*         <p>
-*         email: ksoileau2@yahoo.com
-*         <p>
-*         website: http://kerrysoileau.com/index.html
-* @version 1.0
-* @since Mar 4, 2019
-*/
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since Mar 4, 2019
+ */
 public class WeightedObject
 {
 	private String name;

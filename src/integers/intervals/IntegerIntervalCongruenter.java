@@ -23,17 +23,15 @@ import integers.IntegerAdder;
  */
 public class IntegerIntervalCongruenter extends Problem implements IProblem
 {
-	public IntegerIntervalCongruenter(IIntegerInterval A, IIntegerInterval B)
-			throws Exception
+	public IntegerIntervalCongruenter(IIntegerInterval A, IIntegerInterval B) throws Exception
 	{
 		this(A, B, new Integer());
 	}
 
-	public IntegerIntervalCongruenter(IIntegerInterval A, IIntegerInterval B,
-			IInteger X) throws Exception
+	public IntegerIntervalCongruenter(IIntegerInterval A, IIntegerInterval B, IInteger X) throws Exception
 	{
-		IProblem p1 = new Conjunction(new IntegerAdder(A.getLower(), X,
-				B.getLower()), new IntegerAdder(A.getUpper(), X, B.getUpper()));
+		IProblem p1 = new Conjunction(new IntegerAdder(A.getLower(), X, B.getLower()),
+				new IntegerAdder(A.getUpper(), X, B.getUpper()));
 
 		this.setClauses(p1.getClauses());
 	}

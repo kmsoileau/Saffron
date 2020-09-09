@@ -21,9 +21,8 @@ public class DisjunctionDemo16
 	public static void main(String[] args) throws Exception
 	{
 		IProblem problem = new Disjunction(new IProblem[]
-		{ Problem.unsolvableProblem(), Problem.unsolvableProblem(),
-				Problem.unsolvableProblem(), Problem.unsolvableProblem(),
-				Problem.unsolvableProblem() });
+		{ Problem.unsolvableProblem(), Problem.unsolvableProblem(), Problem.unsolvableProblem(),
+				Problem.unsolvableProblem(), Problem.unsolvableProblem() });
 
 		System.out.println(problem);
 

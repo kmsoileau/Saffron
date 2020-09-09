@@ -62,14 +62,10 @@ public class Graph implements IGraph
 		{
 			for (INaturalNumber vertex2 : this.getVertices().values())
 			{
-				HashMap<INaturalNumber, IBooleanVariable> aa = this
-						.getBacking().getLookup().get(vertex1);
+				HashMap<INaturalNumber, IBooleanVariable> aa = this.getBacking().getLookup().get(vertex1);
 				if (aa == null)
 				{
-					this.getBacking()
-							.getLookup()
-							.put(vertex1,
-									new HashMap<INaturalNumber, IBooleanVariable>());
+					this.getBacking().getLookup().put(vertex1, new HashMap<INaturalNumber, IBooleanVariable>());
 				}
 				aa = this.backing.getLookup().get(vertex1);
 				IBooleanVariable bb = aa.get(vertex2);
@@ -117,8 +113,7 @@ public class Graph implements IGraph
 	 * else null is returned.
 	 */
 	@Override
-	public IBooleanVariable getData(INaturalNumber i, INaturalNumber j)
-			throws Exception
+	public IBooleanVariable getData(INaturalNumber i, INaturalNumber j) throws Exception
 	{
 		return this.getLookup().get(i).get(j);
 	}
@@ -157,8 +152,7 @@ public class Graph implements IGraph
 	}
 
 	/**
-	 * @param mapper
-	 *            nNtoNNMapper
+	 * @param mapper nNtoNNMapper
 	 * 
 	 */
 	public void setBacking(NNtoNNMapper mapper)
@@ -168,8 +162,7 @@ public class Graph implements IGraph
 
 	/**
 	 * 
-	 * @param name
-	 *            String
+	 * @param name String
 	 */
 	public void setName(String name)
 	{
@@ -192,10 +185,8 @@ public class Graph implements IGraph
 			{
 				try
 				{
-					ret += "\n" + curr1 + "--" + curr2 + "\t"
-							+ this.getData(curr1, curr2).getValue();
-				}
-				catch (Exception e)
+					ret += "\n" + curr1 + "--" + curr2 + "\t" + this.getData(curr1, curr2).getValue();
+				} catch (Exception e)
 				{
 					e.printStackTrace();
 				}

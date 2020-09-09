@@ -31,16 +31,13 @@ public class BitStringListsSingularDifferencerDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBitStringList B1 = new BitStringList("A", new IBitString[]
-		{ new BitString("000"), new BitString("011"), new BitString("110"),
-				new BitString("010") });
+		{ new BitString("000"), new BitString("011"), new BitString("110"), new BitString("010") });
 
 		IBitStringList B2 = new BitStringList("B", new IBitString[]
-		{ new BitString("000"), new BitString("011"), new BitString("010"),
-				new BitString("010") });
+		{ new BitString("000"), new BitString("011"), new BitString("010"), new BitString("010") });
 
-		IProblem problem = new Conjunction(
-				new BitStringListsSingularDifferencer(B1, B2),
-				new BitStringListFixer(B1), new BitStringListFixer(B2));
+		IProblem problem = new Conjunction(new BitStringListsSingularDifferencer(B1, B2), new BitStringListFixer(B1),
+				new BitStringListFixer(B2));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

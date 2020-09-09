@@ -16,9 +16,9 @@ public class SetSplittingDemo
 	{
 		IBitString[] data = new IBitString[]
 		{ new BitString(new boolean[]
-		{ true, true, true, true }), new BitString(new boolean[]
-		{ true, false, true, false }), new BitString(new boolean[]
-		{ true, true, false, true }) };
+				{ true, true, true, true }), new BitString(new boolean[]
+				{ true, false, true, false }), new BitString(new boolean[]
+				{ true, true, false, true }) };
 
 		int degree = data[0].size();
 

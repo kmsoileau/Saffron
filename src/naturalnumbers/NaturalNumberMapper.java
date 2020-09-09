@@ -22,22 +22,17 @@ public class NaturalNumberMapper extends Problem implements IProblem
 	private INaturalNumber domainVariable;
 	private INaturalNumber rangeVariable;
 
-	public NaturalNumberMapper(INaturalNumber domainVariable,
-			long[] domainData, INaturalNumber rangeVariable, long[] rangeData)
-			throws Exception
+	public NaturalNumberMapper(INaturalNumber domainVariable, long[] domainData, INaturalNumber rangeVariable,
+			long[] rangeData) throws Exception
 	{
 		if (domainData == null || rangeData == null)
-			throw new NaturalNumberMapperException(
-					"A null long[] was passed to a constructor.");
+			throw new NaturalNumberMapperException("A null long[] was passed to a constructor.");
 		if (domainVariable == null || rangeVariable == null)
-			throw new NaturalNumberMapperException(
-					"A null INaturalNumber was passed to a constructor.");
+			throw new NaturalNumberMapperException("A null INaturalNumber was passed to a constructor.");
 		if (domainData.length == 0 || rangeData.length == 0)
-			throw new NaturalNumberMapperException(
-					"An array of length zero was passed to a constructor.");
+			throw new NaturalNumberMapperException("An array of length zero was passed to a constructor.");
 		if (domainData.length != rangeData.length)
-			throw new NaturalNumberMapperException(
-					"Arrays of unequal length were passed to a constructor.");
+			throw new NaturalNumberMapperException("Arrays of unequal length were passed to a constructor.");
 		this.domainVariable = domainVariable;
 		this.rangeVariable = rangeVariable;
 		IProblem[] px = new Problem[domainData.length];
@@ -51,24 +46,19 @@ public class NaturalNumberMapper extends Problem implements IProblem
 		this.setClauses(pcomb.getClauses());
 	}
 
-	public NaturalNumberMapper(long[] x, long[] y, INaturalNumber X,
-			INaturalNumber Y, IBooleanVariable[] b) throws Exception
+	public NaturalNumberMapper(long[] x, long[] y, INaturalNumber X, INaturalNumber Y, IBooleanVariable[] b)
+			throws Exception
 	{
 		if (x == null || y == null)
-			throw new NaturalNumberMapperException(
-					"A null long[] was passed to a constructor.");
+			throw new NaturalNumberMapperException("A null long[] was passed to a constructor.");
 		if (X == null || Y == null)
-			throw new NaturalNumberMapperException(
-					"A null INaturalNumber was passed to a constructor.");
+			throw new NaturalNumberMapperException("A null INaturalNumber was passed to a constructor.");
 		if (b == null)
-			throw new NaturalNumberMapperException(
-					"A null IBooleanVariable[] was passed to a constructor.");
+			throw new NaturalNumberMapperException("A null IBooleanVariable[] was passed to a constructor.");
 		if (x.length == 0 || y.length == 0)
-			throw new NaturalNumberMapperException(
-					"An array of length zero was passed to a constructor.");
+			throw new NaturalNumberMapperException("An array of length zero was passed to a constructor.");
 		if (x.length != y.length)
-			throw new NaturalNumberMapperException(
-					"Arrays of unequal length were passed to a constructor.");
+			throw new NaturalNumberMapperException("Arrays of unequal length were passed to a constructor.");
 		this.domainVariable = X;
 		this.rangeVariable = Y;
 		IProblem[] px = new Problem[x.length];

@@ -51,8 +51,7 @@ import java.util.ArrayList;
  */
 public class KSatReader
 {
-	static org.sat4j.specs.IProblem parseInstance(IProblem problem)
-			throws bits.exceptions.UnsolvableProblemException
+	static org.sat4j.specs.IProblem parseInstance(IProblem problem) throws bits.exceptions.UnsolvableProblemException
 	{
 		Sat4j.DIMACSBVassign(problem);
 
@@ -73,8 +72,7 @@ public class KSatReader
 				IBooleanLiteral curr = Sat4j.getBL(dimacs[i]);
 				if (curr != null)
 					cl.add(curr);
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				e.printStackTrace();
 			}

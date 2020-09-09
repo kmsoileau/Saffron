@@ -24,15 +24,13 @@ import bits.Problem;
  */
 public class BitStringArrayBasiser extends Problem implements IProblem
 {
-	public BitStringArrayBasiser(IBitStringList C, IBitStringList B,
-			IBitStringList included) throws Exception
+	public BitStringArrayBasiser(IBitStringList C, IBitStringList B, IBitStringList included) throws Exception
 	{
 		int size = C.size();
 		IProblem[] p = new IProblem[size];
 		for (int i = 0; i < size; i++)
 		{
-			p[i] = new BitStringConditionalOrer(B, included.getBitString(i),
-					C.getBitString(i));
+			p[i] = new BitStringConditionalOrer(B, included.getBitString(i), C.getBitString(i));
 		}
 
 		this.setClauses(new Conjunction(p).getClauses());

@@ -44,14 +44,12 @@ class Package
 		return util;
 	}
 
-	public void setBarredCase(
-			HashMap<IBooleanVariable, ArrayList<IClause>> barredCase)
+	public void setBarredCase(HashMap<IBooleanVariable, ArrayList<IClause>> barredCase)
 	{
 		this.barredCase = barredCase;
 	}
 
-	public void setUnBarredCase(
-			HashMap<IBooleanVariable, ArrayList<IClause>> unBarredCase)
+	public void setUnBarredCase(HashMap<IBooleanVariable, ArrayList<IClause>> unBarredCase)
 	{
 		this.unBarredCase = unBarredCase;
 	}

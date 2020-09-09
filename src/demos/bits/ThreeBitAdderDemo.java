@@ -12,13 +12,11 @@ import bits.ThreeBitAdder;
 
 public class ThreeBitAdderDemo
 {
-	private static String doCase(IBooleanVariable[] bva, boolean b1,
-			boolean b2, boolean b3) throws Exception
+	private static String doCase(IBooleanVariable[] bva, boolean b1, boolean b2, boolean b3) throws Exception
 	{
-		IProblem problemBase = new ThreeBitAdder(bva[0], bva[1], bva[2],
-				bva[3], bva[4]);
-		IProblem problemSpecific = new Conjunction(new BitFixer(bva[0], b1),
-				new BitFixer(bva[1], b2), new BitFixer(bva[2], b3));
+		IProblem problemBase = new ThreeBitAdder(bva[0], bva[1], bva[2], bva[3], bva[4]);
+		IProblem problemSpecific = new Conjunction(new BitFixer(bva[0], b1), new BitFixer(bva[1], b2),
+				new BitFixer(bva[2], b3));
 		IProblem problem = new Conjunction(problemBase, problemSpecific);
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
@@ -39,10 +37,8 @@ public class ThreeBitAdderDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBooleanVariable[] bva =
-		{ BooleanVariable.getBooleanVariable("W"),
-				BooleanVariable.getBooleanVariable("X"),
-				BooleanVariable.getBooleanVariable("Y"),
-				BooleanVariable.getBooleanVariable("Z"),
+		{ BooleanVariable.getBooleanVariable("W"), BooleanVariable.getBooleanVariable("X"),
+				BooleanVariable.getBooleanVariable("Y"), BooleanVariable.getBooleanVariable("Z"),
 				BooleanVariable.getBooleanVariable("C") };
 
 		System.out.println("WXYZC\n-----");

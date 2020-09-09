@@ -40,8 +40,7 @@ public class BitStringListMembershipperDemo2
 		IBitString string2 = new BitString("string2", new boolean[3]);
 
 		IBitStringList bsl = new BitStringList("slist", new IBitString[]
-		{ new BitString("100"), new BitString("101"), new BitString("111"),
-				new BitString("100"), new BitString("111"),
+		{ new BitString("100"), new BitString("101"), new BitString("111"), new BitString("100"), new BitString("111"),
 				new BitString("011") });
 
 		// The list must have given values

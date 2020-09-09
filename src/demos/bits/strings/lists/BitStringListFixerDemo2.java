@@ -26,22 +26,14 @@ public class BitStringListFixerDemo2
 			listOfSites[i] = new BitString(4);
 		IProblem[] constraints = new BitStringFixer[]
 		{ new BitStringFixer(listOfSites[0], new boolean[]
-		{ false, false, false, false }),
-				new BitStringFixer(listOfSites[1], new boolean[]
-				{ true, false, false, false }),
-				new BitStringFixer(listOfSites[2], new boolean[]
-				{ false, true, false, false }),
-				new BitStringFixer(listOfSites[3], new boolean[]
-				{ true, true, false, false }),
-				new BitStringFixer(listOfSites[4], new boolean[]
-				{ false, false, true, false }),
-				new BitStringFixer(listOfSites[5], new boolean[]
-				{ true, false, true, false }),
-				new BitStringFixer(listOfSites[6], new boolean[]
-				{ false, true, true, false }),
-				new BitStringFixer(listOfSites[7], new boolean[]
-				{ true, true, true, false }),
-				new BitStringFixer(listOfSites[8], new boolean[]
+				{ false, false, false, false }), new BitStringFixer(listOfSites[1], new boolean[]
+				{ true, false, false, false }), new BitStringFixer(listOfSites[2], new boolean[]
+				{ false, true, false, false }), new BitStringFixer(listOfSites[3], new boolean[]
+				{ true, true, false, false }), new BitStringFixer(listOfSites[4], new boolean[]
+				{ false, false, true, false }), new BitStringFixer(listOfSites[5], new boolean[]
+				{ true, false, true, false }), new BitStringFixer(listOfSites[6], new boolean[]
+				{ false, true, true, false }), new BitStringFixer(listOfSites[7], new boolean[]
+				{ true, true, true, false }), new BitStringFixer(listOfSites[8], new boolean[]
 				{ false, false, false, true }) };
 
 		IProblem bslf2 = new Conjunction(constraints);

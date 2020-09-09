@@ -37,15 +37,13 @@ public class IntegerArrayMinner extends Problem implements IProblem
 					continue;
 				p[index++] = new IntegerOrderer(cand, d[j]);
 			}
-			q[i] = new Conjunction(new Conjunction(p), new IntegerEqualizer(
-					minEntry, cand));
+			q[i] = new Conjunction(new Conjunction(p), new IntegerEqualizer(minEntry, cand));
 		}
 
 		this.setClauses(new Disjunction(q).getClauses());
 	}
 
-	public IntegerArrayMinner(IInteger[] d, IInteger minIndex, IInteger minxEntry)
-			throws Exception
+	public IntegerArrayMinner(IInteger[] d, IInteger minIndex, IInteger minxEntry) throws Exception
 	{
 		int n = d.length;
 
@@ -61,8 +59,8 @@ public class IntegerArrayMinner extends Problem implements IProblem
 					continue;
 				p[index++] = new IntegerOrderer(cand, d[j]);
 			}
-			q[i] = new Conjunction(new Conjunction(p), new IntegerFixer(
-					minIndex, i), new IntegerEqualizer(minxEntry, cand));
+			q[i] = new Conjunction(new Conjunction(p), new IntegerFixer(minIndex, i),
+					new IntegerEqualizer(minxEntry, cand));
 		}
 
 		this.setClauses(new Disjunction(q).getClauses());

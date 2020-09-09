@@ -37,17 +37,14 @@ import bits.Problem;
  * @version 1.0
  * @since Aug 29, 2010
  */
-public class NaturalNumberLinearDivisibilitor extends Problem implements
-		IProblem
+public class NaturalNumberLinearDivisibilitor extends Problem implements IProblem
 {
-	public NaturalNumberLinearDivisibilitor(INaturalNumber A, INaturalNumber C)
-			throws Exception
+	public NaturalNumberLinearDivisibilitor(INaturalNumber A, INaturalNumber C) throws Exception
 	{
 		this(A, new NaturalNumber(), C);
 	}
 
-	public NaturalNumberLinearDivisibilitor(INaturalNumber A, INaturalNumber X,
-			INaturalNumber C) throws Exception
+	public NaturalNumberLinearDivisibilitor(INaturalNumber A, INaturalNumber X, INaturalNumber C) throws Exception
 	{
 		INaturalNumber product = new NaturalNumber();
 		INaturalNumber prodplus = new NaturalNumber();

@@ -25,8 +25,7 @@ import naturalnumbers.NaturalNumberFixer;
  */
 public class MagmaHomomorphismer extends Problem implements IProblem
 {
-	public MagmaHomomorphismer(Magma magma1, Magma magma2, INaturalNumber[] h)
-			throws Exception
+	public MagmaHomomorphismer(Magma magma1, Magma magma2, INaturalNumber[] h) throws Exception
 	{
 		int index = 0;
 		int order1 = magma1.getOrder();
@@ -60,8 +59,7 @@ public class MagmaHomomorphismer extends Problem implements IProblem
 
 		for (int i = 0; i < order1; i++)
 		{
-			xyFixer[i] = new Conjunction(new NaturalNumberFixer(X[i]),
-					new NaturalNumberFixer(Y[i]));
+			xyFixer[i] = new Conjunction(new NaturalNumberFixer(X[i]), new NaturalNumberFixer(Y[i]));
 		}
 
 		for (int i = 0; i < order1; i++)
@@ -74,15 +72,13 @@ public class MagmaHomomorphismer extends Problem implements IProblem
 				for (int k = 0; k < order1; k++)
 					disj[k] = new Conjunction(new NaturalNumberFixer(domij, k),
 							new NaturalNumberEqualizer(codij, h[k]));
-				p[index++] = new Conjunction(new Magmaer(magma1, X[i], Y[j],
-						domij), // domij=i*j
+				p[index++] = new Conjunction(new Magmaer(magma1, X[i], Y[j], domij), // domij=i*j
 						new Magmaer(magma2, h[i], h[j], codij), // cod[i][j]=h(i)*h(j)
 						new Disjunction(disj));
 			}
 		}
 
-		IProblem problem = new Conjunction(new MagmaFixer(magma1),
-				new MagmaFixer(magma2), new Conjunction(xyFixer),
+		IProblem problem = new Conjunction(new MagmaFixer(magma1), new MagmaFixer(magma2), new Conjunction(xyFixer),
 				new Conjunction(p));
 
 		this.setClauses(problem.getClauses());

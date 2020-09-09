@@ -22,9 +22,8 @@ public class NaturalNumberBitMultiplyDemo
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 
-		IProblem p = new Conjunction(new BitFixer(b, true),
-				new NaturalNumberFixer(X, 255L), new NaturalNumberBitMultiply(
-						b, X, Y));
+		IProblem p = new Conjunction(new BitFixer(b, true), new NaturalNumberFixer(X, 255L),
+				new NaturalNumberBitMultiply(b, X, Y));
 
 		IProblemMessage s = p.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

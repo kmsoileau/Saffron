@@ -44,8 +44,7 @@ public class BitStringListSorter extends Problem implements IProblem
 	public BitStringListSorter(IBitStringList source) throws Exception
 	{
 		if (source == null)
-			throw new BitStringListException(
-					"Passed a null IBitStringList to constructor.");
+			throw new BitStringListException("Passed a null IBitStringList to constructor.");
 
 		// The source BitStringList must be in sorted order:
 		IProblem[] order = new BitStringOrderer[source.size() - 1];
@@ -59,15 +58,12 @@ public class BitStringListSorter extends Problem implements IProblem
 		this.setClauses(problem.getClauses());
 	}
 
-	public BitStringListSorter(IBitStringList source, IBitStringList target)
-			throws Exception
+	public BitStringListSorter(IBitStringList source, IBitStringList target) throws Exception
 	{
 		if (source == null)
-			throw new BitStringListException(
-					"Passed a null IBitStringList to constructor.");
+			throw new BitStringListException("Passed a null IBitStringList to constructor.");
 		if (target == null)
-			throw new BitStringListException(
-					"Passed a null IBitStringList to constructor.");
+			throw new BitStringListException("Passed a null IBitStringList to constructor.");
 
 		IProblem problem = null;
 		// The source and target BitStringLists must have exactly the same

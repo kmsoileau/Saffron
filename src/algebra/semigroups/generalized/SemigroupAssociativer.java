@@ -49,16 +49,14 @@ public class SemigroupAssociativer extends Problem implements IProblem
 		this.setClauses(new Conjunction(p).getClauses());
 	}
 
-	public SemigroupAssociativer(Semigroup smgrp, INaturalNumber X,
-			INaturalNumber Y, INaturalNumber Z) throws Exception
+	public SemigroupAssociativer(Semigroup smgrp, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		INaturalNumber XY = new NaturalNumber();
 		INaturalNumber YZ = new NaturalNumber();
 		INaturalNumber XYZ = new NaturalNumber();
 
-		IProblem problem = new Conjunction(new Semigrouper(smgrp, X, Y, XY),
-				new Semigrouper(smgrp, Y, Z, YZ), new Semigrouper(smgrp, XY, Z, XYZ),
-				new Semigrouper(smgrp, X, YZ, XYZ));
+		IProblem problem = new Conjunction(new Semigrouper(smgrp, X, Y, XY), new Semigrouper(smgrp, Y, Z, YZ),
+				new Semigrouper(smgrp, XY, Z, XYZ), new Semigrouper(smgrp, X, YZ, XYZ));
 
 		this.setClauses(problem.getClauses());
 	}

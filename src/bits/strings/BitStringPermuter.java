@@ -34,8 +34,7 @@ public class BitStringPermuter extends Problem implements IProblem
 			p[i] = new BitStringSingleSetter(M[i]);
 
 		IProblem problem = new Conjunction(new IProblem[]
-		{ new Conjunction(p), new BitStringOrer(M, orBS),
-				new BitStringFixer(allOnes),
+		{ new Conjunction(p), new BitStringOrer(M, orBS), new BitStringFixer(allOnes),
 				new BitStringEqualizer(orBS, allOnes) });
 
 		this.setClauses(problem.getClauses());

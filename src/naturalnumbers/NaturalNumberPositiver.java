@@ -42,11 +42,10 @@ public class NaturalNumberPositiver extends Problem implements IProblem
 		this(X, new NaturalNumber());
 	}
 
-	public NaturalNumberPositiver(INaturalNumber X, INaturalNumber OneLess)
-			throws Exception
+	public NaturalNumberPositiver(INaturalNumber X, INaturalNumber OneLess) throws Exception
 	{
 		INaturalNumber One = new NaturalNumber(1);
-		this.setClauses(new Conjunction(new NaturalNumberFixer(One),
-				new NaturalNumberAdder(OneLess, One, X)).getClauses());
+		this.setClauses(
+				new Conjunction(new NaturalNumberFixer(One), new NaturalNumberAdder(OneLess, One, X)).getClauses());
 	}
 }

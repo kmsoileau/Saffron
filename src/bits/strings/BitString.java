@@ -68,16 +68,13 @@ public class BitString implements IBitString
 	public BitString(String name, boolean[] data) throws Exception
 	{
 		if (data == null)
-			throw new BitStringException(
-					"Null data passed to BitString constructor.");
+			throw new BitStringException("Null data passed to BitString constructor.");
 		if ("".compareTo(name) == 0)
-			throw new BitStringException(
-					"Null name passed to BitString constructor.");
+			throw new BitStringException("Null name passed to BitString constructor.");
 		this.setName(name);
 		this.setBVData(new IBooleanVariable[data.length]);
 		for (int i = 0; i < data.length; i++)
-			this.setBooleanVariable(i,
-					BooleanVariable.getBooleanVariable(name + "_" + i, data[i]));
+			this.setBooleanVariable(i, BooleanVariable.getBooleanVariable(name + "_" + i, data[i]));
 	}
 
 	public BitString(String name, char[] data) throws Exception
@@ -91,14 +88,11 @@ public class BitString implements IBitString
 		for (int i = 0; i < data.length; i++)
 		{
 			if (data[i] != '0' && data[i] != '1')
-				throw new BitStringException(
-						"Construction failed on bad char[] data.");
+				throw new BitStringException("Construction failed on bad char[] data.");
 			if (data[i] == '0')
-				this.setBooleanVariable(i, BooleanVariable.getBooleanVariable(
-						name + "_" + i, false));
+				this.setBooleanVariable(i, BooleanVariable.getBooleanVariable(name + "_" + i, false));
 			if (data[i] == '1')
-				this.setBooleanVariable(i, BooleanVariable.getBooleanVariable(
-						name + "_" + i, true));
+				this.setBooleanVariable(i, BooleanVariable.getBooleanVariable(name + "_" + i, true));
 		}
 	}
 
@@ -119,16 +113,15 @@ public class BitString implements IBitString
 	}
 
 	/*
-	 * public BitString(String name, IBooleanVariable[] data) throws Exception {
-	 * if (data == null) throw new
-	 * BitStringException("Null data passed to constructor."); if (name == null
-	 * || "".compareTo(name) == 0) throw new
-	 * BitStringException("Null name passed to constructor.");
-	 * this.setName(name); this.setBVData(new IBooleanVariable[data.length]);
-	 * for (int i = 0; i < data.length; i++) { if (data[i] == null) data[i] =
+	 * public BitString(String name, IBooleanVariable[] data) throws Exception { if
+	 * (data == null) throw new
+	 * BitStringException("Null data passed to constructor."); if (name == null ||
+	 * "".compareTo(name) == 0) throw new
+	 * BitStringException("Null name passed to constructor."); this.setName(name);
+	 * this.setBVData(new IBooleanVariable[data.length]); for (int i = 0; i <
+	 * data.length; i++) { if (data[i] == null) data[i] =
 	 * BooleanVariable.getBooleanVariable(); this.setBooleanVariable( i,
-	 * BooleanVariable.getBooleanVariable(name + "_" + i, data[i].getValue()));
-	 * } }
+	 * BooleanVariable.getBooleanVariable(name + "_" + i, data[i].getValue())); } }
 	 */
 
 	public BitString(String name, int bits) throws Exception
@@ -154,35 +147,31 @@ public class BitString implements IBitString
 		{
 			IBitString b = new BitString(this.getName(), this.getBVArray());
 			return b;
-		}
-		catch (Exception err)
+		} catch (Exception err)
 		{
 			if (err instanceof CloneNotSupportedException)
 				throw (CloneNotSupportedException) err;
 			else
 			{
-				System.err
-						.println("Exception: Attempt to clone BitString failed.");
+				System.err.println("Exception: Attempt to clone BitString failed.");
 				return null;
 			}
 		}
 	}
 
 	/*
-	 * public boolean equals(Object anObject) { if (anObject == null) return
-	 * false; // Nothing is equal to a null Object. if (!(anObject instanceof
-	 * IBitString)) return false; if (!this.data.containsAll(((IBitString)
-	 * anObject).asList())) return false; if (!((IBitString)
-	 * anObject).asList().containsAll(this.asList())) return false; return true;
-	 * }
+	 * public boolean equals(Object anObject) { if (anObject == null) return false;
+	 * // Nothing is equal to a null Object. if (!(anObject instanceof IBitString))
+	 * return false; if (!this.data.containsAll(((IBitString) anObject).asList()))
+	 * return false; if (!((IBitString)
+	 * anObject).asList().containsAll(this.asList())) return false; return true; }
 	 */
 
 	@Override
 	public IBooleanVariable getBooleanVariable(int i) throws Exception
 	{
 		if (i < 0 || this.size() - 1 < i)
-			throw new BitStringException(
-					"Attempted to use getBooleanVariable outside range.");
+			throw new BitStringException("Attempted to use getBooleanVariable outside range.");
 
 		return this.asList().get(i);
 	}
@@ -197,8 +186,7 @@ public class BitString implements IBitString
 	public IBooleanVariable[] getBVArray(int n) throws Exception
 	{
 		if (n < 1)
-			throw new BitStringException(
-					"Passed zero or a negative int to getBVArray method.");
+			throw new BitStringException("Passed zero or a negative int to getBVArray method.");
 
 		IBooleanVariable[] b = new IBooleanVariable[n];
 		for (int i = 0; i < this.size() && i < n; i++)
@@ -222,8 +210,7 @@ public class BitString implements IBitString
 	public int index(IBooleanVariable b) throws Exception
 	{
 		if (b == null)
-			throw new BitStringException(
-					"Null IBooleanVariable was passed to index method.");
+			throw new BitStringException("Null IBooleanVariable was passed to index method.");
 
 		for (int i = 0; i < this.size(); i++)
 			if (this.getBooleanVariable(i).equals(b))
@@ -235,13 +222,10 @@ public class BitString implements IBitString
 	public void setBooleanVariable(int i, IBooleanVariable ib) throws Exception
 	{
 		if (i < 0)
-			throw new BitStringException(
-					"Attempted to use setBooleanVariable outside range.");
+			throw new BitStringException("Attempted to use setBooleanVariable outside range.");
 		if (ib == null)
-			throw new BitStringException(
-					"Null IBooleanVariable passed to constructor.");
-		ArrayList<IBooleanVariable> a = (ArrayList<IBooleanVariable>) this
-				.asList();
+			throw new BitStringException("Null IBooleanVariable passed to constructor.");
+		ArrayList<IBooleanVariable> a = (ArrayList<IBooleanVariable>) this.asList();
 		while (a.size() <= i)
 			a.add(BooleanVariable.getBooleanVariable(this.getName() + "_" + i));
 		a.set(i, ib);
@@ -250,8 +234,7 @@ public class BitString implements IBitString
 	public void setBVData(IBooleanVariable[] data) throws Exception
 	{
 		if (data == null)
-			throw new BitStringException(
-					"Passed null String to setBVData method.");
+			throw new BitStringException("Passed null String to setBVData method.");
 		this.data = new ArrayList<IBooleanVariable>(data.length);
 		for (int i = 0; i < data.length; i++)
 			this.asList().add(data[i]);
@@ -267,8 +250,7 @@ public class BitString implements IBitString
 	public void setName(String name) throws Exception
 	{
 		if (name == null)
-			throw new BitStringException(
-					"Passed null String to setName method.");
+			throw new BitStringException("Passed null String to setName method.");
 
 		this.name = name;
 	}
@@ -290,8 +272,7 @@ public class BitString implements IBitString
 					ret += "1";
 				else
 					ret += "0";
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				e.printStackTrace();
 			}
@@ -324,8 +305,7 @@ public class BitString implements IBitString
 					ret += "T";
 				else
 					ret += "F";
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				e.printStackTrace();
 			}

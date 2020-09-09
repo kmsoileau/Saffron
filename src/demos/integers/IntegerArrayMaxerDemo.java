@@ -36,9 +36,8 @@ public class IntegerArrayMaxerDemo extends Problem implements IProblem
 		IInteger maxIndex = new Integer();
 		IInteger maxEntry = new Integer();
 
-		IProblemMessage s = new Conjunction(new IntegerFixer(d),
-				new IntegerArrayMaxer(d, maxIndex, maxEntry)).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new Conjunction(new IntegerFixer(d), new IntegerArrayMaxer(d, maxIndex, maxEntry))
+				.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

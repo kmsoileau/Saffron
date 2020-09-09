@@ -18,13 +18,11 @@ import bits.Problem;
  */
 public class NaturalNumberNoter extends Problem implements IProblem
 {
-	public NaturalNumberNoter(INaturalNumber X, INaturalNumber Y)
-			throws Exception
+	public NaturalNumberNoter(INaturalNumber X, INaturalNumber Y) throws Exception
 	{
 		BitNoter[] bnnb = new BitNoter[NaturalNumber.getLength()];
 		for (int i = 0; i < bnnb.length; i++)
-			bnnb[i] = new BitNoter(X.getBooleanVariable(i),
-					Y.getBooleanVariable(i));
+			bnnb[i] = new BitNoter(X.getBooleanVariable(i), Y.getBooleanVariable(i));
 		IProblem p = new Conjunction(bnnb);
 		this.setClauses(p.getClauses());
 	}

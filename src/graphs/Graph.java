@@ -44,8 +44,7 @@ public class Graph implements IGraph
 	public Graph(String name, int numberOfVertices) throws Exception
 	{
 		if (numberOfVertices < 1)
-			throw new GraphException(
-					"numberOfVertices less than 1 passed to constructor.");
+			throw new GraphException("numberOfVertices less than 1 passed to constructor.");
 		this.setData(new IBooleanVariable[numberOfVertices][numberOfVertices]);
 
 		for (int i = 0; i < numberOfVertices; i++)

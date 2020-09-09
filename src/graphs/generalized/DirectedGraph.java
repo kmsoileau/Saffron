@@ -21,8 +21,7 @@ import naturalnumbers.NaturalNumberUnequalizer;
  * @since Mar 10, 2019
  */
 
-public class DirectedGraph extends Graph implements
-		IDirectedGraph
+public class DirectedGraph extends Graph implements IDirectedGraph
 {
 	private static int dgGCount;
 
@@ -36,15 +35,12 @@ public class DirectedGraph extends Graph implements
 		super(name, data);
 	}
 
-	public IProblem areBiconnected(INaturalNumber startVertex,
-			INaturalNumber endVertex) throws Exception
+	public IProblem areBiconnected(INaturalNumber startVertex, INaturalNumber endVertex) throws Exception
 	{
-		return new Conjunction(areMonoConnected(startVertex, endVertex),
-				areMonoConnected(endVertex, startVertex));
+		return new Conjunction(areMonoConnected(startVertex, endVertex), areMonoConnected(endVertex, startVertex));
 	}
 
-	public IProblem areMonoConnected(INaturalNumber startVertex,
-			INaturalNumber endVertex) throws Exception
+	public IProblem areMonoConnected(INaturalNumber startVertex, INaturalNumber endVertex) throws Exception
 	{
 		ArrayList<NaturalNumberPair> pairsList = this.getBacking().getPairs();
 
@@ -52,22 +48,19 @@ public class DirectedGraph extends Graph implements
 		for (int i = 0; i < this.getBacking().size(); i++)
 		{
 			NaturalNumberPair plisti = pairsList.get(i);
-			p.add(new Conjunction(new NaturalNumberEqualizer(startVertex,
-					plisti.getFirst()), new NaturalNumberEqualizer(endVertex,
-					plisti.getSecond())));
+			p.add(new Conjunction(new NaturalNumberEqualizer(startVertex, plisti.getFirst()),
+					new NaturalNumberEqualizer(endVertex, plisti.getSecond())));
 		}
 		return new Disjunction(p);
 	}
 
-	public IProblem areNotBiconnected(INaturalNumber startVertex,
-			INaturalNumber endVertex) throws Exception
+	public IProblem areNotBiconnected(INaturalNumber startVertex, INaturalNumber endVertex) throws Exception
 	{
 		return new Disjunction(areNotMonoconnected(startVertex, endVertex),
 				areNotMonoconnected(endVertex, startVertex));
 	}
 
-	public IProblem areNotMonoconnected(INaturalNumber startVertex,
-			INaturalNumber endVertex) throws Exception
+	public IProblem areNotMonoconnected(INaturalNumber startVertex, INaturalNumber endVertex) throws Exception
 	{
 		ArrayList<NaturalNumberPair> pairsList = this.getBacking().getPairs();
 
@@ -75,9 +68,8 @@ public class DirectedGraph extends Graph implements
 		for (int i = 0; i < this.getBacking().size(); i++)
 		{
 			NaturalNumberPair plisti = pairsList.get(i);
-			p.add(new Disjunction(new NaturalNumberUnequalizer(startVertex,
-					plisti.getFirst()), new NaturalNumberUnequalizer(endVertex,
-					plisti.getSecond())));
+			p.add(new Disjunction(new NaturalNumberUnequalizer(startVertex, plisti.getFirst()),
+					new NaturalNumberUnequalizer(endVertex, plisti.getSecond())));
 		}
 		return new Conjunction(p);
 	}
@@ -89,8 +81,7 @@ public class DirectedGraph extends Graph implements
 	}
 
 	@Override
-	public void monoconnect(INaturalNumber i, INaturalNumber j)
-			throws Exception
+	public void monoconnect(INaturalNumber i, INaturalNumber j) throws Exception
 	{
 		this.getLookup().get(i).get(j).setValue(true);
 	}

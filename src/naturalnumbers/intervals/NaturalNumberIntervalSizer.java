@@ -31,14 +31,11 @@ import naturalnumbers.NaturalNumberSubtracter;
  */
 public class NaturalNumberIntervalSizer extends Problem implements IProblem
 {
-	public NaturalNumberIntervalSizer(INaturalNumberInterval N, long size)
-			throws Exception
+	public NaturalNumberIntervalSizer(INaturalNumberInterval N, long size) throws Exception
 	{
 		INaturalNumber diffNN = new NaturalNumber();
 
-		this.setClauses(new Conjunction(
-				new NaturalNumberFixer(diffNN, size - 1),
-				new NaturalNumberSubtracter(N.getUpper(), N.getLower(), diffNN))
-				.getClauses());
+		this.setClauses(new Conjunction(new NaturalNumberFixer(diffNN, size - 1),
+				new NaturalNumberSubtracter(N.getUpper(), N.getLower(), diffNN)).getClauses());
 	}
 }

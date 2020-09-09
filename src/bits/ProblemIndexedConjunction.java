@@ -33,16 +33,13 @@ public class ProblemIndexedConjunction extends Problem implements IProblem
 {
 	private IBooleanVariable[] bitLink;
 
-	public ProblemIndexedConjunction(IProblem[] P, IProblem[] Q)
-			throws Exception
+	public ProblemIndexedConjunction(IProblem[] P, IProblem[] Q) throws Exception
 	{
 		if (P == null || Q == null)
-			throw new ProblemIndexedConjunctionException(
-					"Null passed to constructor as IProblem.");
+			throw new ProblemIndexedConjunctionException("Null passed to constructor as IProblem.");
 
 		if (P.length != Q.length)
-			throw new ProblemIndexedConjunctionException(
-					"IProblem arrays of unequal length passed to constructor.");
+			throw new ProblemIndexedConjunctionException("IProblem arrays of unequal length passed to constructor.");
 		if (P.length == 0 || Q.length == 0)
 		{
 			this.setClauses(Problem.trivialProblem().getClauses());
@@ -57,11 +54,9 @@ public class ProblemIndexedConjunction extends Problem implements IProblem
 			{
 				bitLink[i] = BooleanVariable.getBooleanVariable();
 				pbl[i] = new ProblemBitLinker(P[i], bitLink[i]);
-				pf[i] = new ProblemFork(bitLink[i], Q[i],
-						Problem.trivialProblem());
+				pf[i] = new ProblemFork(bitLink[i], Q[i], Problem.trivialProblem());
 			}
-			IProblem problem = new Conjunction(new Conjunction(pbl),
-					new Conjunction(pf));
+			IProblem problem = new Conjunction(new Conjunction(pbl), new Conjunction(pf));
 			this.setClauses(problem.getClauses());
 		}
 	}

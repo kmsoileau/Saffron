@@ -32,22 +32,22 @@ public class MagmaCommutativerDemo
 	{
 		int[][] opTable = new int[][]
 		{
-		{ 0, 0, 0 },
-		{ 0, 1, 1 },
-		{ 0, 2, 2 },
-		{ 0, 3, 3 },
-		{ 1, 0, 1 },
-		{ 1, 1, 0 },
-		{ 1, 2, 3 },
-		{ 1, 3, 2 },
-		{ 2, 0, 2 },
-		{ 2, 1, 3 },
-		{ 2, 2, 0 },
-		{ 2, 3, 1 },
-		{ 3, 0, 3 },
-		{ 3, 1, 2 },
-		{ 3, 2, 1 },
-		{ 3, 3, 0 } };
+				{ 0, 0, 0 },
+				{ 0, 1, 1 },
+				{ 0, 2, 2 },
+				{ 0, 3, 3 },
+				{ 1, 0, 1 },
+				{ 1, 1, 0 },
+				{ 1, 2, 3 },
+				{ 1, 3, 2 },
+				{ 2, 0, 2 },
+				{ 2, 1, 3 },
+				{ 2, 2, 0 },
+				{ 2, 3, 1 },
+				{ 3, 0, 3 },
+				{ 3, 1, 2 },
+				{ 3, 2, 1 },
+				{ 3, 3, 0 } };
 
 		Magma mgm = new Magma(opTable);
 
@@ -56,11 +56,9 @@ public class MagmaCommutativerDemo
 		INaturalNumber X = new NaturalNumber();
 		INaturalNumber Y = new NaturalNumber();
 
-		IProblem problem = new Conjunction(
-				new IProblem[]
-				{ new MagmaFixer(mgm), new NaturalNumberFixer(X, 1),
-						new NaturalNumberFixer(Y, 3),
-						new MagmaCommutativer(mgm, X, Y) });
+		IProblem problem = new Conjunction(new IProblem[]
+		{ new MagmaFixer(mgm), new NaturalNumberFixer(X, 1), new NaturalNumberFixer(Y, 3),
+				new MagmaCommutativer(mgm, X, Y) });
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

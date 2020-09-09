@@ -18,11 +18,8 @@ public class IntegerIntervalDisjointerDemo
 		IIntegerInterval R = new IntegerInterval("R");
 
 		IProblem[] p = new IProblem[]
-		{ new IntegerFixer(L.getLower(), 0),
-				new IntegerFixer(L.getUpper(), 0),
-				new IntegerFixer(R.getLower(), 1),
-				new IntegerFixer(R.getUpper(), 1),
-				new IntegerIntervalDisjointer(L, R) };
+		{ new IntegerFixer(L.getLower(), 0), new IntegerFixer(L.getUpper(), 0), new IntegerFixer(R.getLower(), 1),
+				new IntegerFixer(R.getUpper(), 1), new IntegerIntervalDisjointer(L, R) };
 
 		IProblem problem = new Conjunction(p);
 

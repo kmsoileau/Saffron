@@ -19,17 +19,14 @@ import naturalnumbers.exceptions.NaturalNumberEqualizerException;
  */
 public class NaturalNumberEqualizer extends Problem implements IProblem
 {
-	public NaturalNumberEqualizer(INaturalNumber X, INaturalNumber Y)
-			throws Exception
+	public NaturalNumberEqualizer(INaturalNumber X, INaturalNumber Y) throws Exception
 	{
 		if (X == null || Y == null)
-			throw new NaturalNumberEqualizerException(
-					"A null INaturalNumber was passed to constructor.");
+			throw new NaturalNumberEqualizerException("A null INaturalNumber was passed to constructor.");
 
 		IProblem[] thba = new Problem[NaturalNumber.getLength()];
 		for (int i = 0; i < NaturalNumber.getLength(); i++)
-			thba[i] = new BitEqualizer(X.getBooleanVariable(i),
-					Y.getBooleanVariable(i));
+			thba[i] = new BitEqualizer(X.getBooleanVariable(i), Y.getBooleanVariable(i));
 
 		IProblem p1 = new Conjunction(thba);
 		this.setClauses(p1.getClauses());

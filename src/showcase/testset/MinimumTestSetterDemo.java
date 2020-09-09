@@ -61,10 +61,8 @@ public class MinimumTestSetterDemo
 		 */
 
 		IBitString[] S = new IBitString[]
-		{ new BitString("01000"), new BitString("01011"),
-				new BitString("10100"), new BitString("01100"),
-				new BitString("11010"), new BitString("10010"),
-				new BitString("01010") };
+		{ new BitString("01000"), new BitString("01011"), new BitString("10100"), new BitString("01100"),
+				new BitString("11010"), new BitString("10010"), new BitString("01010") };
 
 		int cLength = S.length;
 		int cSize = S[0].size();

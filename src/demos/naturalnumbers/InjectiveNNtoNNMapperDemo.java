@@ -42,29 +42,27 @@ public class InjectiveNNtoNNMapperDemo
 
 		INaturalNumber[][] data = new INaturalNumber[][]
 		{
-		{ NN1, NN2 },
-		{ NN2, NN3 },
-		{ NN3, NN1 },
-		{ NN4, NN5 },
-		{ NN5, NN6 },
-		{ NN6, NN7 },
-		{ NN7, NN8 },
-		{ NN8, NN9 } };
+				{ NN1, NN2 },
+				{ NN2, NN3 },
+				{ NN3, NN1 },
+				{ NN4, NN5 },
+				{ NN5, NN6 },
+				{ NN6, NN7 },
+				{ NN7, NN8 },
+				{ NN8, NN9 } };
 
 		NaturalNumberPair[] pairs = new NaturalNumberPair[data.length];
 		for (int i = 0; i < data.length; i++)
 			pairs[i] = new NaturalNumberPair(data[i][0], data[i][1]);
 
 		IProblem fixers = new Conjunction(new IProblem[]
-		{ new NaturalNumberFixer(NN0), new NaturalNumberFixer(NN1),
-				new NaturalNumberFixer(NN2), new NaturalNumberFixer(NN3),
-				new NaturalNumberFixer(NN4), new NaturalNumberFixer(NN5),
-				new NaturalNumberFixer(NN6), new NaturalNumberFixer(NN7),
-				new NaturalNumberFixer(NN8), new NaturalNumberFixer(NN9) });
+		{ new NaturalNumberFixer(NN0), new NaturalNumberFixer(NN1), new NaturalNumberFixer(NN2),
+				new NaturalNumberFixer(NN3), new NaturalNumberFixer(NN4), new NaturalNumberFixer(NN5),
+				new NaturalNumberFixer(NN6), new NaturalNumberFixer(NN7), new NaturalNumberFixer(NN8),
+				new NaturalNumberFixer(NN9) });
 
 		IProblem problem = new Conjunction(new IProblem[]
-		{ fixers, new NaturalNumberFixer(map.getX(), 1), map,
-				new SingleValuedNNtoNNMapper(map),
+		{ fixers, new NaturalNumberFixer(map.getX(), 1), map, new SingleValuedNNtoNNMapper(map),
 				new InjectiveNNtoNNMapper(map) });
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

@@ -19,8 +19,7 @@ public class SubsetterDemo3
 
 		Set setB = new Set();
 
-		IProblem problem = new Conjunction(new SetMembershipper("B", setA),
-				new SetMembershipper("C", setA),
+		IProblem problem = new Conjunction(new SetMembershipper("B", setA), new SetMembershipper("C", setA),
 				new SetMembershipper("B", setB), new Subsetter(setA, setB));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

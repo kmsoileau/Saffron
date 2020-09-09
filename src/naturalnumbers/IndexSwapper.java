@@ -32,8 +32,7 @@ public class IndexSwapper extends Problem implements IProblem
 		return hs1;
 	}
 
-	public IndexSwapper(INaturalNumber[] start, INaturalNumber[] end,
-			INaturalNumber tile1, INaturalNumber tile1Index,
+	public IndexSwapper(INaturalNumber[] start, INaturalNumber[] end, INaturalNumber tile1, INaturalNumber tile1Index,
 			INaturalNumber tile2, INaturalNumber tile2Index) throws Exception
 	{
 		IProblem[] p = new IProblem[start.length];
@@ -42,18 +41,15 @@ public class IndexSwapper extends Problem implements IProblem
 			INaturalNumber stile = start[i];
 			INaturalNumber etile = end[i];
 			// if stile==tile1 then tile2<-etile and tile1Index<-i;
-			IProblem q1 = new Disjunction(new NaturalNumberUnequalizer(stile,
-					tile1), new Conjunction(new NaturalNumberEqualizer(tile2,
-					etile), new NaturalNumberFixer(tile1Index, i)));
+			IProblem q1 = new Disjunction(new NaturalNumberUnequalizer(stile, tile1),
+					new Conjunction(new NaturalNumberEqualizer(tile2, etile), new NaturalNumberFixer(tile1Index, i)));
 			// if stile==tile2 then tile1<-etile and tile2Index<-i;
-			IProblem q2 = new Disjunction(new NaturalNumberUnequalizer(stile,
-					tile2), new Conjunction(new NaturalNumberEqualizer(tile1,
-					etile), new NaturalNumberFixer(tile2Index, i)));
+			IProblem q2 = new Disjunction(new NaturalNumberUnequalizer(stile, tile2),
+					new Conjunction(new NaturalNumberEqualizer(tile1, etile), new NaturalNumberFixer(tile2Index, i)));
 			// if stile!=tile1 and stile!=tile2 then
 			// stile<-etile;
-			IProblem q3 = new Disjunction(new NaturalNumberEqualizer(stile,
-					tile1), new NaturalNumberEqualizer(stile, tile2),
-					new NaturalNumberEqualizer(etile, stile));
+			IProblem q3 = new Disjunction(new NaturalNumberEqualizer(stile, tile1),
+					new NaturalNumberEqualizer(stile, tile2), new NaturalNumberEqualizer(etile, stile));
 
 			p[i] = new Conjunction(q1, q2, q3);
 		}

@@ -53,8 +53,7 @@ public class ProblemAsDataSolverDemo
 
 		ClauseAsData.declare(ary);
 		IClauseAsData c1 = new ClauseAsData();
-		IBooleanVariable[] bvarray = ClauseAsData.getVARIABLES().toArray(
-				new IBooleanVariable[0]);
+		IBooleanVariable[] bvarray = ClauseAsData.getVARIABLES().toArray(new IBooleanVariable[0]);
 		IClause clause1 = Clause.randomClause(bvarray);
 		IClauseAsData c2 = new ClauseAsData();
 		IClause clause2 = Clause.randomClause(bvarray);
@@ -67,8 +66,7 @@ public class ProblemAsDataSolverDemo
 		IClauseAsData[] clauses = new IClauseAsData[]
 		{ c1, c2 };
 		IProblemAsData p = new ProblemAsData(clauses);
-		IProblem prob = new Conjunction(prob1, prob2,
-				new ProblemAsDataSolver(p));
+		IProblem prob = new Conjunction(prob1, prob2, new ProblemAsDataSolver(p));
 		IProblemMessage s = prob.findModel(Problem.defaultSolver());
 		System.out.println("Reporting...");
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

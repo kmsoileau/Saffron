@@ -22,8 +22,7 @@ import bits.strings.lists.exceptions.CommonSuperBitStringerException;
  */
 public class CommonSuperBitStringer extends Problem implements IProblem
 {
-	public CommonSuperBitStringer(IBitString[] C, IBitString superSequence)
-			throws Exception
+	public CommonSuperBitStringer(IBitString[] C, IBitString superSequence) throws Exception
 	{
 		int len = C.length;
 		int sssize = superSequence.size();
@@ -39,8 +38,7 @@ public class CommonSuperBitStringer extends Problem implements IProblem
 		this.setClauses(new Conjunction(p).getClauses());
 	}
 
-	public CommonSuperBitStringer(IBitStringList C, IBitString superSequence)
-			throws Exception
+	public CommonSuperBitStringer(IBitStringList C, IBitString superSequence) throws Exception
 	{
 		int size = C.size();
 		int sssize = superSequence.size();

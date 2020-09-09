@@ -36,8 +36,7 @@ public class IntegerFixerDemo2 extends Problem implements IProblem
 
 		INaturalNumber nn = ntgr.getAbsValue();
 		IBooleanVariable bv = ntgr.getSign();
-		IProblem problem = new Conjunction(new NaturalNumberFixer(nn, 56),
-				new BitFixer(bv, false));
+		IProblem problem = new Conjunction(new NaturalNumberFixer(nn, 56), new BitFixer(bv, false));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

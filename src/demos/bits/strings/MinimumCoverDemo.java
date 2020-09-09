@@ -22,15 +22,13 @@ public class MinimumCoverDemo
 		INaturalNumber K = new NaturalNumber(maxSizeOfCover);
 
 		IBitString[] C = new IBitString[]
-		{ new BitString("10000000"), new BitString("01111100"),
-				new BitString("00001000"), new BitString("00000011"),
+		{ new BitString("10000000"), new BitString("01111100"), new BitString("00001000"), new BitString("00000011"),
 				new BitString("10110101") };
 
 		IBitString included = new BitString(C.length);
 
-		IProblem problem = new Conjunction(new BitStringFixer(C),
-				new NaturalNumberFixer(K), new MinimumSizedCoverer(C, included,
-						K));
+		IProblem problem = new Conjunction(new BitStringFixer(C), new NaturalNumberFixer(K),
+				new MinimumSizedCoverer(C, included, K));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

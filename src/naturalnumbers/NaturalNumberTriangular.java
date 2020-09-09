@@ -35,9 +35,8 @@ public class NaturalNumberTriangular extends Problem implements IProblem
 		this.setClauses(p.getClauses());
 	}
 
-	public NaturalNumberTriangular(INaturalNumber X, INaturalNumber Two,
-			INaturalNumber TwoZ, INaturalNumber Y, INaturalNumber Z)
-			throws Exception
+	public NaturalNumberTriangular(INaturalNumber X, INaturalNumber Two, INaturalNumber TwoZ, INaturalNumber Y,
+			INaturalNumber Z) throws Exception
 	{
 		IProblem p1 = new NaturalNumberFixer(Two, 2);
 		IProblem p2 = new NaturalNumberIncrementer(X, Y);

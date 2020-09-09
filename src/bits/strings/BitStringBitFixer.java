@@ -20,14 +20,11 @@ import bits.strings.exceptions.BitStringBitFixerException;
  */
 public class BitStringBitFixer extends Problem implements IProblem
 {
-	public BitStringBitFixer(IBitString b, int bit, boolean val)
-			throws Exception
+	public BitStringBitFixer(IBitString b, int bit, boolean val) throws Exception
 	{
 		if ((bit < 0) || (b.size() - 1 < bit))
-			throw new BitStringBitFixerException(
-					"bit < 0 or b.size() - 1 < bit.");
+			throw new BitStringBitFixerException("bit < 0 or b.size() - 1 < bit.");
 		else
-			this.setClauses(new BitFixer(b.getBooleanVariable(bit), val)
-					.getClauses());
+			this.setClauses(new BitFixer(b.getBooleanVariable(bit), val).getClauses());
 	}
 }

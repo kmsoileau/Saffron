@@ -14,16 +14,14 @@ public class BitStringArrayCovererDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBitString[] C = new IBitString[]
-		{ new BitString("01001010"), new BitString("10111010"),
-				new BitString("00001000"), new BitString("00100100"),
+		{ new BitString("01001010"), new BitString("10111010"), new BitString("00001000"), new BitString("00100100"),
 				new BitString("00101001") };
 
 		int cLength = C.length;
 
 		IBitString includedInCover = new BitString(cLength);
 
-		IProblemMessage s = new Conjunction(new BitStringFixer(C),
-				new BitStringArrayCoverer(C, includedInCover))
+		IProblemMessage s = new Conjunction(new BitStringFixer(C), new BitStringArrayCoverer(C, includedInCover))
 				.findModel(Problem.defaultSolver());
 
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

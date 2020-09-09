@@ -23,16 +23,14 @@ import integers.intervals.IntegerIntervalCongruenter;
  * 
  *
  */
-public class IntegerIntervalCongruenterDemo2 extends Problem implements
-		IProblem
+public class IntegerIntervalCongruenterDemo2 extends Problem implements IProblem
 {
 	public static void main(String[] args) throws Exception
 	{
 		IIntegerInterval A = new IntegerInterval("A");
 		IIntegerInterval B = new IntegerInterval("B");
 
-		IProblem problem = new Conjunction(new IntegerIntervalFixer(A, 3,
-				7), new IntegerIntervalFixer(B, 7, 11),
+		IProblem problem = new Conjunction(new IntegerIntervalFixer(A, 3, 7), new IntegerIntervalFixer(B, 7, 11),
 				new IntegerIntervalCongruenter(A, B));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

@@ -21,17 +21,14 @@ import naturalnumbers.NaturalNumberArrayMaxer;
  */
 public class NaturalNumberListMaxer extends Problem implements IProblem
 {
-	public NaturalNumberListMaxer(INaturalNumberList d, INaturalNumber maxEntry)
-			throws Exception
+	public NaturalNumberListMaxer(INaturalNumberList d, INaturalNumber maxEntry) throws Exception
 	{
-		this.setClauses(new NaturalNumberArrayMaxer(d.getNaturalNumberArray(),
-				maxEntry).getClauses());
+		this.setClauses(new NaturalNumberArrayMaxer(d.getNaturalNumberArray(), maxEntry).getClauses());
 	}
 
-	public NaturalNumberListMaxer(INaturalNumberList d,
-			INaturalNumber maxIndex, INaturalNumber maxEntry) throws Exception
+	public NaturalNumberListMaxer(INaturalNumberList d, INaturalNumber maxIndex, INaturalNumber maxEntry)
+			throws Exception
 	{
-		this.setClauses(new NaturalNumberArrayMaxer(d.getNaturalNumberArray(),
-				maxIndex, maxEntry).getClauses());
+		this.setClauses(new NaturalNumberArrayMaxer(d.getNaturalNumberArray(), maxIndex, maxEntry).getClauses());
 	}
 }

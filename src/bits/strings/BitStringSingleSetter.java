@@ -47,12 +47,10 @@ public class BitStringSingleSetter extends Problem implements IProblem
 	public BitStringSingleSetter(IBitString bs) throws Exception
 	{
 		if (bs == null)
-			throw new BitStringSingleSetterException(
-					"Null array passed to constructor");
+			throw new BitStringSingleSetterException("Null array passed to constructor");
 		int bits = bs.size();
 		if (bits == 0)
-			throw new BitStringSingleSetterException(
-					"Array of length zero passed to constructor");
+			throw new BitStringSingleSetterException("Array of length zero passed to constructor");
 
 		IProblem problem = Problem.newProblem();
 		IClause clause = Clause.newClause();
@@ -62,9 +60,7 @@ public class BitStringSingleSetter extends Problem implements IProblem
 
 		for (int i = 0; i < bits; i++)
 			for (int j = i + 1; j < bits; j++)
-				problem.addClause(Clause.newClause()
-						.orNot(bs.getBooleanVariable(i))
-						.orNot(bs.getBooleanVariable(j)));
+				problem.addClause(Clause.newClause().orNot(bs.getBooleanVariable(i)).orNot(bs.getBooleanVariable(j)));
 
 		this.setClauses(problem.getClauses());
 	}

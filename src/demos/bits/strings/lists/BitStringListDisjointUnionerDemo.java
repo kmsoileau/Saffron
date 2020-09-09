@@ -37,20 +37,19 @@ public class BitStringListDisjointUnionerDemo
 	{
 		IBitStringList slm = new BitStringList("y", new boolean[][]
 		{
-		{ false, true, true },
-		{ true, true, true }, });
+				{ false, true, true },
+				{ true, true, true }, });
 		IProblem slmfix = new BitStringListFixer(slm);
 
 		IBitStringList bsl = new BitStringList("slist", new IBitString[]
 		{ new BitString(new boolean[]
-		{ true, true, true }), new BitString(new boolean[]
-		{ false, true, false }) });
+				{ true, true, true }), new BitString(new boolean[]
+				{ false, true, false }) });
 		IProblem bslfix = new BitStringListFixer(bsl);
 
 		IBitStringList target = new BitStringList("combined", new boolean[4][3]);
 
-		IProblem problem = new Conjunction(slmfix, bslfix,
-				new BitStringListDisjointUnioner(target, slm, bsl),
+		IProblem problem = new Conjunction(slmfix, bslfix, new BitStringListDisjointUnioner(target, slm, bsl),
 				new BitStringListSorter(target));
 
 		System.out.println(problem);

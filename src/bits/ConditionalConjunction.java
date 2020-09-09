@@ -32,19 +32,15 @@ import bits.exceptions.ConditionalConjunctionException;
  */
 public class ConditionalConjunction extends Problem implements IProblem
 {
-	public ConditionalConjunction(IProblem[] problemArray,
-			IBooleanVariable[] booleanVariableArray) throws Exception
+	public ConditionalConjunction(IProblem[] problemArray, IBooleanVariable[] booleanVariableArray) throws Exception
 	{
 		if (problemArray == null)
-			throw new ConditionalConjunctionException(
-					"Null IProblem array passed to constructor.");
+			throw new ConditionalConjunctionException("Null IProblem array passed to constructor.");
 		if (booleanVariableArray == null)
-			throw new ConditionalConjunctionException(
-					"Null IBooleanVariable array passed to constructor.");
+			throw new ConditionalConjunctionException("Null IBooleanVariable array passed to constructor.");
 		int numberOfProblems = problemArray.length;
 		if (numberOfProblems == 0)
-			throw new ConditionalConjunctionException(
-					"IProblem array of zero length passed to constructor.");
+			throw new ConditionalConjunctionException("IProblem array of zero length passed to constructor.");
 		if (numberOfProblems == 1)
 			this.setClauses(problemArray[0].getClauses());
 		if (numberOfProblems != booleanVariableArray.length)
@@ -53,8 +49,7 @@ public class ConditionalConjunction extends Problem implements IProblem
 
 		IProblem[] subProblems = new IProblem[numberOfProblems];
 		for (int i = 0; i < numberOfProblems; i++)
-			subProblems[i] = new Disjunction(booleanVariableArray[i],
-					problemArray[i], Problem.trivialProblem());
+			subProblems[i] = new Disjunction(booleanVariableArray[i], problemArray[i], Problem.trivialProblem());
 
 		this.setClauses(new Conjunction(subProblems).getClauses());
 	}

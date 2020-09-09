@@ -20,13 +20,10 @@ import bits.Problem;
  */
 public class NaturalNumberFromBitConverter extends Problem implements IProblem
 {
-	public NaturalNumberFromBitConverter(INaturalNumber b, IBooleanVariable bv)
-			throws Exception
+	public NaturalNumberFromBitConverter(INaturalNumber b, IBooleanVariable bv) throws Exception
 	{
-		IProblem convert = new Disjunction(new Conjunction(
-				new NaturalNumberFixer(b, 0L), new BitFixer(bv, false)),
-				new Conjunction(new NaturalNumberFixer(b, 1L), new BitFixer(bv,
-						true)));
+		IProblem convert = new Disjunction(new Conjunction(new NaturalNumberFixer(b, 0L), new BitFixer(bv, false)),
+				new Conjunction(new NaturalNumberFixer(b, 1L), new BitFixer(bv, true)));
 
 		this.setClauses(convert.getClauses());
 	}

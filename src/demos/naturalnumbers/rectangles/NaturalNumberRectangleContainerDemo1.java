@@ -18,8 +18,7 @@ public class NaturalNumberRectangleContainerDemo1
 		INaturalNumberRectangle R = new NaturalNumberRectangle("R");
 
 		IProblem[] p = new IProblem[]
-		{ new NaturalNumberRectangleFixer(L, 2, 4, 2, 2),
-				new NaturalNumberRectangleFixer(R, 1, 2, 3, 5),
+		{ new NaturalNumberRectangleFixer(L, 2, 4, 2, 2), new NaturalNumberRectangleFixer(R, 1, 2, 3, 5),
 				new NaturalNumberRectangleContainer(L, R) };
 
 		IProblem problem = new Conjunction(p);

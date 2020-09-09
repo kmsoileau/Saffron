@@ -41,12 +41,10 @@ public class BitArraySingleClearer extends Problem implements IProblem
 	public BitArraySingleClearer(IBooleanVariable[] array) throws Exception
 	{
 		if (array == null)
-			throw new BitArraySingleClearerException(
-					"Null array passed to constructor");
+			throw new BitArraySingleClearerException("Null array passed to constructor");
 		int bits = array.length;
 		if (bits == 0)
-			throw new BitArraySingleClearerException(
-					"Array of length zero passed to constructor");
+			throw new BitArraySingleClearerException("Array of length zero passed to constructor");
 
 		IProblem problem = Problem.newProblem();
 		IClause clause = Clause.newClause();

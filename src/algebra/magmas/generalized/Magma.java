@@ -28,13 +28,10 @@ public class Magma
 
 	public Magma()
 	{
-		this(
-				"Magma-" + magmaCount++,
-				new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
+		this("Magma-" + magmaCount++, new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
 	}
 
-	public Magma(
-			HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
+	public Magma(HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
 	{
 		this("Magma-" + magmaCount++, composition);
 	}
@@ -46,14 +43,10 @@ public class Magma
 
 	public Magma(String name)
 	{
-		this(
-				name,
-				new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
+		this(name, new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
 	}
 
-	public Magma(
-			String name,
-			HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
+	public Magma(String name, HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
 	{
 
 		// this.name = name;
@@ -114,8 +107,7 @@ public class Magma
 			{
 				INaturalNumber rr = qq.get(jnn);
 				ret[index] = new int[]
-				{ (int) inn.getValue(), (int) jnn.getValue(),
-						(int) rr.getValue() };
+				{ (int) inn.getValue(), (int) jnn.getValue(), (int) rr.getValue() };
 				index++;
 			}
 		}

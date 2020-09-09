@@ -29,8 +29,7 @@ public class BitStringListDistincter extends Problem implements IProblem
 
 		for (int i = 0; i < size; i++)
 			for (int j = i + 1; j < size; j++)
-				problem = new Conjunction(problem, new BitStringUnequalizer(
-						X.getBitString(i), X.getBitString(j)));
+				problem = new Conjunction(problem, new BitStringUnequalizer(X.getBitString(i), X.getBitString(j)));
 
 		this.setClauses(problem.getClauses());
 	}

@@ -44,8 +44,7 @@ public class BitStringBitAtomerDemo extends Problem implements IProblem
 		ArrayList<String> atoms = new ArrayList<String>();
 		for (int pos = 0; pos < C[0].size(); pos++)
 		{
-			IProblemMessage s = new Conjunction(new BitStringFixer(C),
-					new BitStringBitAtomer(C, pos, atomBitString))
+			IProblemMessage s = new Conjunction(new BitStringFixer(C), new BitStringBitAtomer(C, pos, atomBitString))
 					.findModel(Problem.defaultSolver());
 			if (s.getStatus() == IProblemMessage.SATISFIABLE)
 			{

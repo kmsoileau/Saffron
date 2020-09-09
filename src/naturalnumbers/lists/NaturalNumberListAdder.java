@@ -15,17 +15,15 @@ import naturalnumbers.lists.exceptions.NaturalNumberListAdderException;
  */
 public class NaturalNumberListAdder extends Problem implements IProblem
 {
-	public NaturalNumberListAdder(INaturalNumberList addend1,
-			INaturalNumberList addend2, INaturalNumberList sum)
+	public NaturalNumberListAdder(INaturalNumberList addend1, INaturalNumberList addend2, INaturalNumberList sum)
 			throws Exception
 	{
 		if (addend1.size() != addend2.size() || addend1.size() != sum.size())
-			throw new NaturalNumberListAdderException(
-					"addend1, addend2 and sum are of unequal size.");
+			throw new NaturalNumberListAdderException("addend1, addend2 and sum are of unequal size.");
 		IProblem[] p = new Problem[addend1.size()];
 		for (int i = 0; i < p.length; i++)
-			p[i] = new NaturalNumberAdder(addend1.getNaturalNumber(i),
-					addend2.getNaturalNumber(i), sum.getNaturalNumber(i));
+			p[i] = new NaturalNumberAdder(addend1.getNaturalNumber(i), addend2.getNaturalNumber(i),
+					sum.getNaturalNumber(i));
 		this.setClauses(new Conjunction(p).getClauses());
 	}
 }

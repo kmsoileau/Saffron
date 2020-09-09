@@ -23,21 +23,17 @@ import bits.strings.BitStringDisjointer;
  */
 public class BitStringPacker extends Problem implements IProblem
 {
-	public BitStringPacker(IBitString[] C, INaturalNumber K,
-			IBitString membership) throws Exception
+	public BitStringPacker(IBitString[] C, INaturalNumber K, IBitString membership) throws Exception
 	{
 		int problemIndex = 0;
-		IProblem[] problemArray = new IProblem[(C.length - 1) * C.length / 2
-				+ 1];
+		IProblem[] problemArray = new IProblem[(C.length - 1) * C.length / 2 + 1];
 
 		problemArray[problemIndex++] = new BitStringTotaler(membership, K);
 
 		for (int i = 0; i < C.length - 1; i++)
 			for (int j = i + 1; j < C.length; j++)
-				problemArray[problemIndex++] = new Disjunction(new BitFixer(
-						membership.getBooleanVariable(i), false), new BitFixer(
-						membership.getBooleanVariable(j), false),
-						new BitStringDisjointer(C[i], C[j]));
+				problemArray[problemIndex++] = new Disjunction(new BitFixer(membership.getBooleanVariable(i), false),
+						new BitFixer(membership.getBooleanVariable(j), false), new BitStringDisjointer(C[i], C[j]));
 
 		this.setClauses(new Conjunction(problemArray).getClauses());
 	}

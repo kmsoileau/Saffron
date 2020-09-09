@@ -34,22 +34,16 @@ public class BitStringListIncrementerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		IBitStringList firstList = new BitStringList("firstList",
-				new IBitString[]
-				{ new BitString("111"), new BitString("010"),
-						new BitString("000") });
+		IBitStringList firstList = new BitStringList("firstList", new IBitString[]
+		{ new BitString("111"), new BitString("010"), new BitString("000") });
 
-		IBitStringList secondList = new BitStringList("secondList",
-				new IBitString[]
-				{ new BitString("000"), new BitString("010"),
-						new BitString("110"), new BitString("111") });
+		IBitStringList secondList = new BitStringList("secondList", new IBitString[]
+		{ new BitString("000"), new BitString("010"), new BitString("110"), new BitString("111") });
 
 		IBitString theBitString = new BitString(3);
 
-		IProblem problem = new Conjunction(new BitStringListFixer(firstList),
-				new BitStringListFixer(secondList),
-				new BitStringListIncrementer(firstList, theBitString,
-						secondList));
+		IProblem problem = new Conjunction(new BitStringListFixer(firstList), new BitStringListFixer(secondList),
+				new BitStringListIncrementer(firstList, theBitString, secondList));
 
 		System.out.println(problem);
 

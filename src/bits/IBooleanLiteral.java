@@ -20,15 +20,13 @@ import bits.exceptions.BooleanLiteralException;
 public interface IBooleanLiteral extends Comparable<Object>
 {
 	/**
-	 * Constructs a new IBooleanLiteral with the same internal IBooleanVariable
-	 * but with opposite barring; that is, if this IBooleanLiteral is barred,
-	 * its complement will be unbarred, if not then its complement will be
-	 * barred.
+	 * Constructs a new IBooleanLiteral with the same internal IBooleanVariable but
+	 * with opposite barring; that is, if this IBooleanLiteral is barred, its
+	 * complement will be unbarred, if not then its complement will be barred.
 	 *
 	 * @return IBooleanLiteral with the same internal IBooleanVariable but with
 	 *         opposite barring.
-	 * @throws BooleanLiteralException
-	 *             An instance of Exception
+	 * @throws BooleanLiteralException An instance of Exception
 	 */
 	IBooleanLiteral complement() throws BooleanLiteralException;
 

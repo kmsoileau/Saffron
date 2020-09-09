@@ -22,44 +22,35 @@ import naturalnumbers.intervals.NaturalNumberIntervalEqualizer;
  * 
  *
  */
-public class NaturalNumberRectangleCongruenter extends Problem implements
-		IProblem
+public class NaturalNumberRectangleCongruenter extends Problem implements IProblem
 {
-	public NaturalNumberRectangleCongruenter(INaturalNumberRectangle A,
-			INaturalNumberRectangle B) throws Exception
+	public NaturalNumberRectangleCongruenter(INaturalNumberRectangle A, INaturalNumberRectangle B) throws Exception
 	{
 		this(A, B, new NaturalNumber(), new NaturalNumber());
 	}
 
-	public NaturalNumberRectangleCongruenter(INaturalNumberRectangle A,
-			INaturalNumberRectangle B, INaturalNumber X, INaturalNumber Y)
-			throws Exception
+	public NaturalNumberRectangleCongruenter(INaturalNumberRectangle A, INaturalNumberRectangle B, INaturalNumber X,
+			INaturalNumber Y) throws Exception
 	{
-		IProblem p = new Conjunction(new NaturalNumberIntervalCongruenter(
-				A.getBase(), B.getBase(), X),
-				new NaturalNumberIntervalCongruenter(A.getAltitude(), B
-						.getAltitude(), Y));
+		IProblem p = new Conjunction(new NaturalNumberIntervalCongruenter(A.getBase(), B.getBase(), X),
+				new NaturalNumberIntervalCongruenter(A.getAltitude(), B.getAltitude(), Y));
 		this.setClauses(p.getClauses());
 	}
 
-	public NaturalNumberRectangleCongruenter(INaturalNumberRectangle A,
-			INaturalNumberRectangle B, int sense, INaturalNumber D)
-			throws Exception
+	public NaturalNumberRectangleCongruenter(INaturalNumberRectangle A, INaturalNumberRectangle B, int sense,
+			INaturalNumber D) throws Exception
 	{
 		IProblem p = null;
 
 		if (sense == INaturalNumberRectangle.HORIZONTAL)
 		{
-			p = new Conjunction(new NaturalNumberIntervalCongruenter(
-					A.getBase(), B.getBase(), D),
-					new NaturalNumberIntervalEqualizer(A.getAltitude(), B
-							.getAltitude()));
+			p = new Conjunction(new NaturalNumberIntervalCongruenter(A.getBase(), B.getBase(), D),
+					new NaturalNumberIntervalEqualizer(A.getAltitude(), B.getAltitude()));
 		}
 		else if (sense == INaturalNumberRectangle.VERTICAL)
 		{
-			p = new Conjunction(new NaturalNumberIntervalEqualizer(A.getBase(),
-					B.getBase()), new NaturalNumberIntervalCongruenter(
-					A.getAltitude(), B.getAltitude(), D));
+			p = new Conjunction(new NaturalNumberIntervalEqualizer(A.getBase(), B.getBase()),
+					new NaturalNumberIntervalCongruenter(A.getAltitude(), B.getAltitude(), D));
 			this.setClauses(p.getClauses());
 		}
 

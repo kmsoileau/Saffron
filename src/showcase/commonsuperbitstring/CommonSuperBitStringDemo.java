@@ -32,14 +32,12 @@ public class CommonSuperBitStringDemo extends Problem implements IProblem
 		int K = 22;
 
 		IBitStringList X = new BitStringList(new IBitString[]
-		{ new BitString("01001010"), new BitString("10101010"),
-				new BitString("00001000"), new BitString("00100000"),
+		{ new BitString("01001010"), new BitString("10101010"), new BitString("00001000"), new BitString("00100000"),
 				new BitString("00101000") });
 		IBitString Y = new BitString(K);
 
-		IProblemMessage s = new Conjunction(new BitStringListFixer(X),
-				new CommonSuperBitStringer(X, Y)).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new Conjunction(new BitStringListFixer(X), new CommonSuperBitStringer(X, Y))
+				.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

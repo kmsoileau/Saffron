@@ -16,19 +16,18 @@ public class BitStringListJoinerDemo
 	{
 		IBitStringList a = new BitStringList("A", new boolean[][]
 		{
-		{ true, false, false },
-		{ true, true, false }, });
+				{ true, false, false },
+				{ true, true, false }, });
 		IProblem aFix = new BitStringListFixer(a);
 
 		IBitStringList b = new BitStringList("B", new boolean[][]
 		{
-		{ true, false, true }, });
+				{ true, false, true }, });
 		IProblem bFix = new BitStringListFixer(b);
 
 		IBitStringList target = new BitStringList("target", new boolean[3][3]);
 
-		IProblem problem = new Conjunction(aFix, bFix, new BitStringListJoiner(
-				target, a, b));
+		IProblem problem = new Conjunction(aFix, bFix, new BitStringListJoiner(target, a, b));
 
 		System.out.println(problem);
 

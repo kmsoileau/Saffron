@@ -24,12 +24,10 @@ import integers.intervals.exceptions.IntegerIntervalFixerException;
 
 public class IntegerIntervalFixer extends Problem implements IProblem
 {
-	public IntegerIntervalFixer(IIntegerInterval interval, IInteger Lower,
-			IInteger Upper) throws Exception
+	public IntegerIntervalFixer(IIntegerInterval interval, IInteger Lower, IInteger Upper) throws Exception
 	{
 		if (interval == null)
-			throw new IntegerIntervalFixerException(
-					"A null IIntegerInterval was passed to the constructor.");
+			throw new IntegerIntervalFixerException("A null IIntegerInterval was passed to the constructor.");
 
 		IInteger IILower = interval.getLower();
 		IInteger IIUpper = interval.getUpper();
@@ -38,17 +36,14 @@ public class IntegerIntervalFixer extends Problem implements IProblem
 			throw new IntegerIntervalFixerException(
 					"The IIntegerInterval passed to the constructor has a null endpoint.");
 
-		this.setClauses(new Conjunction(new IntegerOrderer(Lower, Upper),
-				new IntegerEqualizer(IILower, Lower), new IntegerEqualizer(
-						IIUpper, Upper)).getClauses());
+		this.setClauses(new Conjunction(new IntegerOrderer(Lower, Upper), new IntegerEqualizer(IILower, Lower),
+				new IntegerEqualizer(IIUpper, Upper)).getClauses());
 	}
 
-	public IntegerIntervalFixer(IIntegerInterval interval, int lower, int upper)
-			throws Exception
+	public IntegerIntervalFixer(IIntegerInterval interval, int lower, int upper) throws Exception
 	{
 		if (interval == null)
-			throw new IntegerIntervalFixerException(
-					"A null IIntegerInterval was passed to the constructor.");
+			throw new IntegerIntervalFixerException("A null IIntegerInterval was passed to the constructor.");
 		if (lower > upper)
 			throw new IntegerIntervalFixerException("Error: upper < lower.");
 
@@ -59,7 +54,7 @@ public class IntegerIntervalFixer extends Problem implements IProblem
 			throw new IntegerIntervalFixerException(
 					"The IIntegerInterval passed to the constructor has a null endpoint.");
 
-		this.setClauses(new Conjunction(new IntegerFixer(IILower, lower),
-				new IntegerFixer(IIUpper, upper)).getClauses());
+		this.setClauses(
+				new Conjunction(new IntegerFixer(IILower, lower), new IntegerFixer(IIUpper, upper)).getClauses());
 	}
 }

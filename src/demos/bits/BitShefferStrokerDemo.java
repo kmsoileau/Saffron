@@ -31,8 +31,7 @@ public class BitShefferStrokerDemo
 		System.out.println(p1);
 
 		// Find a solution to the Problem object :
-		List<IBooleanLiteral> v1 = p1.findModel(Problem.defaultSolver())
-				.getLiterals();
+		List<IBooleanLiteral> v1 = p1.findModel(Problem.defaultSolver()).getLiterals();
 		System.out.println(v1);
 	}
 }

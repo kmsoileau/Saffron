@@ -40,8 +40,7 @@ public class SetPackerDemo
 		 */
 
 		IBitString[] S = new IBitString[]
-		{ new BitString("01001010"), new BitString("10101010"),
-				new BitString("10000000"), new BitString("00100000") };
+		{ new BitString("01001010"), new BitString("10101010"), new BitString("10000000"), new BitString("00100000") };
 
 		IBitString membership = new BitString(S.length);
 		INaturalNumber K = new NaturalNumber(c);
@@ -58,8 +57,7 @@ public class SetPackerDemo
 		 * Create the IProblem of satisfying all of these constraining problems:
 		 */
 
-		IProblem problem = new Conjunction(p1, new BitStringFixer(K),
-				new BitStringPacker(S, K, membership));
+		IProblem problem = new Conjunction(p1, new BitStringFixer(K), new BitStringPacker(S, K, membership));
 
 		/**
 		 * Solve the IProblem:

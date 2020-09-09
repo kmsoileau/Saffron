@@ -25,18 +25,15 @@ public class TestSetterDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBitString[] C = new IBitString[]
-		{ new BitString("01000"), new BitString("01011"),
-				new BitString("10100"), new BitString("01100"),
-				new BitString("11010"), new BitString("10010"),
-				new BitString("01010") };
+		{ new BitString("01000"), new BitString("01011"), new BitString("10100"), new BitString("01100"),
+				new BitString("11010"), new BitString("10010"), new BitString("01010") };
 
 		int cLength = C.length;
 		int cSize = C[0].size();
 
 		IBitString includedInTestSet = new BitString(cLength);
 
-		IProblem problem = new Conjunction(new BitStringFixer(C),
-				new TestSetter(C, includedInTestSet));
+		IProblem problem = new Conjunction(new BitStringFixer(C), new TestSetter(C, includedInTestSet));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 
@@ -65,8 +62,7 @@ public class TestSetterDemo
 						boolean v3 = v1 || v2;
 						if (v3)
 						{
-							System.out.println(i + "\t" + j + "\t"
-									+ C[k].toBits());
+							System.out.println(i + "\t" + j + "\t" + C[k].toBits());
 							break;
 						}
 					}

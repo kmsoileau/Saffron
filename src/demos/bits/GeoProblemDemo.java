@@ -40,11 +40,11 @@ public class GeoProblemDemo extends Problem implements IProblem
 		boolean barred = bl.isBarred();
 		String name = bv.getName();
 		if (barred)
-			ret = "(3./8+1./16*(" + name + "*" + name + "+" + "1./" + name
-					+ "/" + name + ")+1./4*(" + name + "+1./" + name + ")";
+			ret = "(3./8+1./16*(" + name + "*" + name + "+" + "1./" + name + "/" + name + ")+1./4*(" + name + "+1./"
+					+ name + ")";
 		else
-			ret = "(3./8+1./16*(" + name + "*" + name + "+" + "1./" + name
-					+ "/" + name + ")-1./4*(" + name + "+1./" + name + ")";
+			ret = "(3./8+1./16*(" + name + "*" + name + "+" + "1./" + name + "/" + name + ")-1./4*(" + name + "+1./"
+					+ name + ")";
 		return ret;
 	}
 

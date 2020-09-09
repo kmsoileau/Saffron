@@ -9,12 +9,10 @@ import bits.strings.lists.exceptions.BitStringListException;
 
 public class BitStringListDisjointUnioner extends Problem implements IProblem
 {
-	public BitStringListDisjointUnioner(IBitStringList T, IBitStringList A,
-			IBitStringList B) throws Exception
+	public BitStringListDisjointUnioner(IBitStringList T, IBitStringList A, IBitStringList B) throws Exception
 	{
 		if (T == null || A == null || B == null)
-			throw new BitStringListException(
-					"Passed null IBitStringList to BitStringListAnder constructor.");
+			throw new BitStringListException("Passed null IBitStringList to BitStringListAnder constructor.");
 
 		IProblem problem = null;
 		for (int i = 0; i < T.size(); i++)
@@ -24,8 +22,7 @@ public class BitStringListDisjointUnioner extends Problem implements IProblem
 			IProblem notInA = new BitStringListNonmembershipper(curr, A);
 			IProblem inB = new BitStringListMembershipper(curr, B);
 			IProblem notInB = new BitStringListNonmembershipper(curr, B);
-			IProblem p1 = new Disjunction(new Conjunction(inA, notInB),
-					new Conjunction(inB, notInA));
+			IProblem p1 = new Disjunction(new Conjunction(inA, notInB), new Conjunction(inB, notInA));
 			// IProblem p2=new Disjunction(inA,inB);
 			// problem=new Conjunction(problem,new Disjunction(p1,p2));
 			problem = new Conjunction(problem, p1);

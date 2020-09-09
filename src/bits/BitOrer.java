@@ -24,12 +24,10 @@ package bits;
  */
 public class BitOrer extends Problem implements IProblem
 {
-	public BitOrer(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z)
-			throws Exception
+	public BitOrer(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z) throws Exception
 	{
 		this.setClauses(new IClause[]
-		{ Clause.newClause().or(x).or(y).orNot(z),
-				Clause.newClause().orNot(y).or(z),
+		{ Clause.newClause().or(x).or(y).orNot(z), Clause.newClause().orNot(y).or(z),
 				Clause.newClause().orNot(x).or(z) });
 	}
 }

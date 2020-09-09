@@ -25,17 +25,13 @@ import naturalnumbers.NaturalNumberEqualizer;
  */
 public class GraphAsProblem extends Problem implements IProblem
 {
-	public GraphAsProblem(IGraph g, INaturalNumber startVertex,
-			INaturalNumber endVertex) throws Exception
+	public GraphAsProblem(IGraph g, INaturalNumber startVertex, INaturalNumber endVertex) throws Exception
 	{
 		if (g == null)
-			throw new GraphAsProblemException(
-					"Null IGraph passed to constructor.");
+			throw new GraphAsProblemException("Null IGraph passed to constructor.");
 		if (startVertex == null || endVertex == null)
-			throw new GraphAsProblemException(
-					"Null INaturalNumber passed to constructor.");
-		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> data = g
-				.getData();
+			throw new GraphAsProblemException("Null INaturalNumber passed to constructor.");
+		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> data = g.getData();
 		ArrayList<ProblemPair> list = new ArrayList<ProblemPair>();
 		for (INaturalNumber i : data.keySet())
 		{
@@ -57,11 +53,9 @@ public class GraphAsProblem extends Problem implements IProblem
 	public GraphAsProblem(IGraph g, INaturalNumber[] vertices) throws Exception
 	{
 		if (g == null)
-			throw new GraphAsProblemException(
-					"Null IGraph passed to constructor.");
+			throw new GraphAsProblemException("Null IGraph passed to constructor.");
 		if (vertices == null)
-			throw new GraphAsProblemException(
-					"Null INaturalNumber array passed to constructor.");
+			throw new GraphAsProblemException("Null INaturalNumber array passed to constructor.");
 
 		IProblem[] graphProb = new IProblem[vertices.length - 1];
 		for (int i = 0; i < vertices.length - 1; i++)

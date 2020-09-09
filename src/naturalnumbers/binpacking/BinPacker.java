@@ -35,8 +35,7 @@ public class BinPacker
 		return binPackingProblem;
 	}
 
-	public static ArrayList<ArrayList<Item>> pack(Item[] items, Bin[] bins)
-			throws Exception
+	public static ArrayList<ArrayList<Item>> pack(Item[] items, Bin[] bins) throws Exception
 	{
 		long startTimeMillis = System.currentTimeMillis();
 		int numberBins = bins.length;
@@ -50,83 +49,71 @@ public class BinPacker
 				maxBin = bins[i].getCapacity();
 		NaturalNumber.setLargestNaturalNumber(maxBin);
 
-		System.out.println((System.currentTimeMillis() - startTimeMillis)
-				/ 1000. + ":" + "\tBuilding partitionProblem...");
+		System.out.println(
+				(System.currentTimeMillis() - startTimeMillis) / 1000. + ":" + "\tBuilding partitionProblem...");
 		IBooleanVariable[][] partition = new IBooleanVariable[numberBins][numberItems];
 		for (int i = 0; i < numberBins; i++)
 		{
 			IBooleanVariable[] currentBin = partition[i];
 			for (int j = 0; j < numberItems; j++)
-				currentBin[j] = BooleanVariable.getBooleanVariable("partition-"
-						+ i + "-" + j);
+				currentBin[j] = BooleanVariable.getBooleanVariable("partition-" + i + "-" + j);
 		}
 		IProblem partitionProblem = new BitArrayPartition(partition);
 		stagingArray[stagingIndex++] = partitionProblem;
 
-		System.out.println((System.currentTimeMillis() - startTimeMillis)
-				/ 1000. + ":" + "\tBuilding adderProblem...");
+		System.out.println((System.currentTimeMillis() - startTimeMillis) / 1000. + ":" + "\tBuilding adderProblem...");
 		INaturalNumber[] itemSizeNaturalNumberArray = new INaturalNumber[numberItems];
 		for (int i = 0; i < numberItems; i++)
-			itemSizeNaturalNumberArray[i] = new NaturalNumber(
-					items[i].getName());
+			itemSizeNaturalNumberArray[i] = new NaturalNumber(items[i].getName());
 		INaturalNumber[] condSum = new INaturalNumber[numberBins];
 		IProblem[] adderProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
 		{
-			System.out.println((System.currentTimeMillis() - startTimeMillis)
-					/ 1000. + ":" + "\t\t\tBuilding adderProblemArray[" + i
-					+ "]...");
+			System.out.println((System.currentTimeMillis() - startTimeMillis) / 1000. + ":"
+					+ "\t\t\tBuilding adderProblemArray[" + i + "]...");
 			condSum[i] = new NaturalNumber("NNCondSum-" + i);
-			adderProblemArray[i] = new ConditionalAdder(
-					itemSizeNaturalNumberArray, partition[i], condSum[i]);
+			adderProblemArray[i] = new ConditionalAdder(itemSizeNaturalNumberArray, partition[i], condSum[i]);
 			// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"stagingArray.add(adderProblemArray["+i+"]");
 			stagingArray[stagingIndex++] = adderProblemArray[i];
 		}
 
-		System.out.println((System.currentTimeMillis() - startTimeMillis)
-				/ 1000. + ":" + "\tBuilding binFitterProblem...");
+		System.out.println(
+				(System.currentTimeMillis() - startTimeMillis) / 1000. + ":" + "\tBuilding binFitterProblem...");
 		INaturalNumber[] binCapacityNNArray = new INaturalNumber[numberBins];
 		for (int i = 0; i < numberBins; i++)
 			binCapacityNNArray[i] = new NaturalNumber("BinSize-" + i);
 		IProblem[] binFitProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
 		{
-			binFitProblemArray[i] = new NaturalNumberOrderer(condSum[i],
-					binCapacityNNArray[i]);
+			binFitProblemArray[i] = new NaturalNumberOrderer(condSum[i], binCapacityNNArray[i]);
 			stagingArray[stagingIndex++] = binFitProblemArray[i];
 		}
 
-		System.out.println((System.currentTimeMillis() - startTimeMillis)
-				/ 1000. + ":" + "\tBuilding binCapacityFixerProblem...");
+		System.out.println(
+				(System.currentTimeMillis() - startTimeMillis) / 1000. + ":" + "\tBuilding binCapacityFixerProblem...");
 		IProblem[] binCapacityProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
 		{
-			binCapacityProblemArray[i] = new NaturalNumberFixer(
-					binCapacityNNArray[i], bins[i].getCapacity());
+			binCapacityProblemArray[i] = new NaturalNumberFixer(binCapacityNNArray[i], bins[i].getCapacity());
 			stagingArray[stagingIndex++] = binCapacityProblemArray[i];
 		}
 
-		System.out.println((System.currentTimeMillis() - startTimeMillis)
-				/ 1000. + ":" + "\tBuilding sizesProblem...");
+		System.out.println((System.currentTimeMillis() - startTimeMillis) / 1000. + ":" + "\tBuilding sizesProblem...");
 		IProblem[] sizesProblemArray = new IProblem[numberItems];
 		for (int i = 0; i < numberItems; i++)
 		{
-			sizesProblemArray[i] = new NaturalNumberFixer(
-					itemSizeNaturalNumberArray[i], items[i].getSize());
+			sizesProblemArray[i] = new NaturalNumberFixer(itemSizeNaturalNumberArray[i], items[i].getSize());
 			stagingArray[stagingIndex++] = sizesProblemArray[i];
 		}
 
-		System.out.println((System.currentTimeMillis() - startTimeMillis)
-				/ 1000. + ":" + "\tBuilding binPackingProblem...");
+		System.out.println(
+				(System.currentTimeMillis() - startTimeMillis) / 1000. + ":" + "\tBuilding binPackingProblem...");
 		binPackingProblem = new Conjunction(stagingArray);
 
-		System.out.println((System.currentTimeMillis() - startTimeMillis)
-				/ 1000. + ":" + "\tSolving SAT problem...");
-		IProblemMessage blList = binPackingProblem.findModel(Problem
-				.defaultSolver());
+		System.out.println((System.currentTimeMillis() - startTimeMillis) / 1000. + ":" + "\tSolving SAT problem...");
+		IProblemMessage blList = binPackingProblem.findModel(Problem.defaultSolver());
 
-		System.out.println((System.currentTimeMillis() - startTimeMillis)
-				/ 1000. + ":" + "\tReturning solution...");
+		System.out.println((System.currentTimeMillis() - startTimeMillis) / 1000. + ":" + "\tReturning solution...");
 		if (blList.getLiterals() != null && blList.getLiterals().size() > 0)
 		{
 			BooleanLiteral.interpret(blList.getLiterals());
@@ -141,8 +128,7 @@ public class BinPacker
 				solution.add(currentBinContents);
 			}
 			BooleanLiteral.reset(blList.getLiterals());
-			System.out.println((System.currentTimeMillis() - startTimeMillis)
-					/ 1000. + ":" + "Finis");
+			System.out.println((System.currentTimeMillis() - startTimeMillis) / 1000. + ":" + "Finis");
 			return solution;
 		}
 		else

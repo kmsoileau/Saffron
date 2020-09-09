@@ -38,8 +38,7 @@ public class BitStringOrdererDemo2
 				value = true;
 			else
 				value = false;
-			X.setBooleanVariable(i,
-					BooleanVariable.getBooleanVariable(X.getName() + "_" + i));
+			X.setBooleanVariable(i, BooleanVariable.getBooleanVariable(X.getName() + "_" + i));
 			X.getBooleanVariable(i).setValue(value);
 			pfix.add(new BitFixer(X.getBooleanVariable(i), value));
 		}
@@ -54,8 +53,7 @@ public class BitStringOrdererDemo2
 				value = true;
 			else
 				value = false;
-			Y.setBooleanVariable(i,
-					BooleanVariable.getBooleanVariable(Y.getName() + "_" + i));
+			Y.setBooleanVariable(i, BooleanVariable.getBooleanVariable(Y.getName() + "_" + i));
 			Y.getBooleanVariable(i).setValue(value);
 			pfix.add(new BitFixer(Y.getBooleanVariable(i), value));
 		}

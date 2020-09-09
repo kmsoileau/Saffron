@@ -44,14 +44,13 @@ import bits.Problem;
  */
 public class NaturalNumberSubtracter extends Problem implements IProblem
 {
-	public NaturalNumberSubtracter(INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public NaturalNumberSubtracter(INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		this.setClauses(new NaturalNumberAdder(Z, Y, X).getClauses());
 	}
 
-	public NaturalNumberSubtracter(INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z, INaturalNumber C) throws Exception
+	public NaturalNumberSubtracter(INaturalNumber X, INaturalNumber Y, INaturalNumber Z, INaturalNumber C)
+			throws Exception
 	{
 		this.setClauses(new NaturalNumberAdder(Z, Y, X, C).getClauses());
 	}

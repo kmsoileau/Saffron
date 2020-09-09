@@ -40,8 +40,7 @@ public class GraphVertexSubset
 
 	public boolean isMember(int i) throws Exception
 	{
-		return subsetMembership.getMembership().getBooleanVariable(i)
-				.getValue();
+		return subsetMembership.getMembership().getBooleanVariable(i).getValue();
 	}
 
 	public int size()
@@ -56,11 +55,9 @@ public class GraphVertexSubset
 		for (int i = 0; i < subsetMembership.size(); i++)
 			try
 			{
-				if (subsetMembership.getMembership().getBooleanVariable(i)
-						.getValue())
+				if (subsetMembership.getMembership().getBooleanVariable(i).getValue())
 					System.out.print(i + " ");
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();

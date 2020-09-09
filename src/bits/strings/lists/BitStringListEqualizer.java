@@ -17,17 +17,13 @@ import bits.strings.lists.exceptions.BitStringListException;
 
 public class BitStringListEqualizer extends Problem implements IProblem
 {
-	public BitStringListEqualizer(IBitStringList A, IBitStringList B)
-			throws Exception
+	public BitStringListEqualizer(IBitStringList A, IBitStringList B) throws Exception
 	{
 		if (A == null)
-			throw new BitStringListException(
-					"Passed a null IBitStringList to constructor.");
+			throw new BitStringListException("Passed a null IBitStringList to constructor.");
 		if (B == null)
-			throw new BitStringListException(
-					"Passed a null IBitStringList to constructor.");
-		IProblem problem = new Conjunction(new BitStringListSubsetter(A, B),
-				new BitStringListSubsetter(B, A));
+			throw new BitStringListException("Passed a null IBitStringList to constructor.");
+		IProblem problem = new Conjunction(new BitStringListSubsetter(A, B), new BitStringListSubsetter(B, A));
 		this.setClauses(problem.getClauses());
 	}
 }

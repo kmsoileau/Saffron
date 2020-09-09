@@ -21,16 +21,13 @@ public class ProblemBitLinkerDemo2
 		IBooleanVariable b = BooleanVariable.getBooleanVariable("b");
 
 		INaturalNumber N = new NaturalNumber();
-		IProblem p = new Disjunction(new NaturalNumberFixer(N, 3),
-				new NaturalNumberFixer(N, 13));
+		IProblem p = new Disjunction(new NaturalNumberFixer(N, 3), new NaturalNumberFixer(N, 13));
 
 		IProblem pl = new Conjunction(p, new BitFixer(b, true));
-		IProblem pr = new Conjunction(new ProblemDenier(p), new BitFixer(b,
-				false));
+		IProblem pr = new Conjunction(new ProblemDenier(p), new BitFixer(b, false));
 		IProblem result = new Disjunction(pl, pr);
 
-		IProblem testProblem = new Conjunction(result, new NaturalNumberFixer(
-				N, 3));
+		IProblem testProblem = new Conjunction(result, new NaturalNumberFixer(N, 3));
 
 		System.out.println("p");
 		IProblemMessage s = p.findModel(Problem.defaultSolver());

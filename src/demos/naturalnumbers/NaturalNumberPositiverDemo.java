@@ -24,8 +24,7 @@ public class NaturalNumberPositiverDemo
 	{
 		INaturalNumber X = new NaturalNumber("X");
 
-		IProblem problem = new Conjunction(new NaturalNumberFixer(X, 17),
-				new NaturalNumberPositiver(X));
+		IProblem problem = new Conjunction(new NaturalNumberFixer(X, 17), new NaturalNumberPositiver(X));
 
 		System.out.print(problem);
 

@@ -40,8 +40,7 @@ public class SquarerDemo
 
 		IDirectedGraph gSquared = new DirectedGraph(G.size());
 
-		IProblem problem = new Conjunction(new GraphFixer(G), new GraphSquarer(
-				G, gSquared));
+		IProblem problem = new Conjunction(new GraphFixer(G), new GraphSquarer(G, gSquared));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

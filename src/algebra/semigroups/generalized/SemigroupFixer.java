@@ -29,8 +29,7 @@ public class SemigroupFixer extends Problem implements IProblem
 		// Fixes all of the INaturalNumbers in the
 		// mnd.getComposition().keySet(),
 		// these are assumed to be all of the elements in the semigroup.
-		HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> hm1 = smgrp
-				.getComposition();
+		HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> hm1 = smgrp.getComposition();
 		int index = 0;
 		IProblem[] p = new IProblem[smgrp.getOrder()];
 		for (INaturalNumber e1 : hm1.keySet())

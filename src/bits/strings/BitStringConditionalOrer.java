@@ -19,9 +19,8 @@ import bits.strings.lists.exceptions.BitStringConditionalOrerException;
 // homes, membership, neighbors
 public class BitStringConditionalOrer extends Problem implements IProblem
 {
-	public BitStringConditionalOrer(
-			HashMap<INaturalNumber, IBitString> bitStrings,
-			IBitString membership, IBitString targetBitString) throws Exception
+	public BitStringConditionalOrer(HashMap<INaturalNumber, IBitString> bitStrings, IBitString membership,
+			IBitString targetBitString) throws Exception
 	{
 		if (bitStrings.size() == 0 || membership.size() == 0)
 			throw (new BitStringConditionalOrerException(
@@ -48,38 +47,33 @@ public class BitStringConditionalOrer extends Problem implements IProblem
 			subTotal[i] = new BitString(ary[0].size());
 
 		stagingArray[stagingIndex++] = new Conjunction(
-		// if membership[0] then subTotal[0]=bitStrings[0]
-				new Disjunction(new BitFixer(membership.getBooleanVariable(0),
-						false), new BitStringEqualizer(subTotal[0], ary[0])),
+				// if membership[0] then subTotal[0]=bitStrings[0]
+				new Disjunction(new BitFixer(membership.getBooleanVariable(0), false),
+						new BitStringEqualizer(subTotal[0], ary[0])),
 				// if !membership[0] then subTotal[0]=zeroBitString
-				new Disjunction(new BitFixer(membership.getBooleanVariable(0),
-						true), new BitStringEqualizer(subTotal[0],
-						zeroBitString)));
+				new Disjunction(new BitFixer(membership.getBooleanVariable(0), true),
+						new BitStringEqualizer(subTotal[0], zeroBitString)));
 
 		for (int i = 1; i < ary.length; i++)
 		{
 			stagingArray[stagingIndex++] = new Conjunction(
 					// if membership[i] then subTotal[i]=subTotal[i-1] |
 					// bitStrings[i]
-					new Disjunction(new BitFixer(
-							membership.getBooleanVariable(i), false),
-							new BitStringOrer(subTotal[i - 1], ary[i],
-									subTotal[i])),
+					new Disjunction(new BitFixer(membership.getBooleanVariable(i), false),
+							new BitStringOrer(subTotal[i - 1], ary[i], subTotal[i])),
 					// if !membership[i] then subTotal[i]=subTotal[i-1]
-					new Disjunction(
-							new BitFixer(membership.getBooleanVariable(i), true),
+					new Disjunction(new BitFixer(membership.getBooleanVariable(i), true),
 							new BitStringEqualizer(subTotal[i], subTotal[i - 1])));
 		}
 
-		stagingArray[stagingIndex++] = new BitStringEqualizer(targetBitString,
-				subTotal[ary.length - 1]);
+		stagingArray[stagingIndex++] = new BitStringEqualizer(targetBitString, subTotal[ary.length - 1]);
 
 		IProblem problem = new Conjunction(stagingArray);
 		this.setClauses(problem.getClauses());
 	}
 
-	public BitStringConditionalOrer(IBitString[] bitStrings,
-			IBitString membership, IBitString targetBitString) throws Exception
+	public BitStringConditionalOrer(IBitString[] bitStrings, IBitString membership, IBitString targetBitString)
+			throws Exception
 	{
 		if (bitStrings.length == 0 || membership.size() == 0)
 			throw (new BitStringConditionalOrerException(
@@ -105,32 +99,26 @@ public class BitStringConditionalOrer extends Problem implements IProblem
 			subTotal[i] = new BitString(bitStrings[0].size());
 
 		stagingArray[stagingIndex++] = new Conjunction(
-		// if membership[0] then subTotal[0]=bitStrings[0]
-				new Disjunction(new BitFixer(membership.getBooleanVariable(0),
-						false), new BitStringEqualizer(subTotal[0],
-						bitStrings[0])),
+				// if membership[0] then subTotal[0]=bitStrings[0]
+				new Disjunction(new BitFixer(membership.getBooleanVariable(0), false),
+						new BitStringEqualizer(subTotal[0], bitStrings[0])),
 				// if !membership[0] then subTotal[0]=zeroBitString
-				new Disjunction(new BitFixer(membership.getBooleanVariable(0),
-						true), new BitStringEqualizer(subTotal[0],
-						zeroBitString)));
+				new Disjunction(new BitFixer(membership.getBooleanVariable(0), true),
+						new BitStringEqualizer(subTotal[0], zeroBitString)));
 
 		for (int i = 1; i < bitStrings.length; i++)
 		{
 			stagingArray[stagingIndex++] = new Conjunction(
 					// if membership[i] then subTotal[i]=subTotal[i-1] |
 					// bitStrings[i]
-					new Disjunction(new BitFixer(
-							membership.getBooleanVariable(i), false),
-							new BitStringOrer(subTotal[i - 1], bitStrings[i],
-									subTotal[i])),
+					new Disjunction(new BitFixer(membership.getBooleanVariable(i), false),
+							new BitStringOrer(subTotal[i - 1], bitStrings[i], subTotal[i])),
 					// if !membership[i] then subTotal[i]=subTotal[i-1]
-					new Disjunction(
-							new BitFixer(membership.getBooleanVariable(i), true),
+					new Disjunction(new BitFixer(membership.getBooleanVariable(i), true),
 							new BitStringEqualizer(subTotal[i], subTotal[i - 1])));
 		}
 
-		stagingArray[stagingIndex++] = new BitStringEqualizer(targetBitString,
-				subTotal[bitStrings.length - 1]);
+		stagingArray[stagingIndex++] = new BitStringEqualizer(targetBitString, subTotal[bitStrings.length - 1]);
 
 		IProblem problem = new Conjunction(stagingArray);
 		this.setClauses(problem.getClauses());

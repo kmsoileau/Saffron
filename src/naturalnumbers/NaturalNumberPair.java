@@ -17,12 +17,17 @@ public class NaturalNumberPair
 	private INaturalNumber first;
 	private INaturalNumber second;
 
+	public NaturalNumberPair() throws Exception
+	{
+		this(new NaturalNumber(), new NaturalNumber());
+	}
+
 	public NaturalNumberPair(INaturalNumber first, INaturalNumber second)
 	{
 		this.first = first;
 		this.second = second;
 	}
-
+	
 	public INaturalNumber getFirst()
 	{
 		return first;

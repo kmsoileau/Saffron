@@ -19,9 +19,8 @@ public class ThreeBitAdderDemo1
 		IBooleanVariable z = BooleanVariable.getBooleanVariable("z");
 		IBooleanVariable c = BooleanVariable.getBooleanVariable("c");
 
-		IProblem threeBitAdder1 = new ThreeBitAdder(w, x, y, z, c)
-				.and(new BitFixer(w, false)).and(new BitFixer(x, true))
-				.and(new BitFixer(y, true));
+		IProblem threeBitAdder1 = new ThreeBitAdder(w, x, y, z, c).and(new BitFixer(w, false))
+				.and(new BitFixer(x, true)).and(new BitFixer(y, true));
 		threeBitAdder1.sort();
 		System.out.println(threeBitAdder1);
 

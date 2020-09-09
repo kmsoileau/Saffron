@@ -25,8 +25,7 @@ public class DisjunctionDemo6
 	{
 		IBooleanVariable X = BooleanVariable.getBooleanVariable("X");
 
-		IProblem problem = new Disjunction(new BitFixer(X, true),
-				Problem.unsolvableProblem());
+		IProblem problem = new Disjunction(new BitFixer(X, true), Problem.unsolvableProblem());
 
 		System.out.println(problem);
 

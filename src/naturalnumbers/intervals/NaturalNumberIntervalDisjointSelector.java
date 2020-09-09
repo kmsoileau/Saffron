@@ -33,26 +33,21 @@ import naturalnumbers.intervals.exceptions.NaturalNumberIntervalDisjointSelector
  * @version 1.0
  * @since 2018/11/29
  */
-public class NaturalNumberIntervalDisjointSelector extends Problem implements
-		IProblem
+public class NaturalNumberIntervalDisjointSelector extends Problem implements IProblem
 {
-	public NaturalNumberIntervalDisjointSelector(INaturalNumberInterval[] I,
-			IBooleanVariable[] bool) throws Exception
+	public NaturalNumberIntervalDisjointSelector(INaturalNumberInterval[] I, IBooleanVariable[] bool) throws Exception
 	{
 		if (I == null || bool == null)
-			throw new NaturalNumberIntervalDisjointSelectorException(
-					"A null array was passed to constructor");
+			throw new NaturalNumberIntervalDisjointSelectorException("A null array was passed to constructor");
 		if (I.length != bool.length)
-			throw new NaturalNumberIntervalDisjointSelectorException(
-					"Arrays of unequal size passed to constructor");
+			throw new NaturalNumberIntervalDisjointSelectorException("Arrays of unequal size passed to constructor");
 
 		int stagingIndex = 0;
 		IProblem[] stagingArray = new IProblem[I.length * I.length];
 		for (int i = 0; i < I.length; i++)
 			for (int j = i + 1; j < I.length; j++)
 			{
-				IProblem curr = new Disjunction(new BitFixer(bool[i], false),
-						new BitFixer(bool[j], false),
+				IProblem curr = new Disjunction(new BitFixer(bool[i], false), new BitFixer(bool[j], false),
 						new NaturalNumberIntervalDisjointer(I[i], I[j]));
 				stagingArray[stagingIndex++] = curr;
 			}

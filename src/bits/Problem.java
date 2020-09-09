@@ -63,8 +63,7 @@ public class Problem implements IProblem
 		return new Problem();
 	}
 
-	public static IProblem randomProblem(IBooleanVariable[] bv, int n)
-			throws Exception
+	public static IProblem randomProblem(IBooleanVariable[] bv, int n) throws Exception
 	{
 		Problem p = new Problem();
 		for (int i = 0; i < n; i++)
@@ -96,8 +95,8 @@ public class Problem implements IProblem
 	private List<IClause> backing = new ArrayList<IClause>();
 
 	/**
-	 * Constructs an empty Problem, that is, an instance of Problem which
-	 * contains no IClauses.
+	 * Constructs an empty Problem, that is, an instance of Problem which contains
+	 * no IClauses.
 	 * 
 	 */
 	public Problem()
@@ -105,13 +104,11 @@ public class Problem implements IProblem
 	}
 
 	/**
-	 * Constructs an instance of Problem which contains the IClauses found in
-	 * the parameter clause.
+	 * Constructs an instance of Problem which contains the IClauses found in the
+	 * parameter clause.
 	 * 
-	 * @param clause
-	 *            the array of IClauses to comprise the instance of Problem.
-	 * @throws Exception
-	 *             An instance of Exception.
+	 * @param clause the array of IClauses to comprise the instance of Problem.
+	 * @throws Exception An instance of Exception.
 	 */
 	public Problem(IClause[] clause) throws Exception
 	{
@@ -124,13 +121,11 @@ public class Problem implements IProblem
 	}
 
 	/**
-	 * Constructs an instance of Problem which contains the IClauses found in
-	 * the parameter v.
+	 * Constructs an instance of Problem which contains the IClauses found in the
+	 * parameter v.
 	 * 
-	 * @param v
-	 *            the List of IClauses to comprise the instance of Problem.
-	 * @throws Exception
-	 *             An instance of Exception.
+	 * @param v the List of IClauses to comprise the instance of Problem.
+	 * @throws Exception An instance of Exception.
 	 */
 	public Problem(List<IClause> v) throws Exception
 	{
@@ -174,8 +169,8 @@ public class Problem implements IProblem
 	}
 
 	/*
-	 * public IProblem and(IProblem p) throws Exception { return new
-	 * Conjunction(new IProblem[]{p,this}); }
+	 * public IProblem and(IProblem p) throws Exception { return new Conjunction(new
+	 * IProblem[]{p,this}); }
 	 */
 
 	public void addClauseVoid(IClause[] c) throws Exception
@@ -214,8 +209,7 @@ public class Problem implements IProblem
 		try
 		{
 			res = new Problem(cobj);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -233,8 +227,7 @@ public class Problem implements IProblem
 			for (int j = 0; j < psize; j++)
 			{
 				IClause clausej = this.getClause(j);
-				IBooleanLiteral diff = ((Clause) clausei)
-						.differsSinglyFrom(clausej);
+				IBooleanLiteral diff = ((Clause) clausei).differsSinglyFrom(clausej);
 				if (diff != null)
 				{
 					IClause newclause = (IClause) clausei.clone();
@@ -332,11 +325,9 @@ public class Problem implements IProblem
 	 * <code>IBooleanVariable util</code>, if it exists in that
 	 * <code>IClause</code>.
 	 * 
-	 * @param util
-	 *            - an IBooleanVariable
+	 * @param util - an IBooleanVariable
 	 * @return Problem
-	 * @throws Exception
-	 *             possibly from the getLiteral method call
+	 * @throws Exception possibly from the getLiteral method call
 	 */
 	public Problem cull(IBooleanVariable util) throws Exception
 	{
@@ -395,8 +386,7 @@ public class Problem implements IProblem
 	{
 		if (!(p instanceof List))
 			return false;
-		if (this.getClauses().containsAll(p)
-				&& ((List<?>) p).containsAll((Collection<?>) this))
+		if (this.getClauses().containsAll(p) && ((List<?>) p).containsAll((Collection<?>) this))
 			return true;
 		return false;
 	}
@@ -411,19 +401,15 @@ public class Problem implements IProblem
 	public IProblemMessage findModel(ISolver solver) throws Exception
 	{
 		if (this.size() == 0)
-			throw new ProblemException(
-					"Empty IProblem was passed to findModel method.");
+			throw new ProblemException("Empty IProblem was passed to findModel method.");
 		Sat4j.init(solver);
 		org.sat4j.specs.IProblem sat4jproblem = KSatReader.parseInstance(this);
 		if (!sat4jproblem.isSatisfiable())
-			return new ProblemMessage(IProblemMessage.UNSATISFIABLE,
-					new ArrayList<IBooleanLiteral>());
-		ArrayList<IBooleanLiteral> rl = KSatReader
-				.toBooleanLiterals(sat4jproblem.model());
+			return new ProblemMessage(IProblemMessage.UNSATISFIABLE, new ArrayList<IBooleanLiteral>());
+		ArrayList<IBooleanLiteral> rl = KSatReader.toBooleanLiterals(sat4jproblem.model());
 		IProblem test = this.resolve(rl);
 		if (test.size() > 0 || rl.size() == 0)
-			return new ProblemMessage(IProblemMessage.UNSATISFIABLE,
-					new ArrayList<IBooleanLiteral>());
+			return new ProblemMessage(IProblemMessage.UNSATISFIABLE, new ArrayList<IBooleanLiteral>());
 		return new ProblemMessage(IProblemMessage.SATISFIABLE, rl);
 	}
 
@@ -447,8 +433,7 @@ public class Problem implements IProblem
 	{
 		IProblemMessage[] res = new IProblemMessage[2];
 		if (!this.getBooleanVariables().contains(b))
-			throw new ProblemException(
-					"The given IProblem does not depend upon the given IBooleanVariable.");
+			throw new ProblemException("The given IProblem does not depend upon the given IBooleanVariable.");
 		else
 		{
 			IProblem p1 = new Conjunction(this, new BitFixer(b, false));
@@ -459,23 +444,19 @@ public class Problem implements IProblem
 		return res;
 	}
 
-	public IProblemMessage[] findTwoModels(IBooleanVariable b, IProblem problem)
-			throws Exception
+	public IProblemMessage[] findTwoModels(IBooleanVariable b, IProblem problem) throws Exception
 	{
 		return new Conjunction(this, problem).findTwoModels(b);
 	}
 
-	public IProblemMessage[] findTwoModels(IBooleanVariable[] b)
-			throws Exception
+	public IProblemMessage[] findTwoModels(IBooleanVariable[] b) throws Exception
 	{
 		IProblem res[] = new IProblem[b.length];
 		for (int i = 0; i < res.length; i++)
 		{
 			IProblemMessage[] ret = findTwoModels(b[i]);
-			if (ret != null & ret.length == 2 && ret[0] != null
-					&& ret[0].getLiterals().size() > 0
-					&& ret[1].getLiterals() != null
-					&& ret[1].getLiterals().size() > 0)
+			if (ret != null & ret.length == 2 && ret[0] != null && ret[0].getLiterals().size() > 0
+					&& ret[1].getLiterals() != null && ret[1].getLiterals().size() > 0)
 				return ret;
 		}
 		return null;
@@ -628,10 +609,8 @@ public class Problem implements IProblem
 				IClause newcl = null;
 				try
 				{
-					newcl = c.resolve(ibcurr.getBooleanVariable(),
-							!ibcurr.isBarred());
-				}
-				catch (NullPointerException err)
+					newcl = c.resolve(ibcurr.getBooleanVariable(), !ibcurr.isBarred());
+				} catch (NullPointerException err)
 				{
 				}
 
@@ -706,8 +685,7 @@ public class Problem implements IProblem
 	public List<IBooleanLiteral> solveList() throws Exception
 	{
 		if (this.isEmpty())
-			throw new ProblemException(
-					"Empty IProblem was passed to method solveList.");
+			throw new ProblemException("Empty IProblem was passed to method solveList.");
 		return this.findModel().getLiterals();
 	}
 
@@ -719,8 +697,7 @@ public class Problem implements IProblem
 		this.setClauses(ary);
 	}
 
-	public IProblem substitute(IBooleanVariable b, boolean value)
-			throws Exception
+	public IProblem substitute(IBooleanVariable b, boolean value) throws Exception
 	{
 		ArrayList<IClause> h = new ArrayList<IClause>();
 		for (int i = 0; i < this.numberOfClauses(); i++)
@@ -742,8 +719,7 @@ public class Problem implements IProblem
 			return null;
 	}
 
-	public IProblem substitute(Map<IBooleanLiteral, IBooleanLiteral> h)
-			throws Exception
+	public IProblem substitute(Map<IBooleanLiteral, IBooleanLiteral> h) throws Exception
 	{
 		for (int i = 0; i < this.numberOfClauses(); i++)
 		{
@@ -795,8 +771,7 @@ public class Problem implements IProblem
 			System.out.println(curr.getName() + "->" + index);
 			index++;
 		}
-		String ret = "p cnf " + this.getBooleanVariables().size() + " "
-				+ this.numberOfClauses() + "\n";
+		String ret = "p cnf " + this.getBooleanVariables().size() + " " + this.numberOfClauses() + "\n";
 		for (IClause currClause : this.getClauses())
 		{
 			for (int i = 0; i < currClause.size(); i++)
@@ -822,8 +797,7 @@ public class Problem implements IProblem
 			fos = new PrintStream(new FileOutputStream(f));
 			fos.println(this.toString());
 			fos.close();
-		}
-		catch (Exception err)
+		} catch (Exception err)
 		{
 			err.printStackTrace();
 		}
@@ -840,35 +814,25 @@ public class Problem implements IProblem
 			ret += "{";
 			for (int literalindex = 0; literalindex < currentClause.size() - 1; literalindex++)
 			{
-				IBooleanLiteral currentLiteral = currentClause
-						.getLiteralAt(literalindex);
-				ret += "{"
-						+ (currentLiteral.isBarred() ? 1 : 0)
-						+ ","
-						+ currentLiteral.getBooleanVariable().getName()
-								.toString() + "},";
+				IBooleanLiteral currentLiteral = currentClause.getLiteralAt(literalindex);
+				ret += "{" + (currentLiteral.isBarred() ? 1 : 0) + ","
+						+ currentLiteral.getBooleanVariable().getName().toString() + "},";
 			}
-			IBooleanLiteral currentLiteral = currentClause
-					.getLiteralAt(currentClause.size() - 1);
+			IBooleanLiteral currentLiteral = currentClause.getLiteralAt(currentClause.size() - 1);
 			ret += "{" + (currentLiteral.isBarred() ? 1 : 0) + ","
-					+ currentLiteral.getBooleanVariable().getName().toString()
-					+ "}},";
+					+ currentLiteral.getBooleanVariable().getName().toString() + "}},";
 		}
 		IClause currentClause = this.getClause(this.numberOfClauses() - 1);
 		ret += "{";
 		for (int literalindex = 0; literalindex < currentClause.size() - 1; literalindex++)
 		{
-			IBooleanLiteral currentLiteral = currentClause
-					.getLiteralAt(literalindex);
+			IBooleanLiteral currentLiteral = currentClause.getLiteralAt(literalindex);
 			ret += "{" + (currentLiteral.isBarred() ? 1 : 0) + ","
-					+ currentLiteral.getBooleanVariable().getName().toString()
-					+ "},";
+					+ currentLiteral.getBooleanVariable().getName().toString() + "},";
 		}
-		IBooleanLiteral currentLiteral = currentClause
-				.getLiteralAt(currentClause.size() - 1);
+		IBooleanLiteral currentLiteral = currentClause.getLiteralAt(currentClause.size() - 1);
 		ret += "{" + (currentLiteral.isBarred() ? 1 : 0) + ","
-				+ currentLiteral.getBooleanVariable().getName().toString()
-				+ "}}}";
+				+ currentLiteral.getBooleanVariable().getName().toString() + "}}}";
 
 		ret = ret.replaceAll("$", "");
 		ret = ret.replaceAll("\\$", "");
@@ -903,8 +867,7 @@ public class Problem implements IProblem
 			problem = ((Clause) this.getClause(0)).ThreeSATProblem();
 		for (int i = 1; i < this.size(); i++)
 			if (this.getClause(i) != null)
-				problem = new Conjunction(problem,
-						((Clause) this.getClause(i)).ThreeSATProblem());
+				problem = new Conjunction(problem, ((Clause) this.getClause(i)).ThreeSATProblem());
 		return problem;
 	}
 
@@ -935,8 +898,7 @@ public class Problem implements IProblem
 			for (int j = 0; j < obary.length; j++)
 			{
 				IBooleanLiteral b = (IBooleanLiteral) (obary[j]);
-				res += "\t\t<Literal variable=\""
-						+ b.getBooleanVariable().getName() + "\" barred=\"";
+				res += "\t\t<Literal variable=\"" + b.getBooleanVariable().getName() + "\" barred=\"";
 				if (b.isBarred())
 					res += "true\"/>\n";
 				else
@@ -958,8 +920,7 @@ public class Problem implements IProblem
 			fos = new PrintStream(new FileOutputStream(f));
 			fos.println(this.toXML());
 			fos.close();
-		}
-		catch (Exception err)
+		} catch (Exception err)
 		{
 			err.printStackTrace();
 		}

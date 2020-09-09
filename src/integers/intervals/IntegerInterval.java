@@ -6,7 +6,7 @@ import integers.Integer;
 public class IntegerInterval implements IIntegerInterval
 {
 	static private int index = 0;
-	
+
 	private IInteger lower;
 	private IInteger upper;
 

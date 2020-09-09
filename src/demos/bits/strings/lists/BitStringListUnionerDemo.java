@@ -23,19 +23,18 @@ public class BitStringListUnionerDemo
 	{
 		IBitStringList slm = new BitStringList("y", new boolean[][]
 		{
-		{ true, false, false },
-		{ true, true, false }, });
+				{ true, false, false },
+				{ true, true, false }, });
 		IProblem slmfix = new BitStringListFixer(slm);
 
 		IBitStringList bsl = new BitStringList("slist", new boolean[][]
 		{
-		{ true, false, true }, });
+				{ true, false, true }, });
 		IProblem bslfix = new BitStringListFixer(bsl);
 
 		IBitStringList target = new BitStringList("combined", new boolean[3][3]);
 
-		IProblem problem = new Conjunction(slmfix, bslfix,
-				new BitStringListUnioner(target, slm, bsl));
+		IProblem problem = new Conjunction(slmfix, bslfix, new BitStringListUnioner(target, slm, bsl));
 
 		System.out.println(problem);
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

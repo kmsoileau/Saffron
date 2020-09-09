@@ -6,7 +6,7 @@ import naturalnumbers.intervals.NaturalNumberInterval;
 public class NaturalNumberRectangle implements INaturalNumberRectangle
 {
 	private static int index = 0;
-	
+
 	private INaturalNumberInterval altitude;
 	private INaturalNumberInterval base;
 

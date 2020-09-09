@@ -20,15 +20,13 @@ import bits.INaturalNumber;
  */
 public class Semigrouper extends Magmaer
 {
-	public Semigrouper(int[][] opTable, INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public Semigrouper(int[][] opTable, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		super(opTable, X, Y, Z);
 
 	}
 
-	public Semigrouper(Semigroup smgrp, INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public Semigrouper(Semigroup smgrp, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		super(smgrp, X, Y, Z);
 	}

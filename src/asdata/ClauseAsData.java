@@ -15,8 +15,7 @@ public class ClauseAsData implements IClauseAsData
 	private static long cadCount;
 	private static ArrayList<IBooleanVariable> VARIABLES;
 
-	public static void declare(ArrayList<IBooleanVariable> variables)
-			throws Exception
+	public static void declare(ArrayList<IBooleanVariable> variables) throws Exception
 	{
 		ClauseAsData.VARIABLES = variables;
 	}
@@ -57,11 +56,8 @@ public class ClauseAsData implements IClauseAsData
 		occurrence = new ArrayList<IBooleanVariable>();
 		// occurrence.ensureCapacity(ClauseAsData.VARIABLES.size());
 		for (int i = 0; i < ClauseAsData.VARIABLES.size(); i++)
-			occurrence.add(
-					i,
-					BooleanVariable.getBooleanVariable(this.name + "_"
-							+ ClauseAsData.VARIABLES.get(i).getName()
-							+ "_occurrence_" + i));
+			occurrence.add(i, BooleanVariable.getBooleanVariable(
+					this.name + "_" + ClauseAsData.VARIABLES.get(i).getName() + "_occurrence_" + i));
 		/*
 		 * for(int i=0;i<occurrence.size();i++)
 		 * occurrence.set(i,BooleanVariable.getBooleanVariable(this.name
@@ -69,13 +65,12 @@ public class ClauseAsData implements IClauseAsData
 		 */
 		barred = new IBooleanVariable[ClauseAsData.VARIABLES.size()];
 		for (int i = 0; i < barred.length; i++)
-			barred[i] = BooleanVariable.getBooleanVariable(this.name + "_"
-					+ ClauseAsData.VARIABLES.get(i).getName() + "_barred_" + i);
+			barred[i] = BooleanVariable
+					.getBooleanVariable(this.name + "_" + ClauseAsData.VARIABLES.get(i).getName() + "_barred_" + i);
 	}
 
 	@Override
-	public IBooleanVariable barredIndicator(IBooleanVariable bv)
-			throws Exception
+	public IBooleanVariable barredIndicator(IBooleanVariable bv) throws Exception
 	{
 		return this.barred[ClauseAsData.findIndex(bv)];
 	}
@@ -87,8 +82,7 @@ public class ClauseAsData implements IClauseAsData
 	}
 
 	@Override
-	public IBooleanVariable occurrenceIndicator(IBooleanVariable bv)
-			throws Exception
+	public IBooleanVariable occurrenceIndicator(IBooleanVariable bv) throws Exception
 	{
 		return this.occurrence.get(ClauseAsData.findIndex(bv));
 	}
@@ -126,11 +120,9 @@ public class ClauseAsData implements IClauseAsData
 				IBooleanLiteral ib;
 				try
 				{
-					ib = BooleanLiteral.getBooleanLiteral(
-							ClauseAsData.VARIABLES.get(j), false);
+					ib = BooleanLiteral.getBooleanLiteral(ClauseAsData.VARIABLES.get(j), false);
 					res += ib;
-				}
-				catch (BooleanLiteralException e)
+				} catch (BooleanLiteralException e)
 				{
 					e.printStackTrace();
 				}
@@ -141,11 +133,9 @@ public class ClauseAsData implements IClauseAsData
 				IBooleanLiteral ib;
 				try
 				{
-					ib = BooleanLiteral.getBooleanLiteral(
-							ClauseAsData.VARIABLES.get(j), true);
+					ib = BooleanLiteral.getBooleanLiteral(ClauseAsData.VARIABLES.get(j), true);
 					res += ib;
-				}
-				catch (BooleanLiteralException e)
+				} catch (BooleanLiteralException e)
 				{
 					e.printStackTrace();
 				}

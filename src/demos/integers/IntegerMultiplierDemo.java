@@ -36,8 +36,7 @@ public class IntegerMultiplierDemo
 		IInteger Z = new Integer("Z");
 
 		IProblem p = new Conjunction(new IProblem[]
-		{ new IntegerMultiplier(X, Y, Z), new IntegerFixer(X),
-				new IntegerFixer(Y) });
+		{ new IntegerMultiplier(X, Y, Z), new IntegerFixer(X), new IntegerFixer(Y) });
 
 		System.out.println(p);
 

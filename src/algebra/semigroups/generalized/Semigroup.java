@@ -25,13 +25,10 @@ public class Semigroup extends Magma
 
 	public Semigroup()
 	{
-		this(
-				"Semigroup-" + semigroupCount++,
-				new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
+		this("Semigroup-" + semigroupCount++, new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
 	}
 
-	public Semigroup(
-			HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
+	public Semigroup(HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
 	{
 		this("Semigroup-" + semigroupCount++, composition);
 	}
@@ -43,29 +40,24 @@ public class Semigroup extends Magma
 
 	public Semigroup(String name)
 	{
-		this(
-				name,
-				new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
+		this(name, new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
 	}
 
-	public Semigroup(
-			String name,
-			HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
+	public Semigroup(String name, HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
 	{
 		super(name, composition);
-		
+
 	}
 
 	public Semigroup(String name, int[][] opTable) throws Exception
 	{
-		super(name,opTable);
-		
+		super(name, opTable);
+
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Semigroup [composition=" + super.getComposition() + ", order=" + super.getOrder()
-				+ "]";
+		return "Semigroup [composition=" + super.getComposition() + ", order=" + super.getOrder() + "]";
 	}
 }

@@ -31,18 +31,14 @@ public class MapperDemo
 		INaturalNumber Y = new NaturalNumber("Y");
 
 		ProblemPair[] array = new ProblemPair[]
-		{
-				new ProblemPair(new NaturalNumberFixer(X, 0),
-						new NaturalNumberFixer(Y, 1)),
-				new ProblemPair(new NaturalNumberFixer(X, 1),
-						new NaturalNumberFixer(Y, 3)),
-				new ProblemPair(new NaturalNumberFixer(X, 2),
-						new NaturalNumberFixer(Y, 13)) };
-		IBooleanVariable[] b=new IBooleanVariable[array.length-1];
-		for(int i=0;i<array.length-1;i++)
-			b[i]=BooleanVariable.getBooleanVariable("b"+i);
-		
-		Mapper mapper = new Mapper(array,b);
+		{ new ProblemPair(new NaturalNumberFixer(X, 0), new NaturalNumberFixer(Y, 1)),
+				new ProblemPair(new NaturalNumberFixer(X, 1), new NaturalNumberFixer(Y, 3)),
+				new ProblemPair(new NaturalNumberFixer(X, 2), new NaturalNumberFixer(Y, 13)) };
+		IBooleanVariable[] b = new IBooleanVariable[array.length - 1];
+		for (int i = 0; i < array.length - 1; i++)
+			b[i] = BooleanVariable.getBooleanVariable("b" + i);
+
+		Mapper mapper = new Mapper(array, b);
 
 		IProblem problem = new Conjunction(new NaturalNumberFixer(X, 2), mapper);
 
@@ -52,8 +48,8 @@ public class MapperDemo
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("X = " + X);
 			System.out.println("Y = " + Y);
-			
-			for(int i=0;i<b.length;i++)
+
+			for (int i = 0; i < b.length; i++)
 				System.out.println(b[i].getValue());
 		}
 		else

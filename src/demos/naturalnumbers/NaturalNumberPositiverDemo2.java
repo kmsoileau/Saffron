@@ -25,8 +25,7 @@ public class NaturalNumberPositiverDemo2
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber XMinus1 = new NaturalNumber("X-1");
 
-		IProblem problem = new Conjunction(new NaturalNumberFixer(X, 17),
-				new NaturalNumberPositiver(X, XMinus1));
+		IProblem problem = new Conjunction(new NaturalNumberFixer(X, 17), new NaturalNumberPositiver(X, XMinus1));
 
 		System.out.print(problem);
 

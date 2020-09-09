@@ -32,8 +32,7 @@ public interface IProblem extends Iterable<IClause>
 
 	IProblemMessage findModel(ISolver solver) throws Exception;
 
-	IProblemMessage[] findTwoModels(IBooleanVariable booleanVariable)
-			throws Exception;
+	IProblemMessage[] findTwoModels(IBooleanVariable booleanVariable) throws Exception;
 
 	ArrayList<IBooleanVariable> getBooleanVariables() throws Exception;
 
@@ -50,6 +49,6 @@ public interface IProblem extends Iterable<IClause>
 	void setClauses(IClause[] clauseArray) throws Exception;
 
 	int size();
-	
+
 	void sort() throws Exception;
 }

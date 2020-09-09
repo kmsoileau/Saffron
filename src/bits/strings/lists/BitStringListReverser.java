@@ -31,8 +31,7 @@ import bits.strings.BitStringEqualizer;
 
 public class BitStringListReverser extends Problem implements IProblem
 {
-	public BitStringListReverser(IBitStringList X, IBitStringList Y)
-			throws Exception
+	public BitStringListReverser(IBitStringList X, IBitStringList Y) throws Exception
 	{
 		if (X.size() != Y.size())
 			this.setClauses(Problem.unsolvableProblem().getClauses());
@@ -42,8 +41,7 @@ public class BitStringListReverser extends Problem implements IProblem
 			IProblem[] p = new IProblem[commonsize];
 			int count = 0;
 			for (int i = 0; i < commonsize; i++)
-				p[count++] = new BitStringEqualizer(X.getBitString(i),
-						Y.getBitString(commonsize - 1 - i));
+				p[count++] = new BitStringEqualizer(X.getBitString(i), Y.getBitString(commonsize - 1 - i));
 
 			this.setClauses(new Conjunction(p).getClauses());
 		}

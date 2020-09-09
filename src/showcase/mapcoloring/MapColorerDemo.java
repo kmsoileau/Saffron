@@ -88,8 +88,7 @@ public class MapColorerDemo
 			}
 		}
 
-		IProblem mapColoringConstraint = new MapColorer(skeleton,
-				numberOfColors, coloring);
+		IProblem mapColoringConstraint = new MapColorer(skeleton, numberOfColors, coloring);
 
 		/**
 		 * Create the IProblem of satisfying all of these constraining problems:

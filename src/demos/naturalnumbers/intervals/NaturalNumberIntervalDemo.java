@@ -17,11 +17,8 @@ public class NaturalNumberIntervalDemo
 		INaturalNumberInterval CD = new NaturalNumberInterval("B");
 
 		IProblem[] p = new IProblem[]
-		{
-				new NaturalNumberIntervalFixer(AB, 3, 4),
-				new NaturalNumberIntervalFixer(CD, 2, 7),
-				new naturalnumbers.intervals.NaturalNumberIntervalIntersector(AB,
-						CD) };
+		{ new NaturalNumberIntervalFixer(AB, 3, 4), new NaturalNumberIntervalFixer(CD, 2, 7),
+				new naturalnumbers.intervals.NaturalNumberIntervalIntersector(AB, CD) };
 
 		IProblem problem = new Conjunction(p);
 

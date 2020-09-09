@@ -52,8 +52,7 @@ public class ClauseAsDataFixerDemo
 		IClauseAsData c1 = new ClauseAsData();
 		IClause clause1 = Clause.newClause().nor(A).or(B);
 		IClauseAsData c2 = new ClauseAsData();
-		IClause clause2 = Clause.randomClause(ClauseAsData.getVARIABLES()
-				.toArray(new IBooleanVariable[0]));
+		IClause clause2 = Clause.randomClause(ClauseAsData.getVARIABLES().toArray(new IBooleanVariable[0]));
 
 		IProblem prob1 = new ClauseAsDataFixer(c1, clause1);
 		IProblem prob2 = new ClauseAsDataFixer(c2, clause2);

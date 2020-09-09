@@ -41,18 +41,17 @@ package bits;
  */
 public class FredkinGater extends Problem implements IProblem
 {
-	public FredkinGater(IBooleanVariable A, IBooleanVariable B,
-			IBooleanVariable C, IBooleanVariable P, IBooleanVariable Q,
-			IBooleanVariable R) throws Exception
+	public FredkinGater(IBooleanVariable A, IBooleanVariable B, IBooleanVariable C, IBooleanVariable P,
+			IBooleanVariable Q, IBooleanVariable R) throws Exception
 	{
 		// A=P
 		IProblem p1 = new BitEqualizer(A, P);
 		// A | (B=Q)&(C=R)
-		IProblem p2 = new Disjunction(new BitFixer(A, true), new Conjunction(
-				new BitEqualizer(B, Q), new BitEqualizer(C, R)));
+		IProblem p2 = new Disjunction(new BitFixer(A, true),
+				new Conjunction(new BitEqualizer(B, Q), new BitEqualizer(C, R)));
 		// $A | (B=R)&(C=Q)
-		IProblem p3 = new Disjunction(new BitFixer(A, false), new Conjunction(
-				new BitEqualizer(B, R), new BitEqualizer(C, Q)));
+		IProblem p3 = new Disjunction(new BitFixer(A, false),
+				new Conjunction(new BitEqualizer(B, R), new BitEqualizer(C, Q)));
 
 		this.setClauses(new Conjunction(p1, p2, p3).getClauses());
 	}

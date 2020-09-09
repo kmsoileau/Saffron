@@ -24,8 +24,8 @@ import bits.Problem;
  */
 public class NaturalNumberArraySearcher extends Problem implements IProblem
 {
-	public NaturalNumberArraySearcher(INaturalNumber[] testList,
-			INaturalNumber test, IBooleanVariable[] result) throws Exception
+	public NaturalNumberArraySearcher(INaturalNumber[] testList, INaturalNumber test, IBooleanVariable[] result)
+			throws Exception
 	{
 		IProblem[] p = new IProblem[testList.length];
 		for (int i = 0; i < testList.length; i++)
@@ -38,14 +38,10 @@ public class NaturalNumberArraySearcher extends Problem implements IProblem
 //					new NaturalNumberEqualizer(testList[i], test),
 //					new BitFixer(result[i], false)));
 			p[i] = new Disjunction(
-					new Conjunction(
-							new NaturalNumberUnequalizer(testList[i], test),
-							new BitFixer(result[i], false)), 
-					new Conjunction(
-							new NaturalNumberEqualizer(testList[i], test),
-							new BitFixer(result[i], true)));
+					new Conjunction(new NaturalNumberUnequalizer(testList[i], test), new BitFixer(result[i], false)),
+					new Conjunction(new NaturalNumberEqualizer(testList[i], test), new BitFixer(result[i], true)));
 		}
-		
+
 		this.setClauses(new Conjunction(p).getClauses());
 	}
 }

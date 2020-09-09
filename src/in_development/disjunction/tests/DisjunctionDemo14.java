@@ -20,8 +20,8 @@ public class DisjunctionDemo14
 {
 	public static void main(String[] args) throws Exception
 	{
-		IProblem problem = new Disjunction(Problem.unsolvableProblem(),
-				Problem.unsolvableProblem(), Problem.unsolvableProblem());
+		IProblem problem = new Disjunction(Problem.unsolvableProblem(), Problem.unsolvableProblem(),
+				Problem.unsolvableProblem());
 
 		System.out.println(problem);
 

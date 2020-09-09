@@ -23,15 +23,13 @@ public class BitStringDisjointer extends Problem implements IProblem
 	public BitStringDisjointer(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() != Y.size())
-			throw new BitStringDisjointerException(
-					"X and Y are not of equal size.");
+			throw new BitStringDisjointerException("X and Y are not of equal size.");
 		else
 		{
 			int commonsize = X.size();
 			IClause[] c = new IClause[commonsize];
 			for (int i = 0; i < X.size(); i++)
-				c[i] = Clause.newClause().orNot(X.getBooleanVariable(i))
-						.orNot(Y.getBooleanVariable(i));
+				c[i] = Clause.newClause().orNot(X.getBooleanVariable(i)).orNot(Y.getBooleanVariable(i));
 			this.setClauses(c);
 		}
 	}

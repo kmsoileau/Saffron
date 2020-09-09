@@ -18,7 +18,7 @@ public class IntegerPair
 {
 	private int I1;
 	private int I2;
-	
+
 	public IntegerPair(int i1, int i2)
 	{
 		I1 = i1;

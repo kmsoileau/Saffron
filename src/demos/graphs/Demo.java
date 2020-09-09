@@ -51,14 +51,12 @@ public class Demo extends Problem implements IProblem
 		for (int startVertex = 0; startVertex < numberOfVertices; startVertex++)
 			for (int endVertex = 0; endVertex < numberOfVertices; endVertex++)
 			{
-				INaturalNumber StartVertex = new NaturalNumber("start",
-						startVertex);
+				INaturalNumber StartVertex = new NaturalNumber("start", startVertex);
 				INaturalNumber EndVertex = new NaturalNumber("end", endVertex);
 
 				IProblem startFix = new NaturalNumberFixer(StartVertex);
 				IProblem endFix = new NaturalNumberFixer(EndVertex);
-				IProblem graphProb = new GraphAsProblem(graph, StartVertex,
-						EndVertex);
+				IProblem graphProb = new GraphAsProblem(graph, StartVertex, EndVertex);
 
 				IProblem problem = new Conjunction(startFix, endFix, graphProb);
 

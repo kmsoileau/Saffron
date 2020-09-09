@@ -17,8 +17,7 @@ import bits.Problem;
  */
 public class NaturalNumberMapperInverse extends Problem implements IProblem
 {
-	public NaturalNumberMapperInverse(NaturalNumberMapper f, INaturalNumber X,
-			INaturalNumber Y) throws Exception
+	public NaturalNumberMapperInverse(NaturalNumberMapper f, INaturalNumber X, INaturalNumber Y) throws Exception
 	{
 		IProblem prob = new Conjunction(new Problem[]
 		{ new NaturalNumberEqualizer(Y, f.getDomainVariable()), f,

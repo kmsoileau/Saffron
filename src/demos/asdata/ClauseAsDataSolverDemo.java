@@ -48,11 +48,9 @@ public class ClauseAsDataSolverDemo extends Problem implements IProblem
 		{ new ClauseAsData(), new ClauseAsData() };
 
 		IProblem[] probs = new IProblem[]
-		{
-				new Conjunction(new ClauseAsDataFixer(dataclauses[0],
-						clauses[0]), new ClauseAsDataSolver(dataclauses[0])),
-				new Conjunction(new ClauseAsDataFixer(dataclauses[1],
-						clauses[1]), new ClauseAsDataSolver(dataclauses[1])) };
+		{ new Conjunction(new ClauseAsDataFixer(dataclauses[0], clauses[0]), new ClauseAsDataSolver(dataclauses[0])),
+				new Conjunction(new ClauseAsDataFixer(dataclauses[1], clauses[1]),
+						new ClauseAsDataSolver(dataclauses[1])) };
 
 		IProblem prob = new Conjunction(probs);
 		System.out.println(prob);

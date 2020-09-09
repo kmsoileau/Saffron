@@ -84,10 +84,9 @@ public class FifteenPuzzlePositionDemo
 			tile1Index[i] = new NaturalNumber();
 			Tile2[i] = new NaturalNumber();
 			tile2Index[i] = new NaturalNumber();
-			IProblem cc = new Conjunction(new IndexSwapper(position[i],
-					position[i + 1], Tile1[i], tile1Index[i], Tile2[i],
-					tile2Index[i]), new AdjacentTiler(tile1Index[i],
-					tile2Index[i]), new NaturalNumberFixer(Tile1[i], 0));
+			IProblem cc = new Conjunction(
+					new IndexSwapper(position[i], position[i + 1], Tile1[i], tile1Index[i], Tile2[i], tile2Index[i]),
+					new AdjacentTiler(tile1Index[i], tile2Index[i]), new NaturalNumberFixer(Tile1[i], 0));
 			validProblemArray[i] = cc;
 		}
 		IProblem validMovesProblem = new Conjunction(validProblemArray);
@@ -122,8 +121,7 @@ public class FifteenPuzzlePositionDemo
 			ret += "\n";
 			for (int col = 0; col < 4; col++)
 			{
-				ret += String.format("%2d ",
-						position[4 * row + col].getValue());
+				ret += String.format("%2d ", position[4 * row + col].getValue());
 			}
 		}
 		System.out.println(ret);

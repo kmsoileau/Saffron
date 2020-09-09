@@ -22,14 +22,12 @@ public class BitStringCovererDemo
 		INaturalNumber K = new NaturalNumber();
 
 		IBitStringList C = new BitStringList(new IBitString[]
-		{ new BitString("001101110001011"), new BitString("010100011000101"),
-				new BitString("111011010001000"),
+		{ new BitString("001101110001011"), new BitString("010100011000101"), new BitString("111011010001000"),
 				new BitString("101010001111010") });
 		IBitString included = new BitString(C.size());
 
-		IProblem problem = new Conjunction(new BitStringListFixer(C),
-				new NaturalNumberFixer(K, 3L), new BitStringSizedCoverer(C,
-						included, K));
+		IProblem problem = new Conjunction(new BitStringListFixer(C), new NaturalNumberFixer(K, 3L),
+				new BitStringSizedCoverer(C, included, K));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

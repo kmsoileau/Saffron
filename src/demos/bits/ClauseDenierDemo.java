@@ -20,13 +20,11 @@ public class ClauseDenierDemo
 		IClause clause = new Clause().or(bva[0]).orNot(bva[1]).or(bva[2]);
 
 		System.out.println("The given clause was " + clause + ".");
-		System.out
-				.println("The denial of this clause is the following Problem:");
+		System.out.println("The denial of this clause is the following Problem:");
 		System.out.println(new ClauseDenier(clause));
 
 		// System.out.println(new ClauseDenier(null));
 		System.out.println(new ClauseDenier(new Clause()));
-		System.out.println(new ClauseDenier(Problem.unsolvableProblem()
-				.getClause(0)));
+		System.out.println(new ClauseDenier(Problem.unsolvableProblem().getClause(0)));
 	}
 }

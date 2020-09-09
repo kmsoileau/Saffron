@@ -18,8 +18,7 @@ import bits.strings.exceptions.BitStringSubstringerException;
 
 public class BitStringSubstringer extends Problem implements IProblem
 {
-	public BitStringSubstringer(final IBitString X, final IBitString Y)
-			throws Exception
+	public BitStringSubstringer(final IBitString X, final IBitString Y) throws Exception
 	{
 		// final int smaller = X.size();
 		int smaller = X.size();
@@ -34,8 +33,7 @@ public class BitStringSubstringer extends Problem implements IProblem
 				final IProblem[] p = new IProblem[smaller];
 				int count = 0;
 				for (int i = 0; i < smaller; i++)
-					p[count++] = new BitEqualizer(X.getBooleanVariable(i),
-							Y.getBooleanVariable(begin + i));
+					p[count++] = new BitEqualizer(X.getBooleanVariable(i), Y.getBooleanVariable(begin + i));
 				problem = new Disjunction(problem, new Conjunction(p));
 			}
 			this.setClauses(problem.getClauses());

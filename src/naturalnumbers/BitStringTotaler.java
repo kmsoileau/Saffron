@@ -18,8 +18,7 @@ import bits.Problem;
 
 public class BitStringTotaler extends Problem implements IProblem
 {
-	public BitStringTotaler(IBitString X, INaturalNumber bitSum)
-			throws Exception
+	public BitStringTotaler(IBitString X, INaturalNumber bitSum) throws Exception
 	{
 		INaturalNumber[] allOnes = new NaturalNumber[X.size()];
 		ArrayList<IProblem> p = new ArrayList<IProblem>();
@@ -29,8 +28,7 @@ public class BitStringTotaler extends Problem implements IProblem
 			p.add(new NaturalNumberFixer(allOnes[i], 1L));
 		}
 
-		IProblem problem = new Conjunction(new Conjunction(p),
-				new ConditionalAdder(allOnes, X, bitSum));
+		IProblem problem = new Conjunction(new Conjunction(p), new ConditionalAdder(allOnes, X, bitSum));
 
 		this.setClauses(problem.getClauses());
 	}

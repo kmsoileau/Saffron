@@ -64,8 +64,7 @@ public class ArrayListSet<E> extends ArrayList<E> implements Set<E>
 	/**
 	 * Constructs a new set containing the elements in the specified collection.
 	 *
-	 * @param c
-	 *            The elements that will comprise the new set.
+	 * @param c The elements that will comprise the new set.
 	 */
 	public ArrayListSet(Collection<E> c)
 	{
@@ -73,11 +72,9 @@ public class ArrayListSet<E> extends ArrayList<E> implements Set<E>
 	}
 
 	/**
-	 * Constructs a new set containing space for the specified number of
-	 * objects.
+	 * Constructs a new set containing space for the specified number of objects.
 	 *
-	 * @param n
-	 *            The capacity of the new set.
+	 * @param n The capacity of the new set.
 	 */
 	public ArrayListSet(int n)
 	{
@@ -87,8 +84,7 @@ public class ArrayListSet<E> extends ArrayList<E> implements Set<E>
 	/**
 	 * Adds all of the elements in the specified collection to this set.
 	 *
-	 * @param c
-	 *            elements to be added
+	 * @param c elements to be added
 	 * @return <code>true</code> if this set changed as a result of the call.
 	 */
 	public boolean add(Collection<E> c)
@@ -111,10 +107,9 @@ public class ArrayListSet<E> extends ArrayList<E> implements Set<E>
 	/**
 	 * Adds the specified element to this set if it is not already present.
 	 *
-	 * @param o
-	 *            element to be added to this set.
-	 * @return <code>true</code> if the set did not already contain the
-	 *         specified element.
+	 * @param o element to be added to this set.
+	 * @return <code>true</code> if the set did not already contain the specified
+	 *         element.
 	 */
 	@Override
 	public boolean add(E o)
@@ -132,8 +127,7 @@ public class ArrayListSet<E> extends ArrayList<E> implements Set<E>
 	/**
 	 * Adds the specified element to this set if it is not already present.
 	 *
-	 * @param o
-	 *            element to be added to this set.
+	 * @param o element to be added to this set.
 	 */
 	public void addElement(E o)
 	{

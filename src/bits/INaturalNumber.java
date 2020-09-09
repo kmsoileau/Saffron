@@ -1,6 +1,5 @@
 package bits;
 
-
 /**
  * The <code>INaturalNumber</code> interface must be implemented by any class
  * definition of <code>NaturalNumber</code> contemplated as an alternative to

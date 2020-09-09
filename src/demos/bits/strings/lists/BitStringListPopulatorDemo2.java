@@ -17,22 +17,16 @@ public class BitStringListPopulatorDemo2
 	public static void main(String[] args) throws Exception
 	{
 		IBitStringList bins = new BitStringList("source", new IBitString[]
-		{ new BitString("000"), new BitString("001"), new BitString("010"),
-				new BitString("011"), new BitString("100"),
+		{ new BitString("000"), new BitString("001"), new BitString("010"), new BitString("011"), new BitString("100"),
 				new BitString("101") });
 
-		IBitStringList binassignments = new BitStringList("target",
-				new IBitString[]
-				{ new BitString(3), new BitString(3), new BitString(3),
-						new BitString(3), new BitString(3), new BitString(3),
-						new BitString(3), new BitString(3), new BitString(3),
-						new BitString(3), new BitString(3), new BitString(3),
-						new BitString(3), new BitString(3), new BitString(3),
-						new BitString(3), new BitString(3), new BitString(3),
-						new BitString(3), new BitString(3), new BitString(3),
-						new BitString(3), new BitString(3), new BitString(3),
-						new BitString(3), new BitString(3), new BitString(3),
-						new BitString(3) });
+		IBitStringList binassignments = new BitStringList("target", new IBitString[]
+		{ new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3),
+				new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3),
+				new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3),
+				new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3),
+				new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3),
+				new BitString(3), new BitString(3) });
 
 		IProblem problem = new Conjunction(new BitStringListFixer(bins),
 				new BitStringListPopulator(binassignments, bins));

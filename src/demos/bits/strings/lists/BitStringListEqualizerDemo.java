@@ -35,17 +35,15 @@ public class BitStringListEqualizerDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBitStringList A = new BitStringList("A", new IBitString[]
-		{ new BitString("000"), new BitString("011"), new BitString("110"),
-				new BitString("010") });
+		{ new BitString("000"), new BitString("011"), new BitString("110"), new BitString("010") });
 
 		IBitStringList B = new BitStringList("B", new IBitString[]
-		{ new BitString("000"), new BitString("011"), new BitString("010"),
-				new BitString("011") });
+		{ new BitString("000"), new BitString("011"), new BitString("010"), new BitString("011") });
 
 		System.out.println(B);
 
-		IProblem problem = new Conjunction(new BitStringListFixer(A),
-				new BitStringListFixer(B), new BitStringListEqualizer(A, B));
+		IProblem problem = new Conjunction(new BitStringListFixer(A), new BitStringListFixer(B),
+				new BitStringListEqualizer(A, B));
 
 		System.out.println(problem);
 

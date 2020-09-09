@@ -26,8 +26,7 @@ public class BitArrayPartitionDemo
 		{
 			partition[i] = new IBooleanVariable[bits];
 			for (int j = 0; j < bits; j++)
-				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i
-						+ "-" + j);
+				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i + "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
 		// System.out.println(problem);
@@ -56,8 +55,7 @@ public class BitArrayPartitionDemo
 		{
 			partition[i] = new IBooleanVariable[bits];
 			for (int j = 0; j < bits; j++)
-				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i
-						+ "-" + j);
+				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i + "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
 		// System.out.println(problem);
@@ -86,8 +84,7 @@ public class BitArrayPartitionDemo
 		{
 			partition[i] = new IBooleanVariable[bits];
 			for (int j = 0; j < bits; j++)
-				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i
-						+ "-" + j);
+				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i + "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
 		// System.out.println(problem);
@@ -116,8 +113,7 @@ public class BitArrayPartitionDemo
 		{
 			partition[i] = new IBooleanVariable[bits];
 			for (int j = 0; j < bits; j++)
-				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i
-						+ "-" + j);
+				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i + "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
 		// System.out.println(problem);
@@ -146,8 +142,7 @@ public class BitArrayPartitionDemo
 		{
 			partition[i] = new IBooleanVariable[bits];
 			for (int j = 0; j < bits; j++)
-				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i
-						+ "-" + j);
+				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i + "-" + j);
 		}
 		problem = new BitArrayPartition(partition);
 		// System.out.println(problem);

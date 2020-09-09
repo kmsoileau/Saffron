@@ -34,23 +34,15 @@ public class NaturalNumberArraySearcherDemo
 		NaturalNumber.setLargestNaturalNumber(50);
 
 		INaturalNumber[] data = new INaturalNumber[]
-		{ new NaturalNumber(32), new NaturalNumber(6), new NaturalNumber(41),
-				new NaturalNumber(41), new NaturalNumber(27),
-				new NaturalNumber(3), new NaturalNumber(31),
-				new NaturalNumber(49), new NaturalNumber(31),
-				new NaturalNumber(48), new NaturalNumber(34),
-				new NaturalNumber(27), new NaturalNumber(13),
-				new NaturalNumber(27), new NaturalNumber(21),
-				new NaturalNumber(42), new NaturalNumber(38),
-				new NaturalNumber(0), new NaturalNumber(24),
-				new NaturalNumber(41), new NaturalNumber(10),
-				new NaturalNumber(2), new NaturalNumber(11),
-				new NaturalNumber(22), new NaturalNumber(39),
-				new NaturalNumber(3), new NaturalNumber(47),
-				new NaturalNumber(25), new NaturalNumber(27),
-				new NaturalNumber(30), new NaturalNumber(27),
-				new NaturalNumber(35), new NaturalNumber(37),
-				new NaturalNumber(22) };
+		{ new NaturalNumber(32), new NaturalNumber(6), new NaturalNumber(41), new NaturalNumber(41),
+				new NaturalNumber(27), new NaturalNumber(3), new NaturalNumber(31), new NaturalNumber(49),
+				new NaturalNumber(31), new NaturalNumber(48), new NaturalNumber(34), new NaturalNumber(27),
+				new NaturalNumber(13), new NaturalNumber(27), new NaturalNumber(21), new NaturalNumber(42),
+				new NaturalNumber(38), new NaturalNumber(0), new NaturalNumber(24), new NaturalNumber(41),
+				new NaturalNumber(10), new NaturalNumber(2), new NaturalNumber(11), new NaturalNumber(22),
+				new NaturalNumber(39), new NaturalNumber(3), new NaturalNumber(47), new NaturalNumber(25),
+				new NaturalNumber(27), new NaturalNumber(30), new NaturalNumber(27), new NaturalNumber(35),
+				new NaturalNumber(37), new NaturalNumber(22) };
 
 		INaturalNumber searchFor = new NaturalNumber(27);
 
@@ -62,10 +54,8 @@ public class NaturalNumberArraySearcherDemo
 
 		INaturalNumber occurrences = new NaturalNumber();
 		IProblem problem = new Conjunction(
-				new Conjunction(new NaturalNumberFixer(searchFor),
-						new NaturalNumberFixer(data)),
-				new NaturalNumberArraySearcher(data, searchFor, result),
-				new BitArrayTotaler(result, occurrences));
+				new Conjunction(new NaturalNumberFixer(searchFor), new NaturalNumberFixer(data)),
+				new NaturalNumberArraySearcher(data, searchFor, result), new BitArrayTotaler(result, occurrences));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 

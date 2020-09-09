@@ -18,8 +18,7 @@ public class BitXnorerDemo
 		IBooleanVariable y = BooleanVariable.getBooleanVariable("y");
 		IBooleanVariable z = BooleanVariable.getBooleanVariable("z");
 
-		IProblem problem = new Conjunction(new BitFixer(x, false),
-				new BitFixer(z, true), new BitXnorer(x, y, z));
+		IProblem problem = new Conjunction(new BitFixer(x, false), new BitFixer(z, true), new BitXnorer(x, y, z));
 		System.out.println(problem);
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

@@ -18,10 +18,8 @@ public class NaturalNumberIntervalContainerDemo2
 		INaturalNumberInterval R = new NaturalNumberInterval("R");
 
 		IProblem[] p = new IProblem[]
-		{ new NaturalNumberFixer(L.getLower(), 3),
-				new NaturalNumberFixer(L.getUpper(), 10),
-				new NaturalNumberFixer(R.getLower(), 2),
-				new NaturalNumberFixer(R.getUpper(), 11),
+		{ new NaturalNumberFixer(L.getLower(), 3), new NaturalNumberFixer(L.getUpper(), 10),
+				new NaturalNumberFixer(R.getLower(), 2), new NaturalNumberFixer(R.getUpper(), 11),
 				new NaturalNumberIntervalContainer(L, R) };
 
 		IProblem problem = new Conjunction(p);

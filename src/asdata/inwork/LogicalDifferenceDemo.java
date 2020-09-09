@@ -44,8 +44,7 @@ public class LogicalDifferenceDemo extends Problem implements IProblem
 
 		ClauseAsData.declare(ary);
 		IClauseAsData c1 = new ClauseAsData();
-		IBooleanVariable[] bvarray = ClauseAsData.getVARIABLES().toArray(
-				new IBooleanVariable[0]);
+		IBooleanVariable[] bvarray = ClauseAsData.getVARIABLES().toArray(new IBooleanVariable[0]);
 		IClause clause1 = Clause.randomClause(bvarray);
 		IClauseAsData c2 = new ClauseAsData();
 		IClause clause2 = Clause.randomClause(bvarray);

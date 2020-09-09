@@ -35,9 +35,8 @@ public class NaturalNumberIntervalCongruenterDemo1
 
 		INaturalNumber X = new NaturalNumber();
 
-		IProblem problem = new Conjunction(new NaturalNumberIntervalFixer(A, 3,
-				7), new NaturalNumberIntervalFixer(B, 7, 11),
-				new NaturalNumberIntervalCongruenter(A, B, X));
+		IProblem problem = new Conjunction(new NaturalNumberIntervalFixer(A, 3, 7),
+				new NaturalNumberIntervalFixer(B, 7, 11), new NaturalNumberIntervalCongruenter(A, B, X));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

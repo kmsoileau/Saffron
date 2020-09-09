@@ -32,24 +32,17 @@ public class GraphEdger extends Problem implements IProblem
 	 * Satisfied if <code>predecessor</code> --&gt; <code>successor</code> in
 	 * <code>graph</code>.
 	 *
-	 * @param graph
-	 *            IGeneralizedGraph
-	 * @param predecessor
-	 *            INaturalNumber
-	 * @param successor
-	 *            INaturalNumber
-	 * @throws Exception
-	 *             _
+	 * @param graph       IGeneralizedGraph
+	 * @param predecessor INaturalNumber
+	 * @param successor   INaturalNumber
+	 * @throws Exception _
 	 */
-	public GraphEdger(IGraph graph, INaturalNumber predecessor,
-			INaturalNumber successor) throws Exception
+	public GraphEdger(IGraph graph, INaturalNumber predecessor, INaturalNumber successor) throws Exception
 	{
 		if (graph == null)
-			throw new GraphEdgerException(
-					"Null IGeneralizedGraph passed to constructor.");
+			throw new GraphEdgerException("Null IGeneralizedGraph passed to constructor.");
 		if (predecessor == null && successor == null)
-			throw new GraphEdgerException(
-					"Null INaturalNumber passed to constructor.");
+			throw new GraphEdgerException("Null INaturalNumber passed to constructor.");
 		ArrayList<IProblem> p = new ArrayList<IProblem>();
 		ArrayList<NaturalNumberPair> pairs = graph.getPairs();
 		for (NaturalNumberPair cpr : pairs)
@@ -58,10 +51,8 @@ public class GraphEdger extends Problem implements IProblem
 			INaturalNumber currS = cpr.getSecond();
 			// if currP --&gt; currS then (predecessor == currP and successor ==
 			// currS)
-			p.add(new Disjunction(new BitFixer(graph.getData(currP, currS),
-					false), new Conjunction(new NaturalNumberEqualizer(
-					predecessor, currP), new NaturalNumberEqualizer(successor,
-					currS))));
+			p.add(new Disjunction(new BitFixer(graph.getData(currP, currS), false), new Conjunction(
+					new NaturalNumberEqualizer(predecessor, currP), new NaturalNumberEqualizer(successor, currS))));
 		}
 
 		this.setClauses(new Disjunction(p).getClauses());

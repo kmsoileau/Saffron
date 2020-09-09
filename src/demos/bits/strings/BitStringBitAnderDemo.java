@@ -29,17 +29,14 @@ public class BitStringBitAnderDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBitString[] C = new IBitString[]
-		{ new BitString("011110000000000"), new BitString("000011110000000"),
-				new BitString("000000010000111"),
-				new BitString("001100000111000"),
-				new BitString("100000000000000") };
+		{ new BitString("011110000000000"), new BitString("000011110000000"), new BitString("000000010000111"),
+				new BitString("001100000111000"), new BitString("100000000000000") };
 
 		IBitString targetBitString = new BitString(C[0].size());
 
 		int pos = 7;
 
-		IProblem problem = new Conjunction(new BitStringFixer(C),
-				new BitStringBitAnder(C, pos, targetBitString));
+		IProblem problem = new Conjunction(new BitStringFixer(C), new BitStringBitAnder(C, pos, targetBitString));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

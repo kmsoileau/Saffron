@@ -38,8 +38,7 @@ public class Noninjectioner extends Problem implements IProblem
 			{
 				IProblem aj = mapper.getDomain(j);
 				IProblem bj = mapper.getCodomain(j);
-				r[i] = new Disjunction(r[i], new Conjunction(ai, aj,
-						new Disjunction(nbi, new ProblemDenier(bj))));
+				r[i] = new Disjunction(r[i], new Conjunction(ai, aj, new Disjunction(nbi, new ProblemDenier(bj))));
 			}
 		}
 		this.setClauses(new Disjunction(r).getClauses());

@@ -15,8 +15,7 @@ public class NaturalNumberListRepeaterDemo
 	{
 		INaturalNumberList testList = new NaturalNumberList("y", new long[]
 		{ 7, 5, 2, 4 });
-		IProblem problem = new Conjunction(
-				new NaturalNumberListFixer(testList),
+		IProblem problem = new Conjunction(new NaturalNumberListFixer(testList),
 				new NaturalNumberListRepeater(testList));
 		System.out.println(problem);
 		IProblemMessage s = problem.findModel();

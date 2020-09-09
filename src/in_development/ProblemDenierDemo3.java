@@ -22,8 +22,7 @@ public class ProblemDenierDemo3
 		IBooleanVariable x = BooleanVariable.getBooleanVariable("x");
 
 		IProblem p = new Problem(new IClause[]
-		{ new Clause().or(b0).or(a), new Clause().or(b0).or(b),
-				new Clause().or(b0).or(c), new Clause().orNot(b0).or(w),
+		{ new Clause().or(b0).or(a), new Clause().or(b0).or(b), new Clause().or(b0).or(c), new Clause().orNot(b0).or(w),
 				new Clause().orNot(b0).or(x) });
 
 		System.out.println(p);

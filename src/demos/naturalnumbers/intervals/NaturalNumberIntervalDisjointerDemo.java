@@ -18,10 +18,8 @@ public class NaturalNumberIntervalDisjointerDemo
 		INaturalNumberInterval R = new NaturalNumberInterval("R");
 
 		IProblem[] p = new IProblem[]
-		{ new NaturalNumberFixer(L.getLower(), 0),
-				new NaturalNumberFixer(L.getUpper(), 0),
-				new NaturalNumberFixer(R.getLower(), 1),
-				new NaturalNumberFixer(R.getUpper(), 1),
+		{ new NaturalNumberFixer(L.getLower(), 0), new NaturalNumberFixer(L.getUpper(), 0),
+				new NaturalNumberFixer(R.getLower(), 1), new NaturalNumberFixer(R.getUpper(), 1),
 				new NaturalNumberIntervalDisjointer(L, R) };
 
 		IProblem problem = new Conjunction(p);

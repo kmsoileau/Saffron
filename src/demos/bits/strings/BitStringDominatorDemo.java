@@ -25,8 +25,7 @@ public class BitStringDominatorDemo
 		IBitString X = new BitString("0101");
 		IBitString Y = new BitString("0111");
 
-		IProblem problem = new Conjunction(new BitStringFixer(X),
-				new BitStringFixer(Y), new BitStringDominator(X, Y));
+		IProblem problem = new Conjunction(new BitStringFixer(X), new BitStringFixer(Y), new BitStringDominator(X, Y));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

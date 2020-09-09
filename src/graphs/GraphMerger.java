@@ -32,9 +32,8 @@ public class GraphMerger extends Problem implements IProblem
 						new BitFixer(gSquared.getData(i, j), true)));
 				p.add(new Disjunction(new BitFixer(G2.getData(i, j), false),
 						new BitFixer(gSquared.getData(i, j), true)));
-				p.add(new Disjunction(new BitFixer(g.getData(i, j), true),
-						new BitFixer(G2.getData(i, j), true), new BitFixer(
-								gSquared.getData(i, j), false)));
+				p.add(new Disjunction(new BitFixer(g.getData(i, j), true), new BitFixer(G2.getData(i, j), true),
+						new BitFixer(gSquared.getData(i, j), false)));
 			}
 
 		this.setClauses(new Conjunction(p).getClauses());

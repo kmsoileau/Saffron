@@ -35,8 +35,7 @@ public class BitFixerDemo
 
 		System.out.println(problem);
 
-		IProblemMessage solutionSat4j = problem.findModel(Problem
-				.defaultSolver());
+		IProblemMessage solutionSat4j = problem.findModel(Problem.defaultSolver());
 
 		System.out.println("Sat4j Solution: " + solutionSat4j);
 

@@ -29,16 +29,13 @@ public class VertexCoverer extends Problem implements IProblem
 		IBitString cover = Q.getSubsetMembership().getMembership();
 		INaturalNumber nnVerticesInCover = new NaturalNumber(K);
 
-		IProblem problem0 = new Conjunction(new NaturalNumberFixer(
-				nnVerticesInCover), new BitStringTotaler(cover,
-				nnVerticesInCover), new GraphFixer(Q.getBase()));
+		IProblem problem0 = new Conjunction(new NaturalNumberFixer(nnVerticesInCover),
+				new BitStringTotaler(cover, nnVerticesInCover), new GraphFixer(Q.getBase()));
 		for (int vertex1 = 0; vertex1 < V; vertex1++)
 			for (int vertex2 = 0; vertex2 < V; vertex2++)
 			{
-				IProblem currProblem = new Disjunction(
-						new BitFixer(Q.getBase().getData(vertex1,
-								vertex2), false), new BitFixer(
-								cover.getBooleanVariable(vertex1), true),
+				IProblem currProblem = new Disjunction(new BitFixer(Q.getBase().getData(vertex1, vertex2), false),
+						new BitFixer(cover.getBooleanVariable(vertex1), true),
 						new BitFixer(cover.getBooleanVariable(vertex2), true));
 				problem0 = new Conjunction(problem0, currProblem);
 			}
@@ -58,10 +55,9 @@ public class VertexCoverer extends Problem implements IProblem
 		for (int vertex1 = 0; vertex1 < V; vertex1++)
 			for (int vertex2 = 0; vertex2 < V; vertex2++)
 			{
-				IProblem currProblem = new Disjunction(new BitFixer(G.getData(
-						vertex1, vertex2), false), new BitFixer(
-						cover.getBooleanVariable(vertex1), true), new BitFixer(
-						cover.getBooleanVariable(vertex2), true));
+				IProblem currProblem = new Disjunction(new BitFixer(G.getData(vertex1, vertex2), false),
+						new BitFixer(cover.getBooleanVariable(vertex1), true),
+						new BitFixer(cover.getBooleanVariable(vertex2), true));
 				problem0 = new Conjunction(problem0, currProblem);
 			}
 

@@ -24,8 +24,7 @@ public class GroupIdentityer extends MonoidIdentityer
 		this(grp.toOpTable(), Identity);
 	}
 
-	public GroupIdentityer(int[][] opTable, INaturalNumber Identity)
-			throws Exception
+	public GroupIdentityer(int[][] opTable, INaturalNumber Identity) throws Exception
 	{
 		super(opTable, Identity);
 	}

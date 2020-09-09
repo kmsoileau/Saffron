@@ -67,15 +67,12 @@ public class BitArrayPartition extends Problem implements IProblem
 	public BitArrayPartition(IBooleanVariable[][] bvArray) throws Exception
 	{
 		if (bvArray == null)
-			throw new BitArrayPartitionException(
-					"A null partition was passed to constructor.");
+			throw new BitArrayPartitionException("A null partition was passed to constructor.");
 		int partitions = bvArray.length;
 		if (partitions == 0)
-			throw new BitArrayPartitionException(
-					"A partition of zerolength was passed to constructor.");
+			throw new BitArrayPartitionException("A partition of zerolength was passed to constructor.");
 		if (bvArray[0] == null)
-			throw new BitArrayPartitionException(
-					"A partition with partition[0]==null was passed to constructor.");
+			throw new BitArrayPartitionException("A partition with partition[0]==null was passed to constructor.");
 		int bits = bvArray[0].length;
 
 		ArrayList<ArrayList<IBooleanVariable>> bitArrayList = new ArrayList<ArrayList<IBooleanVariable>>();

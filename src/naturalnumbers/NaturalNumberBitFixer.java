@@ -20,8 +20,7 @@ public class NaturalNumberBitFixer extends Problem implements IProblem
 	public NaturalNumberBitFixer(INaturalNumber b) throws Exception
 	{
 		if (b == null)
-			throw new NaturalNumberBitFixerException(
-					"Null INaturalNumber was passed to a constructor.");
+			throw new NaturalNumberBitFixerException("Null INaturalNumber was passed to a constructor.");
 		BitFixer[] bf = new BitFixer[b.size()];
 		for (int i = 0; i < bf.length; i++)
 			bf[i] = new BitFixer(b.getBooleanVariable(i));
@@ -29,12 +28,10 @@ public class NaturalNumberBitFixer extends Problem implements IProblem
 		this.setClauses(problem.getClauses());
 	}
 
-	public NaturalNumberBitFixer(INaturalNumber b, int bit, boolean val)
-			throws Exception
+	public NaturalNumberBitFixer(INaturalNumber b, int bit, boolean val) throws Exception
 	{
 		if (b == null)
-			throw new NaturalNumberBitFixerException(
-					"Null INaturalNumber was passed to a constructor.");
+			throw new NaturalNumberBitFixerException("Null INaturalNumber was passed to a constructor.");
 		if (bit < 0 || bit > NaturalNumber.getLength() - 1)
 			throw new NaturalNumberBitFixerException(
 					"Attempt was made to index an INaturalNumber outside its range of definition.");

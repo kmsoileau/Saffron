@@ -16,7 +16,7 @@ public class PermutationDemo
 
 		IProblem p = new Conjunction(new IProblem[]
 		{ new PermutationFixer(perm1, new long[]
-		{ 1, 2, 0, 3, 4 }), });
+				{ 1, 2, 0, 3, 4 }), });
 
 		IProblemMessage s = p.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

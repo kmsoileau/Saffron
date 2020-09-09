@@ -36,16 +36,14 @@ import naturalnumbers.NaturalNumberUnequalizer;
 
 public class NaturalNumberListNonrepeater extends Problem implements IProblem
 {
-	public NaturalNumberListNonrepeater(INaturalNumberList list)
-			throws Exception
+	public NaturalNumberListNonrepeater(INaturalNumberList list) throws Exception
 	{
 		IProblem p = null;
 		for (int i = 0; i < list.size(); i++)
 		{
 			INaturalNumber b = list.getNaturalNumber(i);
 			for (int j = i + 1; j < list.size(); j++)
-				p = new Conjunction(p, new NaturalNumberUnequalizer(b,
-						list.getNaturalNumber(j)));
+				p = new Conjunction(p, new NaturalNumberUnequalizer(b, list.getNaturalNumber(j)));
 		}
 		if (p == null)
 			this.setClauses((IClause[]) null);

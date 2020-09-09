@@ -32,8 +32,7 @@ import bits.Problem;
  * 
  *
  */
-public class ProblemAsDataNonequivalenterDemo extends Problem implements
-		IProblem
+public class ProblemAsDataNonequivalenterDemo extends Problem implements IProblem
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -52,8 +51,7 @@ public class ProblemAsDataNonequivalenterDemo extends Problem implements
 		ary.add(D);
 		ClauseAsData.declare(ary);
 		IClauseAsData c1 = new ClauseAsData();
-		IBooleanVariable[] bvarray = ClauseAsData.getVARIABLES().toArray(
-				new IBooleanVariable[0]);
+		IBooleanVariable[] bvarray = ClauseAsData.getVARIABLES().toArray(new IBooleanVariable[0]);
 		IClause clause1 = Clause.randomClause(bvarray);
 		IClauseAsData c2 = new ClauseAsData();
 		IClause clause2 = Clause.randomClause(bvarray);
@@ -67,8 +65,7 @@ public class ProblemAsDataNonequivalenterDemo extends Problem implements
 		{ c1, c2 };
 		IProblemAsData p = new ProblemAsData(clauses);
 		IProblem prob = new Conjunction(prob1, prob2,
-				new ProblemAsDataNonequivalenter(new ProblemAsData(c1),
-						new ProblemAsData(c2)));
+				new ProblemAsDataNonequivalenter(new ProblemAsData(c1), new ProblemAsData(c2)));
 		IProblemMessage s = prob.findModel(Problem.defaultSolver());
 		System.out.println("Reporting...");
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

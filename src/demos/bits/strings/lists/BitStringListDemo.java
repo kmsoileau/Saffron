@@ -32,21 +32,19 @@ public class BitStringListDemo
 
 		IBitStringList s2 = new BitStringList("y", new boolean[][]
 		{
-		{ true, false, true },
-		{ false, true, false, true },
-		{ true, false, false },
-		{ false, true, false } });
+				{ true, false, true },
+				{ false, true, false, true },
+				{ true, false, false },
+				{ false, true, false } });
 		System.out.println("s2.getName() = " + s2.getName());
 		for (int i = 0; i < s2.size(); i++)
-			System.out.println("s2.getBitString(" + i + ") = "
-					+ s2.getBitString(i));
+			System.out.println("s2.getBitString(" + i + ") = " + s2.getBitString(i));
 
 		IBitStringList s3 = new BitStringList("s3list", new IBitString[]
 		{ new BitString("001"), new BitString("010"), new BitString("110") });
 		System.out.println("s3.getName() = " + s3.getName());
 		for (int i = 0; i < s3.size(); i++)
-			System.out.println("s3.getBitString(" + i + ") = "
-					+ s3.getBitString(i));
+			System.out.println("s3.getBitString(" + i + ") = " + s3.getBitString(i));
 
 		IBitStringList s4 = new BitStringList("s4list");
 		System.out.println("s4.getName() = " + s4.getName());
@@ -66,7 +64,6 @@ public class BitStringListDemo
 		System.out.println("s6.getName() = " + s6.getName());
 		System.out.println("s6.size() = " + s6.size());
 		for (int i = 0; i < s6.size(); i++)
-			System.out.println("s6.getBitString(" + i + ") = "
-					+ s6.getBitString(i));
+			System.out.println("s6.getBitString(" + i + ") = " + s6.getBitString(i));
 	}
 }

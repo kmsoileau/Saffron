@@ -23,8 +23,7 @@ public class InjectiveNNtoNNMapper extends Problem implements IProblem
 				INaturalNumber Xj = pr2.getFirst();
 				INaturalNumber Yj = pr2.getSecond();
 
-				p.add(new Disjunction(new NaturalNumberUnequalizer(Yi, Yj),
-						new NaturalNumberEqualizer(Xi, Xj)));
+				p.add(new Disjunction(new NaturalNumberUnequalizer(Yi, Yj), new NaturalNumberEqualizer(Xi, Xj)));
 			}
 		}
 

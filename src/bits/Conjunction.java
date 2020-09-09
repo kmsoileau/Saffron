@@ -38,17 +38,16 @@ import bits.exceptions.ConjunctionException;
 public class Conjunction extends Problem implements IProblem
 {
 	/**
-	 * This and() method scrubs out null IClauses and duplicate IClauses within
-	 * an IProblem. The other and() methods ultimately call this one, and thus
-	 * all of the and() methods perform this scrubbing function.
+	 * This and() method scrubs out null IClauses and duplicate IClauses within an
+	 * IProblem. The other and() methods ultimately call this one, and thus all of
+	 * the and() methods perform this scrubbing function.
 	 * 
 	 * @throws Exception
 	 */
 	private static IProblem and(IProblem[] p) throws Exception
 	{
 		if (p == null)
-			throw new ConjunctionException(
-					"Null IProblem array passed to and method.");
+			throw new ConjunctionException("Null IProblem array passed to and method.");
 		IProblem res = null;
 		for (int i = 0; i < p.length; i++)
 			if (p[i] != null)
@@ -87,15 +86,13 @@ public class Conjunction extends Problem implements IProblem
 		{ p1, p2, p3 });
 	}
 
-	public Conjunction(IProblem p1, IProblem p2, IProblem p3, IProblem p4)
-			throws Exception
+	public Conjunction(IProblem p1, IProblem p2, IProblem p3, IProblem p4) throws Exception
 	{
 		this(new IProblem[]
 		{ p1, p2, p3, p4 });
 	}
 
-	public Conjunction(IProblem p1, IProblem p2, IProblem p3, IProblem p4,
-			IProblem p5) throws Exception
+	public Conjunction(IProblem p1, IProblem p2, IProblem p3, IProblem p4, IProblem p5) throws Exception
 	{
 		this(new IProblem[]
 		{ p1, p2, p3, p4, p5 });
@@ -120,9 +117,9 @@ public class Conjunction extends Problem implements IProblem
 	}
 
 	/*
-	 * public Conjunction(List<IProblem> problemList) throws Exception {
-	 * IProblem[] o = (problemList.toArray(new IProblem[0])); IProblem[] p = new
-	 * IProblem[o.length]; for (int i = 0; i < o.length; i++) { IProblem ip =
-	 * o[i]; p[i] = ip; } this.setClauses(new Conjunction(p).getClauses()); }
+	 * public Conjunction(List<IProblem> problemList) throws Exception { IProblem[]
+	 * o = (problemList.toArray(new IProblem[0])); IProblem[] p = new
+	 * IProblem[o.length]; for (int i = 0; i < o.length; i++) { IProblem ip = o[i];
+	 * p[i] = ip; } this.setClauses(new Conjunction(p).getClauses()); }
 	 */
 }

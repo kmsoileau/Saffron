@@ -27,11 +27,10 @@ import bits.strings.BitStringSubtractor;
  */
 public class Connector extends Problem implements IProblem
 {
-	public Connector(IUndirectedGraph graph)
-			throws Exception
+	public Connector(IUndirectedGraph graph) throws Exception
 	{
-		int numberVertices=graph.size();
-		int start=0;
+		int numberVertices = graph.size();
+		int start = 0;
 		IBitString[] G = new IBitString[graph.size() + 1];
 		IBitString[] B = new IBitString[graph.size() + 1];
 		IBitString[] C = new IBitString[graph.size() + 1];
@@ -60,10 +59,8 @@ public class Connector extends Problem implements IProblem
 		IBitString allOnes = new BitString(graph.size());
 
 		IProblem problem = new Conjunction(new IProblem[]
-		{ new GraphFixer(graph), new Conjunction(GInit),
-				new Conjunction(BInit), new Conjunction(CInit),
-				new BitStringSetter(allOnes),
-				new BitStringEqualizer(G[graph.size() - 1], allOnes) });
+		{ new GraphFixer(graph), new Conjunction(GInit), new Conjunction(BInit), new Conjunction(CInit),
+				new BitStringSetter(allOnes), new BitStringEqualizer(G[graph.size() - 1], allOnes) });
 
 		this.setClauses(problem.getClauses());
 	}

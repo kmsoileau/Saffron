@@ -30,8 +30,7 @@ public class SetMeeter extends Problem implements IProblem
 			IBooleanVariable currX = X.getBooleanVariable(i);
 			IBooleanVariable currY = Y.getBooleanVariable(i);
 
-			c[i] = new Conjunction(new BitFixer(currX, true), new BitFixer(
-					currY, true));
+			c[i] = new Conjunction(new BitFixer(currX, true), new BitFixer(currY, true));
 		}
 
 		this.setClauses(new Disjunction(c).getClauses());

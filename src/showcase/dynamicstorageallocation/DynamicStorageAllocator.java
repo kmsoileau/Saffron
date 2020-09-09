@@ -30,10 +30,8 @@ import utility.IntegerPair;
 public class DynamicStorageAllocator extends Problem implements IProblem
 {
 
-	public DynamicStorageAllocator(IntegerPair[] data,
-			INaturalNumberRectangle enclosure,
-			INaturalNumberRectangle[] shiftedRectangle, INaturalNumber[] sigma)
-			throws Exception
+	public DynamicStorageAllocator(IntegerPair[] data, INaturalNumberRectangle enclosure,
+			INaturalNumberRectangle[] shiftedRectangle, INaturalNumber[] sigma) throws Exception
 	{
 		int len = data.length;
 
@@ -49,24 +47,20 @@ public class DynamicStorageAllocator extends Problem implements IProblem
 
 		IProblem[] rectangleFixers = new IProblem[len];
 		for (int i = 0; i < len; i++)
-			rectangleFixers[i] = new NaturalNumberRectangleFixer(rectangle[i],
-					data[i]);
+			rectangleFixers[i] = new NaturalNumberRectangleFixer(rectangle[i], data[i]);
 
 		IProblem[] rectangleCongruenters = new IProblem[len];
 
 		for (int i = 0; i < len; i++)
-			rectangleCongruenters[i] = new NaturalNumberRectangleCongruenter(
-					shiftedRectangle[i], rectangle[i],
+			rectangleCongruenters[i] = new NaturalNumberRectangleCongruenter(shiftedRectangle[i], rectangle[i],
 					INaturalNumberRectangle.HORIZONTAL, sigma[i]);
 
 		IProblem[] rectangleContainers = new IProblem[len];
 		for (int i = 0; i < len; i++)
-			rectangleContainers[i] = new NaturalNumberRectangleContainer(
-					shiftedRectangle[i], enclosure);
+			rectangleContainers[i] = new NaturalNumberRectangleContainer(shiftedRectangle[i], enclosure);
 
-		this.setClauses(new Conjunction(new Conjunction(rectangleFixers),
-				new Conjunction(rectangleCongruenters),
-				new NaturalNumberRectangleDisjointer(shiftedRectangle),
-				new Conjunction(rectangleContainers)).getClauses());
+		this.setClauses(new Conjunction(new Conjunction(rectangleFixers), new Conjunction(rectangleCongruenters),
+				new NaturalNumberRectangleDisjointer(shiftedRectangle), new Conjunction(rectangleContainers))
+						.getClauses());
 	}
 }

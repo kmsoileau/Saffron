@@ -36,7 +36,6 @@ public class IntegerIntervalSizer extends Problem implements IProblem
 		IInteger diffNN = new Integer();
 
 		this.setClauses(new Conjunction(new IntegerFixer(diffNN, size - 1),
-				new IntegerSubtracter(N.getUpper(), N.getLower(), diffNN))
-				.getClauses());
+				new IntegerSubtracter(N.getUpper(), N.getLower(), diffNN)).getClauses());
 	}
 }

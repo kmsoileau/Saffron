@@ -22,8 +22,7 @@ public class NaturalNumberCompositorDemo
 	public static void main(String[] args) throws Exception
 	{
 		INaturalNumber Z = new NaturalNumber("Z");
-		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 30L),
-				new NaturalNumberCompositor(Z));
+		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 30L), new NaturalNumberCompositor(Z));
 		IProblemMessage s = p.findModel();
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

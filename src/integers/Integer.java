@@ -42,8 +42,7 @@ public class Integer implements IInteger
 
 	public Integer() throws Exception
 	{
-		this("Integer-" + intCount++, BooleanVariable.getBooleanVariable(),
-				new NaturalNumber());
+		this("Integer-" + intCount++, BooleanVariable.getBooleanVariable(), new NaturalNumber());
 	}
 
 	// private Integer(INaturalNumber absValue) throws Exception
@@ -57,15 +56,14 @@ public class Integer implements IInteger
 	// super(name, data.getBVArray(NaturalNumber.getLength()));
 	// }
 
-	public Integer(IBooleanVariable sign, INaturalNumber absValue)
-			throws Exception
+	public Integer(IBooleanVariable sign, INaturalNumber absValue) throws Exception
 	{
 		this("Integer-" + intCount++, sign, absValue);
 	}
-	
+
 	public Integer(long n) throws Exception
 	{
-		this("Integer-" + intCount++,n);
+		this("Integer-" + intCount++, n);
 	}
 
 	public Integer(String name) throws Exception
@@ -73,8 +71,7 @@ public class Integer implements IInteger
 		this(name, BooleanVariable.getBooleanVariable(), new NaturalNumber());
 	}
 
-	public Integer(String name, IBooleanVariable sign, INaturalNumber absValue)
-			throws Exception
+	public Integer(String name, IBooleanVariable sign, INaturalNumber absValue) throws Exception
 	{
 		this.name = name;
 		this.sign = sign;

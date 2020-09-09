@@ -38,26 +38,17 @@ public class ClauseDemo1
 		clause[2].or(bva[3]);
 		clause[2].or(bva[2]);
 
-		System.out.println("clause[0].equals(clause[0]) is "
-				+ clause[0].equals(clause[0]));
-		System.out.println("clause[0].equals(clause[1]) is "
-				+ clause[0].equals(clause[1]));
-		System.out.println("clause[0].equals(clause[2]) is "
-				+ clause[0].equals(clause[2]));
+		System.out.println("clause[0].equals(clause[0]) is " + clause[0].equals(clause[0]));
+		System.out.println("clause[0].equals(clause[1]) is " + clause[0].equals(clause[1]));
+		System.out.println("clause[0].equals(clause[2]) is " + clause[0].equals(clause[2]));
 
-		System.out.println("clause[1].equals(clause[0]) is "
-				+ clause[1].equals(clause[0]));
-		System.out.println("clause[1].equals(clause[1]) is "
-				+ clause[1].equals(clause[1]));
-		System.out.println("clause[1].equals(clause[2]) is "
-				+ clause[1].equals(clause[2]));
+		System.out.println("clause[1].equals(clause[0]) is " + clause[1].equals(clause[0]));
+		System.out.println("clause[1].equals(clause[1]) is " + clause[1].equals(clause[1]));
+		System.out.println("clause[1].equals(clause[2]) is " + clause[1].equals(clause[2]));
 
-		System.out.println("clause[2].equals(clause[0]) is "
-				+ clause[2].equals(clause[0]));
-		System.out.println("clause[2].equals(clause[1]) is "
-				+ clause[2].equals(clause[1]));
-		System.out.println("clause[2].equals(clause[2]) is "
-				+ clause[2].equals(clause[2]));
+		System.out.println("clause[2].equals(clause[0]) is " + clause[2].equals(clause[0]));
+		System.out.println("clause[2].equals(clause[1]) is " + clause[2].equals(clause[1]));
+		System.out.println("clause[2].equals(clause[2]) is " + clause[2].equals(clause[2]));
 
 		System.out.println(clause[0]);
 		System.out.println(clause[1]);

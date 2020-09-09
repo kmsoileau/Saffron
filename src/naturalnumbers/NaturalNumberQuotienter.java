@@ -37,8 +37,7 @@ import bits.Problem;
  */
 public class NaturalNumberQuotienter extends Problem implements IProblem
 {
-	public NaturalNumberQuotienter(INaturalNumber Dividend,
-			INaturalNumber Divisor, INaturalNumber Quotient,
+	public NaturalNumberQuotienter(INaturalNumber Dividend, INaturalNumber Divisor, INaturalNumber Quotient,
 			INaturalNumber Remainder) throws Exception
 	{
 		INaturalNumber Product = new NaturalNumber();

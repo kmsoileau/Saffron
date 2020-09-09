@@ -33,22 +33,22 @@ public class GroupAssociativerDemo
 	{
 		int[][] opTable = new int[][]
 		{
-		{ 0, 0, 0 },
-		{ 0, 1, 1 },
-		{ 0, 2, 2 },
-		{ 0, 3, 3 },
-		{ 1, 0, 1 },
-		{ 1, 1, 0 },
-		{ 1, 2, 3 },
-		{ 1, 3, 2 },
-		{ 2, 0, 2 },
-		{ 2, 1, 3 },
-		{ 2, 2, 0 },
-		{ 2, 3, 1 },
-		{ 3, 0, 3 },
-		{ 3, 1, 2 },
-		{ 3, 2, 1 },
-		{ 3, 3, 0 } };
+				{ 0, 0, 0 },
+				{ 0, 1, 1 },
+				{ 0, 2, 2 },
+				{ 0, 3, 3 },
+				{ 1, 0, 1 },
+				{ 1, 1, 0 },
+				{ 1, 2, 3 },
+				{ 1, 3, 2 },
+				{ 2, 0, 2 },
+				{ 2, 1, 3 },
+				{ 2, 2, 0 },
+				{ 2, 3, 1 },
+				{ 3, 0, 3 },
+				{ 3, 1, 2 },
+				{ 3, 2, 1 },
+				{ 3, 3, 0 } };
 
 		Group g = new Group(opTable);
 
@@ -59,8 +59,7 @@ public class GroupAssociativerDemo
 		INaturalNumber Z = new NaturalNumber();
 
 		IProblem problem = new Conjunction(new IProblem[]
-		{ new GroupFixer(g), new NaturalNumberFixer(X, 1),
-				new NaturalNumberFixer(Y, 3), new NaturalNumberFixer(Z, 1),
+		{ new GroupFixer(g), new NaturalNumberFixer(X, 1), new NaturalNumberFixer(Y, 3), new NaturalNumberFixer(Z, 1),
 				new GroupAssociativer(g, X, Y, Z) });
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

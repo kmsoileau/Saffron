@@ -38,14 +38,12 @@ public class BitStringListMembershipperDemo1
 	public static void main(String[] args) throws Exception
 	{
 		IBitStringList bsl = new BitStringList("slist", new IBitString[]
-		{ new BitString("000"), new BitString("101"), new BitString("110"),
-				new BitString("100"), new BitString("111"),
+		{ new BitString("000"), new BitString("101"), new BitString("110"), new BitString("100"), new BitString("111"),
 				new BitString("010") });
 
 		/**
-		 * Note: To get a successful match, it is necessary for the matching
-		 * string to have the same length and the same content as the search
-		 * string.
+		 * Note: To get a successful match, it is necessary for the matching string to
+		 * have the same length and the same content as the search string.
 		 */
 		IBitString string = new BitString("string", new boolean[3]);
 		IProblem stringfix = new BitStringFixer(string, new boolean[]

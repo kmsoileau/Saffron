@@ -27,21 +27,19 @@ import naturalnumbers.lists.exceptions.NaturalNumberListDerangerException;
  *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.htm
- * </pre>
+ *         </pre>
+ * 
  * @version 1.0, 2009/05/21
  */
 
 public class NaturalNumberListDeranger extends Problem implements IProblem
 {
-	public NaturalNumberListDeranger(INaturalNumberList source,
-			INaturalNumberList target) throws Exception
+	public NaturalNumberListDeranger(INaturalNumberList source, INaturalNumberList target) throws Exception
 	{
 		if (source == null)
-			throw new NaturalNumberListDerangerException(
-					"Passed a null source to constructor.");
+			throw new NaturalNumberListDerangerException("Passed a null source to constructor.");
 		if (target == null)
-			throw new NaturalNumberListDerangerException(
-					"Passed a null target to constructor.");
+			throw new NaturalNumberListDerangerException("Passed a null target to constructor.");
 
 		IProblem problem = null;
 		IProblem same = new NaturalNumberListEqualizer(source, target);

@@ -19,8 +19,7 @@ public class BitEqualityIndicatorDemo
 
 		System.out.println(bitEqualityIndicator1);
 
-		BooleanLiteral.interpret(bitEqualityIndicator1.findModel(
-				Problem.defaultSolver()).getLiterals());
+		BooleanLiteral.interpret(bitEqualityIndicator1.findModel(Problem.defaultSolver()).getLiterals());
 		System.out.println("x = " + x.getValue());
 		System.out.println("y = " + y.getValue());
 		System.out.println("z = " + z.getValue());

@@ -20,8 +20,7 @@ import bits.Problem;
 
 public class TestSetter extends Problem implements IProblem
 {
-	public TestSetter(IBitString[] C, IBitString includedInTestSet)
-			throws Exception
+	public TestSetter(IBitString[] C, IBitString includedInTestSet) throws Exception
 	{
 		int cLength = C.length;
 		int cSize = C[0].size();
@@ -41,13 +40,10 @@ public class TestSetter extends Problem implements IProblem
 					IBooleanVariable ci = C[k].getBooleanVariable(i);
 					IBooleanVariable cj = C[k].getBooleanVariable(j);
 
-					parray[k] = new Disjunction(new Conjunction(new BitFixer(
-							ci, true), new BitFixer(cj, false)),
-							new Conjunction(new BitFixer(ci, false),
-									new BitFixer(cj, true)));
+					parray[k] = new Disjunction(new Conjunction(new BitFixer(ci, true), new BitFixer(cj, false)),
+							new Conjunction(new BitFixer(ci, false), new BitFixer(cj, true)));
 				}
-				problemArray[problemIndex++] = new ConditionalDisjunction(
-						parray, includedInTestSet);
+				problemArray[problemIndex++] = new ConditionalDisjunction(parray, includedInTestSet);
 			}
 		this.setClauses(new Conjunction(problemArray).getClauses());
 	}

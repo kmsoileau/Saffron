@@ -37,20 +37,18 @@ public class NaturalNumberListSorterDemo
 		System.out.println("s1.getName() = " + s1.getName());
 
 		for (int i = 0; i < s1.size(); i++)
-			System.out.println("s1.getNaturalNumber(" + i + ") = "
-					+ s1.getNaturalNumber(i));
+			System.out.println("s1.getNaturalNumber(" + i + ") = " + s1.getNaturalNumber(i));
 
 		/*
-		 * INaturalNumberList s2=new NaturalNumberList("y",new long[] { 234, 23,
-		 * 123, 512 });
+		 * INaturalNumberList s2=new NaturalNumberList("y",new long[] { 234, 23, 123,
+		 * 512 });
 		 */
 
 		INaturalNumberList s2 = new NaturalNumberList("y", new long[s1.size()]);
 
 		System.out.println("s2.getName() = " + s2.getName());
 		for (int i = 0; i < s2.size(); i++)
-			System.out.println("s2.getNaturalNumber(" + i + ") = "
-					+ s2.getNaturalNumber(i));
+			System.out.println("s2.getNaturalNumber(" + i + ") = " + s2.getNaturalNumber(i));
 
 		IProblem bslf = new NaturalNumberListFixer(s1);
 

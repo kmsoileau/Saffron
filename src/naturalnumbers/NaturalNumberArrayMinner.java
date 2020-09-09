@@ -22,7 +22,29 @@ import bits.Problem;
  */
 public class NaturalNumberArrayMinner extends Problem implements IProblem
 {
-	public NaturalNumberArrayMinner(INaturalNumber[] d, INaturalNumber minEntry)
+	public NaturalNumberArrayMinner(INaturalNumber[] d, INaturalNumber minEntry) throws Exception
+	{
+		int n = d.length;
+
+		IProblem[] q = new IProblem[n];
+		for (int i = 0; i < n; i++)
+		{
+			IProblem[] p = new IProblem[n - 1];
+			INaturalNumber cand = d[i];
+			int index = 0;
+			for (int j = 0; j < n; j++)
+			{
+				if (j == i)
+					continue;
+				p[index++] = new NaturalNumberOrderer(cand, d[j]);
+			}
+			q[i] = new Conjunction(new Conjunction(p), new NaturalNumberEqualizer(minEntry, cand));
+		}
+
+		this.setClauses(new Disjunction(q).getClauses());
+	}
+
+	public NaturalNumberArrayMinner(INaturalNumber[] d, INaturalNumber minIndex, INaturalNumber minxEntry)
 			throws Exception
 	{
 		int n = d.length;
@@ -39,32 +61,8 @@ public class NaturalNumberArrayMinner extends Problem implements IProblem
 					continue;
 				p[index++] = new NaturalNumberOrderer(cand, d[j]);
 			}
-			q[i] = new Conjunction(new Conjunction(p),
-					new NaturalNumberEqualizer(minEntry, cand));
-		}
-
-		this.setClauses(new Disjunction(q).getClauses());
-	}
-
-	public NaturalNumberArrayMinner(INaturalNumber[] d, INaturalNumber minIndex,
-			INaturalNumber minxEntry) throws Exception
-	{
-		int n = d.length;
-
-		IProblem[] q = new IProblem[n];
-		for (int i = 0; i < n; i++)
-		{
-			IProblem[] p = new IProblem[n - 1];
-			INaturalNumber cand = d[i];
-			int index = 0;
-			for (int j = 0; j < n; j++)
-			{
-				if (j == i)
-					continue;
-				p[index++] = new NaturalNumberOrderer(cand, d[j]);
-			}
-			q[i] = new Conjunction(new Conjunction(p), new NaturalNumberFixer(
-					minIndex, i), new NaturalNumberEqualizer(minxEntry, cand));
+			q[i] = new Conjunction(new Conjunction(p), new NaturalNumberFixer(minIndex, i),
+					new NaturalNumberEqualizer(minxEntry, cand));
 		}
 
 		this.setClauses(new Disjunction(q).getClauses());

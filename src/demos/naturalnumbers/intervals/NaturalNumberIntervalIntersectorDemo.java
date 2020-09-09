@@ -18,10 +18,8 @@ public class NaturalNumberIntervalIntersectorDemo
 		INaturalNumberInterval R = new NaturalNumberInterval("R");
 
 		IProblem[] p = new IProblem[]
-		{ new NaturalNumberFixer(L.getLower(), 3),
-				new NaturalNumberFixer(L.getUpper(), 8),
-				new NaturalNumberFixer(R.getLower(), 7),
-				new NaturalNumberFixer(R.getUpper(), 9),
+		{ new NaturalNumberFixer(L.getLower(), 3), new NaturalNumberFixer(L.getUpper(), 8),
+				new NaturalNumberFixer(R.getLower(), 7), new NaturalNumberFixer(R.getUpper(), 9),
 				new NaturalNumberIntervalIntersector(L, R) };
 
 		IProblem problem = new Conjunction(p);

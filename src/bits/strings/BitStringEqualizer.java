@@ -28,16 +28,14 @@ public class BitStringEqualizer extends Problem implements IProblem
 		 * this.setClauses(Problem.unsolvableProblem().getClauses());
 		 */
 		if (X.size() != Y.size())
-			throw new BitStringEqualizerException(
-					"IBitStrings of unequal size were passed to the constructor.");
+			throw new BitStringEqualizerException("IBitStrings of unequal size were passed to the constructor.");
 		else
 		{
 			int commonsize = X.size();
 			IProblem[] p = new IProblem[commonsize];
 			int count = 0;
 			for (int i = 0; i < commonsize; i++)
-				p[count++] = new BitEqualizer(X.getBooleanVariable(i),
-						Y.getBooleanVariable(i));
+				p[count++] = new BitEqualizer(X.getBooleanVariable(i), Y.getBooleanVariable(i));
 			this.setClauses(new Conjunction(p).getClauses());
 		}
 	}

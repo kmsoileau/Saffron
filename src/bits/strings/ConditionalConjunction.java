@@ -35,26 +35,21 @@ import bits.strings.exceptions.ConditionalConjunctionException;
  */
 public class ConditionalConjunction extends Problem implements IProblem
 {
-	public ConditionalConjunction(IProblem[] problemArray, IBitString bitString)
-			throws Exception
+	public ConditionalConjunction(IProblem[] problemArray, IBitString bitString) throws Exception
 	{
 		if (problemArray == null)
-			throw new ConditionalConjunctionException(
-					"Null IProblem array passed to constructor.");
+			throw new ConditionalConjunctionException("Null IProblem array passed to constructor.");
 		if (bitString == null)
-			throw new ConditionalConjunctionException(
-					"Null IBitString passed to constructor.");
+			throw new ConditionalConjunctionException("Null IBitString passed to constructor.");
 		int numberOfProblems = problemArray.length;
 		if (numberOfProblems == 0)
-			throw new ConditionalConjunctionException(
-					"IProblem array of zero length passed to constructor.");
+			throw new ConditionalConjunctionException("IProblem array of zero length passed to constructor.");
 		if (numberOfProblems == 1)
 			this.setClauses(problemArray[0].getClauses());
 		if (numberOfProblems != bitString.size())
 			throw new ConditionalConjunctionException(
 					"IProblem array and IBitString of unequal length passed to constructor.");
 
-		this.setClauses(new bits.ConditionalConjunction(problemArray, bitString
-				.getBVArray()).getClauses());
+		this.setClauses(new bits.ConditionalConjunction(problemArray, bitString.getBVArray()).getClauses());
 	}
 }

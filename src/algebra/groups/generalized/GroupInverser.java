@@ -20,8 +20,7 @@ import bits.Problem;
  */
 public class GroupInverser extends Problem implements IProblem
 {
-	public GroupInverser(Group grp, INaturalNumber E, INaturalNumber EInverse,
-			INaturalNumber Identity) throws Exception
+	public GroupInverser(Group grp, INaturalNumber E, INaturalNumber EInverse, INaturalNumber Identity) throws Exception
 	{
 		this.setClauses(new Grouper(grp, E, EInverse, Identity).getClauses());
 	}

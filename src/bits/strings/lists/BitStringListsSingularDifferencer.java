@@ -16,15 +16,12 @@ import bits.strings.BitStringEqualizer;
 import bits.strings.BitStringUnequalizer;
 import bits.strings.lists.exceptions.BitStringListsSingularDifferencerException;
 
-public class BitStringListsSingularDifferencer extends Problem implements
-		IProblem
+public class BitStringListsSingularDifferencer extends Problem implements IProblem
 {
-	public BitStringListsSingularDifferencer(IBitStringList B1,
-			IBitStringList B2) throws Exception
+	public BitStringListsSingularDifferencer(IBitStringList B1, IBitStringList B2) throws Exception
 	{
 		if (B1.size() != B2.size())
-			throw new BitStringListsSingularDifferencerException(
-					"X and Y are not of equal size.");
+			throw new BitStringListsSingularDifferencerException("X and Y are not of equal size.");
 		else
 		{
 			int len = B1.size();
@@ -37,11 +34,9 @@ public class BitStringListsSingularDifferencer extends Problem implements
 				for (int j = 0; j < len; j++)
 				{
 					if (dBit == j)
-						pInner[index++] = new BitStringUnequalizer(
-								B1.getBitString(j), B2.getBitString(j));
+						pInner[index++] = new BitStringUnequalizer(B1.getBitString(j), B2.getBitString(j));
 					else
-						pInner[index++] = new BitStringEqualizer(
-								B1.getBitString(j), B2.getBitString(j));
+						pInner[index++] = new BitStringEqualizer(B1.getBitString(j), B2.getBitString(j));
 				}
 				pOuter[dBit] = new Conjunction(pInner);
 			}

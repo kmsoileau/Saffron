@@ -10,8 +10,8 @@ import graphs.lists.IListGraph;
 /**
  * A class which represents a graph. An IGraph is essentially a table of
  * IBooleanVariables. A call to getData(i, j) returns an IBooleanVariable
- * indicating the truth value of the statement
- * "vertex i is connected to vertex j."
+ * indicating the truth value of the statement "vertex i is connected to vertex
+ * j."
  * 
  * @author Kerry Michael Soileau
  *         <p>
@@ -76,16 +76,14 @@ public class ListGraph implements IListGraph
 	}
 
 	@Override
-	public void setData(IBooleanVariable[][] iBooleanVariables)
-			throws Exception
+	public void setData(IBooleanVariable[][] iBooleanVariables) throws Exception
 	{
 		this.data = new BitStringList(iBooleanVariables);
 
 	}
 
 	@Override
-	public void setData(int i, int j, IBooleanVariable booleanVariable)
-			throws Exception
+	public void setData(int i, int j, IBooleanVariable booleanVariable) throws Exception
 	{
 		this.getData().getBitString(i).setBooleanVariable(j, booleanVariable);
 	}
@@ -107,11 +105,9 @@ public class ListGraph implements IListGraph
 			for (int j = 0; j < this.getNumberOfVertices(); j++)
 				try
 				{
-					if (this.getData().getBitString(i).getBooleanVariable(j)
-							.getValue())
+					if (this.getData().getBitString(i).getBooleanVariable(j).getValue())
 						ret += "{" + i + "-" + j + "}";
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					e.printStackTrace();
 				}

@@ -24,8 +24,7 @@ public class MonoidAssociativer extends SemigroupAssociativer
 		super(mnd);
 	}
 
-	public MonoidAssociativer(Monoid mnd, INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public MonoidAssociativer(Monoid mnd, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		super(mnd, X, Y, Z);
 	}

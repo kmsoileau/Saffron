@@ -60,11 +60,9 @@ import bits.strings.BitStringFixer;
  */
 public class BinaryBitStringListOperationer extends Problem implements IProblem
 {
-	public void addRule(IBitString a, IBitString b, IBitString c)
-			throws Exception
+	public void addRule(IBitString a, IBitString b, IBitString c) throws Exception
 	{
-		IProblem newRule = new Conjunction(new BitStringFixer(a),
-				new BitStringFixer(b), new BitStringFixer(c));
+		IProblem newRule = new Conjunction(new BitStringFixer(a), new BitStringFixer(b), new BitStringFixer(c));
 		if (this.isEmpty())
 			this.setClauses(newRule.getClauses());
 		else

@@ -24,8 +24,7 @@ public class BitStringAlternator extends Problem implements IProblem
 	{
 		IProblem[] p = new IProblem[X.size()];
 		for (int i = 0; i < X.size() - 1; i++)
-			p[i] = new BitUnequalizer(X.getBooleanVariable(i),
-					X.getBooleanVariable(i + 1));
+			p[i] = new BitUnequalizer(X.getBooleanVariable(i), X.getBooleanVariable(i + 1));
 
 		this.setClauses(new Conjunction(p).getClauses());
 	}

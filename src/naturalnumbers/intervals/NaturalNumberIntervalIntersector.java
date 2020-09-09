@@ -28,28 +28,24 @@ import naturalnumbers.intervals.exceptions.NaturalNumberIntervalIntersectorExcep
  * @version 1.0
  * @since 2018/11/27
  */
-public class NaturalNumberIntervalIntersector extends Problem implements
-		IProblem
+public class NaturalNumberIntervalIntersector extends Problem implements IProblem
 {
-	public NaturalNumberIntervalIntersector(INaturalNumber A, INaturalNumber B,
-			INaturalNumber C, INaturalNumber D) throws Exception
+	public NaturalNumberIntervalIntersector(INaturalNumber A, INaturalNumber B, INaturalNumber C, INaturalNumber D)
+			throws Exception
 	{
 		if (A == null || B == null || C == null || D == null)
-			throw new NaturalNumberIntervalIntersectorException(
-					"Null INaturalNumber passed to constructor.");
-		
-		this.setClauses(new Conjunction(new NaturalNumberOrderer(A, B),
-				new NaturalNumberOrderer(C, D), new Disjunction(
-						new Conjunction(new NaturalNumberOrderer(A, C),
-								new NaturalNumberOrderer(C, B)),
-						new Conjunction(new NaturalNumberOrderer(C, A),
-								new NaturalNumberOrderer(A, D)))).getClauses());
+			throw new NaturalNumberIntervalIntersectorException("Null INaturalNumber passed to constructor.");
+
+		this.setClauses(
+				new Conjunction(new NaturalNumberOrderer(A, B), new NaturalNumberOrderer(C, D),
+						new Disjunction(new Conjunction(new NaturalNumberOrderer(A, C), new NaturalNumberOrderer(C, B)),
+								new Conjunction(new NaturalNumberOrderer(C, A), new NaturalNumberOrderer(A, D))))
+										.getClauses());
 	}
 
-	public NaturalNumberIntervalIntersector(INaturalNumberInterval theOne,
-			INaturalNumberInterval theOther) throws Exception
+	public NaturalNumberIntervalIntersector(INaturalNumberInterval theOne, INaturalNumberInterval theOther)
+			throws Exception
 	{
-		this(theOne.getLower(), theOne.getUpper(), theOther.getLower(),
-				theOther.getUpper());
+		this(theOne.getLower(), theOne.getUpper(), theOther.getLower(), theOther.getUpper());
 	}
 }

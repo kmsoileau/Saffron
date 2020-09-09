@@ -32,22 +32,22 @@ public class MonoidAssociativerDemo
 	{
 		int[][] opTable = new int[][]
 		{
-		{ 0, 0, 0 },
-		{ 0, 1, 1 },
-		{ 0, 2, 2 },
-		{ 0, 3, 3 },
-		{ 1, 0, 1 },
-		{ 1, 1, 0 },
-		{ 1, 2, 3 },
-		{ 1, 3, 2 },
-		{ 2, 0, 2 },
-		{ 2, 1, 3 },
-		{ 2, 2, 0 },
-		{ 2, 3, 1 },
-		{ 3, 0, 3 },
-		{ 3, 1, 2 },
-		{ 3, 2, 1 },
-		{ 3, 3, 0 } };
+				{ 0, 0, 0 },
+				{ 0, 1, 1 },
+				{ 0, 2, 2 },
+				{ 0, 3, 3 },
+				{ 1, 0, 1 },
+				{ 1, 1, 0 },
+				{ 1, 2, 3 },
+				{ 1, 3, 2 },
+				{ 2, 0, 2 },
+				{ 2, 1, 3 },
+				{ 2, 2, 0 },
+				{ 2, 3, 1 },
+				{ 3, 0, 3 },
+				{ 3, 1, 2 },
+				{ 3, 2, 1 },
+				{ 3, 3, 0 } };
 
 		Monoid mnd = new Monoid(opTable);
 
@@ -58,9 +58,8 @@ public class MonoidAssociativerDemo
 		INaturalNumber Z = new NaturalNumber();
 
 		IProblem problem = new Conjunction(new IProblem[]
-		{ new MonoidFixer(mnd), new NaturalNumberFixer(X, 1),
-				new NaturalNumberFixer(Y, 3), new NaturalNumberFixer(Z, 1),
-				new MonoidAssociativer(mnd, X, Y, Z) });
+		{ new MonoidFixer(mnd), new NaturalNumberFixer(X, 1), new NaturalNumberFixer(Y, 3),
+				new NaturalNumberFixer(Z, 1), new MonoidAssociativer(mnd, X, Y, Z) });
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

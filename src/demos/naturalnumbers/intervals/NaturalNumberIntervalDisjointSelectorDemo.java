@@ -25,20 +25,14 @@ public class NaturalNumberIntervalDisjointSelectorDemo
 		INaturalNumberInterval[] I = new INaturalNumberInterval[]
 		{ I1, I2, I3, I4 };
 		IBooleanVariable[] bool = new IBooleanVariable[]
-		{ BooleanVariable.getBooleanVariable("bool1"),
-				BooleanVariable.getBooleanVariable("bool2"),
-				BooleanVariable.getBooleanVariable("bool3"),
-				BooleanVariable.getBooleanVariable("bool4") };
+		{ BooleanVariable.getBooleanVariable("bool1"), BooleanVariable.getBooleanVariable("bool2"),
+				BooleanVariable.getBooleanVariable("bool3"), BooleanVariable.getBooleanVariable("bool4") };
 
 		IProblem[] p = new IProblem[]
-		{ new NaturalNumberFixer(I1.getLower(), 3),
-				new NaturalNumberFixer(I1.getUpper(), 4),
-				new NaturalNumberFixer(I2.getLower(), 2),
-				new NaturalNumberFixer(I2.getUpper(), 7),
-				new NaturalNumberFixer(I3.getLower(), 0),
-				new NaturalNumberFixer(I3.getUpper(), 7),
-				new NaturalNumberFixer(I4.getLower(), 6),
-				new NaturalNumberFixer(I4.getUpper(), 9),
+		{ new NaturalNumberFixer(I1.getLower(), 3), new NaturalNumberFixer(I1.getUpper(), 4),
+				new NaturalNumberFixer(I2.getLower(), 2), new NaturalNumberFixer(I2.getUpper(), 7),
+				new NaturalNumberFixer(I3.getLower(), 0), new NaturalNumberFixer(I3.getUpper(), 7),
+				new NaturalNumberFixer(I4.getLower(), 6), new NaturalNumberFixer(I4.getUpper(), 9),
 				new BitFixer(bool[0], true), new BitFixer(bool[3], true),
 				new NaturalNumberIntervalDisjointSelector(I, bool) };
 

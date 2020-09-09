@@ -36,9 +36,8 @@ public class NaturalNumberAdderDemo1
 		INaturalNumber Z = new NaturalNumber("Z");
 		INaturalNumber C = new NaturalNumber("C");
 
-		IProblem p = new NaturalNumberFixer(X, 1).and(
-				new NaturalNumberFixer(Y, 1)).and(
-				new NaturalNumberAdder(X, Y, Z, C));
+		IProblem p = new NaturalNumberFixer(X, 1).and(new NaturalNumberFixer(Y, 1))
+				.and(new NaturalNumberAdder(X, Y, Z, C));
 
 		System.out.println(p);
 

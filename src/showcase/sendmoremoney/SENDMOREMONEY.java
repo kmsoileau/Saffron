@@ -40,7 +40,7 @@ public class SENDMOREMONEY
 		/**
 		 * Set globals:
 		 */
-		
+
 		NaturalNumber.setLargestNaturalNumber(99999);
 
 		/**
@@ -75,23 +75,16 @@ public class SENDMOREMONEY
 		 * Create problems which constrain the values of these Saffron objects:
 		 */
 
-		IProblem fixDecimals = new Conjunction(new NaturalNumberListFixer(
-				decimals));
-		IProblem computeSENDvalue = new NaturalNumberListDotter(decimals, SEND,
-				SENDvalue);
-		IProblem computeMOREvalue = new NaturalNumberListDotter(decimals, MORE,
-				MOREvalue);
-		IProblem computeMONEYvalue = new NaturalNumberListDotter(decimals,
-				MONEY, MONEYvalue);
-		IProblem imposeSum = new NaturalNumberAdder(SENDvalue, MOREvalue,
-				MONEYvalue);
+		IProblem fixDecimals = new Conjunction(new NaturalNumberListFixer(decimals));
+		IProblem computeSENDvalue = new NaturalNumberListDotter(decimals, SEND, SENDvalue);
+		IProblem computeMOREvalue = new NaturalNumberListDotter(decimals, MORE, MOREvalue);
+		IProblem computeMONEYvalue = new NaturalNumberListDotter(decimals, MONEY, MONEYvalue);
+		IProblem imposeSum = new NaturalNumberAdder(SENDvalue, MOREvalue, MONEYvalue);
 		IProblem imposeDigitConstraint = new Conjunction(new IProblem[]
-		{ new NaturalNumberDigiter(S), new NaturalNumberDigiter(E),
-				new NaturalNumberDigiter(N), new NaturalNumberDigiter(D),
-				new NaturalNumberDigiter(M), new NaturalNumberDigiter(O),
+		{ new NaturalNumberDigiter(S), new NaturalNumberDigiter(E), new NaturalNumberDigiter(N),
+				new NaturalNumberDigiter(D), new NaturalNumberDigiter(M), new NaturalNumberDigiter(O),
 				new NaturalNumberDigiter(R), new NaturalNumberDigiter(Y) });
-		IProblem DifferentLettersAreDistinctDigits = new NaturalNumberListNonrepeater(
-				digits);
+		IProblem DifferentLettersAreDistinctDigits = new NaturalNumberListNonrepeater(digits);
 		IProblem zeroEquals0 = new NaturalNumberFixer(zero);
 		IProblem MDigitIsNonZero = new NaturalNumberPositiver(M);
 
@@ -100,14 +93,13 @@ public class SENDMOREMONEY
 		 */
 
 		IProblem problem = new Conjunction(new IProblem[]
-		{ fixDecimals, computeSENDvalue, computeMOREvalue, computeMONEYvalue,
-				imposeSum, imposeDigitConstraint, MDigitIsNonZero,
-				DifferentLettersAreDistinctDigits, zeroEquals0 });
+		{ fixDecimals, computeSENDvalue, computeMOREvalue, computeMONEYvalue, imposeSum, imposeDigitConstraint,
+				MDigitIsNonZero, DifferentLettersAreDistinctDigits, zeroEquals0 });
 
 		/**
 		 * Solve the IProblem:
 		 */
-		
+
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

@@ -64,11 +64,9 @@ public class JobSchedulingProblem1
 		int numberTasks = tasks.length;
 		Partition partition = new Partition(numberProcs, numberTasks);
 
-		IProblem jobSchedulingProblem = new Scheduler(tasks, procs, 51,
-				partition);
+		IProblem jobSchedulingProblem = new Scheduler(tasks, procs, 51, partition);
 
-		IProblemMessage blList = jobSchedulingProblem.findModel(Problem
-				.defaultSolver());
+		IProblemMessage blList = jobSchedulingProblem.findModel(Problem.defaultSolver());
 
 		ArrayList<ArrayList<Task>> solution = null;
 		if (blList.getLiterals() != null && blList.getLiterals().size() > 0)

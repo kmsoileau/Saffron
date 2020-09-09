@@ -30,23 +30,17 @@ import integers.intervals.exceptions.IntegerIntervalDisjointerException;
  */
 public class IntegerIntervalDisjointer extends Problem implements IProblem
 {
-	public IntegerIntervalDisjointer(IInteger A, IInteger B, IInteger C,
-			IInteger D) throws Exception
+	public IntegerIntervalDisjointer(IInteger A, IInteger B, IInteger C, IInteger D) throws Exception
 	{
 		if (A == null || B == null || C == null || D == null)
-			throw new IntegerIntervalDisjointerException(
-					"Null IInteger passed to constructor.");
+			throw new IntegerIntervalDisjointerException("Null IInteger passed to constructor.");
 
-		this.setClauses(new Conjunction(new IntegerOrderer(A, B),
-				new IntegerOrderer(C, D), new Disjunction(
-						new IntegerStrictOrderer(B, C),
-						new IntegerStrictOrderer(D, A))).getClauses());
+		this.setClauses(new Conjunction(new IntegerOrderer(A, B), new IntegerOrderer(C, D),
+				new Disjunction(new IntegerStrictOrderer(B, C), new IntegerStrictOrderer(D, A))).getClauses());
 	}
 
-	public IntegerIntervalDisjointer(IIntegerInterval theOne,
-			IIntegerInterval theOther) throws Exception
+	public IntegerIntervalDisjointer(IIntegerInterval theOne, IIntegerInterval theOther) throws Exception
 	{
-		this(theOne.getLower(), theOne.getUpper(), theOther.getLower(),
-				theOther.getUpper());
+		this(theOne.getLower(), theOne.getUpper(), theOther.getLower(), theOther.getUpper());
 	}
 }

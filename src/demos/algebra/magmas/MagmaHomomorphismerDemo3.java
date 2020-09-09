@@ -36,7 +36,7 @@ public class MagmaHomomorphismerDemo3 extends Problem implements IProblem
 
 		Magma magma1 = new Magma(new int[][]
 		// Z2
-				{
+		{
 				{ 0, 0, 0 },
 				{ 0, 1, 1 },
 				{ 0, 2, 2 },
@@ -56,7 +56,7 @@ public class MagmaHomomorphismerDemo3 extends Problem implements IProblem
 
 		Magma magma2 = new Magma(new int[][]
 		// Z1
-				{
+		{
 				{ 0, 0, 0 },
 				{ 0, 1, 1 },
 				{ 1, 0, 1 },
@@ -68,13 +68,11 @@ public class MagmaHomomorphismerDemo3 extends Problem implements IProblem
 			h[i] = new NaturalNumber();
 		}
 
-		IProblem fixers = new Conjunction(new MagmaFixer(magma1),
-				new MagmaFixer(magma2));
+		IProblem fixers = new Conjunction(new MagmaFixer(magma1), new MagmaFixer(magma2));
 
 		IProblem filters = new Conjunction(new NaturalNumberFixer(h[1], 1));
 
-		IProblem problem = new Conjunction(fixers, new MagmaHomomorphismer(
-				magma1, magma2, h), filters);
+		IProblem problem = new Conjunction(fixers, new MagmaHomomorphismer(magma1, magma2, h), filters);
 
 		System.out.println(new Date().getTime() - start);
 

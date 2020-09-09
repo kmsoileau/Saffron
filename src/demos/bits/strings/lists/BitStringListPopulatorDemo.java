@@ -17,24 +17,18 @@ public class BitStringListPopulatorDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBitStringList source = new BitStringList("source", new IBitString[]
-		{ new BitString("000"), new BitString("001"), new BitString("010"),
-				new BitString("011"), new BitString("100"),
+		{ new BitString("000"), new BitString("001"), new BitString("010"), new BitString("011"), new BitString("100"),
 				new BitString("101") });
 
 		IBitStringList target = new BitStringList("target", new IBitString[]
-		{ new BitString(3), new BitString(3), new BitString(3),
-				new BitString(3), new BitString(3), new BitString(3),
-				new BitString(3), new BitString(3), new BitString(3),
-				new BitString(3), new BitString(3), new BitString(3),
-				new BitString(3), new BitString(3), new BitString(3),
-				new BitString(3), new BitString(3), new BitString(3),
-				new BitString(3), new BitString(3), new BitString(3),
-				new BitString(3), new BitString(3), new BitString(3),
-				new BitString(3), new BitString(3), new BitString(3),
-				new BitString(3) });
+		{ new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3),
+				new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3),
+				new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3),
+				new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3),
+				new BitString(3), new BitString(3), new BitString(3), new BitString(3), new BitString(3),
+				new BitString(3), new BitString(3) });
 
-		IProblem problem = new Conjunction(new BitStringListFixer(source),
-				new BitStringListPopulator(target, source));
+		IProblem problem = new Conjunction(new BitStringListFixer(source), new BitStringListPopulator(target, source));
 
 		System.out.println(problem);
 

@@ -34,18 +34,15 @@ public class BitStringFixer extends Problem implements IProblem
 {
 	/**
 	 * 
-	 * @param target
-	 *            - IBitString
-	 * @throws Exception
-	 *             _
+	 * @param target - IBitString
+	 * @throws Exception _
 	 * 
 	 */
 	public BitStringFixer(IBitString target) throws Exception
 	{
 		BitStringBitFixer[] bnnbf = new BitStringBitFixer[target.size()];
 		for (int i = 0; i < bnnbf.length; i++)
-			bnnbf[i] = new BitStringBitFixer(target, i, target
-					.getBooleanVariable(i).getValue());
+			bnnbf[i] = new BitStringBitFixer(target, i, target.getBooleanVariable(i).getValue());
 
 		IProblem p = new Conjunction(bnnbf);
 		this.setClauses(p.getClauses());
@@ -53,13 +50,10 @@ public class BitStringFixer extends Problem implements IProblem
 
 	/**
 	 * 
-	 * @param target
-	 *            - IBitString
+	 * @param target - IBitString
 	 * 
-	 * @param c
-	 *            - boolean[]
-	 * @throws Exception
-	 *             _
+	 * @param c      - boolean[]
+	 * @throws Exception _
 	 */
 	public BitStringFixer(IBitString target, boolean[] c) throws Exception
 	{
@@ -78,13 +72,10 @@ public class BitStringFixer extends Problem implements IProblem
 
 	/**
 	 * 
-	 * @param target
-	 *            - IBitString
+	 * @param target - IBitString
 	 * 
-	 * @param data
-	 *            - IBitString
-	 * @throws Exception
-	 *             _ 
+	 * @param data   - IBitString
+	 * @throws Exception _
 	 */
 	public BitStringFixer(IBitString target, IBitString data) throws Exception
 	{
@@ -93,16 +84,12 @@ public class BitStringFixer extends Problem implements IProblem
 
 	/**
 	 * 
-	 * @param target
-	 *            - IBitString
+	 * @param target - IBitString
 	 * 
-	 * @param data
-	 *            - IBooleanVariable[]
-	 * @throws Exception
-	 *             _ 
+	 * @param data   - IBooleanVariable[]
+	 * @throws Exception _
 	 */
-	public BitStringFixer(IBitString target, IBooleanVariable[] data)
-			throws Exception
+	public BitStringFixer(IBitString target, IBooleanVariable[] data) throws Exception
 	{
 		if (target.size() != data.length)
 			this.setClauses(Problem.unsolvableProblem().getClauses());
@@ -119,17 +106,14 @@ public class BitStringFixer extends Problem implements IProblem
 
 	/**
 	 * 
-	 * Ensures that the bits in positions given in the setBits array are set,
-	 * and the rest of the bits are cleared. Out of range values in the setBits
-	 * array are ignored.
+	 * Ensures that the bits in positions given in the setBits array are set, and
+	 * the rest of the bits are cleared. Out of range values in the setBits array
+	 * are ignored.
 	 * 
-	 * @param target
-	 *            - IBitString
-	 * @param setBits
-	 *            - int[]
-	 * @throws Exception
-	 *             _ 
-	 *             
+	 * @param target  - IBitString
+	 * @param setBits - int[]
+	 * @throws Exception _
+	 * 
 	 */
 	public BitStringFixer(IBitString target, int[] setBits) throws Exception
 	{
@@ -160,8 +144,7 @@ public class BitStringFixer extends Problem implements IProblem
 		for (int i = 0; i < j; i++)
 		{
 			if (s.charAt(i) != '0' && s.charAt(i) != '1')
-				throw new BitStringFixerException(
-						"Attempted to fix an IBitString using improperly formatted data.");
+				throw new BitStringFixerException("Attempted to fix an IBitString using improperly formatted data.");
 			if (s.charAt(i) == '0')
 				p[i] = new BitFixer(target.getBooleanVariable(i), false);
 			if (s.charAt(i) == '1')

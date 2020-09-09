@@ -20,18 +20,14 @@ import bits.exceptions.MapperException;
  */
 public class TriMapper extends Problem implements IProblem
 {
-	private static IProblem map(IProblem[] p1, IProblem[] p2, IProblem[] p3,
-			IBooleanVariable[] b) throws Exception
+	private static IProblem map(IProblem[] p1, IProblem[] p2, IProblem[] p3, IBooleanVariable[] b) throws Exception
 	{
 		if (p1 == null || p2 == null || p3 == null || b == null)
-			throw new MapperException(
-					"A null IProblem[] was passed to a constructor.");
+			throw new MapperException("A null IProblem[] was passed to a constructor.");
 		if (p1.length == 0 || p2.length == 0 || p3.length == 0)
-			throw new MapperException(
-					"An IProblem[] of zero length was passed to a constructor.");
+			throw new MapperException("An IProblem[] of zero length was passed to a constructor.");
 		if (p1.length != p2.length || p2.length != p3.length)
-			throw new MapperException(
-					"IProblem[]'s of differing lengths were passed to a constructor.");
+			throw new MapperException("IProblem[]'s of differing lengths were passed to a constructor.");
 		if (b.length != p1.length - 1)
 			throw new MapperException(
 					"IBooleanVariable[] of improper length was passed to a constructor. Proper length in this case is "
@@ -50,14 +46,12 @@ public class TriMapper extends Problem implements IProblem
 	public TriMapper(ArrayList<ProblemTriplet> list) throws Exception
 	{
 		if (list == null)
-			throw new MapperException(
-					"Null ProblemTriplet ArrayList passed to constructor.");
+			throw new MapperException("Null ProblemTriplet ArrayList passed to constructor.");
 
 		int len = list.size();
 
 		if (len == 0)
-			throw new MapperException(
-					"ProblemTriplet ArrayList of zero size passed to constructor.");
+			throw new MapperException("ProblemTriplet ArrayList of zero size passed to constructor.");
 
 		this.domain = new IProblem[len];
 		this.codomain = new IProblem[len];
@@ -70,24 +64,19 @@ public class TriMapper extends Problem implements IProblem
 			this.tridomain[i] = list.get(i).getThird();
 		}
 
-		this.setClauses(new TriMapper(this.domain, this.codomain,
-				this.tridomain).getClauses());
+		this.setClauses(new TriMapper(this.domain, this.codomain, this.tridomain).getClauses());
 	}
 
-	public TriMapper(IProblem[] domain, IProblem[] codomain,
-			IProblem[] tridomain) throws Exception
+	public TriMapper(IProblem[] domain, IProblem[] codomain, IProblem[] tridomain) throws Exception
 	{
 		if (domain == null || codomain == null || tridomain == null)
-			throw new MapperException(
-					"Null IProblem array passed to constructor.");
+			throw new MapperException("Null IProblem array passed to constructor.");
 
 		int dlength = domain.length;
 		if (dlength != codomain.length || codomain.length != tridomain.length)
-			throw new MapperException(
-					"IProblem arrays of unequal length passed to constructor.");
+			throw new MapperException("IProblem arrays of unequal length passed to constructor.");
 		if (dlength == 0)
-			throw new MapperException(
-					"IProblem arrays of zero length passed to constructor.");
+			throw new MapperException("IProblem arrays of zero length passed to constructor.");
 
 		this.domain = domain;
 		this.codomain = codomain;
@@ -102,8 +91,7 @@ public class TriMapper extends Problem implements IProblem
 		this.setClauses(new Disjunction(q).getClauses());
 	}
 
-	public TriMapper(IProblem[] p1, IProblem[] p2, IProblem[] p3,
-			IBooleanVariable[] b) throws Exception
+	public TriMapper(IProblem[] p1, IProblem[] p2, IProblem[] p3, IBooleanVariable[] b) throws Exception
 	{
 		IProblem p = map(p1, p2, p3, b);
 		if (p != null)
@@ -116,24 +104,20 @@ public class TriMapper extends Problem implements IProblem
 	}
 
 	/**
-	 * @throws Exception
-	 *             "Null ProblemTriplet passed to constructor." or
-	 *             "ProblemTriplet of zero length passed to constructor."
-	 * @param array
-	 *            A ProblemTriplet array
+	 * @throws Exception "Null ProblemTriplet passed to constructor." or
+	 *                   "ProblemTriplet of zero length passed to constructor."
+	 * @param array A ProblemTriplet array
 	 * 
 	 */
 	public TriMapper(ProblemTriplet[] array) throws Exception
 	{
 		if (array == null)
-			throw new MapperException(
-					"Null ProblemTriplet array passed to constructor.");
+			throw new MapperException("Null ProblemTriplet array passed to constructor.");
 
 		int len = array.length;
 
 		if (len == 0)
-			throw new MapperException(
-					"ProblemTriplet array of zero length passed to constructor.");
+			throw new MapperException("ProblemTriplet array of zero length passed to constructor.");
 
 		this.domain = new IProblem[len];
 		this.codomain = new IProblem[len];
@@ -146,12 +130,10 @@ public class TriMapper extends Problem implements IProblem
 			this.tridomain[i] = array[i].getThird();
 		}
 
-		this.setClauses(new TriMapper(this.domain, this.codomain,
-				this.tridomain).getClauses());
+		this.setClauses(new TriMapper(this.domain, this.codomain, this.tridomain).getClauses());
 	}
 
-	public TriMapper(ProblemTriplet[] array, IBooleanVariable[] b)
-			throws Exception
+	public TriMapper(ProblemTriplet[] array, IBooleanVariable[] b) throws Exception
 	{
 		IProblem[] left = new IProblem[array.length];
 		IProblem[] right = new IProblem[array.length];

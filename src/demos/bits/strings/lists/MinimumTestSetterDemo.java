@@ -56,10 +56,8 @@ public class MinimumTestSetterDemo
 		 */
 
 		IBitStringList S = new BitStringList(new IBitString[]
-		{ new BitString("01000"), new BitString("01011"),
-				new BitString("10100"), new BitString("01100"),
-				new BitString("11010"), new BitString("10010"),
-				new BitString("01010") });
+		{ new BitString("01000"), new BitString("01011"), new BitString("10100"), new BitString("01100"),
+				new BitString("11010"), new BitString("10010"), new BitString("01010") });
 
 		int cLength = S.size();
 		int cSize = S.getBitString(0).size();
@@ -91,14 +89,12 @@ public class MinimumTestSetterDemo
 
 			System.out.println("PROBLEM");
 			for (int i = 0; i < cLength; i++)
-				System.out
-						.println("C[" + i + "]=" + S.getBitString(i).toBits());
+				System.out.println("C[" + i + "]=" + S.getBitString(i).toBits());
 
 			System.out.println("\nSOLUTION");
 			for (int i = 0; i < cLength; i++)
 				if (includedInTestSet.getBooleanVariable(i).getValue())
-					System.out.println("C[" + i + "]="
-							+ S.getBitString(i).toBits());
+					System.out.println("C[" + i + "]=" + S.getBitString(i).toBits());
 
 			System.out.println("\nVERIFICATION");
 			for (int i = 0; i < cSize; i++)
@@ -108,10 +104,8 @@ public class MinimumTestSetterDemo
 						continue;
 					for (int k = 0; k < cLength; k++)
 					{
-						boolean ci = S.getBitString(k).getBooleanVariable(i)
-								.getValue();
-						boolean cj = S.getBitString(k).getBooleanVariable(j)
-								.getValue();
+						boolean ci = S.getBitString(k).getBooleanVariable(i).getValue();
+						boolean cj = S.getBitString(k).getBooleanVariable(j).getValue();
 
 						boolean v1 = ci && !cj;
 						boolean v2 = !ci && cj;

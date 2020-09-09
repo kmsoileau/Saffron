@@ -61,10 +61,8 @@ public class Connector extends Problem implements IProblem
 		IBitString allOnes = new BitString(graph.size());
 
 		IProblem problem = new Conjunction(new IProblem[]
-		{ new GraphFixer((IGraph) graph), new Conjunction(GInit),
-				new Conjunction(BInit), new Conjunction(CInit),
-				new BitStringSetter(allOnes),
-				new BitStringEqualizer(G[graph.size() - 1], allOnes) });
+		{ new GraphFixer((IGraph) graph), new Conjunction(GInit), new Conjunction(BInit), new Conjunction(CInit),
+				new BitStringSetter(allOnes), new BitStringEqualizer(G[graph.size() - 1], allOnes) });
 
 		this.setClauses(problem.getClauses());
 	}

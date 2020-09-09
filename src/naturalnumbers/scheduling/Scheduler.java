@@ -34,19 +34,16 @@ public class Scheduler extends Problem implements IProblem
 		int numberTasks = task.length;
 		IProblem[] bindDurationsProblem = new IProblem[numberTasks];
 		for (int i = 0; i < numberTasks; i++)
-			bindDurationsProblem[i] = new NaturalNumberFixer(
-					task[i].getNNDuration(), task[i].getDuration());
+			bindDurationsProblem[i] = new NaturalNumberFixer(task[i].getNNDuration(), task[i].getDuration());
 		return new Conjunction(bindDurationsProblem);
 	}
 
 	static IProblem doDurationRelation(Task task) throws Exception
 	{
-		return new NaturalNumberAdder(task.getNNStart(), task.getNNDuration(),
-				task.getNNFinish());
+		return new NaturalNumberAdder(task.getNNStart(), task.getNNDuration(), task.getNNFinish());
 	}
 
-	static IProblem[] doInProcessorPrecProblem(Task[] task, Processor[] proc,
-			Partition partition) throws Exception
+	static IProblem[] doInProcessorPrecProblem(Task[] task, Processor[] proc, Partition partition) throws Exception
 	{
 		IProblem[] array = new IProblem[proc.length * task.length * task.length];
 		int arrayCounter = 0;
@@ -58,24 +55,20 @@ public class Scheduler extends Problem implements IProblem
 				for (int k = j + 1; k < task.length; k++)
 				{
 					/*
-					 * Either !currentProc[j] or !currentProc[k] or
-					 * task[j].getNNFinish() <= task[k].getNNStart() or
-					 * task[k].getNNFinish() <= task[j].getNNStart()
+					 * Either !currentProc[j] or !currentProc[k] or task[j].getNNFinish() <=
+					 * task[k].getNNStart() or task[k].getNNFinish() <= task[j].getNNStart()
 					 */
-					array[arrayCounter++] = new Disjunction(new BitFixer(
-							currentProc[j], false), new BitFixer(
-							currentProc[k], false), new NaturalNumberOrderer(
-							task[j].getNNFinish(), task[k].getNNStart()),
-							new NaturalNumberOrderer(task[k].getNNFinish(),
-									task[j].getNNStart()));
+					array[arrayCounter++] = new Disjunction(new BitFixer(currentProc[j], false),
+							new BitFixer(currentProc[k], false),
+							new NaturalNumberOrderer(task[j].getNNFinish(), task[k].getNNStart()),
+							new NaturalNumberOrderer(task[k].getNNFinish(), task[j].getNNStart()));
 				}
 			}
 		}
 		return array;
 	}
 
-	static IProblem doPartitionProblem(Task[] task, Processor[] proc,
-			Partition partition) throws Exception
+	static IProblem doPartitionProblem(Task[] task, Processor[] proc, Partition partition) throws Exception
 	{
 		int numberProcs = proc.length;
 		int numberTasks = task.length;
@@ -83,8 +76,8 @@ public class Scheduler extends Problem implements IProblem
 		{
 			IBooleanVariable[] currentBin = partition.getSet(i);
 			for (int j = 0; j < numberTasks; j++)
-				currentBin[j] = BooleanVariable.getBooleanVariable("partition-"
-						+ proc[i].getName() + "-" + task[j].getName());
+				currentBin[j] = BooleanVariable
+						.getBooleanVariable("partition-" + proc[i].getName() + "-" + task[j].getName());
 		}
 		return new BitArrayPartition(partition);
 	}
@@ -100,8 +93,7 @@ public class Scheduler extends Problem implements IProblem
 		ArrayList<IProblem> precProblem = new ArrayList<IProblem>();
 		for (Task currPred : currSuccPreds)
 		{
-			precProblem.add(new NaturalNumberOrderer(currPred.getNNFinish(),
-					currSucc.getNNStart()));
+			precProblem.add(new NaturalNumberOrderer(currPred.getNNFinish(), currSucc.getNNStart()));
 		}
 		return precProblem;
 	}
@@ -118,8 +110,7 @@ public class Scheduler extends Problem implements IProblem
 		return new Conjunction(limitProblem, new Conjunction(array));
 	}
 
-	public Scheduler(Task[] task, Processor[] proc, int timeLimit,
-			Partition partition) throws Exception
+	public Scheduler(Task[] task, Processor[] proc, int timeLimit, Partition partition) throws Exception
 	{
 		int numberTasks = task.length;
 		int stagingIndex = 0;
@@ -141,8 +132,7 @@ public class Scheduler extends Problem implements IProblem
 		}
 
 		// Impose one job at a time per processor constraint
-		stagingArray[stagingIndex++] = new Conjunction(
-				doInProcessorPrecProblem(task, proc, partition));
+		stagingArray[stagingIndex++] = new Conjunction(doInProcessorPrecProblem(task, proc, partition));
 
 		// Impose Duration Relations
 		for (int i = 0; i < numberTasks; i++)

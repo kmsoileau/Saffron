@@ -41,8 +41,7 @@ public class SquareRooterDemo
 
 		IGraph gSquared = new DirectedGraph(G.size());
 
-		IProblem problem = new Conjunction(new GraphFixer(G),
-				new GraphSquareRooter(G, gSquared));
+		IProblem problem = new Conjunction(new GraphFixer(G), new GraphSquareRooter(G, gSquared));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

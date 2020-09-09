@@ -24,11 +24,10 @@ package bits;
  */
 public class BitSubtractor extends Problem implements IProblem
 {
-	public BitSubtractor(IBooleanVariable x, IBooleanVariable y,
-			IBooleanVariable z) throws Exception
+	public BitSubtractor(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z) throws Exception
 	{
 		this.setClauses(new IClause[]
-				{ Clause.newClause().or(x).orNot(z), Clause.newClause().orNot(y).orNot(z),
-						Clause.newClause().orNot(x).or(y).or(z) });
+		{ Clause.newClause().or(x).orNot(z), Clause.newClause().orNot(y).orNot(z),
+				Clause.newClause().orNot(x).or(y).or(z) });
 	}
 }

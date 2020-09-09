@@ -27,8 +27,7 @@ public class FifteenPuzzlePosition extends Problem implements IProblem
 		try
 		{
 			sixteen = new NaturalNumber(16);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,11 +64,11 @@ public class FifteenPuzzlePosition extends Problem implements IProblem
 		}
 		IProblem[] pp = new IProblem[16];
 		for (int i = 0; i < 16; i++)
-			pp[i] = new Conjunction(new NaturalNumberFixer(this.Index[i], i),
-					new NaturalNumberFixer(this.Tile[i], 0));
+			pp[i] = new Conjunction(new NaturalNumberFixer(this.Index[i], i), new NaturalNumberFixer(this.Tile[i], 0));
 
-		this.setClauses(new Conjunction(new NaturalNumberFixer(Index),
-				new NaturalNumberFixer(Tile), new Disjunction(pp)).getClauses());
+		this.setClauses(
+				new Conjunction(new NaturalNumberFixer(Index), new NaturalNumberFixer(Tile), new Disjunction(pp))
+						.getClauses());
 	}
 
 	public FifteenPuzzlePosition(Integer[] position) throws Exception
@@ -86,8 +85,9 @@ public class FifteenPuzzlePosition extends Problem implements IProblem
 			pp[i] = new Conjunction(new NaturalNumberFixer(this.Index[i], i),
 					new NaturalNumberFixer(this.Tile[i], position[i]));
 
-		this.setClauses(new Conjunction(new NaturalNumberFixer(Index),
-				new NaturalNumberFixer(Tile), new Disjunction(pp)).getClauses());
+		this.setClauses(
+				new Conjunction(new NaturalNumberFixer(Index), new NaturalNumberFixer(Tile), new Disjunction(pp))
+						.getClauses());
 	}
 
 	public INaturalNumber[] getIndex()
@@ -110,7 +110,6 @@ public class FifteenPuzzlePosition extends Problem implements IProblem
 		return this.Tile[i];
 	}
 }
-
 
 //package showcase.fifteenpuzzle;
 //
@@ -225,4 +224,3 @@ public class FifteenPuzzlePosition extends Problem implements IProblem
 //	}
 //}
 //
-

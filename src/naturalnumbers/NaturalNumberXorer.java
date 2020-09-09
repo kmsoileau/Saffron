@@ -18,13 +18,11 @@ import bits.Problem;
  */
 public class NaturalNumberXorer extends Problem implements IProblem
 {
-	public NaturalNumberXorer(INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public NaturalNumberXorer(INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		IProblem[] bnnb = new BitXorer[NaturalNumber.getLength()];
 		for (int i = 0; i < bnnb.length; i++)
-			bnnb[i] = new BitXorer(X.getBooleanVariable(i),
-					Y.getBooleanVariable(i), Z.getBooleanVariable(i));
+			bnnb[i] = new BitXorer(X.getBooleanVariable(i), Y.getBooleanVariable(i), Z.getBooleanVariable(i));
 		IProblem p = new Conjunction(bnnb);
 		this.setClauses(p.getClauses());
 	}

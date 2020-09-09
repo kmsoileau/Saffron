@@ -32,15 +32,14 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 {
 	private static final long serialVersionUID = -9098553501315972641L;
 
-	public static EquivalenceRelation intersect(EquivalenceRelation rel1,
-			EquivalenceRelation rel2)
+	public static EquivalenceRelation intersect(EquivalenceRelation rel1, EquivalenceRelation rel2)
 	{
 		return EquivalenceRelation.intersect(new EquivalenceRelation[]
 		{ rel1, rel2 });
 	}
 
-	public static EquivalenceRelation intersect(EquivalenceRelation rel1,
-			EquivalenceRelation rel2, EquivalenceRelation rel3)
+	public static EquivalenceRelation intersect(EquivalenceRelation rel1, EquivalenceRelation rel2,
+			EquivalenceRelation rel3)
 	{
 		return EquivalenceRelation.intersect(new EquivalenceRelation[]
 		{ rel1, rel2, rel3 });
@@ -82,8 +81,8 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 	}
 
 	/*
-	 * public static void main(String[] args) { EquivalenceRelation polygon1 =
-	 * new EquivalenceRelation(); EquivalenceRelation polygon2 = new
+	 * public static void main(String[] args) { EquivalenceRelation polygon1 = new
+	 * EquivalenceRelation(); EquivalenceRelation polygon2 = new
 	 * EquivalenceRelation();
 	 * 
 	 * polygon1.add("a","b"); polygon1.add("a","d"); polygon1.add("a","e");
@@ -109,10 +108,8 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 	 * consistent with the previously added object pairs and the object pair
 	 * currently added.
 	 * 
-	 * @param object1
-	 *            Object
-	 * @param object2
-	 *            Object
+	 * @param object1 Object
+	 * @param object2 Object
 	 */
 	public void add(Object object1, Object object2)
 	{
@@ -145,8 +142,7 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 		while (i1.hasNext())
 		{
 			Object element = i1.next();
-			HashSet<Object> equivalenceClass = (HashSet<Object>) (super
-					.get(element));
+			HashSet<Object> equivalenceClass = (HashSet<Object>) (super.get(element));
 			Iterator<Object> i2 = equivalenceClass.iterator();
 			while (i2.hasNext())
 			{
@@ -159,16 +155,13 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 	}
 
 	/**
-	 * Returns <code>true</code> if o1 R o2, i.e. if o1 is equivalent to o2
-	 * under this equivalence relation, otherwise <code>false</code> is
-	 * returned.
+	 * Returns <code>true</code> if o1 R o2, i.e. if o1 is equivalent to o2 under
+	 * this equivalence relation, otherwise <code>false</code> is returned.
 	 *
-	 * @return <code>true</code> if o1 is equivalent to o2 under this
-	 *         equivalence relation.
-	 * @param o1
-	 *            Object
-	 * @param o2
-	 *            Object
+	 * @return <code>true</code> if o1 is equivalent to o2 under this equivalence
+	 *         relation.
+	 * @param o1 Object
+	 * @param o2 Object
 	 */
 	public boolean areRelated(Object o1, Object o2)
 	{
@@ -176,13 +169,12 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 	}
 
 	/**
-	 * Returns a HashSet containing the equivalence class of the object x,
-	 * namely the set of objects y such that xRy.
+	 * Returns a HashSet containing the equivalence class of the object x, namely
+	 * the set of objects y such that xRy.
 	 *
-	 * @return A HashSet containing the equivalence class of the object x,
-	 *         namely the set of objects y such that xRy.
-	 * @param x
-	 *            Object
+	 * @return A HashSet containing the equivalence class of the object x, namely
+	 *         the set of objects y such that xRy.
+	 * @param x Object
 	 */
 	public HashSet<Object> equivalenceClass(Object x)
 	{
@@ -234,11 +226,11 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 	}
 
 	/**
-	 * Returns a HashMap representing the equivalence classes for the
-	 * equivalence relation R. The Object[][] ary is computed using the
-	 * toArray() method. For the equivalence class corresponding to ary[i], the
-	 * representative of that class is defined to be the Object ary[i][0]. So
-	 * each member ary[i][j] is HashMapped to its representative ary[i][0]
+	 * Returns a HashMap representing the equivalence classes for the equivalence
+	 * relation R. The Object[][] ary is computed using the toArray() method. For
+	 * the equivalence class corresponding to ary[i], the representative of that
+	 * class is defined to be the Object ary[i][0]. So each member ary[i][j] is
+	 * HashMapped to its representative ary[i][0]
 	 *
 	 * @return A HashMap taking each member to its representative.
 	 */
@@ -252,8 +244,7 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 	 * representative ary[i][0].
 	 *
 	 * @return A HashMap.
-	 * @param ary
-	 *            Object[][]
+	 * @param ary Object[][]
 	 */
 	public HashMap<Object, Object> toHashMap(Object[][] ary)
 	{

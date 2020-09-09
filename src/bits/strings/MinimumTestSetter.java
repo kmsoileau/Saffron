@@ -24,8 +24,7 @@ import naturalnumbers.NaturalNumberFixer;
 
 public class MinimumTestSetter extends Problem implements IProblem
 {
-	public MinimumTestSetter(IBitString[] C, int K, IBitString includedInTestSet)
-			throws Exception
+	public MinimumTestSetter(IBitString[] C, int K, IBitString includedInTestSet) throws Exception
 	{
 		int cLength = C.length;
 		int cSize = C[0].size();
@@ -47,17 +46,13 @@ public class MinimumTestSetter extends Problem implements IProblem
 					IBooleanVariable ci = C[k].getBooleanVariable(i);
 					IBooleanVariable cj = C[k].getBooleanVariable(j);
 
-					parray[k] = new Disjunction(new Conjunction(new BitFixer(
-							ci, true), new BitFixer(cj, false)),
-							new Conjunction(new BitFixer(ci, false),
-									new BitFixer(cj, true)));
+					parray[k] = new Disjunction(new Conjunction(new BitFixer(ci, true), new BitFixer(cj, false)),
+							new Conjunction(new BitFixer(ci, false), new BitFixer(cj, true)));
 				}
-				problemArray[problemIndex++] = new ConditionalDisjunction(
-						parray, includedInTestSet);
+				problemArray[problemIndex++] = new ConditionalDisjunction(parray, includedInTestSet);
 			}
 
-		this.setClauses(new Conjunction(new BitStringTotaler(includedInTestSet,
-				NNK), new NaturalNumberFixer(NNK),
+		this.setClauses(new Conjunction(new BitStringTotaler(includedInTestSet, NNK), new NaturalNumberFixer(NNK),
 				new Conjunction(problemArray)).getClauses());
 	}
 }

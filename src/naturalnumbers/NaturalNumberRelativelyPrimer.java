@@ -18,21 +18,19 @@ import bits.Problem;
  */
 public class NaturalNumberRelativelyPrimer extends Problem implements IProblem
 {
-	public NaturalNumberRelativelyPrimer(INaturalNumber X, INaturalNumber Y)
-			throws Exception
+	public NaturalNumberRelativelyPrimer(INaturalNumber X, INaturalNumber Y) throws Exception
 	{
 		this(X, Y, new NaturalNumber(), new NaturalNumber());
 	}
 
-	public NaturalNumberRelativelyPrimer(INaturalNumber X, INaturalNumber Y,
-			INaturalNumber A, INaturalNumber B) throws Exception
+	public NaturalNumberRelativelyPrimer(INaturalNumber X, INaturalNumber Y, INaturalNumber A, INaturalNumber B)
+			throws Exception
 	{
 		INaturalNumber P = new NaturalNumber();
 		INaturalNumber Q = new NaturalNumber();
 		INaturalNumber One = new NaturalNumber();
 		IProblem problem = new Conjunction(new IProblem[]
-		{ new NaturalNumberFixer(One, 1), new NaturalNumberMultiplier(X, A, P),
-				new NaturalNumberMultiplier(Y, B, Q),
+		{ new NaturalNumberFixer(One, 1), new NaturalNumberMultiplier(X, A, P), new NaturalNumberMultiplier(Y, B, Q),
 				new NaturalNumberAdder(Q, One, P) });
 
 		this.setClauses(problem.getClauses());

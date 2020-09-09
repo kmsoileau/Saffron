@@ -22,8 +22,8 @@ public class ProblemDenierDemo21
 		IBooleanVariable N0 = N.getBooleanVariable(0);
 		IBooleanVariable N1 = N.getBooleanVariable(0);
 
-		IProblem problem = new Disjunction(new NaturalNumberFixer(N, 0),
-				new NaturalNumberFixer(N, 1), new NaturalNumberFixer(N, 2));
+		IProblem problem = new Disjunction(new NaturalNumberFixer(N, 0), new NaturalNumberFixer(N, 1),
+				new NaturalNumberFixer(N, 2));
 		System.out.println("Deny " + problem);
 
 		IProblem problemDenial = new ProblemDenier(problem);

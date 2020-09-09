@@ -19,14 +19,12 @@ import bits.Problem;
  */
 public class NaturalNumberLeftShifter extends Problem implements IProblem
 {
-	public NaturalNumberLeftShifter(INaturalNumber X, INaturalNumber Z)
-			throws Exception
+	public NaturalNumberLeftShifter(INaturalNumber X, INaturalNumber Z) throws Exception
 	{
 		int span = NaturalNumber.getLength();
 		BitEqualizer[] be = new BitEqualizer[span - 1];
 		for (int i = 0; i < span - 1; i++)
-			be[i] = new BitEqualizer(Z.getBooleanVariable(i + 1),
-					X.getBooleanVariable(i));
+			be[i] = new BitEqualizer(Z.getBooleanVariable(i + 1), X.getBooleanVariable(i));
 		BitFixer beset = new BitFixer(Z.getBooleanVariable(0), false);
 		IProblem p = new Conjunction(new Conjunction(be), beset);
 

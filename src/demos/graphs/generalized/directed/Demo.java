@@ -33,21 +33,20 @@ public class Demo extends Problem implements IProblem
 	{
 		int[][] data = new int[][]
 		{
-		{ 0, 1 },
-		{ 0, 3 },
-		{ 1, 1 },
-		{ 1, 2 },
-		{ 1, 4 },
-		{ 2, 4 },
-		{ 2, 5 },
-		{ 3, 4 },
-		{ 4, 6 },
-		{ 5, 7 },
-		{ 6, 5 },
-		{ 6, 7 } };
+				{ 0, 1 },
+				{ 0, 3 },
+				{ 1, 1 },
+				{ 1, 2 },
+				{ 1, 4 },
+				{ 2, 4 },
+				{ 2, 5 },
+				{ 3, 4 },
+				{ 4, 6 },
+				{ 5, 7 },
+				{ 6, 5 },
+				{ 6, 7 } };
 
-		IDirectedGraph graph = new DirectedGraph("G",
-				data);
+		IDirectedGraph graph = new DirectedGraph("G", data);
 
 		System.out.println(graph.getLookup());
 

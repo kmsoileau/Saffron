@@ -35,8 +35,7 @@ import bits.Problem;
  */
 public class NaturalNumberDivider extends Problem implements IProblem
 {
-	public NaturalNumberDivider(INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public NaturalNumberDivider(INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		this.setClauses(new NaturalNumberMultiplier(Z, Y, X).getClauses());
 	}

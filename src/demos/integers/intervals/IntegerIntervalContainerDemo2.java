@@ -18,11 +18,8 @@ public class IntegerIntervalContainerDemo2
 		IIntegerInterval R = new IntegerInterval("R");
 
 		IProblem[] p = new IProblem[]
-		{ new IntegerFixer(L.getLower(), 3),
-				new IntegerFixer(L.getUpper(), 10),
-				new IntegerFixer(R.getLower(), 2),
-				new IntegerFixer(R.getUpper(), 11),
-				new IntegerIntervalContainer(L, R) };
+		{ new IntegerFixer(L.getLower(), 3), new IntegerFixer(L.getUpper(), 10), new IntegerFixer(R.getLower(), 2),
+				new IntegerFixer(R.getUpper(), 11), new IntegerIntervalContainer(L, R) };
 
 		IProblem problem = new Conjunction(p);
 

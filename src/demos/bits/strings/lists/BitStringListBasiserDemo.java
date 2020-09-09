@@ -17,8 +17,7 @@ public class BitStringListBasiserDemo
 	{
 		// Collection of IBitStrings to be expressed
 		IBitStringList C = new BitStringList(new IBitString[]
-		{ new BitString("01001010"), new BitString("10101010"),
-				new BitString("00001000"), new BitString("00100000"),
+		{ new BitString("01001010"), new BitString("10101010"), new BitString("00001000"), new BitString("00100000"),
 				new BitString("00101000") });
 
 		int bLength = 4;
@@ -36,22 +35,18 @@ public class BitStringListBasiserDemo
 			included.add(new BitString(bLength));
 		}
 
-		IProblemMessage s = new Conjunction(new BitStringListFixer(C),
-				new BitStringArrayBasiser(C, B, included)).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new Conjunction(new BitStringListFixer(C), new BitStringArrayBasiser(C, B, included))
+				.findModel(Problem.defaultSolver());
 
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < cLength; i++)
-				System.out
-						.println("C[" + i + "]=" + C.getBitString(i).toBits());
+				System.out.println("C[" + i + "]=" + C.getBitString(i).toBits());
 			for (int i = 0; i < bLength; i++)
-				System.out
-						.println("B[" + i + "]=" + B.getBitString(i).toBits());
+				System.out.println("B[" + i + "]=" + B.getBitString(i).toBits());
 			for (int i = 0; i < cLength; i++)
-				System.out.println("included[" + i + "]="
-						+ included.getBitString(i).toBits());
+				System.out.println("included[" + i + "]=" + included.getBitString(i).toBits());
 		}
 		else
 			System.out.println("No solution.");

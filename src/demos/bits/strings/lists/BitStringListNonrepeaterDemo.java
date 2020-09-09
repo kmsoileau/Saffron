@@ -16,12 +16,11 @@ public class BitStringListNonrepeaterDemo
 	{
 		IBitStringList testList = new BitStringList("y", new boolean[][]
 		{
-		{ true, false, true },
-		{ false, true, false, true },
-		{ false, true, false },
-		{ true, false, false } });
-		IProblem problem = new Conjunction(new BitStringListFixer(testList),
-				new BitStringListNonrepeater(testList));
+				{ true, false, true },
+				{ false, true, false, true },
+				{ false, true, false },
+				{ true, false, false } });
+		IProblem problem = new Conjunction(new BitStringListFixer(testList), new BitStringListNonrepeater(testList));
 		System.out.println(problem);
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		System.out.println(s);

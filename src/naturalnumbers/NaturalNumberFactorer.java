@@ -17,8 +17,7 @@ import bits.Problem;
  */
 public class NaturalNumberFactorer extends Problem implements IProblem
 {
-	public NaturalNumberFactorer(INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public NaturalNumberFactorer(INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		INaturalNumber A = new NaturalNumber("A");
 		INaturalNumber B = new NaturalNumber("B");

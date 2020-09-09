@@ -55,8 +55,7 @@ public class Set
 	public Set(String name) throws Exception
 	{
 		if (name == null)
-			throw new SetException(
-					"Null passed to constructor as name parameter.");
+			throw new SetException("Null passed to constructor as name parameter.");
 
 		this.setName(name);
 		this.membershipBitString = new BitString(Set.getSetSupportSize());
@@ -67,8 +66,7 @@ public class Set
 		String[] names = Set.getElementNames();
 		for (int i = 0; i < Set.getSetSupportSize(); i++)
 		{
-			IBooleanVariable ww = this.membershipBitString
-					.getBooleanVariable(i);
+			IBooleanVariable ww = this.membershipBitString.getBooleanVariable(i);
 			if (names[i].compareTo(elementName) == 0)
 				return ww;
 		}
@@ -119,8 +117,7 @@ public class Set
 			{
 				if (membershipBitString.getBooleanVariable(i).getValue())
 					ret += " " + Set.getElementNames()[i];
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				e.printStackTrace();
 			}

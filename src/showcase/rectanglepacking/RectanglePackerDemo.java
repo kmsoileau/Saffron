@@ -29,10 +29,8 @@ public class RectanglePackerDemo extends Problem implements IProblem
 {
 	private static boolean decide(INaturalNumberRectangle rect, int row, int col)
 	{
-		return rect.getAltitude().getLower().getValue() <= row
-				&& row <= rect.getAltitude().getUpper().getValue()
-				&& rect.getBase().getLower().getValue() <= col
-				&& col <= rect.getBase().getUpper().getValue();
+		return rect.getAltitude().getLower().getValue() <= row && row <= rect.getAltitude().getUpper().getValue()
+				&& rect.getBase().getLower().getValue() <= col && col <= rect.getBase().getUpper().getValue();
 	}
 
 	public static void main(String[] args) throws Exception
@@ -46,10 +44,8 @@ public class RectanglePackerDemo extends Problem implements IProblem
 		int rows = 8;
 
 		IntegerPair[] data = new IntegerPair[]
-		{ new IntegerPair(3, 3), new IntegerPair(2, 4), new IntegerPair(3, 3),
-				new IntegerPair(3, 4), new IntegerPair(2, 2),
-				new IntegerPair(2, 2), new IntegerPair(4, 2),
-				new IntegerPair(2, 2) };
+		{ new IntegerPair(3, 3), new IntegerPair(2, 4), new IntegerPair(3, 3), new IntegerPair(3, 4),
+				new IntegerPair(2, 2), new IntegerPair(2, 2), new IntegerPair(4, 2), new IntegerPair(2, 2) };
 
 		/**
 		 * Set globals:
@@ -68,8 +64,7 @@ public class RectanglePackerDemo extends Problem implements IProblem
 
 		IProblem p1 = new RectanglePacker(data, enclosure, shiftedRectangle);
 
-		IProblem p2 = new NaturalNumberRectangleFixer(enclosure, 0, 0, columns,
-				rows);
+		IProblem p2 = new NaturalNumberRectangleFixer(enclosure, 0, 0, columns, rows);
 
 		/**
 		 * Create the IProblem of satisfying all of these constraining problems:

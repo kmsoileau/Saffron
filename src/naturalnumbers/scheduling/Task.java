@@ -93,7 +93,7 @@ public class Task
 	@Override
 	public String toString()
 	{
-		return "\nTask [name=" + name + ", NNStart=" + NNStart
-				+ ", NNDuration=" + NNDuration + ", NNFinish=" + NNFinish;
+		return "\nTask [name=" + name + ", NNStart=" + NNStart + ", NNDuration=" + NNDuration + ", NNFinish="
+				+ NNFinish;
 	}
 }

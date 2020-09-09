@@ -25,13 +25,10 @@ public class Group extends Monoid
 
 	public Group()
 	{
-		this(
-				"Group-" + groupCount++,
-				new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
+		this("Group-" + groupCount++, new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
 	}
 
-	public Group(
-			HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
+	public Group(HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
 	{
 		this("Group-" + groupCount++, composition);
 	}
@@ -43,14 +40,10 @@ public class Group extends Monoid
 
 	public Group(String name)
 	{
-		this(
-				name,
-				new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
+		this(name, new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
 	}
 
-	public Group(
-			String name,
-			HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
+	public Group(String name, HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
 	{
 		super(name, composition);
 	}
@@ -63,7 +56,6 @@ public class Group extends Monoid
 	@Override
 	public String toString()
 	{
-		return "Group [composition=" + super.getComposition() + ", order="
-				+ super.getOrder() + "]";
+		return "Group [composition=" + super.getComposition() + ", order=" + super.getOrder() + "]";
 	}
 }

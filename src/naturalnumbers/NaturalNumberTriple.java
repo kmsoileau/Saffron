@@ -8,8 +8,7 @@ public class NaturalNumberTriple
 	private INaturalNumber second;
 	private INaturalNumber third;
 
-	public NaturalNumberTriple(INaturalNumber first, INaturalNumber second,
-			INaturalNumber third)
+	public NaturalNumberTriple(INaturalNumber first, INaturalNumber second, INaturalNumber third)
 	{
 		this.first = first;
 		this.second = second;

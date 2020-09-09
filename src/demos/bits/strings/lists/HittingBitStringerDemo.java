@@ -29,9 +29,8 @@ public class HittingBitStringerDemo
 
 		INaturalNumber bitSum = new NaturalNumber(K);
 
-		IProblem problem = new Conjunction(new BitStringListFixer(C),
-				new NaturalNumberFixer(bitSum), new HittingBitStringer(C,
-						bitSum, Y));
+		IProblem problem = new Conjunction(new BitStringListFixer(C), new NaturalNumberFixer(bitSum),
+				new HittingBitStringer(C, bitSum, Y));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

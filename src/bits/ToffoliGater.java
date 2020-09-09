@@ -41,9 +41,8 @@ package bits;
  */
 public class ToffoliGater extends Problem implements IProblem
 {
-	public ToffoliGater(IBooleanVariable A, IBooleanVariable B,
-			IBooleanVariable C, IBooleanVariable P, IBooleanVariable Q,
-			IBooleanVariable R) throws Exception
+	public ToffoliGater(IBooleanVariable A, IBooleanVariable B, IBooleanVariable C, IBooleanVariable P,
+			IBooleanVariable Q, IBooleanVariable R) throws Exception
 	{
 		// p=a, q=b and r=c XOR (a AND b).
 		// P=A

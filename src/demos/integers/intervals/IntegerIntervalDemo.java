@@ -16,8 +16,7 @@ public class IntegerIntervalDemo
 		IIntegerInterval CD = new IntegerInterval("B");
 
 		IProblem[] p = new IProblem[]
-		{ new IntegerIntervalFixer(AB, 3, 4),
-				new IntegerIntervalFixer(CD, 2, 7),
+		{ new IntegerIntervalFixer(AB, 3, 4), new IntegerIntervalFixer(CD, 2, 7),
 				new integers.intervals.IntegerIntervalIntersector(AB, CD) };
 
 		IProblem problem = new Conjunction(p);

@@ -27,18 +27,15 @@ public class TestSetterDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBitStringList C = new BitStringList(new IBitString[]
-		{ new BitString("01000"), new BitString("01011"),
-				new BitString("10100"), new BitString("01100"),
-				new BitString("11010"), new BitString("10010"),
-				new BitString("01010") });
+		{ new BitString("01000"), new BitString("01011"), new BitString("10100"), new BitString("01100"),
+				new BitString("11010"), new BitString("10010"), new BitString("01010") });
 
 		int cLength = C.size();
 		int cSize = C.getBitString(0).size();
 
 		IBitString includedInTestSet = new BitString(cLength);
 
-		IProblem problem = new Conjunction(new BitStringListFixer(C),
-				new TestSetter(C.toArray(), includedInTestSet));
+		IProblem problem = new Conjunction(new BitStringListFixer(C), new TestSetter(C.toArray(), includedInTestSet));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 
@@ -48,8 +45,7 @@ public class TestSetterDemo
 
 			for (int i = 0; i < cLength; i++)
 				if (includedInTestSet.getBooleanVariable(i).getValue())
-					System.out.println("C[" + i + "]="
-							+ C.getBitString(i).toBits());
+					System.out.println("C[" + i + "]=" + C.getBitString(i).toBits());
 			// (C[k][i] && !C[k][j]) || (!C[k][i] && C[k][j])
 			System.out.println("\ni\tj\tTest\t");
 			System.out.println("--------------------");
@@ -60,18 +56,15 @@ public class TestSetterDemo
 						continue;
 					for (int k = 0; k < cLength; k++)
 					{
-						boolean ci = C.getBitString(k).getBooleanVariable(i)
-								.getValue();
-						boolean cj = C.getBitString(k).getBooleanVariable(j)
-								.getValue();
+						boolean ci = C.getBitString(k).getBooleanVariable(i).getValue();
+						boolean cj = C.getBitString(k).getBooleanVariable(j).getValue();
 
 						boolean v1 = ci && !cj;
 						boolean v2 = !ci && cj;
 						boolean v3 = v1 || v2;
 						if (v3)
 						{
-							System.out.println(i + "\t" + j + "\t"
-									+ C.getBitString(k).toBits());
+							System.out.println(i + "\t" + j + "\t" + C.getBitString(k).toBits());
 							break;
 						}
 					}

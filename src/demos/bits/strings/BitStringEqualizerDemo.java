@@ -35,15 +35,13 @@ public class BitStringEqualizerDemo
 				value = true;
 			else
 				value = false;
-			X.setBooleanVariable(i,
-					BooleanVariable.getBooleanVariable(X.getName() + "_" + i));
+			X.setBooleanVariable(i, BooleanVariable.getBooleanVariable(X.getName() + "_" + i));
 			pfix.add(new BitFixer(X.getBooleanVariable(i), value));
 		}
 
 		IBitString Y = new BitString("Y", new IBooleanVariable[4]);
 		for (int i = 0; i < Y.size(); i++)
-			Y.setBooleanVariable(i,
-					BooleanVariable.getBooleanVariable(Y.getName() + "_" + i));
+			Y.setBooleanVariable(i, BooleanVariable.getBooleanVariable(Y.getName() + "_" + i));
 
 		IProblem fix = new Conjunction(pfix);
 
@@ -61,7 +59,6 @@ public class BitStringEqualizerDemo
 		else
 			System.out.println("No solution.");
 
-		System.out.println(((Problem) problem).buildEquivalenceRelation()
-				.toString());
+		System.out.println(((Problem) problem).buildEquivalenceRelation().toString());
 	}
 }

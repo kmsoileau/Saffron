@@ -18,21 +18,15 @@ public class GraphEdger extends Problem implements IProblem
 	 * Satisfied if <code>predecessor</code> --&gt; <code>successor</code> in
 	 * <code>graph</code>.
 	 *
-	 * @param graph
-	 *            IGeneralizedGraph
-	 * @param predecessor
-	 *            int
-	 * @param successor
-	 *            int
-	 * @throws Exception
-	 *             _
+	 * @param graph       IGeneralizedGraph
+	 * @param predecessor int
+	 * @param successor   int
+	 * @throws Exception _
 	 */
-	public GraphEdger(IGraph graph, INaturalNumber predecessor,
-			INaturalNumber successor) throws Exception
+	public GraphEdger(IGraph graph, INaturalNumber predecessor, INaturalNumber successor) throws Exception
 	{
 		if (graph == null)
-			throw new GraphEdgerException(
-					"Null IGeneralizedGraph passed to constructor.");
+			throw new GraphEdgerException("Null IGeneralizedGraph passed to constructor.");
 
 		ArrayList<IProblem> p = new ArrayList<IProblem>();
 
@@ -45,8 +39,7 @@ public class GraphEdger extends Problem implements IProblem
 				// successor ==
 				// currS)
 				p.add(new Disjunction(new BitFixer(valid, false),
-						new Conjunction(new NaturalNumberFixer(predecessor, i),
-								new NaturalNumberFixer(successor, j))));
+						new Conjunction(new NaturalNumberFixer(predecessor, i), new NaturalNumberFixer(successor, j))));
 			}
 
 		this.setClauses(new Disjunction(p).getClauses());

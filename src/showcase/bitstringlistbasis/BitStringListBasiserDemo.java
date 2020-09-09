@@ -17,8 +17,7 @@ public class BitStringListBasiserDemo
 	{
 		// Collection of IBitStrings to be expressed
 		IBitStringList C = new BitStringList(new IBitString[]
-		{ new BitString("01001010"), new BitString("10101010"),
-				new BitString("00001000"), new BitString("00100000"),
+		{ new BitString("01001010"), new BitString("10101010"), new BitString("00001000"), new BitString("00100000"),
 				new BitString("00101000") });
 
 		// Collection of basis IBitStrings
@@ -32,9 +31,8 @@ public class BitStringListBasiserDemo
 			included.add(new BitString(B.size()));
 		}
 
-		IProblemMessage s = new Conjunction(new BitStringListFixer(C),
-				new BitStringListBasiser(C, B, included)).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new Conjunction(new BitStringListFixer(C), new BitStringListBasiser(C, B, included))
+				.findModel(Problem.defaultSolver());
 
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
@@ -42,8 +40,7 @@ public class BitStringListBasiserDemo
 			System.out.println("C=" + C.toBits());
 			System.out.println("B=" + B.toBits());
 			for (int i = 0; i < C.size(); i++)
-				System.out.println("included[" + i + "]="
-						+ included.getBitString(i).toBits());
+				System.out.println("included[" + i + "]=" + included.getBitString(i).toBits());
 		}
 		else
 			System.out.println("No solution.");

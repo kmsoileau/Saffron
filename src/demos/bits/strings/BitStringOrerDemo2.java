@@ -23,13 +23,11 @@ public class BitStringOrerDemo2
 	public static void main(String[] args) throws Exception
 	{
 		IBitString[] X = new IBitString[]
-		{ new BitString("01001010"), new BitString("10101010"),
-				new BitString("00001000"), new BitString("00100000") };
+		{ new BitString("01001010"), new BitString("10101010"), new BitString("00001000"), new BitString("00100000") };
 
 		IBitString Z = new BitString(8);
 
-		IProblem problem = new Conjunction(new BitStringOrer(X, Z),
-				new BitStringFixer(X));
+		IProblem problem = new Conjunction(new BitStringOrer(X, Z), new BitStringFixer(X));
 		System.out.println(problem);
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

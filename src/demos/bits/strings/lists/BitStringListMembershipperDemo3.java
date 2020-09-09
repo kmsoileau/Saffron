@@ -38,14 +38,11 @@ public class BitStringListMembershipperDemo3
 		IBitString slm = new BitString("Kerry", "011");
 
 		IBitStringList bsl = new BitStringList("slist", new IBitString[]
-		{ new BitString("000"), new BitString("010"), new BitString("001"),
-				new BitString("011"), new BitString("111"),
-				new BitString("101"), new BitString("000"),
-				new BitString("000"), });
+		{ new BitString("000"), new BitString("010"), new BitString("001"), new BitString("011"), new BitString("111"),
+				new BitString("101"), new BitString("000"), new BitString("000"), });
 
-		IProblem problem = new Conjunction(new BitStringFixer(slm),
-				new BitStringListFixer(bsl), new BitStringListMembershipper(
-						slm, bsl));
+		IProblem problem = new Conjunction(new BitStringFixer(slm), new BitStringListFixer(bsl),
+				new BitStringListMembershipper(slm, bsl));
 
 		System.out.println(problem);
 

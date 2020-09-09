@@ -30,8 +30,7 @@ public class ProblemDifferencer extends Problem implements IProblem
 	public ProblemDifferencer(IProblem first, IProblem second) throws Exception
 	{
 		if (first == null || second == null)
-			throw new ProblemDifferencerException(
-					"A null IProblem was passed to constructor.");
+			throw new ProblemDifferencerException("A null IProblem was passed to constructor.");
 
 		IProblem denial = new ProblemDenier(second);
 		IProblem res = new Conjunction(first, denial);

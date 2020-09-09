@@ -28,8 +28,7 @@ public class BitStringDisjointerDemo
 		IProblem xFix = new BitStringFixer(X);
 		IProblem yFix = new BitStringFixer(Y);
 
-		IProblem problem = new Conjunction(xFix, yFix, new BitStringDisjointer(
-				X, Y));
+		IProblem problem = new Conjunction(xFix, yFix, new BitStringDisjointer(X, Y));
 
 		System.out.println(problem);
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

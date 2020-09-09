@@ -26,8 +26,7 @@ public class ClauseDenier extends Problem implements IProblem
 	{
 		// System.out.println("Current clause is "+clause);
 		if (clause == null)
-			throw new ClauseDenierException(
-					"Null clause passed to constructor.");
+			throw new ClauseDenierException("Null clause passed to constructor.");
 		else
 		{
 			if (clause.size() == 0)

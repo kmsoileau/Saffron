@@ -19,20 +19,17 @@ import bits.INaturalNumber;
  */
 public class HittingBitStringer extends bits.strings.HittingBitStringer
 {
-	public HittingBitStringer(IBitStringList C, IBitString hittingSet)
-			throws Exception
+	public HittingBitStringer(IBitStringList C, IBitString hittingSet) throws Exception
 	{
 		super(C.toArray(), hittingSet);
 	}
 
-	public HittingBitStringer(IBitStringList C, INaturalNumber bitSum,
-			IBitString Y) throws Exception
+	public HittingBitStringer(IBitStringList C, INaturalNumber bitSum, IBitString Y) throws Exception
 	{
 		super(C.toArray(), bitSum, Y);
 	}
 
-	public HittingBitStringer(IBitStringList C, int K, IBitString hittingSet)
-			throws Exception
+	public HittingBitStringer(IBitStringList C, int K, IBitString hittingSet) throws Exception
 	{
 		super(C.toArray(), K, hittingSet);
 	}

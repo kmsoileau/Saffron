@@ -28,36 +28,32 @@ import utility.IntegerPair;
  */
 public class RectanglePacker extends Problem implements IProblem
 {
-	public RectanglePacker(INaturalNumberRectangle[] rectangle,
-			INaturalNumberRectangle enclosure,
-			INaturalNumberRectangle[] shiftedRectangle, INaturalNumber[] AbsDX,
-			INaturalNumber AbsDY[]) throws Exception
+	public RectanglePacker(INaturalNumberRectangle[] rectangle, INaturalNumberRectangle enclosure,
+			INaturalNumberRectangle[] shiftedRectangle, INaturalNumber[] AbsDX, INaturalNumber AbsDY[]) throws Exception
 	{
 		int len = rectangle.length;
 
 		for (int i = 0; i < len; i++)
 		{
-			//rect[i] = new NaturalNumberRectangle();
+			// rect[i] = new NaturalNumberRectangle();
 			shiftedRectangle[i] = new NaturalNumberRectangle();
 		}
 
 		IProblem[] rectangleCongruenters = new IProblem[len];
 		for (int i = 0; i < len; i++)
-			rectangleCongruenters[i] = new NaturalNumberRectangleCongruenter(
-					shiftedRectangle[i], rectangle[i], AbsDX[i], AbsDY[i]);
+			rectangleCongruenters[i] = new NaturalNumberRectangleCongruenter(shiftedRectangle[i], rectangle[i],
+					AbsDX[i], AbsDY[i]);
 
 		IProblem[] rectangleContainers = new IProblem[len];
 		for (int i = 0; i < len; i++)
-			rectangleContainers[i] = new NaturalNumberRectangleContainer(
-					shiftedRectangle[i], enclosure);
+			rectangleContainers[i] = new NaturalNumberRectangleContainer(shiftedRectangle[i], enclosure);
 
 		this.setClauses(new Conjunction(new Conjunction(rectangleCongruenters),
-				new NaturalNumberRectangleDisjointer(shiftedRectangle),
-				new Conjunction(rectangleContainers)).getClauses());
+				new NaturalNumberRectangleDisjointer(shiftedRectangle), new Conjunction(rectangleContainers))
+						.getClauses());
 	}
 
-	public RectanglePacker(IntegerPair[] data,
-			INaturalNumberRectangle enclosure,
+	public RectanglePacker(IntegerPair[] data, INaturalNumberRectangle enclosure,
 			INaturalNumberRectangle[] shiftedRectangle) throws Exception
 	{
 		int len = data.length;
@@ -71,29 +67,23 @@ public class RectanglePacker extends Problem implements IProblem
 
 		IProblem[] rectangleFixers = new IProblem[len];
 		for (int i = 0; i < len; i++)
-			rectangleFixers[i] = new NaturalNumberRectangleFixer(rectangle[i],
-					data[i]);
+			rectangleFixers[i] = new NaturalNumberRectangleFixer(rectangle[i], data[i]);
 
 		IProblem[] rectangleCongruenters = new IProblem[len];
 		for (int i = 0; i < len; i++)
-			rectangleCongruenters[i] = new NaturalNumberRectangleCongruenter(
-					shiftedRectangle[i], rectangle[i]);
+			rectangleCongruenters[i] = new NaturalNumberRectangleCongruenter(shiftedRectangle[i], rectangle[i]);
 
 		IProblem[] rectangleContainers = new IProblem[len];
 		for (int i = 0; i < len; i++)
-			rectangleContainers[i] = new NaturalNumberRectangleContainer(
-					shiftedRectangle[i], enclosure);
+			rectangleContainers[i] = new NaturalNumberRectangleContainer(shiftedRectangle[i], enclosure);
 
-		this.setClauses(new Conjunction(new Conjunction(rectangleFixers),
-				new Conjunction(rectangleCongruenters),
-				new NaturalNumberRectangleDisjointer(shiftedRectangle),
-				new Conjunction(rectangleContainers)).getClauses());
+		this.setClauses(new Conjunction(new Conjunction(rectangleFixers), new Conjunction(rectangleCongruenters),
+				new NaturalNumberRectangleDisjointer(shiftedRectangle), new Conjunction(rectangleContainers))
+						.getClauses());
 	}
 
-	public RectanglePacker(IntegerPair[] data,
-			INaturalNumberRectangle enclosure,
-			INaturalNumberRectangle[] shiftedRectangle, INaturalNumber[] AbsDX,
-			INaturalNumber AbsDY[]) throws Exception
+	public RectanglePacker(IntegerPair[] data, INaturalNumberRectangle enclosure,
+			INaturalNumberRectangle[] shiftedRectangle, INaturalNumber[] AbsDX, INaturalNumber AbsDY[]) throws Exception
 	{
 		int len = data.length;
 
@@ -106,22 +96,19 @@ public class RectanglePacker extends Problem implements IProblem
 
 		IProblem[] rectangleFixers = new IProblem[len];
 		for (int i = 0; i < len; i++)
-			rectangleFixers[i] = new NaturalNumberRectangleFixer(rectangle[i],
-					data[i]);
+			rectangleFixers[i] = new NaturalNumberRectangleFixer(rectangle[i], data[i]);
 
 		IProblem[] rectangleCongruenters = new IProblem[len];
 		for (int i = 0; i < len; i++)
-			rectangleCongruenters[i] = new NaturalNumberRectangleCongruenter(
-					shiftedRectangle[i], rectangle[i], AbsDX[i], AbsDY[i]);
+			rectangleCongruenters[i] = new NaturalNumberRectangleCongruenter(shiftedRectangle[i], rectangle[i],
+					AbsDX[i], AbsDY[i]);
 
 		IProblem[] rectangleContainers = new IProblem[len];
 		for (int i = 0; i < len; i++)
-			rectangleContainers[i] = new NaturalNumberRectangleContainer(
-					shiftedRectangle[i], enclosure);
+			rectangleContainers[i] = new NaturalNumberRectangleContainer(shiftedRectangle[i], enclosure);
 
-		this.setClauses(new Conjunction(new Conjunction(rectangleFixers),
-				new Conjunction(rectangleCongruenters),
-				new NaturalNumberRectangleDisjointer(shiftedRectangle),
-				new Conjunction(rectangleContainers)).getClauses());
+		this.setClauses(new Conjunction(new Conjunction(rectangleFixers), new Conjunction(rectangleCongruenters),
+				new NaturalNumberRectangleDisjointer(shiftedRectangle), new Conjunction(rectangleContainers))
+						.getClauses());
 	}
 }

@@ -28,25 +28,20 @@ import bits.exceptions.ConditionalDisjunctionException;
  */
 public class ConditionalDisjunction extends Problem implements IProblem
 {
-	public ConditionalDisjunction(IProblem[] problemArray,
- IBitString bitString) throws Exception
+	public ConditionalDisjunction(IProblem[] problemArray, IBitString bitString) throws Exception
 	{
 		this(problemArray, bitString.toBooleanVariableArray());
 	}
 
-	public ConditionalDisjunction(IProblem[] problemArray,
-			IBooleanVariable[] booleanVariableArray) throws Exception
+	public ConditionalDisjunction(IProblem[] problemArray, IBooleanVariable[] booleanVariableArray) throws Exception
 	{
 		if (problemArray == null)
-			throw new ConditionalDisjunctionException(
-					"Null IProblem array passed to constructor.");
+			throw new ConditionalDisjunctionException("Null IProblem array passed to constructor.");
 		if (booleanVariableArray == null)
-			throw new ConditionalDisjunctionException(
-					"Null IBooleanVariable array passed to constructor.");
+			throw new ConditionalDisjunctionException("Null IBooleanVariable array passed to constructor.");
 		int numberOfProblems = problemArray.length;
 		if (numberOfProblems == 0)
-			throw new ConditionalDisjunctionException(
-					"IProblem array of zero length passed to constructor.");
+			throw new ConditionalDisjunctionException("IProblem array of zero length passed to constructor.");
 		if (numberOfProblems == 1)
 			this.setClauses(problemArray[0].getClauses());
 		if (numberOfProblems != booleanVariableArray.length)
@@ -55,8 +50,7 @@ public class ConditionalDisjunction extends Problem implements IProblem
 
 		IProblem[] subProblems = new IProblem[numberOfProblems];
 		for (int i = 0; i < numberOfProblems; i++)
-			subProblems[i] = new Conjunction(new BitFixer(
-					booleanVariableArray[i], true), problemArray[i]);
+			subProblems[i] = new Conjunction(new BitFixer(booleanVariableArray[i], true), problemArray[i]);
 
 		this.setClauses(new Disjunction(subProblems).getClauses());
 	}

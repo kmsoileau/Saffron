@@ -6,17 +6,14 @@ import bits.INaturalNumber;
 
 public class ConditionalAdder extends naturalnumbers.ConditionalAdder
 {
-	public ConditionalAdder(INaturalNumberList numbersArray,
-			IBitString membership, INaturalNumber conditionalSum)
+	public ConditionalAdder(INaturalNumberList numbersArray, IBitString membership, INaturalNumber conditionalSum)
 			throws Exception
 	{
-		super(numbersArray.getNaturalNumberArray(), membership.getBVArray(),
-				conditionalSum);
+		super(numbersArray.getNaturalNumberArray(), membership.getBVArray(), conditionalSum);
 	}
 
-	public ConditionalAdder(INaturalNumberList numbersArray,
-			IBooleanVariable[] membership, INaturalNumber conditionalSum)
-			throws Exception
+	public ConditionalAdder(INaturalNumberList numbersArray, IBooleanVariable[] membership,
+			INaturalNumber conditionalSum) throws Exception
 	{
 		super(numbersArray.getNaturalNumberArray(), membership, conditionalSum);
 	}

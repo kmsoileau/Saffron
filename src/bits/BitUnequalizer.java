@@ -28,12 +28,10 @@ import bits.exceptions.BitUnequalizerException;
  */
 public class BitUnequalizer extends Problem implements IProblem
 {
-	public BitUnequalizer(IBooleanVariable x, IBooleanVariable y)
-			throws Exception
+	public BitUnequalizer(IBooleanVariable x, IBooleanVariable y) throws Exception
 	{
 		if (x == null || y == null)
-			throw new BitUnequalizerException(
-					"Null IBooleanVariable was passed to constructor.");
+			throw new BitUnequalizerException("Null IBooleanVariable was passed to constructor.");
 		this.setClauses(new IClause[]
 		{ Clause.newClause().or(x).or(y), Clause.newClause().orNot(x).orNot(y) });
 	}

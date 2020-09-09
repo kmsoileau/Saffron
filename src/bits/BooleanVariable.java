@@ -22,9 +22,8 @@ import bits.exceptions.BooleanVariableException;
 public class BooleanVariable implements IBooleanVariable
 {
 	/**
-	 * The current number of BooleanVariable objects that were constructed
-	 * without a specified name, and for which a application-generated name was
-	 * assigned.
+	 * The current number of BooleanVariable objects that were constructed without a
+	 * specified name, and for which a application-generated name was assigned.
 	 */
 	private static long boolCount;
 
@@ -38,8 +37,7 @@ public class BooleanVariable implements IBooleanVariable
 	 * <code>"BooleanVariable-" + boolCount</code> and value <code>false</code>.
 	 * 
 	 * @return A new IBooleanVariable.
-	 * @throws BooleanVariableException
-	 *             if n == null or n=="".
+	 * @throws BooleanVariableException if n == null or n=="".
 	 */
 	public static IBooleanVariable getBooleanVariable() throws Exception
 	{
@@ -51,13 +49,10 @@ public class BooleanVariable implements IBooleanVariable
 	 * <code>"BooleanVariable-" + boolCount</code> and value <code>x</code>.
 	 * 
 	 * @return A new IBooleanVariable.
-	 * @throws BooleanVariableException
-	 *             if n == null or n=="".
-	 * @param x
-	 *            A boolean
+	 * @throws BooleanVariableException if n == null or n=="".
+	 * @param x A boolean
 	 */
-	public static IBooleanVariable getBooleanVariable(boolean x)
-			throws Exception
+	public static IBooleanVariable getBooleanVariable(boolean x) throws Exception
 	{
 		IBooleanVariable res = BooleanVariable.getBooleanVariable();
 		res.setValue(x);
@@ -69,17 +64,13 @@ public class BooleanVariable implements IBooleanVariable
 	 * <code>n</code> and value <code>false</code>.
 	 * 
 	 * @return A new IBooleanVariable.
-	 * @throws BooleanVariableException
-	 *             if n == null or n=="".
-	 * @param n
-	 *            A String
+	 * @throws BooleanVariableException if n == null or n=="".
+	 * @param n A String
 	 */
-	public static IBooleanVariable getBooleanVariable(String n)
-			throws Exception
+	public static IBooleanVariable getBooleanVariable(String n) throws Exception
 	{
 		if (n == null || "".compareTo(n) == 0)
-			throw new BooleanVariableException(
-					"Empty string or null was passed to getBooleanVariable method.");
+			throw new BooleanVariableException("Empty string or null was passed to getBooleanVariable method.");
 
 		Object[] inarray = BooleanVariable.getInstances().toArray();
 		for (int i = 0; i < inarray.length; i++)
@@ -96,19 +87,14 @@ public class BooleanVariable implements IBooleanVariable
 	 * <code>n</code> and value <code>x</code>.
 	 * 
 	 * @return A new IBooleanVariable.
-	 * @throws BooleanVariableException
-	 *             if n == null or n=="".
-	 * @param n
-	 *            A String
-	 * @param x
-	 *            A boolean
+	 * @throws BooleanVariableException if n == null or n=="".
+	 * @param n A String
+	 * @param x A boolean
 	 */
-	public static IBooleanVariable getBooleanVariable(String n, boolean x)
-			throws Exception
+	public static IBooleanVariable getBooleanVariable(String n, boolean x) throws Exception
 	{
 		if (n == null || "".compareTo(n) == 0)
-			throw new BooleanVariableException(
-					"Null or empty String passed to getBooleanVariable method.");
+			throw new BooleanVariableException("Null or empty String passed to getBooleanVariable method.");
 		else
 		{
 			IBooleanVariable res = BooleanVariable.getBooleanVariable(n);
@@ -152,8 +138,7 @@ public class BooleanVariable implements IBooleanVariable
 	 * <code>false</code>.
 	 * 
 	 * @return A new IBooleanVariable.
-	 * @throws BooleanVariableException
-	 *             if n == null or n=="".
+	 * @throws BooleanVariableException if n == null or n=="".
 	 */
 	private BooleanVariable(String n) throws Exception
 	{
@@ -164,22 +149,20 @@ public class BooleanVariable implements IBooleanVariable
 	 * Constructs a new IBooleanVariable with name <code>n</code> and value
 	 * <code>x</code>.
 	 * 
-	 * @throws BooleanVariableException
-	 *             if n == null or n=="".
+	 * @throws BooleanVariableException if n == null or n=="".
 	 */
 	private BooleanVariable(String n, boolean x) throws Exception
 	{
 		if (n == null || "".compareTo(n) == 0)
-			throw new BooleanVariableException(
-					"Null or empty string was passed to a constructor.");
+			throw new BooleanVariableException("Null or empty string was passed to a constructor.");
 		this.setName(n);
 		this.setValue(x);
 		BooleanVariable.getInstances().add(this);
 	}
 
 	/**
-	 * The result of comparing two IBooleanVariables x and y is exactly the same
-	 * as the result of comparing their names.
+	 * The result of comparing two IBooleanVariables x and y is exactly the same as
+	 * the result of comparing their names.
 	 * 
 	 * @return <code>x.getName().compareTo(y.getName()).</code>
 	 */
@@ -239,24 +222,20 @@ public class BooleanVariable implements IBooleanVariable
 	/**
 	 * Sets the name of the IBooleanVariable.
 	 * 
-	 * @param name
-	 *            A String
-	 * @throws BooleanVariableException
-	 *             if name == null or name=="".
+	 * @param name A String
+	 * @throws BooleanVariableException if name == null or name=="".
 	 */
 	public void setName(String name) throws BooleanVariableException
 	{
 		if (name == null || "".compareTo(name) == 0)
-			throw new BooleanVariableException(
-					"Null or empty String passed to setName method.");
+			throw new BooleanVariableException("Null or empty String passed to setName method.");
 		this.name = name;
 	}
 
 	/**
 	 * Sets the logical value: <code>true</code> or <code>false</code>.
 	 * 
-	 * @param x
-	 *            A boolean
+	 * @param x A boolean
 	 */
 	@Override
 	public void setValue(boolean x)

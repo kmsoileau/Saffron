@@ -25,8 +25,7 @@ public class BitStringIntersector extends Problem implements IProblem
 	public BitStringIntersector(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() != Y.size())
-			throw new BitStringIntersectorException(
-					"X and Y are not of equal size.");
+			throw new BitStringIntersectorException("X and Y are not of equal size.");
 		else
 		{
 			int commonsize = X.size();
@@ -35,8 +34,7 @@ public class BitStringIntersector extends Problem implements IProblem
 			{
 				IBooleanVariable currX = X.getBooleanVariable(i);
 				IBooleanVariable currY = Y.getBooleanVariable(i);
-				c[i] = new Conjunction(new BitFixer(currX, true), new BitFixer(
-						currY, true));
+				c[i] = new Conjunction(new BitFixer(currX, true), new BitFixer(currY, true));
 			}
 
 			this.setClauses(new Disjunction(c).getClauses());

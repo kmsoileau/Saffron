@@ -11,12 +11,10 @@ import bits.Problem;
  */
 public class BitStringConditionalAnder extends Problem implements IProblem
 {
-	public BitStringConditionalAnder(IBitStringList bitStringList,
-			IBitString membership, IBitString conditionalResult)
+	public BitStringConditionalAnder(IBitStringList bitStringList, IBitString membership, IBitString conditionalResult)
 			throws Exception
 	{
-		this.setClauses(new bits.strings.BitStringConditionalAnder(bitStringList
-				.toList().toArray(new IBitString[0]), membership,
-				conditionalResult).getClauses());
+		this.setClauses(new bits.strings.BitStringConditionalAnder(bitStringList.toList().toArray(new IBitString[0]),
+				membership, conditionalResult).getClauses());
 	}
 }

@@ -20,13 +20,11 @@ public class ProblemDenierDemo
 		IBooleanVariable x_4 = BooleanVariable.getBooleanVariable("x_4");
 
 		IProblem ip = new Problem(new IClause[]
-		{ new Clause().or(x_1).orNot(x_2).or(x_3),
-				new Clause().orNot(x_2).orNot(x_3).or(x_4),
+		{ new Clause().or(x_1).orNot(x_2).or(x_3), new Clause().orNot(x_2).orNot(x_3).or(x_4),
 				new Clause().or(x_1).orNot(x_3) });
 
 		System.out.println("The given IProblem was \n" + ip + ".");
-		System.out
-				.println("The denial of this IProblem is the following Problem:");
+		System.out.println("The denial of this IProblem is the following Problem:");
 		IProblem problem = new ProblemDenier(ip);
 		System.out.println(problem);
 

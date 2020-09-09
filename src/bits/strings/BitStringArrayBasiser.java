@@ -25,8 +25,7 @@ import bits.Problem;
  */
 public class BitStringArrayBasiser extends Problem implements IProblem
 {
-	public BitStringArrayBasiser(IBitString[] C, IBitString[] B,
-			IBitString[] included) throws Exception
+	public BitStringArrayBasiser(IBitString[] C, IBitString[] B, IBitString[] included) throws Exception
 	{
 		int size = C.length;
 		IProblem[] p = new IProblem[size];

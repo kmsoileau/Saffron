@@ -21,10 +21,8 @@ public class NaturalNumberQuotienterDemo
 		INaturalNumber Remainder = new NaturalNumber("C");
 
 		IProblem p = new Conjunction(new IProblem[]
-		{ new NaturalNumberQuotienter(Dividend, Divisor, Quotient, Remainder),
-				new NaturalNumberFixer(Dividend, 203L),
-				new NaturalNumberFixer(Divisor, 3L),
-				 });
+		{ new NaturalNumberQuotienter(Dividend, Divisor, Quotient, Remainder), new NaturalNumberFixer(Dividend, 203L),
+				new NaturalNumberFixer(Divisor, 3L), });
 
 		System.out.println(p);
 

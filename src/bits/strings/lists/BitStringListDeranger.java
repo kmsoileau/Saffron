@@ -43,15 +43,12 @@ import bits.strings.lists.exceptions.BitStringListException;
 @SuppressWarnings("unused")
 public class BitStringListDeranger extends Problem implements IProblem
 {
-	public BitStringListDeranger(IBitStringList source, IBitStringList target)
-			throws Exception
+	public BitStringListDeranger(IBitStringList source, IBitStringList target) throws Exception
 	{
 		if (source == null)
-			throw new BitStringListException(
-					"Passed a null IBitStringList to constructor.");
+			throw new BitStringListException("Passed a null IBitStringList to constructor.");
 		if (target == null)
-			throw new BitStringListException(
-					"Passed a null IBitStringList to constructor.");
+			throw new BitStringListException("Passed a null IBitStringList to constructor.");
 
 		IProblem problem = null;
 		// The source and target BitStringLists must have exactly the same

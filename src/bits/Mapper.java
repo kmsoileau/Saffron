@@ -16,18 +16,14 @@ import bits.exceptions.MapperException;
  */
 public class Mapper extends Problem implements IProblem
 {
-	private static IProblem map(IProblem[] p1, IProblem[] p2,
-			IBooleanVariable[] b) throws Exception
+	private static IProblem map(IProblem[] p1, IProblem[] p2, IBooleanVariable[] b) throws Exception
 	{
 		if (p1 == null || p2 == null || b == null)
-			throw new MapperException(
-					"A null IProblem[] was passed to a constructor.");
+			throw new MapperException("A null IProblem[] was passed to a constructor.");
 		if (p1.length == 0 || p2.length == 0)
-			throw new MapperException(
-					"An IProblem[] of zero length was passed to a constructor.");
+			throw new MapperException("An IProblem[] of zero length was passed to a constructor.");
 		if (p1.length != p2.length)
-			throw new MapperException(
-					"IProblem[]'s of differing lengths were passed to a constructor.");
+			throw new MapperException("IProblem[]'s of differing lengths were passed to a constructor.");
 		if (b.length != p1.length - 1)
 			throw new MapperException(
 					"IBooleanVariable[] of improper length was passed to a constructor. Proper length in this case is "
@@ -45,8 +41,7 @@ public class Mapper extends Problem implements IProblem
 	public Mapper(ArrayList<ProblemPair> list) throws Exception
 	{
 		if (list == null)
-			throw new MapperException(
-					"Null ProblemPair ArrayList passed to constructor.");
+			throw new MapperException("Null ProblemPair ArrayList passed to constructor.");
 
 		int len = list.size();
 
@@ -69,13 +64,11 @@ public class Mapper extends Problem implements IProblem
 	public Mapper(IProblem[] domain, IProblem[] codomain) throws Exception
 	{
 		if (domain == null || codomain == null)
-			throw new MapperException(
-					"Null IProblem array passed to constructor.");
+			throw new MapperException("Null IProblem array passed to constructor.");
 
 		int dlength = domain.length;
 		if (dlength != codomain.length)
-			throw new MapperException(
-					"IProblem arrays of unequal length passed to constructor.");
+			throw new MapperException("IProblem arrays of unequal length passed to constructor.");
 		// if (dlength == 0)
 		// throw new MapperException(
 		// "IProblem arrays of zero length passed to constructor.");
@@ -92,8 +85,7 @@ public class Mapper extends Problem implements IProblem
 		this.setClauses(new Disjunction(q).getClauses());
 	}
 
-	public Mapper(IProblem[] p1, IProblem[] p2, IBooleanVariable[] b)
-			throws Exception
+	public Mapper(IProblem[] p1, IProblem[] p2, IBooleanVariable[] b) throws Exception
 	{
 		IProblem p = map(p1, p2, b);
 		if (p != null)
@@ -105,18 +97,15 @@ public class Mapper extends Problem implements IProblem
 	}
 
 	/**
-	 * @throws Exception
-	 *             "Null ProblemPair passed to constructor." or
-	 *             "ProblemPair of zero length passed to constructor."
-	 * @param array
-	 *            A ProblemPair array
+	 * @throws Exception "Null ProblemPair passed to constructor." or "ProblemPair
+	 *                   of zero length passed to constructor."
+	 * @param array A ProblemPair array
 	 * 
 	 */
 	public Mapper(ProblemPair[] array) throws Exception
 	{
 		if (array == null)
-			throw new MapperException(
-					"Null ProblemPair array passed to constructor.");
+			throw new MapperException("Null ProblemPair array passed to constructor.");
 
 		int len = array.length;
 
@@ -155,8 +144,7 @@ public class Mapper extends Problem implements IProblem
 	public Mapper(ProblemTriple[] array) throws Exception
 	{
 		if (array == null)
-			throw new MapperException(
-					"Null ProblemTriple array passed to constructor.");
+			throw new MapperException("Null ProblemTriple array passed to constructor.");
 
 		int len = array.length;
 
@@ -166,8 +154,7 @@ public class Mapper extends Problem implements IProblem
 		for (int i = 0; i < len; i++)
 		{
 			this.domain[i] = array[i].getFirst();
-			this.codomain[i] = new Conjunction(array[i].getSecond(),
-					array[i].getThird());
+			this.codomain[i] = new Conjunction(array[i].getSecond(), array[i].getThird());
 		}
 	}
 

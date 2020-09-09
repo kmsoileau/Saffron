@@ -32,8 +32,7 @@ public class IntegerEqualizerDemo
 		IInteger B = new Integer();
 		IInteger C = new Integer();
 
-		IProblem problem = new Conjunction(new IntegerFixer(A, -13),
-				new IntegerEqualizer(A, B));
+		IProblem problem = new Conjunction(new IntegerFixer(A, -13), new IntegerEqualizer(A, B));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

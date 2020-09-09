@@ -51,8 +51,7 @@ public class ProblemAsDataNonsolverDemo extends Problem implements IProblem
 
 		ClauseAsData.declare(ary);
 		IClauseAsData c1 = new ClauseAsData();
-		IBooleanVariable[] bvarray = ClauseAsData.getVARIABLES().toArray(
-				new IBooleanVariable[0]);
+		IBooleanVariable[] bvarray = ClauseAsData.getVARIABLES().toArray(new IBooleanVariable[0]);
 		IClause clause1 = Clause.randomClause(bvarray);
 		IClauseAsData c2 = new ClauseAsData();
 		IClause clause2 = Clause.randomClause(bvarray);
@@ -64,8 +63,7 @@ public class ProblemAsDataNonsolverDemo extends Problem implements IProblem
 			prob2 = new Conjunction(prob2, new ClauseAsDataFixer(c2, clause2));
 		IClauseAsData[] clauses = new IClauseAsData[]
 		{ c1, c2 };
-		IProblem prob = new Conjunction(prob1, prob2,
-				new ProblemAsDataNonsolver(clauses));
+		IProblem prob = new Conjunction(prob1, prob2, new ProblemAsDataNonsolver(clauses));
 		IProblemMessage s = prob.findModel(Problem.defaultSolver());
 		System.out.println("Reporting...");
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

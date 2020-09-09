@@ -19,8 +19,7 @@ public class BitStringSetter extends Problem implements IProblem
 	public BitStringSetter(IBitString X) throws Exception
 	{
 		if (X == null)
-			throw new BitStringSetterException(
-					"A null IBitString was passed to a constructor.");
+			throw new BitStringSetterException("A null IBitString was passed to a constructor.");
 		else
 		{
 			int commonsize = X.size();

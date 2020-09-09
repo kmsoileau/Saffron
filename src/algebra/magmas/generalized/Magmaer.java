@@ -26,26 +26,22 @@ import naturalnumbers.NaturalNumberFixer;
  */
 public class Magmaer extends Problem implements IProblem
 {
-	public Magmaer(int[][] opTable, INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public Magmaer(int[][] opTable, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		ProblemTriplet[] p = new ProblemTriplet[opTable.length];
 		for (int i = 0; i < opTable.length; i++)
 		{
 			p[i] = new ProblemTriplet(new NaturalNumberFixer(X, opTable[i][0]),
-					new NaturalNumberFixer(Y, opTable[i][1]),
-					new NaturalNumberFixer(Z, opTable[i][2]));
+					new NaturalNumberFixer(Y, opTable[i][1]), new NaturalNumberFixer(Z, opTable[i][2]));
 		}
 
 		this.setClauses(new TriMapper(p).getClauses());
 	}
 
-	public Magmaer(Magma mgm, INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public Magmaer(Magma mgm, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		int order = mgm.getOrder();
-		HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> comp = mgm
-				.getComposition();
+		HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> comp = mgm.getComposition();
 		int index = 0;
 
 		ProblemTriplet[] p = new ProblemTriplet[order * order];
@@ -54,9 +50,7 @@ public class Magmaer extends Problem implements IProblem
 			HashMap<INaturalNumber, INaturalNumber> iset = comp.get(i);
 			for (INaturalNumber j : iset.keySet())
 			{
-				p[index++] = new ProblemTriplet(
-						new NaturalNumberEqualizer(X, i),
-						new NaturalNumberEqualizer(Y, j),
+				p[index++] = new ProblemTriplet(new NaturalNumberEqualizer(X, i), new NaturalNumberEqualizer(Y, j),
 						new NaturalNumberEqualizer(Z, iset.get(j)));
 			}
 		}

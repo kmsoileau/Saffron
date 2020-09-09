@@ -30,10 +30,8 @@ public class NaturalNumberTriangularDemo2
 		INaturalNumber Z = new NaturalNumber("Z");
 
 		IProblem p = new Conjunction(new IProblem[]
-		{ new NaturalNumberFixer(Two, 2), new NaturalNumberFixer(TwoZ, 12),
-				new NaturalNumberIncrementer(X, Y),
-				new NaturalNumberMultiplier(X, Y, TwoZ),
-				new NaturalNumberFixer(Z, 6),
+		{ new NaturalNumberFixer(Two, 2), new NaturalNumberFixer(TwoZ, 12), new NaturalNumberIncrementer(X, Y),
+				new NaturalNumberMultiplier(X, Y, TwoZ), new NaturalNumberFixer(Z, 6),
 				new NaturalNumberDoubler(Z, TwoZ), });
 
 		IProblemMessage s = p.findModel();

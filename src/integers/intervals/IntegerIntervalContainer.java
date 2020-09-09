@@ -21,11 +21,10 @@ import integers.IntegerOrderer;
  */
 public class IntegerIntervalContainer extends Problem implements IProblem
 {
-	public IntegerIntervalContainer(IIntegerInterval X, IIntegerInterval Y)
-			throws Exception
+	public IntegerIntervalContainer(IIntegerInterval X, IIntegerInterval Y) throws Exception
 	{
-		IProblem p = new Conjunction(new IntegerOrderer(Y.getLower(),
-				X.getLower()), new IntegerOrderer(X.getUpper(), Y.getUpper()));
+		IProblem p = new Conjunction(new IntegerOrderer(Y.getLower(), X.getLower()),
+				new IntegerOrderer(X.getUpper(), Y.getUpper()));
 
 		this.setClauses(p.getClauses());
 	}

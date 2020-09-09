@@ -25,12 +25,10 @@ public class BitStringArrayDistincterDemo extends Problem implements IProblem
 	public static void main(String[] args) throws Exception
 	{
 		IBitString[] C = new IBitString[]
-		{ new BitString("01001010"), new BitString("10101010"),
-				new BitString("00001000"), new BitString("00100000"),
+		{ new BitString("01001010"), new BitString("10101010"), new BitString("00001000"), new BitString("00100000"),
 				new BitString("00101000") };
 
-		IProblem problem = new Conjunction(new BitStringArrayDistincter(C),
-				new BitStringFixer(C));
+		IProblem problem = new Conjunction(new BitStringArrayDistincter(C), new BitStringFixer(C));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

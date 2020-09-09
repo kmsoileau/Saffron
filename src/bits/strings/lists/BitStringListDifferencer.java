@@ -25,18 +25,14 @@ import bits.strings.lists.exceptions.BitStringListDisjointerException;
  */
 public class BitStringListDifferencer extends Problem implements IProblem
 {
-	public BitStringListDifferencer(IBitStringList A, IBitStringList B,
-			IBitStringList aMinusB) throws Exception
+	public BitStringListDifferencer(IBitStringList A, IBitStringList B, IBitStringList aMinusB) throws Exception
 	{
 		if (A == null)
-			throw new BitStringListDisjointerException(
-					"Passed a null IBitStringList to constructor.");
+			throw new BitStringListDisjointerException("Passed a null IBitStringList to constructor.");
 		if (B == null)
-			throw new BitStringListDisjointerException(
-					"Passed a null IBitStringList to constructor.");
+			throw new BitStringListDisjointerException("Passed a null IBitStringList to constructor.");
 		if (aMinusB == null)
-			throw new BitStringListDisjointerException(
-					"Passed a null IBitStringList to constructor.");
+			throw new BitStringListDisjointerException("Passed a null IBitStringList to constructor.");
 
 		// T=A\B <=> (B & T = null) and (B | T = A | B)
 		// in T: notInB and inA
@@ -46,24 +42,22 @@ public class BitStringListDifferencer extends Problem implements IProblem
 		for (int i = 0; i < aMinusB.size(); i++)
 		{
 			IBitString curr = aMinusB.getBitString(i);
-			p.add(new Conjunction(new BitStringListNonmembershipper(curr, B),
-					new BitStringListMembershipper(curr, A)));
+			p.add(new Conjunction(new BitStringListNonmembershipper(curr, B), new BitStringListMembershipper(curr, A)));
 		}
 		for (int i = 0; i < A.size(); i++)
 		{
 			IBitString curr = A.getBitString(i);
-			p.add(new Conjunction(new Disjunction(
-					new BitStringListNonmembershipper(curr, B),
-					new BitStringListNonmembershipper(curr, aMinusB)),
+			p.add(new Conjunction(
+					new Disjunction(new BitStringListNonmembershipper(curr, B),
+							new BitStringListNonmembershipper(curr, aMinusB)),
 					new Disjunction(new BitStringListMembershipper(curr, B),
 							new BitStringListMembershipper(curr, aMinusB))));
 		}
 		for (int i = 0; i < B.size(); i++)
 		{
 			IBitString curr = B.getBitString(i);
-			p.add(new Conjunction(new BitStringListNonmembershipper(curr,
-					aMinusB), new Disjunction(new BitStringListMembershipper(
-					curr, A), new BitStringListMembershipper(curr, B))));
+			p.add(new Conjunction(new BitStringListNonmembershipper(curr, aMinusB),
+					new Disjunction(new BitStringListMembershipper(curr, A), new BitStringListMembershipper(curr, B))));
 		}
 		this.setClauses(new Conjunction(p).getClauses());
 	}

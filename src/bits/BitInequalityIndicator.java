@@ -24,13 +24,10 @@ package bits;
  */
 public class BitInequalityIndicator extends Problem implements IProblem
 {
-	public BitInequalityIndicator(IBooleanVariable x, IBooleanVariable y,
-			IBooleanVariable z) throws Exception
+	public BitInequalityIndicator(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z) throws Exception
 	{
 		this.setClauses(new IClause[]
-		{ Clause.newClause().or(x).or(y).orNot(z),
-				Clause.newClause().or(x).orNot(y).or(z),
-				Clause.newClause().orNot(x).or(y).or(z),
-				Clause.newClause().orNot(x).orNot(y).orNot(z) });
+		{ Clause.newClause().or(x).or(y).orNot(z), Clause.newClause().or(x).orNot(y).or(z),
+				Clause.newClause().orNot(x).or(y).or(z), Clause.newClause().orNot(x).orNot(y).orNot(z) });
 	}
 }

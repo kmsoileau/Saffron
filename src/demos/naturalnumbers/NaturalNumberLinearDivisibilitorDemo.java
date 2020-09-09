@@ -36,8 +36,7 @@ public class NaturalNumberLinearDivisibilitorDemo
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber C = new NaturalNumber("C");
 
-		IProblem p = new Conjunction(new NaturalNumberFixer(A, 3),
-				new NaturalNumberFixer(C, 35),
+		IProblem p = new Conjunction(new NaturalNumberFixer(A, 3), new NaturalNumberFixer(C, 35),
 				new NaturalNumberLinearDivisibilitor(A, X, C));
 
 		System.out.println(p);

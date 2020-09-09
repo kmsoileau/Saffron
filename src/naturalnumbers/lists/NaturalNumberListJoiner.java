@@ -18,8 +18,7 @@ import naturalnumbers.lists.exceptions.NaturalNumberListException;
 
 public class NaturalNumberListJoiner extends Problem implements IProblem
 {
-	public NaturalNumberListJoiner(INaturalNumberList join,
-			INaturalNumberList A, INaturalNumberList B) throws Exception
+	public NaturalNumberListJoiner(INaturalNumberList join, INaturalNumberList A, INaturalNumberList B) throws Exception
 	{
 		if (join == null || A == null || B == null)
 			throw new NaturalNumberListException(
@@ -30,11 +29,9 @@ public class NaturalNumberListJoiner extends Problem implements IProblem
 
 		ArrayList<IProblem> p = new ArrayList<IProblem>();
 		for (int i = 0; i < A.size(); i++)
-			p.add(new NaturalNumberEqualizer(A.getNaturalNumber(i), join
-					.getNaturalNumber(i)));
+			p.add(new NaturalNumberEqualizer(A.getNaturalNumber(i), join.getNaturalNumber(i)));
 		for (int i = A.size(); i < A.size() + B.size(); i++)
-			p.add(new NaturalNumberEqualizer(B.getNaturalNumber(i - A.size()),
-					join.getNaturalNumber(i)));
+			p.add(new NaturalNumberEqualizer(B.getNaturalNumber(i - A.size()), join.getNaturalNumber(i)));
 
 		this.setClauses(new Conjunction(p).getClauses());
 	}

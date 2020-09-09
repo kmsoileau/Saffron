@@ -42,8 +42,7 @@ public class FixerDemo extends Problem implements IProblem
 		graph.connect(6, 5);
 		graph.connect(6, 7);
 
-		IProblemMessage s = new GraphFixer(graph).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new GraphFixer(graph).findModel(Problem.defaultSolver());
 
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

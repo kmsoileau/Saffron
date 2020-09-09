@@ -31,26 +31,21 @@ import bits.strings.exceptions.ConditionalDisjunctionException;
  */
 public class ConditionalDisjunction extends Problem implements IProblem
 {
-	public ConditionalDisjunction(IProblem[] problemArray, IBitString bitString)
-			throws Exception
+	public ConditionalDisjunction(IProblem[] problemArray, IBitString bitString) throws Exception
 	{
 		if (problemArray == null)
-			throw new ConditionalDisjunctionException(
-					"Null IProblem array passed to constructor.");
+			throw new ConditionalDisjunctionException("Null IProblem array passed to constructor.");
 		if (bitString == null)
-			throw new ConditionalDisjunctionException(
-					"Null IBitString passed to constructor.");
+			throw new ConditionalDisjunctionException("Null IBitString passed to constructor.");
 		int numberOfProblems = problemArray.length;
 		if (numberOfProblems == 0)
-			throw new ConditionalDisjunctionException(
-					"IProblem array of zero length passed to constructor.");
+			throw new ConditionalDisjunctionException("IProblem array of zero length passed to constructor.");
 		if (numberOfProblems == 1)
 			this.setClauses(problemArray[0].getClauses());
 		if (numberOfProblems != bitString.size())
 			throw new ConditionalDisjunctionException(
 					"IProblem array and IBooleanVariable array of unequal length passed to constructor.");
 
-		this.setClauses(new bits.ConditionalDisjunction(problemArray, bitString
-				.getBVArray()).getClauses());
+		this.setClauses(new bits.ConditionalDisjunction(problemArray, bitString.getBVArray()).getClauses());
 	}
 }

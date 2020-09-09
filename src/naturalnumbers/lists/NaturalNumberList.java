@@ -16,8 +16,7 @@ import naturalnumbers.lists.exceptions.NaturalNumberListException;
  * @version 1.0
  */
 
-public class NaturalNumberList extends BitStringList implements
-		INaturalNumberList
+public class NaturalNumberList extends BitStringList implements INaturalNumberList
 {
 	private static int nNLCount;
 	private INaturalNumber[] arrayN;
@@ -38,15 +37,12 @@ public class NaturalNumberList extends BitStringList implements
 		this("NaturalNumberList-" + nNLCount++, data);
 	}
 
-	public NaturalNumberList(String name, INaturalNumber[] data)
-			throws Exception
+	public NaturalNumberList(String name, INaturalNumber[] data) throws Exception
 	{
 		if (name == null)
-			throw new NaturalNumberListException(
-					"Passed null String to constructor.");
+			throw new NaturalNumberListException("Passed null String to constructor.");
 		if (data == null)
-			throw new NaturalNumberListException(
-					"Passed null INaturalNumber[] to constructor.");
+			throw new NaturalNumberListException("Passed null INaturalNumber[] to constructor.");
 		this.name = name;
 		this.arrayN = new INaturalNumber[data.length];
 		for (int i = 0; i < data.length; i++)
@@ -71,11 +67,9 @@ public class NaturalNumberList extends BitStringList implements
 	public NaturalNumberList(String name, long[] data) throws Exception
 	{
 		if (name == null)
-			throw new NaturalNumberListException(
-					"Passed null String to constructor.");
+			throw new NaturalNumberListException("Passed null String to constructor.");
 		if (data == null)
-			throw new NaturalNumberListException(
-					"Passed null long[] to constructor.");
+			throw new NaturalNumberListException("Passed null long[] to constructor.");
 
 		this.name = name;
 		this.arrayN = new INaturalNumber[data.length];
@@ -84,8 +78,7 @@ public class NaturalNumberList extends BitStringList implements
 			// setNaturalNumber(i, data[i]);
 			Number n = new Number(name, data[i]);
 			n = new Number(n, NaturalNumber.getLength());
-			this.arrayN[i] = new NaturalNumber(name + "_" + i, new BitString(
-					n.getBitArray()));
+			this.arrayN[i] = new NaturalNumber(name + "_" + i, new BitString(n.getBitArray()));
 		}
 	}
 
@@ -96,12 +89,10 @@ public class NaturalNumberList extends BitStringList implements
 	}
 
 	@Override
-	public INaturalNumber getNaturalNumber(int i)
-			throws NaturalNumberListException
+	public INaturalNumber getNaturalNumber(int i) throws NaturalNumberListException
 	{
 		if (i < 0 || i > this.size() - 1)
-			throw new NaturalNumberListException(
-					"Attempted to index out of range in method getNaturalNumber.");
+			throw new NaturalNumberListException("Attempted to index out of range in method getNaturalNumber.");
 		return this.arrayN[i];
 	}
 
@@ -115,21 +106,17 @@ public class NaturalNumberList extends BitStringList implements
 	public void setName(String name) throws NaturalNumberListException
 	{
 		if (name == null)
-			throw new NaturalNumberListException(
-					"Passed a null String to method setName.");
+			throw new NaturalNumberListException("Passed a null String to method setName.");
 
 		this.name = name;
 	}
 
-	public void setNaturalNumber(int i, INaturalNumber naturalNumber)
-			throws NaturalNumberListException
+	public void setNaturalNumber(int i, INaturalNumber naturalNumber) throws NaturalNumberListException
 	{
 		if (i < 0 || i > this.size() - 1)
-			throw new NaturalNumberListException(
-					"Attempted to index out of range in method getNaturalNumber.");
+			throw new NaturalNumberListException("Attempted to index out of range in method getNaturalNumber.");
 		if (naturalNumber == null)
-			throw new NaturalNumberListException(
-					"Passed a null INaturalNumber to method setNaturalNumber.");
+			throw new NaturalNumberListException("Passed a null INaturalNumber to method setNaturalNumber.");
 
 		this.arrayN[i] = naturalNumber;
 	}
@@ -137,11 +124,9 @@ public class NaturalNumberList extends BitStringList implements
 	public void setNaturalNumber(int index, long data) throws Exception
 	{
 		if (index < 0 || index > this.size())
-			throw new NaturalNumberListException(
-					"Attempted to index out of range.");
+			throw new NaturalNumberListException("Attempted to index out of range.");
 		if (data < 0L)
-			throw new NaturalNumberListException(
-					"Passed negative long to constructor.");
+			throw new NaturalNumberListException("Passed negative long to constructor.");
 
 		Number n = new Number(this.getName(), data);
 		n = new Number(n, NaturalNumber.getLength());
@@ -165,8 +150,7 @@ public class NaturalNumberList extends BitStringList implements
 			try
 			{
 				res += this.getNaturalNumber(0).toString();
-			}
-			catch (NaturalNumberListException e)
+			} catch (NaturalNumberListException e)
 			{
 				e.printStackTrace();
 			}
@@ -174,8 +158,7 @@ public class NaturalNumberList extends BitStringList implements
 				try
 				{
 					res += "," + this.getNaturalNumber(i);
-				}
-				catch (NaturalNumberListException e)
+				} catch (NaturalNumberListException e)
 				{
 					e.printStackTrace();
 				}

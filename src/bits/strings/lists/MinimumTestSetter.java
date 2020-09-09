@@ -18,8 +18,7 @@ import bits.IBitString;
  */
 public class MinimumTestSetter extends bits.strings.MinimumTestSetter
 {
-	public MinimumTestSetter(IBitStringList C, int K,
-			IBitString includedInTestSet) throws Exception
+	public MinimumTestSetter(IBitStringList C, int K, IBitString includedInTestSet) throws Exception
 	{
 		super(C.toArray(), K, includedInTestSet);
 	}

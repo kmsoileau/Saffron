@@ -18,10 +18,8 @@ public class NaturalNumberRectangleDisjointerDemo2
 {
 	private static boolean decide(INaturalNumberRectangle rect, int row, int col)
 	{
-		return rect.getAltitude().getLower().getValue() <= row
-				&& row <= rect.getAltitude().getUpper().getValue()
-				&& rect.getBase().getLower().getValue() <= col
-				&& col <= rect.getBase().getUpper().getValue();
+		return rect.getAltitude().getLower().getValue() <= row && row <= rect.getAltitude().getUpper().getValue()
+				&& rect.getBase().getLower().getValue() <= col && col <= rect.getBase().getUpper().getValue();
 	}
 
 	public static void main(String[] args) throws Exception
@@ -81,18 +79,13 @@ public class NaturalNumberRectangleDisjointerDemo2
 		 */
 
 		IProblem[] rectangleFixers = new IProblem[]
-		{ new NaturalNumberRectangleFixer(A, 3, 3),
-				new NaturalNumberRectangleFixer(B, 2, 4),
-				new NaturalNumberRectangleFixer(C, 3, 3),
-				new NaturalNumberRectangleFixer(D, 3, 4),
-				new NaturalNumberRectangleFixer(E, 2, 2),
-				new NaturalNumberRectangleFixer(F, 2, 2),
-				new NaturalNumberRectangleFixer(G, 4, 2),
-				new NaturalNumberRectangleFixer(H, 2, 2) };
+		{ new NaturalNumberRectangleFixer(A, 3, 3), new NaturalNumberRectangleFixer(B, 2, 4),
+				new NaturalNumberRectangleFixer(C, 3, 3), new NaturalNumberRectangleFixer(D, 3, 4),
+				new NaturalNumberRectangleFixer(E, 2, 2), new NaturalNumberRectangleFixer(F, 2, 2),
+				new NaturalNumberRectangleFixer(G, 4, 2), new NaturalNumberRectangleFixer(H, 2, 2) };
 
 		IProblem[] rectangleCongruenters = new IProblem[]
-		{ new NaturalNumberRectangleCongruenter(AA, A, Ax, Ay),
-				new NaturalNumberRectangleCongruenter(BB, B, Bx, By),
+		{ new NaturalNumberRectangleCongruenter(AA, A, Ax, Ay), new NaturalNumberRectangleCongruenter(BB, B, Bx, By),
 				new NaturalNumberRectangleCongruenter(CC, C, Cx, Cy),
 				new NaturalNumberRectangleCongruenter(DD, D, Dx, Dy),
 				new NaturalNumberRectangleCongruenter(EE, E, Ex, Ey),
@@ -100,28 +93,22 @@ public class NaturalNumberRectangleDisjointerDemo2
 				new NaturalNumberRectangleCongruenter(GG, G, Gx, Gy),
 				new NaturalNumberRectangleCongruenter(HH, H, Hx, Hy) };
 
-		IProblem rectangleDisjointer = new NaturalNumberRectangleDisjointer(
-				new INaturalNumberRectangle[]
-				{ AA, BB, CC, DD, EE, FF, GG, HH });
+		IProblem rectangleDisjointer = new NaturalNumberRectangleDisjointer(new INaturalNumberRectangle[]
+		{ AA, BB, CC, DD, EE, FF, GG, HH });
 
 		IProblem[] rectangleContainers = new IProblem[]
-		{ new NaturalNumberRectangleFixer(enclosure, 0, 0, 8, 8),
-				new NaturalNumberRectangleContainer(AA, enclosure),
-				new NaturalNumberRectangleContainer(BB, enclosure),
-				new NaturalNumberRectangleContainer(CC, enclosure),
-				new NaturalNumberRectangleContainer(DD, enclosure),
-				new NaturalNumberRectangleContainer(EE, enclosure),
-				new NaturalNumberRectangleContainer(FF, enclosure),
-				new NaturalNumberRectangleContainer(GG, enclosure),
+		{ new NaturalNumberRectangleFixer(enclosure, 0, 0, 8, 8), new NaturalNumberRectangleContainer(AA, enclosure),
+				new NaturalNumberRectangleContainer(BB, enclosure), new NaturalNumberRectangleContainer(CC, enclosure),
+				new NaturalNumberRectangleContainer(DD, enclosure), new NaturalNumberRectangleContainer(EE, enclosure),
+				new NaturalNumberRectangleContainer(FF, enclosure), new NaturalNumberRectangleContainer(GG, enclosure),
 				new NaturalNumberRectangleContainer(HH, enclosure) };
 
 		/**
 		 * Create the IProblem of satisfying all of these constraining problems:
 		 */
 
-		IProblem problem = new Conjunction(new Conjunction(rectangleFixers),
-				new Conjunction(rectangleCongruenters), rectangleDisjointer,
-				new Conjunction(rectangleContainers));
+		IProblem problem = new Conjunction(new Conjunction(rectangleFixers), new Conjunction(rectangleCongruenters),
+				rectangleDisjointer, new Conjunction(rectangleContainers));
 
 		/**
 		 * Solve the IProblem:

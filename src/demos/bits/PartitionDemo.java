@@ -15,8 +15,7 @@ public class PartitionDemo
 
 		Partition partition = new Partition(partitions, bits);
 
-		IProblemMessage s = new BitArrayPartition(partition).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new BitArrayPartition(partition).findModel(Problem.defaultSolver());
 
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

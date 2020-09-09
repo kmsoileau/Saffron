@@ -36,18 +36,14 @@ import bits.strings.exceptions.BitStringArraySplitterException;
  */
 public class BitStringArraySplitter extends Problem implements IProblem
 {
-	public BitStringArraySplitter(IBitString[] X, IBitString S1, IBitString S2)
-			throws Exception
+	public BitStringArraySplitter(IBitString[] X, IBitString S1, IBitString S2) throws Exception
 	{
 		if (X == null)
-			throw new BitStringArraySplitterException(
-					"Null passed to constructor as IBitString array.");
+			throw new BitStringArraySplitterException("Null passed to constructor as IBitString array.");
 		if (S1 == null || S2 == null)
-			throw new BitStringArraySplitterException(
-					"Null passed to constructor as IBitString.");
+			throw new BitStringArraySplitterException("Null passed to constructor as IBitString.");
 		if (X.length == 0)
-			throw new BitStringArraySplitterException(
-					"IBitString array of zero length passed to constructor.");
+			throw new BitStringArraySplitterException("IBitString array of zero length passed to constructor.");
 
 		IProblem problem = Problem.newProblem();
 
@@ -56,8 +52,8 @@ public class BitStringArraySplitter extends Problem implements IProblem
 
 		// Constrain each X[i] to not be dominated by either S1 or S2
 		for (int i = 0; i < X.length; i++)
-			problem = new Conjunction(problem, new BitStringNonDominator(X[i],
-					S1), new BitStringNonDominator(X[i], S2));
+			problem = new Conjunction(problem, new BitStringNonDominator(X[i], S1),
+					new BitStringNonDominator(X[i], S2));
 
 		this.setClauses(problem.getClauses());
 	}

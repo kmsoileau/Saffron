@@ -18,11 +18,8 @@ public class IntegerIntervalIntersectorDemo
 		IIntegerInterval R = new IntegerInterval("R");
 
 		IProblem[] p = new IProblem[]
-		{ new IntegerFixer(L.getLower(), 3),
-				new IntegerFixer(L.getUpper(), 8),
-				new IntegerFixer(R.getLower(), 7),
-				new IntegerFixer(R.getUpper(), 9),
-				new IntegerIntervalIntersector(L, R) };
+		{ new IntegerFixer(L.getLower(), 3), new IntegerFixer(L.getUpper(), 8), new IntegerFixer(R.getLower(), 7),
+				new IntegerFixer(R.getUpper(), 9), new IntegerIntervalIntersector(L, R) };
 
 		IProblem problem = new Conjunction(p);
 

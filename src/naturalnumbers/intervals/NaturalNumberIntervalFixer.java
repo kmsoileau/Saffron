@@ -19,8 +19,8 @@ import naturalnumbers.intervals.exceptions.NaturalNumberIntervalFixerException;
 
 public class NaturalNumberIntervalFixer extends Problem implements IProblem
 {
-	public NaturalNumberIntervalFixer(INaturalNumberInterval interval,
-			INaturalNumber Lower, INaturalNumber Upper) throws Exception
+	public NaturalNumberIntervalFixer(INaturalNumberInterval interval, INaturalNumber Lower, INaturalNumber Upper)
+			throws Exception
 	{
 		if (interval == null)
 			throw new NaturalNumberIntervalFixerException(
@@ -34,19 +34,16 @@ public class NaturalNumberIntervalFixer extends Problem implements IProblem
 					"The INaturalNumberInterval passed to the constructor has a null endpoint.");
 
 		this.setClauses(new Conjunction(new NaturalNumberOrderer(Lower, Upper),
-				new NaturalNumberEqualizer(NNLower, Lower),
-				new NaturalNumberEqualizer(NNUpper, Upper)).getClauses());
+				new NaturalNumberEqualizer(NNLower, Lower), new NaturalNumberEqualizer(NNUpper, Upper)).getClauses());
 	}
 
-	public NaturalNumberIntervalFixer(INaturalNumberInterval interval,
-			int lower, int upper) throws Exception
+	public NaturalNumberIntervalFixer(INaturalNumberInterval interval, int lower, int upper) throws Exception
 	{
 		if (interval == null)
 			throw new NaturalNumberIntervalFixerException(
 					"A null INaturalNumberInterval was passed to the constructor.");
 		if (lower > upper)
-			throw new NaturalNumberIntervalFixerException(
-					"Error: upper < lower.");
+			throw new NaturalNumberIntervalFixerException("Error: upper < lower.");
 
 		INaturalNumber NNLower = interval.getLower();
 		INaturalNumber NNUpper = interval.getUpper();
@@ -55,7 +52,7 @@ public class NaturalNumberIntervalFixer extends Problem implements IProblem
 			throw new NaturalNumberIntervalFixerException(
 					"The INaturalNumberInterval passed to the constructor has a null endpoint.");
 
-		this.setClauses(new Conjunction(new NaturalNumberFixer(NNLower, lower),
-				new NaturalNumberFixer(NNUpper, upper)).getClauses());
+		this.setClauses(new Conjunction(new NaturalNumberFixer(NNLower, lower), new NaturalNumberFixer(NNUpper, upper))
+				.getClauses());
 	}
 }

@@ -27,31 +27,25 @@ import naturalnumbers.NaturalNumberFixer;
  */
 public class HittingBitStringer extends Problem implements IProblem
 {
-	public HittingBitStringer(IBitString[] C, IBitString hittingSet)
-			throws Exception
+	public HittingBitStringer(IBitString[] C, IBitString hittingSet) throws Exception
 	{
 		int problemIndex = 0;
 		IProblem[] problemArray = new IProblem[C.length];
 		for (int i = 0; i < C.length; i++)
-			problemArray[problemIndex++] = new BitStringIntersector(C[i],
-					hittingSet);
+			problemArray[problemIndex++] = new BitStringIntersector(C[i], hittingSet);
 		this.setClauses(new Conjunction(problemArray).getClauses());
 	}
 
-	public HittingBitStringer(IBitString[] C, INaturalNumber bitSum,
-			IBitString Y) throws Exception
+	public HittingBitStringer(IBitString[] C, INaturalNumber bitSum, IBitString Y) throws Exception
 	{
-		this.setClauses(new Conjunction(new HittingBitStringer(C, Y),
-				new BitStringTotaler(Y, bitSum)).getClauses());
+		this.setClauses(new Conjunction(new HittingBitStringer(C, Y), new BitStringTotaler(Y, bitSum)).getClauses());
 	}
 
-	public HittingBitStringer(IBitString[] C, int K, IBitString hittingSet)
-			throws Exception
+	public HittingBitStringer(IBitString[] C, int K, IBitString hittingSet) throws Exception
 	{
 		INaturalNumber bitSum = new NaturalNumber(K);
 
-		this.setClauses(new Conjunction(new NaturalNumberFixer(bitSum),
-				new HittingBitStringer(C, hittingSet), new BitStringTotaler(
-						hittingSet, bitSum)).getClauses());
+		this.setClauses(new Conjunction(new NaturalNumberFixer(bitSum), new HittingBitStringer(C, hittingSet),
+				new BitStringTotaler(hittingSet, bitSum)).getClauses());
 	}
 }

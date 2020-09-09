@@ -24,8 +24,7 @@ public class GroupCommutativer extends SemigroupCommutativer
 		super(grp);
 	}
 
-	public GroupCommutativer(Group grp, INaturalNumber X, INaturalNumber Y)
-			throws Exception
+	public GroupCommutativer(Group grp, INaturalNumber X, INaturalNumber Y) throws Exception
 	{
 		super(grp, X, Y);
 	}

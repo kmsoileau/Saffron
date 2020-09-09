@@ -28,8 +28,7 @@ public class NaturalNumberListSorter extends Problem implements IProblem
 	public NaturalNumberListSorter(INaturalNumberList source) throws Exception
 	{
 		if (source == null)
-			throw new NaturalNumberListException(
-					"Passed a null INaturalNumberList to constructor.");
+			throw new NaturalNumberListException("Passed a null INaturalNumberList to constructor.");
 
 		// The source NaturalNumberList must be in sorted order:
 		IProblem[] order = new NaturalNumberOrderer[source.size() - 1];
@@ -43,15 +42,12 @@ public class NaturalNumberListSorter extends Problem implements IProblem
 		this.setClauses(problem.getClauses());
 	}
 
-	public NaturalNumberListSorter(INaturalNumberList source,
-			INaturalNumberList target) throws Exception
+	public NaturalNumberListSorter(INaturalNumberList source, INaturalNumberList target) throws Exception
 	{
 		if (source == null)
-			throw new NaturalNumberListException(
-					"Passed a null INaturalNumberList to constructor.");
+			throw new NaturalNumberListException("Passed a null INaturalNumberList to constructor.");
 		if (target == null)
-			throw new NaturalNumberListException(
-					"Passed a null INaturalNumberList to constructor.");
+			throw new NaturalNumberListException("Passed a null INaturalNumberList to constructor.");
 
 		IProblem problem = null;
 		// The source and target NaturalNumberLists must have exactly the same

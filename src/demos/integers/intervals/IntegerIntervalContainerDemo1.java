@@ -17,9 +17,7 @@ public class IntegerIntervalContainerDemo1
 		IIntegerInterval R = new IntegerInterval("R");
 
 		IProblem[] p = new IProblem[]
-		{ new IntegerIntervalFixer(L, 3, 9),
-				new IntegerIntervalFixer(R, 2, 11),
-				new IntegerIntervalContainer(L, R) };
+		{ new IntegerIntervalFixer(L, 3, 9), new IntegerIntervalFixer(R, 2, 11), new IntegerIntervalContainer(L, R) };
 
 		IProblem problem = new Conjunction(p);
 

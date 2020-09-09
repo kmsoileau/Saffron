@@ -17,12 +17,10 @@ import bits.Problem;
  */
 public class NaturalNumberExchanger extends Problem implements IProblem
 {
-	public NaturalNumberExchanger(INaturalNumber xBefore,
-			INaturalNumber yBefore, INaturalNumber xAfter, INaturalNumber yAfter)
-			throws Exception
+	public NaturalNumberExchanger(INaturalNumber xBefore, INaturalNumber yBefore, INaturalNumber xAfter,
+			INaturalNumber yAfter) throws Exception
 	{
-		IProblem p = new Conjunction(
-				new NaturalNumberEqualizer(xBefore, yAfter),
+		IProblem p = new Conjunction(new NaturalNumberEqualizer(xBefore, yAfter),
 				new NaturalNumberEqualizer(yBefore, xAfter));
 
 		this.setClauses(p.getClauses());

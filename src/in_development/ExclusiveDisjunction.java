@@ -40,20 +40,17 @@ public class ExclusiveDisjunction extends Problem implements IProblem
 		this.setClauses(problem.getClauses());
 	}
 
-	public ExclusiveDisjunction(IProblem first, IProblem second)
-			throws Exception
+	public ExclusiveDisjunction(IProblem first, IProblem second) throws Exception
 	{
 		if (first == null || second == null)
-			throw new ExclusiveDisjunctionException(
-					"Null IProblem was passed to constructor.");
+			throw new ExclusiveDisjunctionException("Null IProblem was passed to constructor.");
 		else
-			this.setClauses(new Disjunction(new ProblemDifferencer(first,
-					second), new ProblemDifferencer(second, first))
-					.getClauses());
+			this.setClauses(
+					new Disjunction(new ProblemDifferencer(first, second), new ProblemDifferencer(second, first))
+							.getClauses());
 	}
 
-	public ExclusiveDisjunction(IProblem first, IProblem second, IProblem third)
-			throws Exception
+	public ExclusiveDisjunction(IProblem first, IProblem second, IProblem third) throws Exception
 	{
 		this(new IProblem[]
 		{ first, second, third });
@@ -67,8 +64,7 @@ public class ExclusiveDisjunction extends Problem implements IProblem
 	public ExclusiveDisjunction(List<IProblem> list) throws Exception
 	{
 		if (list == null || list.size() == 0)
-			throw new ExclusiveDisjunctionException(
-					"Null IProblem was passed to constructor.");
+			throw new ExclusiveDisjunctionException("Null IProblem was passed to constructor.");
 		if (list.size() == 1)
 			this.setClauses(list.get(0).getClauses());
 		else
@@ -76,15 +72,13 @@ public class ExclusiveDisjunction extends Problem implements IProblem
 			IProblem problem1 = list.get(0);
 			IProblem problem2 = new Problem(problem1);
 			for (int i = 1; i < list.size(); i++)
-				problem2 = new Conjunction(problem2, new ProblemDenier(
-						list.get(i)));
+				problem2 = new Conjunction(problem2, new ProblemDenier(list.get(i)));
 
 			IProblem problem3 = new ProblemDenier(problem1);
 			ArrayList<IProblem> list2 = new ArrayList<IProblem>();
 			for (int i = 1; i < list.size(); i++)
 				list2.add(list.get(i));
-			problem3 = new Conjunction(problem3,
-					new ExclusiveDisjunction(list2));
+			problem3 = new Conjunction(problem3, new ExclusiveDisjunction(list2));
 
 			IProblem problem = new Disjunction(problem2, problem3);
 			this.setClauses(problem.getClauses());

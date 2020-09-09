@@ -28,16 +28,16 @@ public class FifteenPuzzlePositionDemo2
 		/**
 		 * Set Java variables:
 		 */
-		
-		//INITIAL POSITION
+
+		// INITIAL POSITION
 //		 1  2  0  4 
 //		 5  6  3  8 
 //		 9 10  7 11 
 //		13 14 15 12 
 		Integer[] data0 = new Integer[]
 		{ 1, 2, 0, 4, 5, 6, 3, 8, 9, 10, 7, 11, 13, 14, 15, 12 };
-		
-		//FINAL POSITION
+
+		// FINAL POSITION
 //		 1  2  3  4 
 //		 5  6  7  8 
 //		 9 10 11 12 
@@ -62,7 +62,6 @@ public class FifteenPuzzlePositionDemo2
 		for (int j = 0; j < 16; j++)
 			position[0][j] = new NaturalNumber(data0[j]);
 		printBoard(position[0]);
-		
 
 		for (int i = 1; i < moves; i++)
 		{
@@ -96,10 +95,9 @@ public class FifteenPuzzlePositionDemo2
 			tile1Index[i] = new NaturalNumber();
 			Tile2[i] = new NaturalNumber();
 			tile2Index[i] = new NaturalNumber();
-			IProblem cc = new Conjunction(new IndexSwapper(position[i],
-					position[i + 1], Tile1[i], tile1Index[i], Tile2[i],
-					tile2Index[i]), new AdjacentTiler(tile1Index[i],
-					tile2Index[i]), new NaturalNumberFixer(Tile1[i], 0));
+			IProblem cc = new Conjunction(
+					new IndexSwapper(position[i], position[i + 1], Tile1[i], tile1Index[i], Tile2[i], tile2Index[i]),
+					new AdjacentTiler(tile1Index[i], tile2Index[i]), new NaturalNumberFixer(Tile1[i], 0));
 			validProblemArray[i] = cc;
 		}
 		IProblem validMovesProblem = new Conjunction(validProblemArray);
@@ -134,8 +132,7 @@ public class FifteenPuzzlePositionDemo2
 			ret += "\n";
 			for (int col = 0; col < 4; col++)
 			{
-				ret += String.format("%2d ",
-						position[4 * row + col].getValue());
+				ret += String.format("%2d ", position[4 * row + col].getValue());
 			}
 		}
 		System.out.println(ret);

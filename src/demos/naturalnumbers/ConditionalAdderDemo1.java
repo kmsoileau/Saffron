@@ -40,12 +40,10 @@ public class ConditionalAdderDemo1
 		INaturalNumber CSUM = new NaturalNumber("CSUM");
 
 		IProblem p = new Conjunction(new IProblem[]
-		{ new NaturalNumberFixer(A, 127), new NaturalNumberFixer(B, 121),
-				new NaturalNumberFixer(C, 37), new NaturalNumberFixer(D, 12),
-				new ConditionalAdder(new INaturalNumber[]
+		{ new NaturalNumberFixer(A, 127), new NaturalNumberFixer(B, 121), new NaturalNumberFixer(C, 37),
+				new NaturalNumberFixer(D, 12), new ConditionalAdder(new INaturalNumber[]
 				{ A, B, C, D }, new IBooleanVariable[]
-				{ W, X, Y, Z }, CSUM), new BitFixer(W, false),
-				new BitFixer(X, true), new BitFixer(Y, false),
+				{ W, X, Y, Z }, CSUM), new BitFixer(W, false), new BitFixer(X, true), new BitFixer(Y, false),
 				new BitFixer(Z, true) });
 
 		IProblemMessage s = p.findModel(Problem.defaultSolver());

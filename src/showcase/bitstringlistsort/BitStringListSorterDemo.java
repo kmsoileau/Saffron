@@ -32,25 +32,23 @@ public class BitStringListSorterDemo
 	{
 		IBitStringList s1 = new BitStringList("x", new boolean[][]
 		{
-		{ true, false, true },
-		{ false, true, false },
-		{ true, false, false },
-		{ false, true, false } });
+				{ true, false, true },
+				{ false, true, false },
+				{ true, false, false },
+				{ false, true, false } });
 		System.out.println("s1.getName() = " + s1.getName());
 		for (int i = 0; i < s1.size(); i++)
-			System.out.println("s1.getBitString(" + i + ") = "
-					+ s1.getBitString(i));
+			System.out.println("s1.getBitString(" + i + ") = " + s1.getBitString(i));
 
 		IBitStringList s2 = new BitStringList("y", new boolean[][]
 		{
-		{ true, false, true },
-		{ false, true, false },
-		{ true, false, false },
-		{ false, true, false } });
+				{ true, false, true },
+				{ false, true, false },
+				{ true, false, false },
+				{ false, true, false } });
 		System.out.println("s2.getName() = " + s2.getName());
 		for (int i = 0; i < s2.size(); i++)
-			System.out.println("s2.getBitString(" + i + ") = "
-					+ s2.getBitString(i));
+			System.out.println("s2.getBitString(" + i + ") = " + s2.getBitString(i));
 
 		IProblem bslf = new BitStringListFixer(s1);
 

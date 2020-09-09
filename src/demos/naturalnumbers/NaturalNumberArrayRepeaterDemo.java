@@ -15,11 +15,9 @@ public class NaturalNumberArrayRepeaterDemo
 	public static void main(String[] args) throws Exception
 	{
 		INaturalNumber[] testList = new INaturalNumber[]
-		{ new NaturalNumber(5), new NaturalNumber(6), new NaturalNumber(2),
-				new NaturalNumber(4) };
+		{ new NaturalNumber(5), new NaturalNumber(6), new NaturalNumber(2), new NaturalNumber(4) };
 
-		IProblem problem = new Conjunction(new NaturalNumberFixer(testList),
-				new NaturalNumberArrayRepeater(testList));
+		IProblem problem = new Conjunction(new NaturalNumberFixer(testList), new NaturalNumberArrayRepeater(testList));
 		System.out.println(problem);
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

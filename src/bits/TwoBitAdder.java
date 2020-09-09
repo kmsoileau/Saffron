@@ -26,8 +26,7 @@ package bits;
  */
 public class TwoBitAdder extends Problem implements IProblem
 {
-	public TwoBitAdder(IBooleanVariable x, IBooleanVariable y,
-			IBooleanVariable z, IBooleanVariable c) throws Exception
+	public TwoBitAdder(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z, IBooleanVariable c) throws Exception
 	{
 		IBooleanLiteral orc = BooleanLiteral.getBooleanLiteral(c, false);
 		IBooleanLiteral orx = BooleanLiteral.getBooleanLiteral(x, false);

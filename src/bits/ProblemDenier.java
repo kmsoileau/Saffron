@@ -28,11 +28,9 @@ public class ProblemDenier extends Problem implements IProblem
 	public ProblemDenier(IProblem problem) throws Exception
 	{
 		if (problem == null)
-			throw new ProblemDenierException(
-					"Null IProblem passed to constructor.");
+			throw new ProblemDenierException("Null IProblem passed to constructor.");
 		if (problem.numberOfClauses() == 0)
-			throw new ProblemDenierException(
-					"IProblem of zero size passed to constructor.");
+			throw new ProblemDenierException("IProblem of zero size passed to constructor.");
 
 		IClause qq = problem.getClause(0);
 		IProblem res = new ClauseDenier(qq);

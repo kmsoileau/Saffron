@@ -26,18 +26,15 @@ import bits.exceptions.BitEqualizerException;
  */
 public class BitEqualizer extends Problem implements IProblem
 {
-	public BitEqualizer(IBooleanVariable x, IBooleanVariable y)
-			throws Exception
+	public BitEqualizer(IBooleanVariable x, IBooleanVariable y) throws Exception
 	{
 		if (x == null || y == null)
-			throw new BitEqualizerException(
-					"BitEqualizer constructor was passed a null parameter.");
+			throw new BitEqualizerException("BitEqualizer constructor was passed a null parameter.");
 
 		if (x.equals(y))
 			this.setClauses(Problem.trivialProblem().getClauses());
 		else
 			this.setClauses(new IClause[]
-			{ Clause.newClause().or(x).orNot(y),
-					Clause.newClause().orNot(x).or(y) });
+			{ Clause.newClause().or(x).orNot(y), Clause.newClause().orNot(x).or(y) });
 	}
 }

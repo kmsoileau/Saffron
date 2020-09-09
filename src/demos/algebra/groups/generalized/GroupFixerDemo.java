@@ -27,22 +27,22 @@ public class GroupFixerDemo
 	{
 		Group grp = new Group(new int[][]
 		{
-		{ 0, 0, 0 },
-		{ 0, 3, 3 },
-		{ 0, 2, 2 },
-		{ 0, 1, 1 },
-		{ 3, 0, 3 },
-		{ 3, 3, 0 },
-		{ 3, 2, 1 },
-		{ 3, 1, 2 },
-		{ 2, 0, 2 },
-		{ 2, 3, 1 },
-		{ 2, 2, 0 },
-		{ 2, 1, 3 },
-		{ 1, 0, 1 },
-		{ 1, 3, 2 },
-		{ 1, 2, 3 },
-		{ 1, 1, 0 } });
+				{ 0, 0, 0 },
+				{ 0, 3, 3 },
+				{ 0, 2, 2 },
+				{ 0, 1, 1 },
+				{ 3, 0, 3 },
+				{ 3, 3, 0 },
+				{ 3, 2, 1 },
+				{ 3, 1, 2 },
+				{ 2, 0, 2 },
+				{ 2, 3, 1 },
+				{ 2, 2, 0 },
+				{ 2, 1, 3 },
+				{ 1, 0, 1 },
+				{ 1, 3, 2 },
+				{ 1, 2, 3 },
+				{ 1, 1, 0 } });
 
 		IProblem fix = new GroupFixer(grp);
 
@@ -55,8 +55,7 @@ public class GroupFixerDemo
 
 			int[][] array = grp.toOpTable();
 			for (int i = 0; i < array.length; i++)
-				System.out.println("{ " + array[i][0] + "," + array[i][1] + ","
-						+ array[i][2] + " }");
+				System.out.println("{ " + array[i][0] + "," + array[i][1] + "," + array[i][2] + " }");
 		}
 		else
 			System.out.println("There is no solution.");

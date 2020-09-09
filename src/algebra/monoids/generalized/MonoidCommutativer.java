@@ -24,8 +24,7 @@ public class MonoidCommutativer extends SemigroupCommutativer
 		super(mnd);
 	}
 
-	public MonoidCommutativer(Monoid mnd, INaturalNumber X, INaturalNumber Y)
-			throws Exception
+	public MonoidCommutativer(Monoid mnd, INaturalNumber X, INaturalNumber Y) throws Exception
 	{
 		super(mnd, X, Y);
 	}

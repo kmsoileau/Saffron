@@ -29,15 +29,13 @@ public class DisjunctionDemo5
 
 		INaturalNumber hit = new NaturalNumber("hit");
 
-		IProblem problem = new Conjunction(new NaturalNumberFixer(A, 1),
-				new NaturalNumberFixer(B, 1), new NaturalNumberFixer(C, 1),
-				new naturalnumbers.Disjunction(new IProblem[]
-				{ new NaturalNumberFixer(A, 1), new NaturalNumberFixer(B, 1),
-						new NaturalNumberFixer(C, 1) }, hit));
+		IProblem problem = new Conjunction(new NaturalNumberFixer(A, 1), new NaturalNumberFixer(B, 1),
+				new NaturalNumberFixer(C, 1), new naturalnumbers.Disjunction(new IProblem[]
+				{ new NaturalNumberFixer(A, 1), new NaturalNumberFixer(B, 1), new NaturalNumberFixer(C, 1) }, hit));
 
 		/**
-		 * X Y 0 0 0 No solution. 0 0 1 F F C 0 1 0 F T B 0 1 1 F F C 1 0 0 T T
-		 * A 1 0 1 F F C 1 1 0 F T B 1 1 1 F F C
+		 * X Y 0 0 0 No solution. 0 0 1 F F C 0 1 0 F T B 0 1 1 F F C 1 0 0 T T A 1 0 1
+		 * F F C 1 1 0 F T B 1 1 1 F F C
 		 */
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

@@ -22,16 +22,14 @@ import bits.Problem;
  */
 public class NaturalNumberArrayNonrepeater extends Problem implements IProblem
 {
-	public NaturalNumberArrayNonrepeater(INaturalNumber[] array)
-			throws Exception
+	public NaturalNumberArrayNonrepeater(INaturalNumber[] array) throws Exception
 	{
 		IProblem p = null;
 		for (int i = 0; i < array.length; i++)
 		{
 			INaturalNumber b = array[i];
 			for (int j = i + 1; j < array.length; j++)
-				p = new Conjunction(p,
-						new NaturalNumberUnequalizer(b, array[j]));
+				p = new Conjunction(p, new NaturalNumberUnequalizer(b, array[j]));
 		}
 		if (p == null)
 			this.setClauses((IClause[]) null);

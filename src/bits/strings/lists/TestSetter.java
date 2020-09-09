@@ -14,8 +14,7 @@ import bits.IBitString;
 
 public class TestSetter extends bits.strings.TestSetter
 {
-	public TestSetter(IBitStringList C, IBitString includedInTestSet)
-			throws Exception
+	public TestSetter(IBitStringList C, IBitString includedInTestSet) throws Exception
 	{
 		super(C.toArray(), includedInTestSet);
 	}

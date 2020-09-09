@@ -35,27 +35,26 @@ public class BitStringListDifferencerDemo
 	{
 		IBitStringList slm = new BitStringList("y", new boolean[][]
 		{
-		{ true, false, false },
-		{ true, false, true },
-		{ true, true, true }, });
+				{ true, false, false },
+				{ true, false, true },
+				{ true, true, true }, });
 		IProblem slmfix = new BitStringListFixer(slm);
 
 		IBitStringList bsl = new BitStringList("slist", new boolean[][]
 		{
-		{ true, false, false },
-		{ false, true, true },
-		{ true, false, true }, });
+				{ true, false, false },
+				{ false, true, true },
+				{ true, false, true }, });
 
 		IProblem bslfix = new BitStringListFixer(bsl);
 
 		IBitStringList target = new BitStringList("combined", new boolean[][]
 		{
-		{ false, false, false },
-		{ false, false, false },
-		{ false, false, false } });
+				{ false, false, false },
+				{ false, false, false },
+				{ false, false, false } });
 
-		IProblem problem = new Conjunction(slmfix, bslfix,
-				new BitStringListDifferencer(slm, bsl, target));
+		IProblem problem = new Conjunction(slmfix, bslfix, new BitStringListDifferencer(slm, bsl, target));
 
 		problem.sort();
 

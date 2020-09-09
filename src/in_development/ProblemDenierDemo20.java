@@ -23,13 +23,8 @@ public class ProblemDenierDemo20
 		// { $NaturalNumber-0_1 }
 
 		IProblem problem = new Problem(new IClause[]
-		{
-				Clause.newClause()
-						.nor(BooleanVariable
-								.getBooleanVariable("NaturalNumber-0_0")),
-				Clause.newClause()
-						.nor(BooleanVariable
-								.getBooleanVariable("NaturalNumber-0_1")) });
+		{ Clause.newClause().nor(BooleanVariable.getBooleanVariable("NaturalNumber-0_0")),
+				Clause.newClause().nor(BooleanVariable.getBooleanVariable("NaturalNumber-0_1")) });
 		System.out.println(problem);
 
 		IProblem problemDenial = new ProblemDenier(problem);

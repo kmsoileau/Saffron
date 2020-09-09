@@ -19,25 +19,17 @@ import naturalnumbers.NaturalNumberFixer;
 public class PathFinder extends Problem implements IProblem
 {
 	/**
-	 * @param g
-	 *            - IGraph
-	 * @param startVertex
-	 *            - int
-	 * @param endVertex
-	 *            - int
-	 * @param K
-	 *            - int
-	 * @param path
-	 *            - INaturalNumber[]
+	 * @param g           - IGraph
+	 * @param startVertex - int
+	 * @param endVertex   - int
+	 * @param K           - int
+	 * @param path        - INaturalNumber[]
 	 * 
-	 * @throws Exception
-	 *             -
+	 * @throws Exception -
 	 */
-	public PathFinder(IDirectedGraph g, int startVertex, int endVertex, int K,
-			INaturalNumber[] path) throws Exception
+	public PathFinder(IDirectedGraph g, int startVertex, int endVertex, int K, INaturalNumber[] path) throws Exception
 	{
-		this.setClauses(new Conjunction(new NaturalNumberFixer(path[0],
-				startVertex), new NaturalNumberFixer(path[K], endVertex),
-				new GraphAsProblem(g, path)).getClauses());
+		this.setClauses(new Conjunction(new NaturalNumberFixer(path[0], startVertex),
+				new NaturalNumberFixer(path[K], endVertex), new GraphAsProblem(g, path)).getClauses());
 	}
 }

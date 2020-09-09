@@ -24,8 +24,7 @@ public class GroupAssociativer extends MonoidAssociativer
 		super(grp);
 	}
 
-	public GroupAssociativer(Group grp, INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public GroupAssociativer(Group grp, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		super(grp, X, Y, Z);
 	}

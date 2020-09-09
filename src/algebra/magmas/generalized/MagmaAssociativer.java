@@ -49,16 +49,14 @@ public class MagmaAssociativer extends Problem implements IProblem
 		this.setClauses(new Conjunction(p).getClauses());
 	}
 
-	public MagmaAssociativer(Magma g, INaturalNumber X,
-			INaturalNumber Y, INaturalNumber Z) throws Exception
+	public MagmaAssociativer(Magma g, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		INaturalNumber XY = new NaturalNumber();
 		INaturalNumber YZ = new NaturalNumber();
 		INaturalNumber XYZ = new NaturalNumber();
 
-		IProblem problem = new Conjunction(new Magmaer(g, X, Y, XY),
-				new Magmaer(g, Y, Z, YZ), new Magmaer(g, XY, Z, XYZ),
-				new Magmaer(g, X, YZ, XYZ));
+		IProblem problem = new Conjunction(new Magmaer(g, X, Y, XY), new Magmaer(g, Y, Z, YZ),
+				new Magmaer(g, XY, Z, XYZ), new Magmaer(g, X, YZ, XYZ));
 
 		this.setClauses(problem.getClauses());
 	}

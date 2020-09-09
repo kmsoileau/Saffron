@@ -37,8 +37,7 @@ public class AlternativeDenial extends Problem implements IProblem
 		{ first, second });
 	}
 
-	public AlternativeDenial(IProblem first, IProblem second, IProblem third)
-			throws Exception
+	public AlternativeDenial(IProblem first, IProblem second, IProblem third) throws Exception
 	{
 		this(new IProblem[]
 		{ first, second, third });
@@ -52,10 +51,8 @@ public class AlternativeDenial extends Problem implements IProblem
 	public AlternativeDenial(List<IProblem> list) throws Exception
 	{
 		if (list == null || list.size() == 0)
-			throw new AlternativeDenialException(
-					"Null IProblem was passed to constructor.");
+			throw new AlternativeDenialException("Null IProblem was passed to constructor.");
 		else
-			this.setClauses(new AlternativeDenial(list.toArray(new IProblem[0]))
-					.getClauses());
+			this.setClauses(new AlternativeDenial(list.toArray(new IProblem[0])).getClauses());
 	}
 }

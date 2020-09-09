@@ -28,26 +28,23 @@ public class SingleValuedNNtoNNMapperDemo
 	{
 		int[][] data = new int[][]
 		{
-		{ 3, 1 },
-		{ 1, 5 },
-		{ 4, 0 },
-		{ 1, 5 },
-		{ 5, 1 },
-		{ 9, 1 },
-		{ 3, 1 },
-		{ 6, 0 }, };
+				{ 3, 1 },
+				{ 1, 5 },
+				{ 4, 0 },
+				{ 1, 5 },
+				{ 5, 1 },
+				{ 9, 1 },
+				{ 3, 1 },
+				{ 6, 0 }, };
 
 		ArrayList<NaturalNumberPair> pairs = new ArrayList<NaturalNumberPair>();
 		for (int i = 0; i < data.length; i++)
-			pairs.add(new NaturalNumberPair(new NaturalNumber(data[i][0]),
-					new NaturalNumber(data[i][1])));
+			pairs.add(new NaturalNumberPair(new NaturalNumber(data[i][0]), new NaturalNumber(data[i][1])));
 
 		NNtoNNMapper map = new NNtoNNMapper(pairs);
 
-		IProblemMessage s = new Conjunction(new NaturalNumberFixer(pairs),
-				new NaturalNumberFixer(map.getX(), 3),
-				new SingleValuedNNtoNNMapper(map)).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new Conjunction(new NaturalNumberFixer(pairs), new NaturalNumberFixer(map.getX(), 3),
+				new SingleValuedNNtoNNMapper(map)).findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

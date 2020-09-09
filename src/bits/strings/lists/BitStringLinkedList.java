@@ -17,23 +17,18 @@ public class BitStringLinkedList implements IBitStringLinkedList
 {
 	private static int bSLLCount;
 
-	public static IBitStringLinkedList add(IBitStringLinkedList first,
-			IBitStringLinkedList second) throws Exception
+	public static IBitStringLinkedList add(IBitStringLinkedList first, IBitStringLinkedList second) throws Exception
 	{
-		return BitStringLinkedList.add("BitStringLinkedList-" + bSLLCount++,
-				first, second);
+		return BitStringLinkedList.add("BitStringLinkedList-" + bSLLCount++, first, second);
 	}
 
-	public static IBitStringLinkedList add(String name,
-			IBitStringLinkedList first, IBitStringLinkedList second)
+	public static IBitStringLinkedList add(String name, IBitStringLinkedList first, IBitStringLinkedList second)
 			throws Exception
 	{
 		if (name == null)
-			throw new BitStringLinkedListException(
-					"Passed null String to constructor.");
+			throw new BitStringLinkedListException("Passed null String to constructor.");
 		if (first == null || second == null)
-			throw new BitStringLinkedListException(
-					"Passed null String to constructor.");
+			throw new BitStringLinkedListException("Passed null String to constructor.");
 
 		Collection<IBitString> a = first.toList();
 		Collection<IBitString> b = second.toList();
@@ -74,44 +69,35 @@ public class BitStringLinkedList implements IBitStringLinkedList
 	public BitStringLinkedList(String name, boolean[][] bdata) throws Exception
 	{
 		if (name == null)
-			throw new BitStringLinkedListException(
-					"Passed null String to constructor.");
+			throw new BitStringLinkedListException("Passed null String to constructor.");
 		if (bdata == null)
-			throw new BitStringLinkedListException(
-					"Passed null boolean[][] to constructor.");
+			throw new BitStringLinkedListException("Passed null boolean[][] to constructor.");
 		if (bdata.length == 0)
-			throw new BitStringLinkedListException(
-					"Passed boolean[][] with bdata.length==0 to constructor.");
+			throw new BitStringLinkedListException("Passed boolean[][] with bdata.length==0 to constructor.");
 		this.backing = new LinkedList<IBitString>();
 		this.setName(name);
 		for (int i = 0; i < bdata.length; i++)
 		{
-			IBitString o = new BitString(name + "_" + i,
-					new IBooleanVariable[bdata[i].length]);
+			IBitString o = new BitString(name + "_" + i, new IBooleanVariable[bdata[i].length]);
 			backing.add(o);
 			for (int j = 0; j < this.getBitString(i).size(); j++)
-				this.getBitString(i).setBooleanVariable(
-						j,
-						BooleanVariable.getBooleanVariable(name + "_" + i + "_"
-								+ j, bdata[i][j]));
+				this.getBitString(i).setBooleanVariable(j,
+						BooleanVariable.getBooleanVariable(name + "_" + i + "_" + j, bdata[i][j]));
 		}
 	}
 
 	public BitStringLinkedList(String name, IBitString[] data) throws Exception
 	{
 		if (name == null)
-			throw new BitStringLinkedListException(
-					"Passed null String to constructor.");
+			throw new BitStringLinkedListException("Passed null String to constructor.");
 		if (data == null)
-			throw new BitStringLinkedListException(
-					"Passed null IBitString[] to constructor.");
+			throw new BitStringLinkedListException("Passed null IBitString[] to constructor.");
 		this.setName(name);
 		boolean[][] bdata = new boolean[data.length][];
 		for (int i = 0; i < bdata.length; i++)
 		{
 			if (data[i] == null)
-				throw new BitStringLinkedListException(
-						"Attempted to initialize with null IBitString.");
+				throw new BitStringLinkedListException("Attempted to initialize with null IBitString.");
 			bdata[i] = new boolean[data[i].size()];
 			for (int j = 0; j < bdata[i].length; j++)
 				bdata[i][j] = data[i].getBooleanVariable(j).getValue();
@@ -135,8 +121,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.add(o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -159,8 +144,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			backing.add(n, o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -176,8 +160,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.addAll(n, c);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -189,8 +172,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.addAll(c);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -202,8 +184,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			backing.clear();
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -214,22 +195,18 @@ public class BitStringLinkedList implements IBitStringLinkedList
 	{
 		try
 		{
-			return new BitStringLinkedList(this.getName(),
-					backing.toArray(new IBitString[0]));
-		}
-		catch (CloneNotSupportedException err)
+			return new BitStringLinkedList(this.getName(), backing.toArray(new IBitString[0]));
+		} catch (CloneNotSupportedException err)
 		{
 			try
 			{
 				throw err;
-			}
-			catch (CloneNotSupportedException e)
+			} catch (CloneNotSupportedException e)
 			{
 				e.printStackTrace();
 				return null;
 			}
-		}
-		catch (Exception err)
+		} catch (Exception err)
 		{
 			System.err.println("Attempt to clone BitStringLinkedList failed.");
 			return null;
@@ -241,8 +218,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.contains(o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -254,8 +230,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.containsAll(c);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -273,8 +248,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		{
 			if (!backing.containsAll((Collection<?>) anObject))
 				return false;
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -282,8 +256,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		{
 			if (!((Collection<?>) anObject).containsAll((Collection<?>) this))
 				return false;
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -295,8 +268,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.get(n);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -307,8 +279,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 	public IBitString getBitString(int i) throws Exception
 	{
 		if (i < 0 || i > this.size() - 1)
-			throw new BitStringLinkedListException(
-					"Attempted to index out of range.");
+			throw new BitStringLinkedListException("Attempted to index out of range.");
 		return (backing.get(i));
 	}
 
@@ -323,8 +294,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.indexOf(o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return -1;
@@ -337,8 +307,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.size() == 0;
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -350,8 +319,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.iterator();
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -363,8 +331,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.lastIndexOf(o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return -1;
@@ -376,8 +343,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.listIterator();
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -389,8 +355,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.listIterator(n);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -402,8 +367,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.remove(n);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -415,8 +379,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.remove(o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -428,8 +391,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.removeAll(c);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -441,8 +403,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.retainAll(c);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -460,8 +421,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.set(n, o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -471,19 +431,16 @@ public class BitStringLinkedList implements IBitStringLinkedList
 	public void setBitString(int i, IBitString bitString) throws Exception
 	{
 		if (i < 0 || i > this.size() - 1)
-			throw new BitStringLinkedListException(
-					"Attempted to index out of range.");
+			throw new BitStringLinkedListException("Attempted to index out of range.");
 		if (bitString == null)
-			throw new BitStringLinkedListException(
-					"Passed null IBitString to setBitString method.");
+			throw new BitStringLinkedListException("Passed null IBitString to setBitString method.");
 		backing.set(i, bitString);
 	}
 
 	public void setName(String name) throws BitStringLinkedListException
 	{
 		if (name == null)
-			throw new BitStringLinkedListException(
-					"Passed null String to setName method.");
+			throw new BitStringLinkedListException("Passed null String to setName method.");
 
 		this.name = name;
 	}
@@ -494,8 +451,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.size();
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return 0;
@@ -507,8 +463,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.subList(m, n);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -521,8 +476,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 		try
 		{
 			return backing.toArray(new IBitString[0]);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -538,8 +492,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 			try
 			{
 				res += this.getBitString(0).toBits();
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				e.printStackTrace();
 			}
@@ -547,8 +500,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 				try
 				{
 					res += "," + this.getBitString(i).toBits();
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					e.printStackTrace();
 				}
@@ -559,8 +511,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 	@Override
 	public ArrayListSet<IBitString> toList() throws Exception
 	{
-		return (ArrayListSet<IBitString>) backing
-				.subList(0, backing.size() - 1);
+		return (ArrayListSet<IBitString>) backing.subList(0, backing.size() - 1);
 	}
 
 	@Override
@@ -572,8 +523,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 			try
 			{
 				res += this.getBitString(0).toString();
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				e.printStackTrace();
 			}
@@ -581,8 +531,7 @@ public class BitStringLinkedList implements IBitStringLinkedList
 				try
 				{
 					res += "," + this.getBitString(i);
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					e.printStackTrace();
 				}

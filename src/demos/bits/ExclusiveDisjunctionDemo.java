@@ -25,12 +25,10 @@ public class ExclusiveDisjunctionDemo
 		System.out.println(p1);
 
 		IProblem p2 = new Problem(new IClause[]
-		{ new Clause().or(bva[0]).orNot(bva[1]).or(bva[2]),
-				new Clause().orNot(bva[0]).orNot(bva[1]).orNot(bva[2]) });
+		{ new Clause().or(bva[0]).orNot(bva[1]).or(bva[2]), new Clause().orNot(bva[0]).orNot(bva[1]).orNot(bva[2]) });
 		System.out.println(p2);
 
-		IProblem p3 = new ExclusiveDisjunction(p1, p2,
-				Problem.unsolvableProblem());
+		IProblem p3 = new ExclusiveDisjunction(p1, p2, Problem.unsolvableProblem());
 		System.out.println(p3);
 		IProblemMessage s = p3.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

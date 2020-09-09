@@ -22,19 +22,16 @@ import bits.Problem;
  */
 public class BitStringBitAnder extends Problem implements IProblem
 {
-	public BitStringBitAnder(IBitString[] C, int pos, IBitString targetBitString)
-			throws Exception
+	public BitStringBitAnder(IBitString[] C, int pos, IBitString targetBitString) throws Exception
 	{
 		IBitString membership = new BitString(C.length);
 
 		IProblem[] p = new IProblem[C.length];
 		for (int i = 0; i < C.length; i++)
-			p[i] = new BitEqualizer(membership.getBooleanVariable(i),
-					C[i].getBooleanVariable(pos));
+			p[i] = new BitEqualizer(membership.getBooleanVariable(i), C[i].getBooleanVariable(pos));
 
-		this.setClauses(new Conjunction(new BitStringFixer(C), new Conjunction(
-				p), new BitStringConditionalAnder(C, membership,
-				targetBitString)).getClauses());
+		this.setClauses(new Conjunction(new BitStringFixer(C), new Conjunction(p),
+				new BitStringConditionalAnder(C, membership, targetBitString)).getClauses());
 	}
 
 }

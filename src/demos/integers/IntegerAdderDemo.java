@@ -34,8 +34,8 @@ public class IntegerAdderDemo
 		IInteger B = new integers.Integer("B");
 		IInteger C = new integers.Integer("C");
 
-		IProblem problem = new Conjunction(new IntegerFixer(A, 23),
-				new IntegerFixer(C, -17), new IntegerAdder(A, B, C));
+		IProblem problem = new Conjunction(new IntegerFixer(A, 23), new IntegerFixer(C, -17),
+				new IntegerAdder(A, B, C));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

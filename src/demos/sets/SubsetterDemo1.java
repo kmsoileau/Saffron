@@ -19,8 +19,9 @@ public class SubsetterDemo1
 		Set setA = new Set("Set_A");
 		Set setB = new Set("Set_B");
 
-		IProblem problem = new Conjunction(new SetMembershipper("B", setA),
-				new SetMembershipper("C", setA), // setA contains C
+		IProblem problem = new Conjunction(new SetMembershipper("B", setA), new SetMembershipper("C", setA), // setA
+																												// contains
+																												// C
 				new Subsetter(setA, setB)); // setA is a subset of setB
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

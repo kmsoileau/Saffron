@@ -27,10 +27,8 @@ public class NaturalNumberDigiter extends Problem implements IProblem
 		INaturalNumber zero = new NaturalNumber(0);
 		INaturalNumber nine = new NaturalNumber(9);
 
-		IProblem problem = new Conjunction(new NaturalNumberFixer(zero),
-				new NaturalNumberFixer(nine),
-				new NaturalNumberOrderer(zero, n), new NaturalNumberOrderer(n,
-						nine));
+		IProblem problem = new Conjunction(new NaturalNumberFixer(zero), new NaturalNumberFixer(nine),
+				new NaturalNumberOrderer(zero, n), new NaturalNumberOrderer(n, nine));
 
 		this.setClauses(problem.getClauses());
 	}

@@ -20,8 +20,7 @@ public interface IListGraph extends Cloneable
 
 	void setData(IBooleanVariable[][] iBooleanVariables) throws Exception;
 
-	void setData(int i, int j, IBooleanVariable booleanVariable)
-			throws Exception;
+	void setData(int i, int j, IBooleanVariable booleanVariable) throws Exception;
 
 	void setName(String name) throws Exception;
 

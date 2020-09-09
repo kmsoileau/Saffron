@@ -35,17 +35,14 @@ public class NaturalNumberListMinnerDemo
 		NaturalNumber.setLargestNaturalNumber(10);
 
 		INaturalNumberList d = new NaturalNumberList(new INaturalNumber[]
-		{ new NaturalNumber(2), new NaturalNumber(1), new NaturalNumber(3),
-				new NaturalNumber(0), new NaturalNumber(1),
-				new NaturalNumber(5), new NaturalNumber(1),
-				new NaturalNumber(2), new NaturalNumber(3) });
+		{ new NaturalNumber(2), new NaturalNumber(1), new NaturalNumber(3), new NaturalNumber(0), new NaturalNumber(1),
+				new NaturalNumber(5), new NaturalNumber(1), new NaturalNumber(2), new NaturalNumber(3) });
 
 		INaturalNumber minIndex = new NaturalNumber();
 		INaturalNumber minEntry = new NaturalNumber();
 
 		IProblemMessage s = new Conjunction(new NaturalNumberListFixer(d),
-				new NaturalNumberListMinner(d, minIndex, minEntry))
-				.findModel(Problem.defaultSolver());
+				new NaturalNumberListMinner(d, minIndex, minEntry)).findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

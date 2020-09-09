@@ -12,12 +12,10 @@ import bits.TwoBitAdder;
 
 public class TwoBitAdderDemo
 {
-	private static String doCase(IBooleanVariable[] bva, boolean b1, boolean b2)
-			throws Exception
+	private static String doCase(IBooleanVariable[] bva, boolean b1, boolean b2) throws Exception
 	{
 		IProblem problemBase = new TwoBitAdder(bva[0], bva[1], bva[2], bva[3]);
-		IProblem problemSpecific = new Conjunction(new BitFixer(bva[0], b1),
-				new BitFixer(bva[1], b2));
+		IProblem problemSpecific = new Conjunction(new BitFixer(bva[0], b1), new BitFixer(bva[1], b2));
 		IProblem problem = new Conjunction(problemBase, problemSpecific);
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
@@ -38,10 +36,8 @@ public class TwoBitAdderDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBooleanVariable[] bva =
-		{ BooleanVariable.getBooleanVariable("X"),
-				BooleanVariable.getBooleanVariable("Y"),
-				BooleanVariable.getBooleanVariable("Z"),
-				BooleanVariable.getBooleanVariable("C") };
+		{ BooleanVariable.getBooleanVariable("X"), BooleanVariable.getBooleanVariable("Y"),
+				BooleanVariable.getBooleanVariable("Z"), BooleanVariable.getBooleanVariable("C") };
 
 		System.out.println("XYZC");
 

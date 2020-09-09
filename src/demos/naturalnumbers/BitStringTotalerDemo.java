@@ -23,8 +23,7 @@ public class BitStringTotalerDemo
 
 		IBitString X = new BitString("X", testString);
 
-		IProblemMessage s = new Conjunction(new BitStringFixer(X),
-				new BitStringTotaler(X, sum))
+		IProblemMessage s = new Conjunction(new BitStringFixer(X), new BitStringTotaler(X, sum))
 				.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

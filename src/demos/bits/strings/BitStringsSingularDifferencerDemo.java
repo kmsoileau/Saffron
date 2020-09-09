@@ -31,8 +31,8 @@ public class BitStringsSingularDifferencerDemo
 		IBitString B1 = new BitString("00001001");
 		IBitString B2 = new BitString("01001001");
 
-		IProblem problem = new Conjunction(new BitStringsSingularDifferencer(
-				B1, B2), new BitStringFixer(B1), new BitStringFixer(B2));
+		IProblem problem = new Conjunction(new BitStringsSingularDifferencer(B1, B2), new BitStringFixer(B1),
+				new BitStringFixer(B2));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

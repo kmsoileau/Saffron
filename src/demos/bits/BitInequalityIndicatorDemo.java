@@ -18,12 +18,10 @@ public class BitInequalityIndicatorDemo
 		IProblem bitInequalityIndicator1 = new BitInequalityIndicator(x, y, z);
 		System.out.println(bitInequalityIndicator1);
 
-		IProblem bitInequalityIndicator2 = ((Problem) bitInequalityIndicator1)
-				.compress();
+		IProblem bitInequalityIndicator2 = ((Problem) bitInequalityIndicator1).compress();
 		System.out.println(bitInequalityIndicator2);
 
-		BooleanLiteral.interpret(bitInequalityIndicator1.findModel(
-				Problem.defaultSolver()).getLiterals());
+		BooleanLiteral.interpret(bitInequalityIndicator1.findModel(Problem.defaultSolver()).getLiterals());
 		System.out.println("x = " + x.getValue());
 		System.out.println("y = " + y.getValue());
 		System.out.println("z = " + z.getValue());

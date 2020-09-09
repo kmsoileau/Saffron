@@ -24,8 +24,7 @@ package bits;
  */
 public class BitEqualityIndicator extends BitXnorer implements IProblem
 {
-	public BitEqualityIndicator(IBooleanVariable x, IBooleanVariable y,
-			IBooleanVariable z) throws Exception
+	public BitEqualityIndicator(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z) throws Exception
 	{
 		super(x, y, z);
 	}

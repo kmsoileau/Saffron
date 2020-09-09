@@ -36,9 +36,8 @@ public class IntegerArrayMinnerDemo extends Problem implements IProblem
 		IInteger minIndex = new Integer();
 		IInteger minEntry = new Integer();
 
-		IProblemMessage s = new Conjunction(new IntegerFixer(d),
-				new IntegerArrayMinner(d, minIndex, minEntry)).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new Conjunction(new IntegerFixer(d), new IntegerArrayMinner(d, minIndex, minEntry))
+				.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

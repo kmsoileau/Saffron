@@ -35,8 +35,7 @@ public class ProblemInnerProduct extends Problem implements IProblem
 	public ProblemInnerProduct(IProblem[] P, IProblem[] Q) throws Exception
 	{
 		if (P == null || Q == null)
-			throw new ProblemInnerProductException(
-					"Null array passed to constructor.");
+			throw new ProblemInnerProductException("Null array passed to constructor.");
 		IProblem[] r = new IProblem[P.length];
 		for (int i = 0; i < P.length; i++)
 		{
@@ -45,8 +44,7 @@ public class ProblemInnerProduct extends Problem implements IProblem
 		this.setClauses(new Disjunction(r).getClauses());
 	}
 
-	public ProblemInnerProduct(ProblemVector P, ProblemVector Q)
-			throws Exception
+	public ProblemInnerProduct(ProblemVector P, ProblemVector Q) throws Exception
 	{
 		this(P.getBacking(), Q.getBacking());
 	}

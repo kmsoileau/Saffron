@@ -21,13 +21,10 @@ public class NaturalNumberMultiplierDemo3
 		IProblem p;
 		IProblemMessage s;
 		for (long i = 1; i < (long) (Math.pow(2., NaturalNumber.getLength())); i++)
-			for (long j = 0; i * j < (long) Math.pow(2.,
-					NaturalNumber.getLength()); j++)
+			for (long j = 0; i * j < (long) Math.pow(2., NaturalNumber.getLength()); j++)
 			{
 				p = new Conjunction(new IProblem[]
-				{ new NaturalNumberMultiplier(X, Y, Z),
-						new NaturalNumberFixer(X, i),
-						new NaturalNumberFixer(Y, j), });
+				{ new NaturalNumberMultiplier(X, Y, Z), new NaturalNumberFixer(X, i), new NaturalNumberFixer(Y, j), });
 
 				s = p.findModel(Problem.defaultSolver());
 				if (s.getStatus() == IProblemMessage.SATISFIABLE)

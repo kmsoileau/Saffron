@@ -15,8 +15,7 @@ public class ProblemDenierDemo18
 	{
 		IBooleanVariable b2 = BooleanVariable.getBooleanVariable("b2");
 
-		IProblem problem = Problem.newProblem().and(new BitFixer(b2, true))
-				.and(new BitFixer(b2, false));
+		IProblem problem = Problem.newProblem().and(new BitFixer(b2, true)).and(new BitFixer(b2, false));
 
 		System.out.println(problem);
 

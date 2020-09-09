@@ -25,9 +25,8 @@ public class BitStringListMapper extends Problem implements IProblem
 	private IBitString domainVariable;
 	private IBitString rangeVariable;
 
-	public BitStringListMapper(IBitStringList L1, IBitStringList L2,
-			IBitString domainVariable, IBitString rangeVariable)
-			throws Exception
+	public BitStringListMapper(IBitStringList L1, IBitStringList L2, IBitString domainVariable,
+			IBitString rangeVariable) throws Exception
 	{
 		if (L1.size() == 0 || L2.size() == 0 || L1.size() != L2.size())
 			this.setClauses(Problem.unsolvableProblem().getClauses());
@@ -39,10 +38,8 @@ public class BitStringListMapper extends Problem implements IProblem
 			IProblem[] py = new Problem[L2.size()];
 			for (int i = 0; i < L1.size(); i++)
 			{
-				px[i] = new BitStringFixer(this.domainVariable,
-						L1.getBitString(i));
-				py[i] = new BitStringFixer(this.rangeVariable,
-						L2.getBitString(i));
+				px[i] = new BitStringFixer(this.domainVariable, L1.getBitString(i));
+				py[i] = new BitStringFixer(this.rangeVariable, L2.getBitString(i));
 			}
 			IProblem pcomb = new Mapper(px, py);
 			this.setClauses(pcomb.getClauses());

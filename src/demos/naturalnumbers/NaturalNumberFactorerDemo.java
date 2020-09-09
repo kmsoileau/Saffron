@@ -26,8 +26,7 @@ public class NaturalNumberFactorerDemo
 		INaturalNumber Y = new NaturalNumber("Y");
 		INaturalNumber Z = new NaturalNumber("Z");
 
-		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 9111L),
-				new NaturalNumberFactorer(X, Y, Z));
+		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 9111L), new NaturalNumberFactorer(X, Y, Z));
 
 		System.out.println(p.size() + "clauses generated...");
 

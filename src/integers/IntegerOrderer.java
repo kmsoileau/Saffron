@@ -11,8 +11,7 @@ public class IntegerOrderer extends Problem implements IProblem
 	public IntegerOrderer(IInteger X, IInteger Y) throws Exception
 	{
 		IInteger offset = new Integer("IntegerOrderer-" + iIOCount++);
-		IProblem p1 = new Conjunction(new NonnegativeInteger(offset),
-				new IntegerAdder(X, offset, Y));
+		IProblem p1 = new Conjunction(new NonnegativeInteger(offset), new IntegerAdder(X, offset, Y));
 		this.setClauses(p1.getClauses());
 	}
 

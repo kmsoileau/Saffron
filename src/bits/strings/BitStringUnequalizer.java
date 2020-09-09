@@ -22,8 +22,7 @@ public class BitStringUnequalizer extends Problem implements IProblem
 		{
 			BitUnequalizer[] thba = new BitUnequalizer[X.size()];
 			for (int i = 0; i < X.size(); i++)
-				thba[i] = new BitUnequalizer(X.getBooleanVariable(i),
-						Y.getBooleanVariable(i));
+				thba[i] = new BitUnequalizer(X.getBooleanVariable(i), Y.getBooleanVariable(i));
 			IProblem p1 = new Disjunction(thba);
 			this.setClauses(p1.getClauses());
 		}

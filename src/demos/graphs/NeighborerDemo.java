@@ -52,9 +52,8 @@ public class NeighborerDemo
 
 		IBitString neighbors = new BitString(numberVertices);
 
-		IProblem problem = new Conjunction(new GraphFixer(graph),
-				new BitStringFixer(homes), new Neighborer(graph, homes,
-						neighbors));
+		IProblem problem = new Conjunction(new GraphFixer(graph), new BitStringFixer(homes),
+				new Neighborer(graph, homes, neighbors));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

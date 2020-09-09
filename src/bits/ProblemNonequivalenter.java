@@ -33,17 +33,13 @@ import bits.exceptions.ProblemNotequivalenterException;
  */
 public class ProblemNonequivalenter extends Problem implements IProblem
 {
-	public ProblemNonequivalenter(IProblem first, IProblem second)
-			throws Exception
+	public ProblemNonequivalenter(IProblem first, IProblem second) throws Exception
 	{
 		if (first == null || second == null)
-			throw new ProblemNotequivalenterException(
-					"A null IProblem was passed to constructor.");
+			throw new ProblemNotequivalenterException("A null IProblem was passed to constructor.");
 
-		this.setClauses(new Disjunction(new Conjunction(first,
-				new ProblemDenier(second)), new Conjunction(second,
-				new ProblemDenier(first))).getClauses());
+		this.setClauses(new Disjunction(new Conjunction(first, new ProblemDenier(second)),
+				new Conjunction(second, new ProblemDenier(first))).getClauses());
 	}
 
-	
 }

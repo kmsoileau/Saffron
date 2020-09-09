@@ -27,12 +27,9 @@ public class NaturalNumberRectangleIntersectorDemo1
 		INaturalNumberRectangle rect2 = new NaturalNumberRectangle("rect2");
 
 		IProblem[] p = new IProblem[]
-		{ new NaturalNumberIntervalFixer(A, 3, 6),
-				new NaturalNumberIntervalFixer(B, 6, 10),
-				new NaturalNumberIntervalFixer(C, 5, 8),
-				new NaturalNumberIntervalFixer(D, 4, 8),
-				new NaturalNumberRectangleFixer(rect1, A, B),
-				new NaturalNumberRectangleFixer(rect2, C, D),
+		{ new NaturalNumberIntervalFixer(A, 3, 6), new NaturalNumberIntervalFixer(B, 6, 10),
+				new NaturalNumberIntervalFixer(C, 5, 8), new NaturalNumberIntervalFixer(D, 4, 8),
+				new NaturalNumberRectangleFixer(rect1, A, B), new NaturalNumberRectangleFixer(rect2, C, D),
 				new NaturalNumberRectangleIntersector(rect1, rect2) };
 
 		IProblem problem = new Conjunction(p);

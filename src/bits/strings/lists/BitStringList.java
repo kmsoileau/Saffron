@@ -30,21 +30,17 @@ public class BitStringList implements IBitStringList
 {
 	private static int bSLCount;
 
-	public static IBitStringList add(IBitStringList first, IBitStringList second)
-			throws Exception
+	public static IBitStringList add(IBitStringList first, IBitStringList second) throws Exception
 	{
 		return BitStringList.add("BitStringList-" + bSLCount++, first, second);
 	}
 
-	public static IBitStringList add(String name, IBitStringList first,
-			IBitStringList second) throws Exception
+	public static IBitStringList add(String name, IBitStringList first, IBitStringList second) throws Exception
 	{
 		if (name == null)
-			throw new BitStringListException(
-					"Passed null String to constructor.");
+			throw new BitStringListException("Passed null String to constructor.");
 		if (first == null || second == null)
-			throw new BitStringListException(
-					"Passed null String to constructor.");
+			throw new BitStringListException("Passed null String to constructor.");
 
 		Collection<IBitString> a = first.toList();
 		Collection<IBitString> b = second.toList();
@@ -77,8 +73,7 @@ public class BitStringList implements IBitStringList
 		this("BitStringList-" + bSLCount++, list.toArray());
 	}
 
-	public BitStringList(IBooleanVariable[][] iBooleanVariables)
-			throws Exception
+	public BitStringList(IBooleanVariable[][] iBooleanVariables) throws Exception
 	{
 		int bvlen = iBooleanVariables.length;
 		this.setData(new ArrayList<IBitString>(bvlen));
@@ -99,28 +94,22 @@ public class BitStringList implements IBitStringList
 	public BitStringList(String name, boolean[][] bdata) throws Exception
 	{
 		if (name == null)
-			throw new BitStringListException(
-					"Passed null String to constructor.");
+			throw new BitStringListException("Passed null String to constructor.");
 		if (bdata == null)
-			throw new BitStringListException(
-					"Passed null boolean[][] to constructor.");
+			throw new BitStringListException("Passed null boolean[][] to constructor.");
 		if (bdata.length == 0)
-			throw new BitStringListException(
-					"Passed boolean[][] with bdata.length==0 to constructor.");
+			throw new BitStringListException("Passed boolean[][] with bdata.length==0 to constructor.");
 		this.setName(name);
 		this.setData(new ArrayList<IBitString>(bdata.length));
 		for (int i = 0; i < bdata.length; i++)
 		{
 			if (bdata[i] != null)
 			{
-				IBitString o = new BitString(name + "_" + i,
-						new IBooleanVariable[bdata[i].length]);
+				IBitString o = new BitString(name + "_" + i, new IBooleanVariable[bdata[i].length]);
 				this.getData().add(o);
 				for (int j = 0; j < this.getBitString(i).size(); j++)
-					this.getBitString(i).setBooleanVariable(
-							j,
-							BooleanVariable.getBooleanVariable(name + "_" + i
-									+ "_" + j, bdata[i][j]));
+					this.getBitString(i).setBooleanVariable(j,
+							BooleanVariable.getBooleanVariable(name + "_" + i + "_" + j, bdata[i][j]));
 			}
 			else
 				this.getData().add(null);
@@ -130,11 +119,9 @@ public class BitStringList implements IBitStringList
 	public BitStringList(String name, IBitString[] data) throws Exception
 	{
 		if (name == null)
-			throw new BitStringListException(
-					"Passed null String to constructor.");
+			throw new BitStringListException("Passed null String to constructor.");
 		if (data == null)
-			throw new BitStringListException(
-					"Passed null IBitString[] to constructor.");
+			throw new BitStringListException("Passed null IBitString[] to constructor.");
 		this.setName(name);
 		boolean[][] bdata = new boolean[data.length][];
 		for (int i = 0; i < bdata.length; i++)
@@ -169,8 +156,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().add(o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -194,8 +180,7 @@ public class BitStringList implements IBitStringList
 		{
 			// ((ArrayListSet<Object>)(this.getData())).add(n,o);
 			this.getData().add(n, o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -206,8 +191,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().addAll(c);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -219,8 +203,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().addAll(n, c);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -232,8 +215,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			this.getData().clear();
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -244,14 +226,11 @@ public class BitStringList implements IBitStringList
 	{
 		try
 		{
-			return new BitStringList(this.getName(), this.getData().toArray(
-					new IBitString[0]));
-		}
-		catch (CloneNotSupportedException err)
+			return new BitStringList(this.getName(), this.getData().toArray(new IBitString[0]));
+		} catch (CloneNotSupportedException err)
 		{
 			throw err;
-		}
-		catch (Exception err)
+		} catch (Exception err)
 		{
 			System.err.println("Attempt to clone BitStringList failed.");
 			return null;
@@ -263,8 +242,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().contains(o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -276,8 +254,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().containsAll(c);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -293,21 +270,17 @@ public class BitStringList implements IBitStringList
 			return false;
 		try
 		{
-			if (!this.getData().containsAll(
-					((BitStringList) anObject).getData()))
+			if (!this.getData().containsAll(((BitStringList) anObject).getData()))
 				return false;
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
 		try
 		{
-			if (!((BitStringList) anObject).getData().containsAll(
-					this.getData()))
+			if (!((BitStringList) anObject).getData().containsAll(this.getData()))
 				return false;
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -319,8 +292,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().get(n);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -338,8 +310,7 @@ public class BitStringList implements IBitStringList
 	public ArrayList<IBitString> getData() throws Exception
 	{
 		if (this.listData == null)
-			throw new BitStringListException(
-					"Attempted to access listData while listData==null.");
+			throw new BitStringListException("Attempted to access listData while listData==null.");
 		return this.listData;
 	}
 
@@ -354,8 +325,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().indexOf(o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return -1;
@@ -373,8 +343,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().iterator();
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -386,8 +355,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().lastIndexOf(o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return -1;
@@ -399,8 +367,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().listIterator();
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -412,8 +379,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().listIterator(n);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -425,8 +391,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().remove(n);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -438,8 +403,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().remove(o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -451,8 +415,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().removeAll(c);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -464,8 +427,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().retainAll(c);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return false;
@@ -483,14 +445,11 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			if (n < 0 || n > this.getData().size() - 1)
-				throw new BitStringListException(
-						"Attempted to index out of range.");
-		}
-		catch (BitStringListException e1)
+				throw new BitStringListException("Attempted to index out of range.");
+		} catch (BitStringListException e1)
 		{
 			e1.printStackTrace();
-		}
-		catch (Exception e1)
+		} catch (Exception e1)
 		{
 			e1.printStackTrace();
 		}
@@ -498,8 +457,7 @@ public class BitStringList implements IBitStringList
 		{
 			// return ((ArrayListSet<Object>)this.getData()).set(n,o);
 			return this.getData().set(n, o);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -511,24 +469,21 @@ public class BitStringList implements IBitStringList
 		if (i < 0 || i > this.size() - 1)
 			throw new BitStringListException("Attempted to index out of range.");
 		if (bitString == null)
-			throw new BitStringListException(
-					"Passed null IBitString to setBitString method.");
+			throw new BitStringListException("Passed null IBitString to setBitString method.");
 		this.getData().set(i, bitString);
 	}
 
 	public void setData(ArrayList<IBitString> arrayList) throws Exception
 	{
 		if (arrayList == null)
-			throw new BitStringListException(
-					"Passed null ArrayListSet to setData method.");
+			throw new BitStringListException("Passed null ArrayListSet to setData method.");
 		this.listData = arrayList;
 	}
 
 	public void setName(String name) throws Exception
 	{
 		if (name == null)
-			throw new BitStringListException(
-					"Passed null String to setName method.");
+			throw new BitStringListException("Passed null String to setName method.");
 
 		this.name = name;
 	}
@@ -541,8 +496,7 @@ public class BitStringList implements IBitStringList
 			ArrayList<IBitString> dt = this.getData();
 			return dt.size();
 
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			return 0;
 		}
@@ -553,8 +507,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().subList(m, n);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -567,8 +520,7 @@ public class BitStringList implements IBitStringList
 		try
 		{
 			return this.getData().toArray(new IBitString[0]);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return null;
@@ -584,8 +536,7 @@ public class BitStringList implements IBitStringList
 			try
 			{
 				res += this.getBitString(0).toBits();
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				e.printStackTrace();
 			}
@@ -593,8 +544,7 @@ public class BitStringList implements IBitStringList
 				try
 				{
 					res += "," + this.getBitString(i).toBits();
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					e.printStackTrace();
 				}
@@ -617,8 +567,7 @@ public class BitStringList implements IBitStringList
 			try
 			{
 				res += this.getBitString(0).toString();
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				e.printStackTrace();
 			}
@@ -626,8 +575,7 @@ public class BitStringList implements IBitStringList
 				try
 				{
 					res += "," + this.getBitString(i);
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					e.printStackTrace();
 				}

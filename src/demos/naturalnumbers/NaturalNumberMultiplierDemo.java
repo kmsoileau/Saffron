@@ -26,15 +26,10 @@ public class NaturalNumberMultiplierDemo
 		INaturalNumber N2 = new NaturalNumber("N2");
 		INaturalNumber two = new NaturalNumber("two");
 
-		IProblem p = new Conjunction(
-				new IProblem[]
-				{ new NaturalNumberMultiplier(X, Y, Z),
-						new NaturalNumberFixer(Z, 194L),
-						new NaturalNumberFixer(two, 2L),
-						new NaturalNumberAdder(N1, two, X),
-						new NaturalNumberAdder(N2, two, Y),
-						new NaturalNumberOrderer(X, Z),
-						new NaturalNumberOrderer(Y, Z) });
+		IProblem p = new Conjunction(new IProblem[]
+		{ new NaturalNumberMultiplier(X, Y, Z), new NaturalNumberFixer(Z, 194L), new NaturalNumberFixer(two, 2L),
+				new NaturalNumberAdder(N1, two, X), new NaturalNumberAdder(N2, two, Y), new NaturalNumberOrderer(X, Z),
+				new NaturalNumberOrderer(Y, Z) });
 		System.out.println(p);
 
 		IProblemMessage s = p.findModel(Problem.defaultSolver());

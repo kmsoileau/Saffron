@@ -15,8 +15,7 @@ public class NaturalNumberFixerDemo2
 
 		for (long i = 0; i < Math.pow(2., 1. * NaturalNumber.getLength()); i++)
 		{
-			IProblemMessage s = new NaturalNumberFixer(X, i).findModel(Problem
-					.defaultSolver());
+			IProblemMessage s = new NaturalNumberFixer(X, i).findModel(Problem.defaultSolver());
 			if (s.getStatus() == IProblemMessage.SATISFIABLE)
 			{
 				BooleanLiteral.interpret(s.getLiterals());

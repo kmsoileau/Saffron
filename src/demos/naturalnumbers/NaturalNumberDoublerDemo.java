@@ -29,8 +29,7 @@ public class NaturalNumberDoublerDemo
 		{
 			NaturalNumberFixer bnnfx = new NaturalNumberFixer(X, i);
 
-			NaturalNumberDoubler NaturalNumberDoubler1 = new NaturalNumberDoubler(
-					X, Y);
+			NaturalNumberDoubler NaturalNumberDoubler1 = new NaturalNumberDoubler(X, Y);
 
 			IProblem p = new Conjunction(bnnfx, NaturalNumberDoubler1);
 			IProblemMessage s = p.findModel(Problem.defaultSolver());

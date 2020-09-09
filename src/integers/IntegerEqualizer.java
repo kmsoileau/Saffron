@@ -28,19 +28,15 @@ public class IntegerEqualizer extends Problem implements IProblem
 	public IntegerEqualizer(IInteger X, IInteger Y) throws Exception
 	{
 		if (X == null || Y == null)
-			throw new IntegerEqualizerException(
-					"A null IInteger variable was passed to constructor.");
+			throw new IntegerEqualizerException("A null IInteger variable was passed to constructor.");
 
-		this.setClauses(new Conjunction(new NaturalNumberEqualizer(X
-				.getAbsValue(), Y.getAbsValue()), new BitEqualizer(X.getSign(),
-				Y.getSign())).getClauses());
+		this.setClauses(new Conjunction(new NaturalNumberEqualizer(X.getAbsValue(), Y.getAbsValue()),
+				new BitEqualizer(X.getSign(), Y.getSign())).getClauses());
 	}
 
-	public IntegerEqualizer(IInteger intgr, INaturalNumber nn)
-			throws Exception
+	public IntegerEqualizer(IInteger intgr, INaturalNumber nn) throws Exception
 	{
-		this.setClauses(new Conjunction(new NaturalNumberEqualizer(intgr
-				.getAbsValue(), nn),
+		this.setClauses(new Conjunction(new NaturalNumberEqualizer(intgr.getAbsValue(), nn),
 				new BitFixer(intgr.getSign(), true)).getClauses());
 	}
 }

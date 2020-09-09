@@ -34,8 +34,7 @@ public class IntegerIntervalCongruenterDemo1
 
 		IInteger X = new Integer();
 
-		IProblem problem = new Conjunction(new IntegerIntervalFixer(A, -3,
-				7), new IntegerIntervalFixer(B, 1, 11),
+		IProblem problem = new Conjunction(new IntegerIntervalFixer(A, -3, 7), new IntegerIntervalFixer(B, 1, 11),
 				new IntegerIntervalCongruenter(A, B, X));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

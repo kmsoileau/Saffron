@@ -24,8 +24,7 @@ import naturalnumbers.NaturalNumberFixer;
  */
 public class MonoidIdentityer extends Problem implements IProblem
 {
-	public MonoidIdentityer(int[][] opTable, INaturalNumber Identity)
-			throws Exception
+	public MonoidIdentityer(int[][] opTable, INaturalNumber Identity) throws Exception
 	{
 		int order = (int) Math.sqrt(opTable.length);
 
@@ -46,17 +45,14 @@ public class MonoidIdentityer extends Problem implements IProblem
 		IProblem[] p = new IProblem[order];
 		for (int i = 0; i < order; i++)
 			p[i] = new Conjunction(mArray[i], new NaturalNumberFixer(E1[i], i),
-					new NaturalNumberEqualizer(E2[i], Identity),
-					new NaturalNumberFixer(E3[i], i));
+					new NaturalNumberEqualizer(E2[i], Identity), new NaturalNumberFixer(E3[i], i));
 
-		IProblem problem = new Conjunction(new Conjunction(mArray),
-				new Conjunction(p));
+		IProblem problem = new Conjunction(new Conjunction(mArray), new Conjunction(p));
 
 		this.setClauses(problem.getClauses());
 	}
 
-	public MonoidIdentityer(Monoid mnd, INaturalNumber Identity)
-			throws Exception
+	public MonoidIdentityer(Monoid mnd, INaturalNumber Identity) throws Exception
 	{
 		int order = mnd.getOrder();
 
@@ -77,11 +73,9 @@ public class MonoidIdentityer extends Problem implements IProblem
 		IProblem[] p = new IProblem[order];
 		for (int i = 0; i < order; i++)
 			p[i] = new Conjunction(mArray[i], new NaturalNumberFixer(E1[i], i),
-					new NaturalNumberEqualizer(E2[i], Identity),
-					new NaturalNumberFixer(E3[i], i));
+					new NaturalNumberEqualizer(E2[i], Identity), new NaturalNumberFixer(E3[i], i));
 
-		IProblem problem = new Conjunction(new Conjunction(mArray),
-				new Conjunction(p));
+		IProblem problem = new Conjunction(new Conjunction(mArray), new Conjunction(p));
 
 		this.setClauses(problem.getClauses());
 	}

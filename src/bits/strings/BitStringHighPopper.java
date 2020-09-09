@@ -32,8 +32,7 @@ public class BitStringHighPopper extends Problem implements IProblem
 			IProblem[] p = new IProblem[X.size()];
 			int count = 0;
 			for (int i = 0; i < Y.size(); i++)
-				p[count++] = new BitEqualizer(X.getBooleanVariable(i),
-						Y.getBooleanVariable(i));
+				p[count++] = new BitEqualizer(X.getBooleanVariable(i), Y.getBooleanVariable(i));
 			this.setClauses(new Conjunction(p).getClauses());
 		}
 	}

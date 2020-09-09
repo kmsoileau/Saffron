@@ -25,21 +25,14 @@ public class IntegerIntervalDisjointSelectorDemo
 		IIntegerInterval[] I = new IIntegerInterval[]
 		{ I1, I2, I3, I4 };
 		IBooleanVariable[] bool = new IBooleanVariable[]
-		{ BooleanVariable.getBooleanVariable("bool1"),
-				BooleanVariable.getBooleanVariable("bool2"),
-				BooleanVariable.getBooleanVariable("bool3"),
-				BooleanVariable.getBooleanVariable("bool4") };
+		{ BooleanVariable.getBooleanVariable("bool1"), BooleanVariable.getBooleanVariable("bool2"),
+				BooleanVariable.getBooleanVariable("bool3"), BooleanVariable.getBooleanVariable("bool4") };
 
 		IProblem[] p = new IProblem[]
-		{ new IntegerFixer(I1.getLower(), 3),
-				new IntegerFixer(I1.getUpper(), 4),
-				new IntegerFixer(I2.getLower(), 2),
-				new IntegerFixer(I2.getUpper(), 7),
-				new IntegerFixer(I3.getLower(), 0),
-				new IntegerFixer(I3.getUpper(), 7),
-				new IntegerFixer(I4.getLower(), 6),
-				new IntegerFixer(I4.getUpper(), 9),
-				new BitFixer(bool[0], true), new BitFixer(bool[3], true),
+		{ new IntegerFixer(I1.getLower(), 3), new IntegerFixer(I1.getUpper(), 4), new IntegerFixer(I2.getLower(), 2),
+				new IntegerFixer(I2.getUpper(), 7), new IntegerFixer(I3.getLower(), 0),
+				new IntegerFixer(I3.getUpper(), 7), new IntegerFixer(I4.getLower(), 6),
+				new IntegerFixer(I4.getUpper(), 9), new BitFixer(bool[0], true), new BitFixer(bool[3], true),
 				new IntegerIntervalDisjointSelector(I, bool) };
 
 		IProblem problem = new Conjunction(p);

@@ -25,8 +25,7 @@ public class BitStringArraySplitterDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBitString[] C = new IBitString[]
-		{ new BitString("01001"), new BitString("10111"),
-				new BitString("10101"), new BitString("01100"),
+		{ new BitString("01001"), new BitString("10111"), new BitString("10101"), new BitString("01100"),
 				new BitString("11101") };
 
 		int size = C[0].size();
@@ -34,8 +33,7 @@ public class BitStringArraySplitterDemo
 		IBitString S1 = new BitString(size);
 		IBitString S2 = new BitString(size);
 
-		IProblem problem = new Conjunction(new BitStringFixer(C),
-				new BitStringArraySplitter(C, S1, S2));
+		IProblem problem = new Conjunction(new BitStringFixer(C), new BitStringArraySplitter(C, S1, S2));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

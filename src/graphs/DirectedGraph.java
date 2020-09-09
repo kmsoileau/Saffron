@@ -27,8 +27,7 @@ public class DirectedGraph extends Graph implements IDirectedGraph
 	public DirectedGraph(String name, int numberOfVertices) throws Exception
 	{
 		if (numberOfVertices < 1)
-			throw new GraphException(
-					"numberOfVertices less than 1 passed to constructor.");
+			throw new GraphException("numberOfVertices less than 1 passed to constructor.");
 		super.setData(new IBooleanVariable[numberOfVertices][numberOfVertices]);
 		this.setName(name);
 		for (int i = 0; i < numberOfVertices; i++)

@@ -10,7 +10,6 @@ public class IntegerIncrementer extends Problem implements IProblem
 	{
 		IInteger one = new Integer(1);
 
-		this.setClauses(new Conjunction(new IntegerFixer(one),
-				new IntegerAdder(X, one, Y)).getClauses());
+		this.setClauses(new Conjunction(new IntegerFixer(one), new IntegerAdder(X, one, Y)).getClauses());
 	}
 }

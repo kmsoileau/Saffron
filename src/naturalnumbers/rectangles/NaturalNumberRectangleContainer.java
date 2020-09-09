@@ -19,15 +19,12 @@ import naturalnumbers.intervals.NaturalNumberIntervalContainer;
  * 
  *
  */
-public class NaturalNumberRectangleContainer extends Problem implements
-		IProblem
+public class NaturalNumberRectangleContainer extends Problem implements IProblem
 {
-	public NaturalNumberRectangleContainer(INaturalNumberRectangle L,
-			INaturalNumberRectangle R) throws Exception
+	public NaturalNumberRectangleContainer(INaturalNumberRectangle L, INaturalNumberRectangle R) throws Exception
 	{
-		IProblem p = new Conjunction(new NaturalNumberIntervalContainer(
-				L.getBase(), R.getBase()), new NaturalNumberIntervalContainer(
-				L.getAltitude(), R.getAltitude()));
+		IProblem p = new Conjunction(new NaturalNumberIntervalContainer(L.getBase(), R.getBase()),
+				new NaturalNumberIntervalContainer(L.getAltitude(), R.getAltitude()));
 
 		this.setClauses(p.getClauses());
 	}

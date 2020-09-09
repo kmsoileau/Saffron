@@ -25,22 +25,18 @@ import naturalnumbers.intervals.NaturalNumberIntervalIntersector;
  * @version 1.0
  * @since 2019/02/02
  */
-public class NaturalNumberRectangleIntersector extends Problem implements
-		IProblem
+public class NaturalNumberRectangleIntersector extends Problem implements IProblem
 {
-	public NaturalNumberRectangleIntersector(INaturalNumberRectangle rect1,
-			INaturalNumberRectangle rect2) throws Exception
+	public NaturalNumberRectangleIntersector(INaturalNumberRectangle rect1, INaturalNumberRectangle rect2)
+			throws Exception
 	{
-		IProblem p = new Conjunction(new NaturalNumberIntervalIntersector(
-				rect1.getBase(), rect2.getBase()),
-				new NaturalNumberIntervalIntersector(rect1.getAltitude(), rect2
-						.getAltitude()));
+		IProblem p = new Conjunction(new NaturalNumberIntervalIntersector(rect1.getBase(), rect2.getBase()),
+				new NaturalNumberIntervalIntersector(rect1.getAltitude(), rect2.getAltitude()));
 
 		this.setClauses(p.getClauses());
 	}
 
-	public NaturalNumberRectangleIntersector(INaturalNumberRectangle[] rect)
-			throws Exception
+	public NaturalNumberRectangleIntersector(INaturalNumberRectangle[] rect) throws Exception
 	{
 		int len = rect.length;
 		IProblem[] p = new IProblem[len * (len - 1) / 2];

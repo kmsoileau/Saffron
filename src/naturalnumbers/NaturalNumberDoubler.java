@@ -19,17 +19,14 @@ import bits.Problem;
  */
 public class NaturalNumberDoubler extends Problem implements IProblem
 {
-	public NaturalNumberDoubler(INaturalNumber X, INaturalNumber Z)
-			throws Exception
+	public NaturalNumberDoubler(INaturalNumber X, INaturalNumber Z) throws Exception
 	{
 		IProblem p = new BitFixer(Z.getBooleanVariable(0), false);
 		for (int i = 0; i < NaturalNumber.getLength() - 1; i++)
 		{
-			p = new Conjunction(p, new BitEqualizer(
-					Z.getBooleanVariable(i + 1), X.getBooleanVariable(i)));
+			p = new Conjunction(p, new BitEqualizer(Z.getBooleanVariable(i + 1), X.getBooleanVariable(i)));
 		}
-		p = new Conjunction(p, new BitFixer(X.getBooleanVariable(NaturalNumber
-				.getLength() - 1), false));
+		p = new Conjunction(p, new BitFixer(X.getBooleanVariable(NaturalNumber.getLength() - 1), false));
 		this.setClauses(p.getClauses());
 	}
 }

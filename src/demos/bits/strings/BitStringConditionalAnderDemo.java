@@ -15,14 +15,12 @@ public class BitStringConditionalAnderDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBitString[] X = new IBitString[]
-		{ new BitString("01001010"), new BitString("10101010"),
-				new BitString("00001000"), new BitString("00100000") };
+		{ new BitString("01001010"), new BitString("10101010"), new BitString("00001000"), new BitString("00100000") };
 
 		IBitString conditionalResult = new BitString(X[0].size());
 		IBitString membership = new BitString("1010");
-		IProblem problem = new Conjunction(new BitStringFixer(X),
-				new BitStringFixer(membership), new BitStringConditionalAnder(
-						X, membership, conditionalResult));
+		IProblem problem = new Conjunction(new BitStringFixer(X), new BitStringFixer(membership),
+				new BitStringConditionalAnder(X, membership, conditionalResult));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

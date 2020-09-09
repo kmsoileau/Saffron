@@ -38,11 +38,9 @@ public class NaturalNumberListMembershipDemo2
 		INaturalNumber string1 = new NaturalNumber("string1");
 		INaturalNumber string2 = new NaturalNumber("string2");
 
-		INaturalNumberList bsl = new NaturalNumberList("slist",
-				new INaturalNumber[]
-				{ new NaturalNumber(11), new NaturalNumber(15),
-						new NaturalNumber(14), new NaturalNumber(4),
-						new NaturalNumber(7), new NaturalNumber(6) });
+		INaturalNumberList bsl = new NaturalNumberList("slist", new INaturalNumber[]
+		{ new NaturalNumber(11), new NaturalNumber(15), new NaturalNumber(14), new NaturalNumber(4),
+				new NaturalNumber(7), new NaturalNumber(6) });
 
 		// The list must have given values
 		IProblem fix = new NaturalNumberListFixer(bsl);

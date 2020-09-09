@@ -37,8 +37,7 @@ public class AlternativeDenialDemo
 		 */
 
 		IProblem problem = new AlternativeDenial(new IProblem[]
-		{ new BitFixer(x1, true), new BitFixer(x1, false),
-				new BitFixer(x2, true), new BitFixer(x2, false) });
+		{ new BitFixer(x1, true), new BitFixer(x1, false), new BitFixer(x2, true), new BitFixer(x2, false) });
 
 		/**
 		 * Solve the IProblem:

@@ -33,8 +33,7 @@ public class SingleValuedNNtoNNMapper extends Problem implements IProblem
 				INaturalNumber Nj = pr2.getFirst();
 				INaturalNumber Oj = pr2.getSecond();
 
-				p.add(new Disjunction(new NaturalNumberUnequalizer(Ni, Nj),
-						new NaturalNumberEqualizer(Oi, Oj)));
+				p.add(new Disjunction(new NaturalNumberUnequalizer(Ni, Nj), new NaturalNumberEqualizer(Oi, Oj)));
 			}
 		}
 

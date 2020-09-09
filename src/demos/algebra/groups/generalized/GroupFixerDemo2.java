@@ -32,22 +32,22 @@ public class GroupFixerDemo2
 	{
 		int[][] opTable = new int[][]
 		{
-		{ 0, 0, 0 },
-		{ 0, 1, 1 },
-		{ 0, 2, 2 },
-		{ 0, 3, 3 },
-		{ 1, 0, 1 },
-		{ 1, 1, 0 },
-		{ 1, 2, 3 },
-		{ 1, 3, 2 },
-		{ 2, 0, 2 },
-		{ 2, 1, 3 },
-		{ 2, 2, 0 },
-		{ 2, 3, 1 },
-		{ 3, 0, 3 },
-		{ 3, 1, 2 },
-		{ 3, 2, 1 },
-		{ 3, 3, 0 } };
+				{ 0, 0, 0 },
+				{ 0, 1, 1 },
+				{ 0, 2, 2 },
+				{ 0, 3, 3 },
+				{ 1, 0, 1 },
+				{ 1, 1, 0 },
+				{ 1, 2, 3 },
+				{ 1, 3, 2 },
+				{ 2, 0, 2 },
+				{ 2, 1, 3 },
+				{ 2, 2, 0 },
+				{ 2, 3, 1 },
+				{ 3, 0, 3 },
+				{ 3, 1, 2 },
+				{ 3, 2, 1 },
+				{ 3, 3, 0 } };
 
 		Group g = new Group(opTable);
 
@@ -57,10 +57,8 @@ public class GroupFixerDemo2
 		INaturalNumber XInv = new NaturalNumber();
 
 		IProblemMessage s = new Conjunction(
-				new Conjunction(new GroupFixer(g), new GroupIdentityer(g,
-						Identity), new NaturalNumberFixer(X, 3)),
-				new GroupInverser(g, X, XInv, Identity)).findModel(Problem
-				.defaultSolver());
+				new Conjunction(new GroupFixer(g), new GroupIdentityer(g, Identity), new NaturalNumberFixer(X, 3)),
+				new GroupInverser(g, X, XInv, Identity)).findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

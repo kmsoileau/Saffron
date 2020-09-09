@@ -42,12 +42,10 @@ public class BitArraySingleSetter extends Problem implements IProblem
 	public BitArraySingleSetter(IBooleanVariable[] array) throws Exception
 	{
 		if (array == null)
-			throw new BitArraySingleSetterException(
-					"Null array passed to constructor");
+			throw new BitArraySingleSetterException("Null array passed to constructor");
 		int bits = array.length;
 		if (bits == 0)
-			throw new BitArraySingleSetterException(
-					"Array of length zero passed to constructor");
+			throw new BitArraySingleSetterException("Array of length zero passed to constructor");
 
 		IProblem problem = Problem.newProblem();
 		IClause clause = Clause.newClause();
@@ -57,8 +55,7 @@ public class BitArraySingleSetter extends Problem implements IProblem
 
 		for (int i = 0; i < bits; i++)
 			for (int j = i + 1; j < bits; j++)
-				problem.addClause(Clause.newClause().orNot(array[i])
-						.orNot(array[j]));
+				problem.addClause(Clause.newClause().orNot(array[i]).orNot(array[j]));
 
 		this.setClauses(problem.getClauses());
 	}

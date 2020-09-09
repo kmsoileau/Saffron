@@ -49,18 +49,18 @@ public class GraphAsProblemDemo extends Problem implements IProblem
 	{
 		int[][] data = new int[][]
 		{
-		{ 0, 1 },
-		{ 0, 3 },
-		{ 1, 1 },
-		{ 1, 2 },
-		{ 1, 4 },
-		{ 2, 4 },
-		{ 2, 5 },
-		{ 3, 4 },
-		{ 4, 6 },
-		{ 5, 7 },
-		{ 6, 5 },
-		{ 6, 7 } };
+				{ 0, 1 },
+				{ 0, 3 },
+				{ 1, 1 },
+				{ 1, 2 },
+				{ 1, 4 },
+				{ 2, 4 },
+				{ 2, 5 },
+				{ 3, 4 },
+				{ 4, 6 },
+				{ 5, 7 },
+				{ 6, 5 },
+				{ 6, 7 } };
 
 		IDirectedGraph graph = new DirectedGraph("G", data);
 
@@ -71,18 +71,15 @@ public class GraphAsProblemDemo extends Problem implements IProblem
 		for (int startVertex = 0; startVertex < numberOfVertices; startVertex++)
 			for (int endVertex = 0; endVertex < numberOfVertices; endVertex++)
 			{
-				INaturalNumber StartVertex = new NaturalNumber("start",
-						startVertex);
+				INaturalNumber StartVertex = new NaturalNumber("start", startVertex);
 				INaturalNumber EndVertex = new NaturalNumber("end", endVertex);
 
 				IProblem graphFix = new GraphFixer(graph);
 				IProblem startFix = new NaturalNumberFixer(StartVertex);
 				IProblem endFix = new NaturalNumberFixer(EndVertex);
-				IProblem graphProb = new GraphAsProblem(graph, StartVertex,
-						EndVertex);
+				IProblem graphProb = new GraphAsProblem(graph, StartVertex, EndVertex);
 
-				IProblem problem = new Conjunction(graphFix, startFix, endFix,
-						graphProb);
+				IProblem problem = new Conjunction(graphFix, startFix, endFix, graphProb);
 
 				IProblemMessage s = problem.findModel(Problem.defaultSolver());
 

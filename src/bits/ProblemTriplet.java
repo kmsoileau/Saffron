@@ -60,7 +60,6 @@ public class ProblemTriplet
 	@Override
 	public String toString()
 	{
-		return "ProblemTriplet [first=" + first + ", second=" + second
-				+ ", third=" + third + "]";
+		return "ProblemTriplet [first=" + first + ", second=" + second + ", third=" + third + "]";
 	}
 }

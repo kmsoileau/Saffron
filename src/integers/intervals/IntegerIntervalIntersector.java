@@ -30,24 +30,18 @@ import integers.intervals.exceptions.IntegerIntervalIntersectorException;
  */
 public class IntegerIntervalIntersector extends Problem implements IProblem
 {
-	public IntegerIntervalIntersector(IInteger A, IInteger B, IInteger C,
-			IInteger D) throws Exception
+	public IntegerIntervalIntersector(IInteger A, IInteger B, IInteger C, IInteger D) throws Exception
 	{
 		if (A == null || B == null || C == null || D == null)
-			throw new IntegerIntervalIntersectorException(
-					"Null IInteger passed to constructor.");
+			throw new IntegerIntervalIntersectorException("Null IInteger passed to constructor.");
 
-		this.setClauses(new Conjunction(new IntegerOrderer(A, B),
-				new IntegerOrderer(C, D), new Disjunction(new Conjunction(
-						new IntegerOrderer(A, C), new IntegerOrderer(C, B)),
-						new Conjunction(new IntegerOrderer(C, A),
-								new IntegerOrderer(A, D)))).getClauses());
+		this.setClauses(new Conjunction(new IntegerOrderer(A, B), new IntegerOrderer(C, D),
+				new Disjunction(new Conjunction(new IntegerOrderer(A, C), new IntegerOrderer(C, B)),
+						new Conjunction(new IntegerOrderer(C, A), new IntegerOrderer(A, D)))).getClauses());
 	}
 
-	public IntegerIntervalIntersector(IIntegerInterval theOne,
-			IIntegerInterval theOther) throws Exception
+	public IntegerIntervalIntersector(IIntegerInterval theOne, IIntegerInterval theOther) throws Exception
 	{
-		this(theOne.getLower(), theOne.getUpper(), theOther.getLower(),
-				theOther.getUpper());
+		this(theOne.getLower(), theOne.getUpper(), theOther.getLower(), theOther.getUpper());
 	}
 }

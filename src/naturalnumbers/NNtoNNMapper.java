@@ -22,8 +22,7 @@ import bits.ProblemPair;
  */
 public class NNtoNNMapper extends Problem implements IProblem
 {
-	public static ArrayList<NaturalNumberPair> createPairs(int[][] data)
-			throws Exception
+	public static ArrayList<NaturalNumberPair> createPairs(int[][] data) throws Exception
 	{
 		HashMap<Integer, INaturalNumber> index = generateIndex(data);
 
@@ -39,18 +38,15 @@ public class NNtoNNMapper extends Problem implements IProblem
 		return pairs;
 	}
 
-	public static HashMap<Integer, INaturalNumber> generateIndex(int[][] data)
-			throws Exception
+	public static HashMap<Integer, INaturalNumber> generateIndex(int[][] data) throws Exception
 	{
 		HashMap<Integer, INaturalNumber> index = new HashMap<Integer, INaturalNumber>();
 		for (int i = 0; i < data.length; i++)
 		{
 			if (index.get(data[i][0]) == null)
-				index.put(data[i][0], new NaturalNumber("NN-" + data[i][0],
-						data[i][0]));
+				index.put(data[i][0], new NaturalNumber("NN-" + data[i][0], data[i][0]));
 			if (index.get(data[i][1]) == null)
-				index.put(data[i][1], new NaturalNumber("NN-" + data[i][1],
-						data[i][1]));
+				index.put(data[i][1], new NaturalNumber("NN-" + data[i][1], data[i][1]));
 		}
 
 		return index;
@@ -71,8 +67,7 @@ public class NNtoNNMapper extends Problem implements IProblem
 	public NNtoNNMapper(ArrayList<NaturalNumberPair> pairs) throws Exception
 	{
 		if (pairs == null)
-			throw new NNtoNNMapperException(
-					"Null NaturalNumberPair[] was passed to a constructor.");
+			throw new NNtoNNMapperException("Null NaturalNumberPair[] was passed to a constructor.");
 
 		this.pairs = pairs;
 
@@ -81,11 +76,9 @@ public class NNtoNNMapper extends Problem implements IProblem
 		{
 			INaturalNumber first = pairs.get(i).getFirst();
 			INaturalNumber second = pairs.get(i).getSecond();
-			pp[i] = new ProblemPair(new NaturalNumberEqualizer(X, first),
-					new NaturalNumberEqualizer(Y, second));
+			pp[i] = new ProblemPair(new NaturalNumberEqualizer(X, first), new NaturalNumberEqualizer(Y, second));
 
-			HashMap<INaturalNumber, IBooleanVariable> _first = lookup
-					.get(first);
+			HashMap<INaturalNumber, IBooleanVariable> _first = lookup.get(first);
 			if (_first == null)
 			{
 				_first = new HashMap<INaturalNumber, IBooleanVariable>();
@@ -122,8 +115,7 @@ public class NNtoNNMapper extends Problem implements IProblem
 		return Y;
 	}
 
-	public void setLookup(
-			HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> lu)
+	public void setLookup(HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> lu)
 	{
 		this.lookup = lu;
 	}

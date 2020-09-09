@@ -39,8 +39,7 @@ public class ClauseAsDataDemo extends Problem implements IProblem
 		IClauseAsData c1 = new ClauseAsData();
 		IClause clause1 = Clause.newClause().nor(A).or(B);
 		IClauseAsData c2 = new ClauseAsData();
-		IClause clause2 = Clause.randomClause(ClauseAsData.getVARIABLES()
-				.toArray(new IBooleanVariable[0]));
+		IClause clause2 = Clause.randomClause(ClauseAsData.getVARIABLES().toArray(new IBooleanVariable[0]));
 
 		IProblem prob1 = new ClauseAsDataDemo(c1, clause1);
 		IProblem prob2 = new ClauseAsDataDemo(c2, clause2);
@@ -78,13 +77,11 @@ public class ClauseAsDataDemo extends Problem implements IProblem
 				IBooleanLiteral v = clause.getLiteralAt(lit);
 				if (v.getBooleanVariable().equals(bv))
 				{
-					prob = new Conjunction(prob, new BitFixer(occurs, true),
-							new BitFixer(barred, v.isBarred()));
+					prob = new Conjunction(prob, new BitFixer(occurs, true), new BitFixer(barred, v.isBarred()));
 					continue label;
 				}
 			}
-			prob = new Conjunction(prob, new BitFixer(occurs, false),
-					new BitFixer(barred, false));
+			prob = new Conjunction(prob, new BitFixer(occurs, false), new BitFixer(barred, false));
 		}
 
 		this.setClauses(prob.getClauses());

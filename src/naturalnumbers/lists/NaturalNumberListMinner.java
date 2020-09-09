@@ -21,17 +21,14 @@ import naturalnumbers.NaturalNumberArrayMinner;
  */
 public class NaturalNumberListMinner extends Problem implements IProblem
 {
-	public NaturalNumberListMinner(INaturalNumberList d, INaturalNumber minEntry)
-			throws Exception
+	public NaturalNumberListMinner(INaturalNumberList d, INaturalNumber minEntry) throws Exception
 	{
-		this.setClauses(new NaturalNumberArrayMinner(d.getNaturalNumberArray(),
-				minEntry).getClauses());
+		this.setClauses(new NaturalNumberArrayMinner(d.getNaturalNumberArray(), minEntry).getClauses());
 	}
 
-	public NaturalNumberListMinner(INaturalNumberList d,
-			INaturalNumber minIndex, INaturalNumber minEntry) throws Exception
+	public NaturalNumberListMinner(INaturalNumberList d, INaturalNumber minIndex, INaturalNumber minEntry)
+			throws Exception
 	{
-		this.setClauses(new NaturalNumberArrayMinner(d.getNaturalNumberArray(),
-				minIndex, minEntry).getClauses());
+		this.setClauses(new NaturalNumberArrayMinner(d.getNaturalNumberArray(), minIndex, minEntry).getClauses());
 	}
 }

@@ -17,8 +17,8 @@ public class ProblemDenierDemo10
 		NaturalNumber.setLargestNaturalNumber(3);
 		INaturalNumber N = new NaturalNumber();
 
-		IProblem problem = new Disjunction(new NaturalNumberFixer(N, 0),
-				new NaturalNumberFixer(N, 1), new NaturalNumberFixer(N, 2));
+		IProblem problem = new Disjunction(new NaturalNumberFixer(N, 0), new NaturalNumberFixer(N, 1),
+				new NaturalNumberFixer(N, 2));
 		System.out.println(problem);
 
 		IProblem problemDenial = new ProblemDenier(problem);

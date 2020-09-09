@@ -24,8 +24,7 @@ package bits;
  */
 public class BitShefferStroker extends Problem implements IProblem
 {
-	public BitShefferStroker(IBooleanVariable x, IBooleanVariable y)
-			throws Exception
+	public BitShefferStroker(IBooleanVariable x, IBooleanVariable y) throws Exception
 	{
 		this.setClauses(new IClause[]
 		{ Clause.newClause().orNot(x).orNot(y) });

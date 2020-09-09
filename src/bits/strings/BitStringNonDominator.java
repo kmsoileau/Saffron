@@ -34,8 +34,7 @@ public class BitStringNonDominator extends Problem implements IProblem
 	public BitStringNonDominator(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() != Y.size())
-			throw new BitStringNonDominatorException(
-					"X and Y are not of equal size.");
+			throw new BitStringNonDominatorException("X and Y are not of equal size.");
 		else
 		{
 			int commonsize = X.size();
@@ -44,8 +43,7 @@ public class BitStringNonDominator extends Problem implements IProblem
 			{
 				IBooleanVariable currX = X.getBooleanVariable(i);
 				IBooleanVariable currY = Y.getBooleanVariable(i);
-				c[i] = new Conjunction(new BitFixer(currX, true), new BitFixer(
-						currY, false));
+				c[i] = new Conjunction(new BitFixer(currX, true), new BitFixer(currY, false));
 			}
 
 			this.setClauses(new Disjunction(c).getClauses());

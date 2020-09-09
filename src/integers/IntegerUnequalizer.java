@@ -32,7 +32,7 @@ public class IntegerUnequalizer extends Problem implements IProblem
 
 		// (xabs != yabs)||(xabs==yabs && xsign!=ysign)
 		this.setClauses(new Disjunction(new NaturalNumberUnequalizer(xabs, yabs),
-				new Conjunction(new NaturalNumberEqualizer(xabs, yabs),
-						new BitUnequalizer(X.getSign(), Y.getSign()))).getClauses());
+				new Conjunction(new NaturalNumberEqualizer(xabs, yabs), new BitUnequalizer(X.getSign(), Y.getSign())))
+						.getClauses());
 	}
 }

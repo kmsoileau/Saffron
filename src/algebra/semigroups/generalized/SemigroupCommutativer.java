@@ -24,8 +24,7 @@ public class SemigroupCommutativer extends MagmaCommutativer
 		super(smgrp);
 	}
 
-	public SemigroupCommutativer(Semigroup smgrp, INaturalNumber X, INaturalNumber Y)
-			throws Exception
+	public SemigroupCommutativer(Semigroup smgrp, INaturalNumber X, INaturalNumber Y) throws Exception
 	{
 		super(smgrp, X, Y);
 	}

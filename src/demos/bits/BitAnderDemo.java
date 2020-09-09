@@ -40,41 +40,35 @@ public class BitAnderDemo
 		System.out.println(v1);
 
 		// false & true = z has solution z = false:
-		IProblem p2 = new Conjunction(bitAnder1, new BitFixer(x, false),
-				new BitFixer(y, true));
+		IProblem p2 = new Conjunction(bitAnder1, new BitFixer(x, false), new BitFixer(y, true));
 		System.out.println(p2);
 		IProblemMessage v2 = p2.findModel(Problem.defaultSolver());
 		System.out.println(v2);
 
 		// true & false = z has solution z = false:
-		IProblem p3 = new Conjunction(bitAnder1, new BitFixer(x, true),
-				new BitFixer(y, false));
+		IProblem p3 = new Conjunction(bitAnder1, new BitFixer(x, true), new BitFixer(y, false));
 		System.out.println(p3);
 		IProblemMessage v3 = p3.findModel(Problem.defaultSolver());
 		System.out.println(v3);
 
 		// true & true = z has solution z = true:
-		IProblem p4 = new Conjunction(bitAnder1, new BitFixer(x, true),
-				new BitFixer(y, true));
+		IProblem p4 = new Conjunction(bitAnder1, new BitFixer(x, true), new BitFixer(y, true));
 		System.out.println(p4);
 		IProblemMessage v4 = p4.findModel(Problem.defaultSolver());
 		System.out.println(v4);
 
 		// true & y = true has solution y = true:
-		IProblem p5 = new Conjunction(bitAnder1, new BitFixer(x, true),
-				new BitFixer(z, true));
+		IProblem p5 = new Conjunction(bitAnder1, new BitFixer(x, true), new BitFixer(z, true));
 		System.out.println(p5);
 		IProblemMessage v5 = p5.findModel(Problem.defaultSolver());
 		System.out.println(v5);
 
 		// true & y = false has solution y = false:
-		IProblem p6 = new Conjunction(bitAnder1, new BitFixer(x, true),
-				new BitFixer(z, false));
+		IProblem p6 = new Conjunction(bitAnder1, new BitFixer(x, true), new BitFixer(z, false));
 		System.out.println(p6);
 		IProblemMessage v6 = p6.findModel(Problem.defaultSolver());
 		System.out.println(v6);
-		BooleanLiteral.interpret(p6.findModel(Problem.defaultSolver())
-				.getLiterals());
+		BooleanLiteral.interpret(p6.findModel(Problem.defaultSolver()).getLiterals());
 		System.out.println("----!------------");
 		System.out.println("x = " + x.getValue());
 		System.out.println("y = " + y.getValue());
@@ -85,11 +79,9 @@ public class BitAnderDemo
 		System.out.println(rp);
 
 		// false & y = true has no solution:
-		IProblem p7 = new Conjunction(bitAnder1, new BitFixer(x, false),
-				new BitFixer(z, true));
+		IProblem p7 = new Conjunction(bitAnder1, new BitFixer(x, false), new BitFixer(z, true));
 		System.out.println(p7);
-		List<IBooleanLiteral> s = p7.findModel(Problem.defaultSolver())
-				.getLiterals();
+		List<IBooleanLiteral> s = p7.findModel(Problem.defaultSolver()).getLiterals();
 
 		System.out.println(s);
 	}

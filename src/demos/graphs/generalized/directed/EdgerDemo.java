@@ -32,34 +32,31 @@ public class EdgerDemo
 	{
 		int[][] data = new int[][]
 		{
-		{ 0, 1 },
-		{ 0, 3 },
-		{ 1, 1 },
-		{ 1, 2 },
-		{ 1, 4 },
-		{ 2, 4 },
-		{ 2, 5 },
-		{ 3, 4 },
-		{ 4, 6 },
-		{ 5, 7 },
-		{ 6, 5 },
-		{ 6, 7 } };
+				{ 0, 1 },
+				{ 0, 3 },
+				{ 1, 1 },
+				{ 1, 2 },
+				{ 1, 4 },
+				{ 2, 4 },
+				{ 2, 5 },
+				{ 3, 4 },
+				{ 4, 6 },
+				{ 5, 7 },
+				{ 6, 5 },
+				{ 6, 7 } };
 
-		IDirectedGraph graph = new DirectedGraph("G",
-				data);
+		IDirectedGraph graph = new DirectedGraph("G", data);
 
 		System.out.println(graph);
 
 		INaturalNumber predecessor = graph.getVertices().get(6);
 		INaturalNumber successor = graph.getVertices().get(7);
 
-		IProblem predsProblem = new Conjunction(new NaturalNumberFixer(
-				predecessor), new NaturalNumberFixer(successor));
+		IProblem predsProblem = new Conjunction(new NaturalNumberFixer(predecessor), new NaturalNumberFixer(successor));
 		IProblem graphProblem = new GraphFixer(graph);
 		IProblem edgeProblem = new GraphEdger(graph, predecessor, successor);
 
-		IProblem problem = new Conjunction(graphProblem, predsProblem,
-				edgeProblem);
+		IProblem problem = new Conjunction(graphProblem, predsProblem, edgeProblem);
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

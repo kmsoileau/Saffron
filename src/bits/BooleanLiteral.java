@@ -29,29 +29,24 @@ public class BooleanLiteral implements IBooleanLiteral
 	private static HashSet<IBooleanLiteral> instances = new HashSet<IBooleanLiteral>();
 
 	/**
-	 * Rather than providing a public constructor for the BooleanLiteral class,
-	 * a static factory method is instead provided. This is to avoid duplication
-	 * of a already-existing IBooleanLiteral. The <code>HashSet instances</code>
-	 * is searched to determine whether an IBooleanLiteral with the desired
-	 * internal IBooleanVariable and barred-ness already exists; if it does, the
-	 * instance is returned. If not, the private constructor is used to create
-	 * the desired IBooleanLiteral, which is then added to the
-	 * <code>HashSet instances</code> and is returned.
+	 * Rather than providing a public constructor for the BooleanLiteral class, a
+	 * static factory method is instead provided. This is to avoid duplication of a
+	 * already-existing IBooleanLiteral. The <code>HashSet instances</code> is
+	 * searched to determine whether an IBooleanLiteral with the desired internal
+	 * IBooleanVariable and barred-ness already exists; if it does, the instance is
+	 * returned. If not, the private constructor is used to create the desired
+	 * IBooleanLiteral, which is then added to the <code>HashSet instances</code>
+	 * and is returned.
 	 * 
-	 * @param bv
-	 *            An IBooleanVariable
-	 * @param barred
-	 *            A boolean
+	 * @param bv     An IBooleanVariable
+	 * @param barred A boolean
 	 * @return IBooleanLiteral
-	 * @throws BooleanLiteralException
-	 *             An instance of Exception
+	 * @throws BooleanLiteralException An instance of Exception
 	 */
-	public static IBooleanLiteral getBooleanLiteral(IBooleanVariable bv,
-			boolean barred) throws BooleanLiteralException
+	public static IBooleanLiteral getBooleanLiteral(IBooleanVariable bv, boolean barred) throws BooleanLiteralException
 	{
 		if (bv == null)
-			throw new BooleanLiteralException(
-					"Null IBooleanVariable was passed to getBooleanLiteral method.");
+			throw new BooleanLiteralException("Null IBooleanVariable was passed to getBooleanLiteral method.");
 		else
 		{
 			Object[] inarray = BooleanLiteral.getInstances().toArray();
@@ -59,8 +54,7 @@ public class BooleanLiteral implements IBooleanLiteral
 			for (int i = 0; i < inarray.length; i++)
 			{
 				IBooleanLiteral nx = (IBooleanLiteral) (inarray[i]);
-				if (nx.isBarred() == barred && nx.getBooleanVariable() != null
-						&& nx.getBooleanVariable().equals(bv))
+				if (nx.isBarred() == barred && nx.getBooleanVariable() != null && nx.getBooleanVariable().equals(bv))
 					return nx;
 			}
 			return new BooleanLiteral(bv, barred);
@@ -75,8 +69,7 @@ public class BooleanLiteral implements IBooleanLiteral
 	public static void interpret(List<?> list) throws BooleanLiteralException
 	{
 		if (list == null)
-			throw new BooleanLiteralException(
-					"Null List was passed to interpret method.");
+			throw new BooleanLiteralException("Null List was passed to interpret method.");
 		else
 			for (int i = 0; i < list.size(); i++)
 			{
@@ -84,8 +77,7 @@ public class BooleanLiteral implements IBooleanLiteral
 				try
 				{
 					ibool.load();
-				}
-				catch (Exception err)
+				} catch (Exception err)
 				{
 				}
 			}
@@ -93,8 +85,7 @@ public class BooleanLiteral implements IBooleanLiteral
 
 	public static void listLiterals()
 	{
-		IBooleanLiteral[] ary = BooleanLiteral.getInstances().toArray(
-				new BooleanLiteral[0]);
+		IBooleanLiteral[] ary = BooleanLiteral.getInstances().toArray(new BooleanLiteral[0]);
 		List<IBooleanLiteral> lis = Arrays.asList(ary);
 		Collections.sort(lis);
 		System.out.println(lis);
@@ -104,16 +95,13 @@ public class BooleanLiteral implements IBooleanLiteral
 	 * Clear all of the values of the IBooleanVariables involved in
 	 * <code>list</code>.
 	 * 
-	 * @param list
-	 *            A List of IBooleanVariables
-	 * @throws BooleanLiteralException
-	 *             An instance of Exception
+	 * @param list A List of IBooleanVariables
+	 * @throws BooleanLiteralException An instance of Exception
 	 */
 	public static void reset(List<?> list) throws BooleanLiteralException
 	{
 		if (list == null)
-			throw new BooleanLiteralException(
-					"Null List was passed to reset method.");
+			throw new BooleanLiteralException("Null List was passed to reset method.");
 		else
 			for (int i = 0; i < list.size(); i++)
 			{
@@ -121,8 +109,7 @@ public class BooleanLiteral implements IBooleanLiteral
 				try
 				{
 					ibool.getBooleanVariable().setValue(false);
-				}
-				catch (Exception err)
+				} catch (Exception err)
 				{
 				}
 			}
@@ -132,12 +119,10 @@ public class BooleanLiteral implements IBooleanLiteral
 
 	private IBooleanVariable BV;
 
-	private BooleanLiteral(IBooleanVariable bv, boolean barred)
-			throws BooleanLiteralException
+	private BooleanLiteral(IBooleanVariable bv, boolean barred) throws BooleanLiteralException
 	{
 		if (bv == null)
-			throw new BooleanLiteralException(
-					"Null IBooleanVariable was passed to constructor.");
+			throw new BooleanLiteralException("Null IBooleanVariable was passed to constructor.");
 		this.BV = bv;
 		this.barred = barred;
 		BooleanLiteral.getInstances().add(this);
@@ -161,8 +146,7 @@ public class BooleanLiteral implements IBooleanLiteral
 	@Override
 	public IBooleanLiteral complement() throws BooleanLiteralException
 	{
-		return BooleanLiteral.getBooleanLiteral(this.getBooleanVariable(),
-				!(this.barred));
+		return BooleanLiteral.getBooleanLiteral(this.getBooleanVariable(), !(this.barred));
 	}
 
 	/**
@@ -224,8 +208,7 @@ public class BooleanLiteral implements IBooleanLiteral
 		this.getBooleanVariable().setValue(!this.isBarred());
 	}
 
-	public ArrayList<ArrayList<IBooleanLiteral>> multiply(
-			ArrayList<ArrayList<IBooleanLiteral>> a,
+	public ArrayList<ArrayList<IBooleanLiteral>> multiply(ArrayList<ArrayList<IBooleanLiteral>> a,
 			ArrayList<ArrayList<IBooleanLiteral>> b)
 	{
 		ArrayList<ArrayList<IBooleanLiteral>> ret = new ArrayList<ArrayList<IBooleanLiteral>>();
@@ -249,12 +232,10 @@ public class BooleanLiteral implements IBooleanLiteral
 		this.barred = barred;
 	}
 
-	public void setBooleanVariable(IBooleanVariable BV)
-			throws BooleanLiteralException
+	public void setBooleanVariable(IBooleanVariable BV) throws BooleanLiteralException
 	{
 		if (BV == null)
-			throw new BooleanLiteralException(
-					"Null IBooleanVariable was passed to setBooleanVariable method.");
+			throw new BooleanLiteralException("Null IBooleanVariable was passed to setBooleanVariable method.");
 		else
 			this.BV = BV;
 	}
@@ -277,12 +258,10 @@ public class BooleanLiteral implements IBooleanLiteral
 	}
 
 	@Override
-	public String toString(List<IBooleanLiteral> l)
-			throws BooleanLiteralException
+	public String toString(List<IBooleanLiteral> l) throws BooleanLiteralException
 	{
 		if (l == null)
-			throw new BooleanLiteralException(
-					"Null List was passed to toString method.");
+			throw new BooleanLiteralException("Null List was passed to toString method.");
 		else
 		{
 			BooleanLiteral.interpret(l);

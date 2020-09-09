@@ -38,10 +38,8 @@ public class NaturalNumberBitMultiplyDemo2
 		Y[3] = new NaturalNumber("y3");
 
 		IProblem p = new Conjunction(new IProblem[]
-		{ new BitFixer(b[0]), new BitFixer(b[1]), new BitFixer(b[2]),
-				new BitFixer(b[3]), new NaturalNumberFixer(X[0]),
-				new NaturalNumberFixer(X[1]), new NaturalNumberFixer(X[2]),
-				new NaturalNumberFixer(X[3]),
+		{ new BitFixer(b[0]), new BitFixer(b[1]), new BitFixer(b[2]), new BitFixer(b[3]), new NaturalNumberFixer(X[0]),
+				new NaturalNumberFixer(X[1]), new NaturalNumberFixer(X[2]), new NaturalNumberFixer(X[3]),
 				new NaturalNumberBitMultiply(b, X, Y) });
 
 		IProblemMessage s = p.findModel(Problem.defaultSolver());

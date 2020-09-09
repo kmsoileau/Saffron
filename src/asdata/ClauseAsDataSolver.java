@@ -15,8 +15,7 @@ public class ClauseAsDataSolver extends Problem implements IProblem
 	{
 		IProblem prob = null;
 		for (IBooleanVariable bv : ClauseAsData.getVARIABLES())
-			prob = new Disjunction(prob, new Conjunction(new BitFixer(
-					dataclauses.occurrenceIndicator(bv), true),
+			prob = new Disjunction(prob, new Conjunction(new BitFixer(dataclauses.occurrenceIndicator(bv), true),
 					new BitUnequalizer(bv, dataclauses.barredIndicator(bv))));
 		this.setClauses(prob.getClauses());
 	}

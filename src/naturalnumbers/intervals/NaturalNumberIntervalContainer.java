@@ -21,12 +21,10 @@ import naturalnumbers.NaturalNumberOrderer;
  */
 public class NaturalNumberIntervalContainer extends Problem implements IProblem
 {
-	public NaturalNumberIntervalContainer(INaturalNumberInterval X,
-			INaturalNumberInterval Y) throws Exception
+	public NaturalNumberIntervalContainer(INaturalNumberInterval X, INaturalNumberInterval Y) throws Exception
 	{
-		IProblem p = new Conjunction(new NaturalNumberOrderer(Y.getLower(),
-				X.getLower()), new NaturalNumberOrderer(X.getUpper(),
-				Y.getUpper()));
+		IProblem p = new Conjunction(new NaturalNumberOrderer(Y.getLower(), X.getLower()),
+				new NaturalNumberOrderer(X.getUpper(), Y.getUpper()));
 
 		this.setClauses(p.getClauses());
 	}

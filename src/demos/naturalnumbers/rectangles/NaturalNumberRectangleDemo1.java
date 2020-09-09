@@ -22,8 +22,7 @@ public class NaturalNumberRectangleDemo1
 		INaturalNumberRectangle rect = new NaturalNumberRectangle("rect");
 
 		IProblem[] p = new IProblem[]
-		{ new NaturalNumberIntervalFixer(A, 3, 6),
-				new NaturalNumberIntervalFixer(B, 6, 10),
+		{ new NaturalNumberIntervalFixer(A, 3, 6), new NaturalNumberIntervalFixer(B, 6, 10),
 				new NaturalNumberRectangleFixer(rect, A, B) };
 
 		IProblem problem = new Conjunction(p);

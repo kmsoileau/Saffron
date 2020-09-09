@@ -28,27 +28,23 @@ import naturalnumbers.intervals.exceptions.NaturalNumberIntervalDisjointerExcept
  * @version 1.0
  * @since 2018/11/27
  */
-public class NaturalNumberIntervalDisjointer extends Problem implements
-		IProblem
+public class NaturalNumberIntervalDisjointer extends Problem implements IProblem
 {
-	public NaturalNumberIntervalDisjointer(INaturalNumber A, INaturalNumber B,
-			INaturalNumber C, INaturalNumber D) throws Exception
+	public NaturalNumberIntervalDisjointer(INaturalNumber A, INaturalNumber B, INaturalNumber C, INaturalNumber D)
+			throws Exception
 	{
 		if (A == null || B == null || C == null || D == null)
-			throw new NaturalNumberIntervalDisjointerException(
-					"Null INaturalNumber passed to constructor.");
-		
-		this.setClauses(new Conjunction(new NaturalNumberOrderer(A, B),
-				new NaturalNumberOrderer(C, D), new Disjunction(
-						new NaturalNumberStrictOrderer(B, C),
-						new NaturalNumberStrictOrderer(D, A))).getClauses());
+			throw new NaturalNumberIntervalDisjointerException("Null INaturalNumber passed to constructor.");
+
+		this.setClauses(new Conjunction(new NaturalNumberOrderer(A, B), new NaturalNumberOrderer(C, D),
+				new Disjunction(new NaturalNumberStrictOrderer(B, C), new NaturalNumberStrictOrderer(D, A)))
+						.getClauses());
 	}
 
-	public NaturalNumberIntervalDisjointer(INaturalNumberInterval theOne,
-			INaturalNumberInterval theOther) throws Exception
+	public NaturalNumberIntervalDisjointer(INaturalNumberInterval theOne, INaturalNumberInterval theOther)
+			throws Exception
 	{
-		this(theOne.getLower(), theOne.getUpper(), theOther.getLower(),
-				theOther.getUpper());
+		this(theOne.getLower(), theOne.getUpper(), theOther.getLower(), theOther.getUpper());
 	}
 }
 

@@ -37,15 +37,13 @@ public class IntegerArrayMaxer extends Problem implements IProblem
 					continue;
 				p[index++] = new IntegerOrderer(d[j], cand);
 			}
-			q[i] = new Conjunction(new Conjunction(p), new IntegerEqualizer(
-					maxEntry, cand));
+			q[i] = new Conjunction(new Conjunction(p), new IntegerEqualizer(maxEntry, cand));
 		}
 
 		this.setClauses(new Disjunction(q).getClauses());
 	}
 
-	public IntegerArrayMaxer(IInteger[] d, IInteger maxIndex, IInteger maxEntry)
-			throws Exception
+	public IntegerArrayMaxer(IInteger[] d, IInteger maxIndex, IInteger maxEntry) throws Exception
 	{
 		int n = d.length;
 
@@ -61,8 +59,8 @@ public class IntegerArrayMaxer extends Problem implements IProblem
 					continue;
 				p[index++] = new IntegerOrderer(d[j], cand);
 			}
-			q[i] = new Conjunction(new Conjunction(p), new IntegerFixer(
-					maxIndex, i), new IntegerEqualizer(maxEntry, cand));
+			q[i] = new Conjunction(new Conjunction(p), new IntegerFixer(maxIndex, i),
+					new IntegerEqualizer(maxEntry, cand));
 		}
 
 		this.setClauses(new Disjunction(q).getClauses());

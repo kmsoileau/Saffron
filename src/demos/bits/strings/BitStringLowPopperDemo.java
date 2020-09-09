@@ -35,15 +35,13 @@ public class BitStringLowPopperDemo
 				value = true;
 			else
 				value = false;
-			X.setBooleanVariable(i,
-					BooleanVariable.getBooleanVariable(X.getName() + "_" + i));
+			X.setBooleanVariable(i, BooleanVariable.getBooleanVariable(X.getName() + "_" + i));
 			pfix.add(new BitFixer(X.getBooleanVariable(i), value));
 		}
 
 		IBitString Y = new BitString("Y", new IBooleanVariable[3]);
 		for (int i = 0; i < Y.size(); i++)
-			Y.setBooleanVariable(i,
-					BooleanVariable.getBooleanVariable(Y.getName() + "_" + i));
+			Y.setBooleanVariable(i, BooleanVariable.getBooleanVariable(Y.getName() + "_" + i));
 
 		IProblem fix = new Conjunction(pfix);
 

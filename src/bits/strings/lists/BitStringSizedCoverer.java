@@ -17,28 +17,23 @@ import naturalnumbers.BitStringTotaler;
  */
 public class BitStringSizedCoverer extends Problem implements IProblem
 {
-	public BitStringSizedCoverer(IBitStringList C, IBitString included,
-			INaturalNumber K) throws Exception
+	public BitStringSizedCoverer(IBitStringList C, IBitString included, INaturalNumber K) throws Exception
 	{
 		if (C == null)
-			throw new BitStringCovererException(
-					"Null passed to constructor as IBitStringList.");
+			throw new BitStringCovererException("Null passed to constructor as IBitStringList.");
 		if (included == null)
-			throw new BitStringCovererException(
-					"Null passed to constructor as IBitString.");
+			throw new BitStringCovererException("Null passed to constructor as IBitString.");
 		if (K == null)
-			throw new BitStringCovererException(
-					"Null passed to constructor as INaturalNumber.");
+			throw new BitStringCovererException("Null passed to constructor as INaturalNumber.");
 		if (C.size() == 0)
-			throw new BitStringCovererException(
-					"IBitStringList of zero size passed to constructor.");
+			throw new BitStringCovererException("IBitStringList of zero size passed to constructor.");
 		int len = C.getBitString(0).size();
 		IBitString conditionalResult = new BitString(len);
 		for (int i = 0; i < len; i++)
 			conditionalResult.getBooleanVariable(i).setValue(true);
 
-		this.setClauses(new Conjunction(new BitStringArrayCoverer(C, included),
-				new BitStringTotaler(included, K)).getClauses());
+		this.setClauses(new Conjunction(new BitStringArrayCoverer(C, included), new BitStringTotaler(included, K))
+				.getClauses());
 	}
 
 }

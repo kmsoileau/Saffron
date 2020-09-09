@@ -19,8 +19,7 @@ public class BitTableDemo
 		IBitTable bt = new BitTable("Kerry", new BooleanVariable[7][13]);
 		for (int row = 0; row < bt.numberRows(); row++)
 			for (int column = 0; column < bt.numberColumns(); column++)
-				bt.setBooleanVariable(row, column,
-						BooleanVariable.getBooleanVariable());
+				bt.setBooleanVariable(row, column, BooleanVariable.getBooleanVariable());
 		System.out.println(bt);
 	}
 }

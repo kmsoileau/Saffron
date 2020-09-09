@@ -24,20 +24,17 @@ import naturalnumbers.NaturalNumberUnequalizer;
  */
 public class MapColorer extends Problem implements IProblem
 {
-	public MapColorer(IUndirectedGraph skeleton, int numberOfColors,
-			INaturalNumber[] coloring) throws Exception
+	public MapColorer(IUndirectedGraph skeleton, int numberOfColors, INaturalNumber[] coloring) throws Exception
 	{
 		if (skeleton == null)
 			throw new MapColorerException("Null IGraph passed to constructor.");
 		if (numberOfColors < 1)
 			throw new MapColorerException("Bad int passed to constructor.");
 		if (coloring == null)
-			throw new MapColorerException(
-					"Null INaturalNumber[] passed to constructor.");
+			throw new MapColorerException("Null INaturalNumber[] passed to constructor.");
 		if (skeleton.size() != coloring.length)
 			throw new MapColorerException(
-					"In constructor, the length of the INaturalNumber[] does "
-							+ "not match the size of the IGraph.");
+					"In constructor, the length of the INaturalNumber[] does " + "not match the size of the IGraph.");
 
 		IProblem graphProblem = new GraphFixer(skeleton);
 
@@ -62,14 +59,12 @@ public class MapColorer extends Problem implements IProblem
 					continue;
 				if (skeleton.areConnected(i, j))
 				{
-					pList.add(new NaturalNumberUnequalizer(coloring[i],
-							coloring[j]));
+					pList.add(new NaturalNumberUnequalizer(coloring[i], coloring[j]));
 				}
 			}
 		IProblem coloringProblem = new Conjunction(pList);
 
-		IProblem problem = new Conjunction(graphProblem, pensFix,
-				paletteProblem, coloringProblem);
+		IProblem problem = new Conjunction(graphProblem, pensFix, paletteProblem, coloringProblem);
 
 		this.setClauses(problem.getClauses());
 	}

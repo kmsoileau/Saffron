@@ -36,29 +36,28 @@ public class KleinVierGruppeDemo
 
 		int[][] opTable = new int[][]
 		{
-		{ 0, 0, 0 },
-		{ 0, 1, 1 },
-		{ 0, 2, 2 },
-		{ 0, 3, 3 },
-		{ 1, 0, 1 },
-		{ 1, 1, 0 },
-		{ 1, 2, 3 },
-		{ 1, 3, 2 },
-		{ 2, 0, 2 },
-		{ 2, 1, 3 },
-		{ 2, 2, 0 },
-		{ 2, 3, 1 },
-		{ 3, 0, 3 },
-		{ 3, 1, 2 },
-		{ 3, 2, 1 },
-		{ 3, 3, 0 } };
+				{ 0, 0, 0 },
+				{ 0, 1, 1 },
+				{ 0, 2, 2 },
+				{ 0, 3, 3 },
+				{ 1, 0, 1 },
+				{ 1, 1, 0 },
+				{ 1, 2, 3 },
+				{ 1, 3, 2 },
+				{ 2, 0, 2 },
+				{ 2, 1, 3 },
+				{ 2, 2, 0 },
+				{ 2, 3, 1 },
+				{ 3, 0, 3 },
+				{ 3, 1, 2 },
+				{ 3, 2, 1 },
+				{ 3, 3, 0 } };
 
 		Grouper group = new Grouper(opTable, E1, E2, E3);
 
 		System.out.println(group);
 
-		IProblem problem = new Conjunction(group,
-				new NaturalNumberFixer(E1, 1), new NaturalNumberFixer(E3, 2));
+		IProblem problem = new Conjunction(group, new NaturalNumberFixer(E1, 1), new NaturalNumberFixer(E3, 2));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

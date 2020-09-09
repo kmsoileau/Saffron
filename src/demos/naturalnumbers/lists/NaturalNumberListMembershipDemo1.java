@@ -33,10 +33,8 @@ public class NaturalNumberListMembershipDemo1
 {
 	public static void main(String[] args) throws Exception
 	{
-		INaturalNumberList bsl = new NaturalNumberList("slist",
-				new INaturalNumber[]
-				{ new NaturalNumber(100), new NaturalNumber(2),
-						new NaturalNumber(3) });
+		INaturalNumberList bsl = new NaturalNumberList("slist", new INaturalNumber[]
+		{ new NaturalNumber(100), new NaturalNumber(2), new NaturalNumber(3) });
 		System.out.println(bsl);
 
 		INaturalNumber string = new NaturalNumber("string");

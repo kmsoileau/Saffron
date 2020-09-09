@@ -43,8 +43,7 @@ public class BitStringListRepeater extends Problem implements IProblem
 		{
 			IBitString b = list.getBitString(i);
 			for (int j = i + 1; j < list.size(); j++)
-				p = new Disjunction(p, new BitStringEqualizer(b,
-						list.getBitString(j)));
+				p = new Disjunction(p, new BitStringEqualizer(b, list.getBitString(j)));
 		}
 		if (p == null)
 			this.setClauses((IClause[]) null);

@@ -26,9 +26,9 @@ class BiPather extends Problem implements IProblem
 
 	public BiPather(IGraph g, int start, int link, int finish) throws Exception
 	{
-		this.setClauses(new Conjunction(new BitFixer(g.getData(start, link),
-				true), new BitFixer(g.getData(link, finish), true))
-				.getClauses());
+		this.setClauses(
+				new Conjunction(new BitFixer(g.getData(start, link), true), new BitFixer(g.getData(link, finish), true))
+						.getClauses());
 	}
 }
 
@@ -53,14 +53,11 @@ public class GraphSquarer extends Problem implements IProblem
 			for (int j = 0; j < g.size(); j++)
 			{
 				// G2.getData(i, j)==true => BiPath(G, i, j)
-				p.add(new Conjunction(new Disjunction(new BitFixer(G2.getData(
-						i, j), false), new BiPather(g, i, j)), new Disjunction(
-						new BitFixer(G2.getData(i, j), true), new NoBiPather(g,
-								i, j))));
+				p.add(new Conjunction(new Disjunction(new BitFixer(G2.getData(i, j), false), new BiPather(g, i, j)),
+						new Disjunction(new BitFixer(G2.getData(i, j), true), new NoBiPather(g, i, j))));
 			}
 
-		this.setClauses(new Conjunction(new GraphMerger(g, G2, gSquared),
-				new Conjunction(p)).getClauses());
+		this.setClauses(new Conjunction(new GraphMerger(g, G2, gSquared), new Conjunction(p)).getClauses());
 	}
 }
 
@@ -80,11 +77,9 @@ class NoBiPather extends Problem implements IProblem
 		this.setClauses(new Conjunction(p).getClauses());
 	}
 
-	public NoBiPather(IGraph g, int start, int link, int finish)
-			throws Exception
+	public NoBiPather(IGraph g, int start, int link, int finish) throws Exception
 	{
-		this.setClauses(new Disjunction(new BitFixer(g.getData(start, link),
-				false), new BitFixer(g.getData(link, finish), false))
-				.getClauses());
+		this.setClauses(new Disjunction(new BitFixer(g.getData(start, link), false),
+				new BitFixer(g.getData(link, finish), false)).getClauses());
 	}
 }

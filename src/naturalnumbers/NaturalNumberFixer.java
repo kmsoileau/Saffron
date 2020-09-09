@@ -24,8 +24,7 @@ import naturalnumbers.exceptions.NaturalNumberFixerException;
  */
 public class NaturalNumberFixer extends Problem implements IProblem
 {
-	public NaturalNumberFixer(ArrayList<NaturalNumberPair> pairs)
-			throws Exception
+	public NaturalNumberFixer(ArrayList<NaturalNumberPair> pairs) throws Exception
 	{
 		IProblem[] p = new IProblem[pairs.size()];
 		for (int i = 0; i < pairs.size(); i++)
@@ -36,8 +35,7 @@ public class NaturalNumberFixer extends Problem implements IProblem
 		this.setClauses(new Conjunction(p).getClauses());
 	}
 
-	public NaturalNumberFixer(Collection<INaturalNumber> values)
-			throws Exception
+	public NaturalNumberFixer(Collection<INaturalNumber> values) throws Exception
 	{
 		ArrayList<IProblem> p = new ArrayList<IProblem>();
 		for (INaturalNumber curr : values)
@@ -51,23 +49,18 @@ public class NaturalNumberFixer extends Problem implements IProblem
 	public NaturalNumberFixer(INaturalNumber n) throws Exception
 	{
 		if (n == null)
-			throw new NaturalNumberFixerException(
-					"A null INaturalNumber was passed to a constructor.");
+			throw new NaturalNumberFixerException("A null INaturalNumber was passed to a constructor.");
 		IProblem problem = new NaturalNumberBitFixer(n);
 		this.setClauses(problem.getClauses());
 	}
 
-	public NaturalNumberFixer(INaturalNumber b, boolean[] bitArray)
-			throws Exception
+	public NaturalNumberFixer(INaturalNumber b, boolean[] bitArray) throws Exception
 	{
 		if (b == null)
-			throw new NaturalNumberFixerException(
-					"A null INaturalNumber was passed to a constructor.");
+			throw new NaturalNumberFixerException("A null INaturalNumber was passed to a constructor.");
 		if (bitArray == null)
-			throw new NaturalNumberFixerException(
-					"A null bitArray was passed to a constructor.");
-		NaturalNumberBitFixer[] bnnbf = new NaturalNumberBitFixer[NaturalNumber
-				.getLength()];
+			throw new NaturalNumberFixerException("A null bitArray was passed to a constructor.");
+		NaturalNumberBitFixer[] bnnbf = new NaturalNumberBitFixer[NaturalNumber.getLength()];
 		int a = bitArray.length;
 		if (a != bnnbf.length)
 			throw (new NaturalNumberFixerException(
@@ -82,23 +75,16 @@ public class NaturalNumberFixer extends Problem implements IProblem
 
 	public NaturalNumberFixer(INaturalNumber b, long n) throws Exception
 	{
-		this(
-				b,
-				((INumber) new Number(new Number(n), NaturalNumber.getLength()))
-						.getBitArray());
+		this(b, ((INumber) new Number(new Number(n), NaturalNumber.getLength())).getBitArray());
 	}
 
-	public NaturalNumberFixer(INaturalNumber b, String bitString)
-			throws Exception
+	public NaturalNumberFixer(INaturalNumber b, String bitString) throws Exception
 	{
 		if (b == null)
-			throw new NaturalNumberFixerException(
-					"A null INaturalNumber was passed to a constructor.");
+			throw new NaturalNumberFixerException("A null INaturalNumber was passed to a constructor.");
 		if (bitString == null)
-			throw new NaturalNumberFixerException(
-					"A null bitString was passed to a constructor.");
-		NaturalNumberBitFixer[] bnnbf = new NaturalNumberBitFixer[bitString
-				.length()];
+			throw new NaturalNumberFixerException("A null bitString was passed to a constructor.");
+		NaturalNumberBitFixer[] bnnbf = new NaturalNumberBitFixer[bitString.length()];
 		for (int i = 0; i < bnnbf.length; i++)
 			if (bitString.charAt(bnnbf.length - 1 - i) == '1')
 				bnnbf[i] = new NaturalNumberBitFixer(b, i, true);
@@ -116,22 +102,18 @@ public class NaturalNumberFixer extends Problem implements IProblem
 		this.setClauses(new Conjunction(p).getClauses());
 	}
 
-	public NaturalNumberFixer(NaturalNumberPair naturalNumberPair)
-			throws Exception
+	public NaturalNumberFixer(NaturalNumberPair naturalNumberPair) throws Exception
 	{
-		IProblem problem = new Conjunction(new NaturalNumberFixer(
-				naturalNumberPair.getFirst()), new NaturalNumberFixer(
-				naturalNumberPair.getSecond()));
+		IProblem problem = new Conjunction(new NaturalNumberFixer(naturalNumberPair.getFirst()),
+				new NaturalNumberFixer(naturalNumberPair.getSecond()));
 		this.setClauses(problem.getClauses());
 	}
 
-	public NaturalNumberFixer(NaturalNumberTriple naturalNumberTriple)
-			throws Exception
+	public NaturalNumberFixer(NaturalNumberTriple naturalNumberTriple) throws Exception
 	{
-		IProblem problem = new Conjunction(new NaturalNumberFixer(
-				naturalNumberTriple.getFirst()), new NaturalNumberFixer(
-				naturalNumberTriple.getSecond()), new NaturalNumberFixer(
-				naturalNumberTriple.getThird()));
+		IProblem problem = new Conjunction(new NaturalNumberFixer(naturalNumberTriple.getFirst()),
+				new NaturalNumberFixer(naturalNumberTriple.getSecond()),
+				new NaturalNumberFixer(naturalNumberTriple.getThird()));
 		this.setClauses(problem.getClauses());
 	}
 

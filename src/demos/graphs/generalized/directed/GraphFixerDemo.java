@@ -10,7 +10,6 @@
  */
 package demos.graphs.generalized.directed;
 
-
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IProblemMessage;
@@ -31,26 +30,25 @@ public class GraphFixerDemo
 	{
 		int[][] data = new int[][]
 		{
-		{ 0, 1 },
-		{ 0, 3 },
-		{ 1, 1 },
-		{ 1, 2 },
-		{ 1, 4 },
-		{ 2, 4 },
-		{ 2, 5 },
-		{ 3, 7 },
-		{ 4, 6 },
-		{ 5, 7 },
-		{ 6, 5 },
-		{ 6, 7 } };
+				{ 0, 1 },
+				{ 0, 3 },
+				{ 1, 1 },
+				{ 1, 2 },
+				{ 1, 4 },
+				{ 2, 4 },
+				{ 2, 5 },
+				{ 3, 7 },
+				{ 4, 6 },
+				{ 5, 7 },
+				{ 6, 5 },
+				{ 6, 7 } };
 
 		IGraph graph = new DirectedGraph("G", data);
 
 		IGraph graph2 = new DirectedGraph(data);
 
-		IProblemMessage s = new Conjunction(new GraphFixer(graph),
-				new GraphEqualizer(graph, graph2)).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new Conjunction(new GraphFixer(graph), new GraphEqualizer(graph, graph2))
+				.findModel(Problem.defaultSolver());
 
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

@@ -37,10 +37,9 @@ public class NaturalNumberRectangleCongruenterDemo2
 		INaturalNumber X = new NaturalNumber();
 		INaturalNumber Y = new NaturalNumber();
 
-		IProblem problem = new Conjunction(new NaturalNumberRectangleFixer(
-				rect1, new IntegerPair(1, 2), new IntegerPair(3, 7)),
-				new NaturalNumberRectangleFixer(rect2, new IntegerPair(4, 6),
-						new IntegerPair(6, 11)),
+		IProblem problem = new Conjunction(
+				new NaturalNumberRectangleFixer(rect1, new IntegerPair(1, 2), new IntegerPair(3, 7)),
+				new NaturalNumberRectangleFixer(rect2, new IntegerPair(4, 6), new IntegerPair(6, 11)),
 				new NaturalNumberRectangleCongruenter(rect1, rect2, X, Y));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

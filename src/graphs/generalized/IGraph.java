@@ -28,8 +28,7 @@ public interface IGraph
 
 	HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> getData();
 
-	IBooleanVariable getData(INaturalNumber i, INaturalNumber j)
-			throws Exception;
+	IBooleanVariable getData(INaturalNumber i, INaturalNumber j) throws Exception;
 
 	HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> getLookup();
 

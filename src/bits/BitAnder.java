@@ -25,8 +25,7 @@ package bits;
  */
 public class BitAnder extends Problem implements IProblem
 {
-	public BitAnder(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z)
-			throws Exception
+	public BitAnder(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z) throws Exception
 	{
 		this.setClauses(new IClause[]
 		{ Clause.newClause().or(x).orNot(z), Clause.newClause().or(y).orNot(z),

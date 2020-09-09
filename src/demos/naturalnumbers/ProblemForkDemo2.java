@@ -36,8 +36,7 @@ public class ProblemForkDemo2
 		// (!b | P) & (b | Q)
 		IProblem p1 = new Disjunction(new BitFixer(b, false), A);
 		IProblem p2 = new Disjunction(new BitFixer(b, true), B);
-		IProblem problem = new Conjunction(new BitFixer(b, true),
-				new Conjunction(p1, p2));
+		IProblem problem = new Conjunction(new BitFixer(b, true), new Conjunction(p1, p2));
 
 		System.out.println(problem);
 

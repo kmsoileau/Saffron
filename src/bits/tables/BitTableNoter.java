@@ -25,8 +25,7 @@ public class BitTableNoter extends Problem implements IProblem
 			int count = 0;
 			for (int i = 0; i < X.numberRows(); i++)
 				for (int j = 0; j < X.numberColumns(); j++)
-					p[count++] = new BitNoter(X.getBooleanVariable(i, j),
-							Y.getBooleanVariable(i, j));
+					p[count++] = new BitNoter(X.getBooleanVariable(i, j), Y.getBooleanVariable(i, j));
 			this.setClauses(new Conjunction(p).getClauses());
 		}
 	}

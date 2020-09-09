@@ -22,8 +22,7 @@ public class FindTwoModelsDemo
 		// NaturalNumberFixer bnnfx=new NaturalNumberFixer(X,127);
 		NaturalNumberFixer bnnfy = new NaturalNumberFixer(Y, 121);
 
-		NaturalNumberAdder NaturalNumberAdder1 = new NaturalNumberAdder(X, Y,
-				Z, C);
+		NaturalNumberAdder NaturalNumberAdder1 = new NaturalNumberAdder(X, Y, Z, C);
 
 		// IProblem p=new Conjunction(new
 		// Conjunction(bnnfx,bnnfy),NaturalNumberAdder1);

@@ -46,12 +46,10 @@ public class BitStringSingleClearer extends Problem implements IProblem
 	public BitStringSingleClearer(IBitString bs) throws Exception
 	{
 		if (bs == null)
-			throw new BitStringSingleClearerException(
-					"Null array passed to constructor");
+			throw new BitStringSingleClearerException("Null array passed to constructor");
 		int bits = bs.size();
 		if (bits == 0)
-			throw new BitStringSingleClearerException(
-					"Array of length zero passed to constructor");
+			throw new BitStringSingleClearerException("Array of length zero passed to constructor");
 
 		IProblem problem = Problem.newProblem();
 		IClause clause = Clause.newClause();
@@ -61,9 +59,7 @@ public class BitStringSingleClearer extends Problem implements IProblem
 
 		for (int i = 0; i < bits; i++)
 			for (int j = i + 1; j < bits; j++)
-				problem.addClause(Clause.newClause()
-						.or(bs.getBooleanVariable(i))
-						.or(bs.getBooleanVariable(j)));
+				problem.addClause(Clause.newClause().or(bs.getBooleanVariable(i)).or(bs.getBooleanVariable(j)));
 
 		this.setClauses(problem.getClauses());
 	}

@@ -38,13 +38,11 @@ public class BitStringListSubsetterDemo
 		{ new BitString("101"), new BitString("010"), new BitString("111"), });
 
 		IBitStringList bsl = new BitStringList("slist", new IBitString[]
-		{ new BitString("101"), new BitString("010"), new BitString("011"),
-				new BitString("100"), new BitString("111"),
+		{ new BitString("101"), new BitString("010"), new BitString("011"), new BitString("100"), new BitString("111"),
 				new BitString("000"), });
 
-		IProblem problem = new Conjunction(new BitStringListFixer(slm),
-				new BitStringListFixer(bsl), new BitStringListSubsetter(slm,
-						bsl));
+		IProblem problem = new Conjunction(new BitStringListFixer(slm), new BitStringListFixer(bsl),
+				new BitStringListSubsetter(slm, bsl));
 
 		System.out.println(problem);
 

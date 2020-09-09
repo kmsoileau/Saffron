@@ -26,13 +26,13 @@ public class NaturalNumberListFixerDemo
 		theStrings[0] = new NaturalNumber(3);
 		theStrings[1] = new NaturalNumber("named", 7);
 		theStrings[2] = new NaturalNumber(6);
-		
+
 		INaturalNumberList theList = new NaturalNumberList("theList", theStrings);
-		
+
 		IProblem bslf2 = new NaturalNumberListFixer(theList);
-		
+
 		System.out.println(bslf2);
-		
+
 		IProblemMessage s = bslf2.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

@@ -39,15 +39,12 @@ import bits.exceptions.ProblemForkException;
  */
 public class ProblemFork extends Problem implements IProblem
 {
-	public ProblemFork(IBooleanVariable b, IProblem P, IProblem Q)
-			throws Exception
+	public ProblemFork(IBooleanVariable b, IProblem P, IProblem Q) throws Exception
 	{
 		if (b == null)
-			throw new ProblemForkException(
-					"Null IBooleanVariable passed to constructor.");
+			throw new ProblemForkException("Null IBooleanVariable passed to constructor.");
 		if (P == null || Q == null)
-			throw new ProblemForkException(
-					"Null IProblem passed to constructor.");
+			throw new ProblemForkException("Null IProblem passed to constructor.");
 		// (!b | P) & (b | Q)
 		IProblem p1 = new Disjunction(new BitFixer(b, false), P);
 		IProblem p2 = new Disjunction(new BitFixer(b, true), Q);

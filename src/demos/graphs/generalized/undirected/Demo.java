@@ -31,33 +31,30 @@ public class Demo extends Problem implements IProblem
 	{
 		int[][] data = new int[][]
 		{
-		{ 0, 1 },
-		{ 0, 3 },
-		{ 1, 1 },
-		{ 1, 2 },
-		{ 1, 4 },
-		{ 2, 4 },
-		{ 2, 5 },
-		{ 3, 4 },
-		{ 4, 6 },
-		{ 5, 7 },
-		{ 6, 5 },
-		{ 6, 7 } };
+				{ 0, 1 },
+				{ 0, 3 },
+				{ 1, 1 },
+				{ 1, 2 },
+				{ 1, 4 },
+				{ 2, 4 },
+				{ 2, 5 },
+				{ 3, 4 },
+				{ 4, 6 },
+				{ 5, 7 },
+				{ 6, 5 },
+				{ 6, 7 } };
 
 		ArrayList<NaturalNumberPair> pairs = new ArrayList<NaturalNumberPair>();
 		for (int i = 0; i < data.length; i++)
 		{
 			if (data[i][0] != data[i][1])
 			{
-				pairs.add(new NaturalNumberPair(new NaturalNumber(data[i][0]),
-						new NaturalNumber(data[i][1])));
-				pairs.add(new NaturalNumberPair(new NaturalNumber(data[i][1]),
-						new NaturalNumber(data[i][0])));
+				pairs.add(new NaturalNumberPair(new NaturalNumber(data[i][0]), new NaturalNumber(data[i][1])));
+				pairs.add(new NaturalNumberPair(new NaturalNumber(data[i][1]), new NaturalNumber(data[i][0])));
 			}
 			else
 			{
-				pairs.add(new NaturalNumberPair(new NaturalNumber(data[i][0]),
-						new NaturalNumber(data[i][1])));
+				pairs.add(new NaturalNumberPair(new NaturalNumber(data[i][0]), new NaturalNumber(data[i][1])));
 			}
 		}
 

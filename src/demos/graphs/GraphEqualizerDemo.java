@@ -44,9 +44,8 @@ public class GraphEqualizerDemo
 
 		IUndirectedGraph graph2 = new UndirectedGraph(numberVertices);
 
-		IProblemMessage s = new Conjunction(new GraphFixer(graph),
-				new GraphEqualizer(graph, graph2)).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new Conjunction(new GraphFixer(graph), new GraphEqualizer(graph, graph2))
+				.findModel(Problem.defaultSolver());
 
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

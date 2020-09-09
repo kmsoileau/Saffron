@@ -44,41 +44,41 @@ public class MagmaHomomorphismerDemo
 	{
 		Magma mgm1 = new Magma(new int[][]
 		{
-		{ 0, 0, 0 },
-		{ 0, 3, 3 },
-		{ 0, 2, 2 },
-		{ 0, 1, 1 },
-		{ 3, 0, 3 },
-		{ 3, 3, 0 },
-		{ 3, 2, 1 },
-		{ 3, 1, 2 },
-		{ 2, 0, 2 },
-		{ 2, 3, 1 },
-		{ 2, 2, 0 },
-		{ 2, 1, 3 },
-		{ 1, 0, 1 },
-		{ 1, 3, 2 },
-		{ 1, 2, 3 },
-		{ 1, 1, 0 } });
+				{ 0, 0, 0 },
+				{ 0, 3, 3 },
+				{ 0, 2, 2 },
+				{ 0, 1, 1 },
+				{ 3, 0, 3 },
+				{ 3, 3, 0 },
+				{ 3, 2, 1 },
+				{ 3, 1, 2 },
+				{ 2, 0, 2 },
+				{ 2, 3, 1 },
+				{ 2, 2, 0 },
+				{ 2, 1, 3 },
+				{ 1, 0, 1 },
+				{ 1, 3, 2 },
+				{ 1, 2, 3 },
+				{ 1, 1, 0 } });
 
 		Magma mgm2 = new Magma(new int[][]
 		{
-		{ 0, 0, 0 },
-		{ 0, 3, 3 },
-		{ 0, 2, 2 },
-		{ 0, 1, 1 },
-		{ 3, 0, 3 },
-		{ 3, 3, 0 },
-		{ 3, 2, 1 },
-		{ 3, 1, 2 },
-		{ 2, 0, 2 },
-		{ 2, 3, 1 },
-		{ 2, 2, 0 },
-		{ 2, 1, 3 },
-		{ 1, 0, 1 },
-		{ 1, 3, 2 },
-		{ 1, 2, 3 },
-		{ 1, 1, 0 } });
+				{ 0, 0, 0 },
+				{ 0, 3, 3 },
+				{ 0, 2, 2 },
+				{ 0, 1, 1 },
+				{ 3, 0, 3 },
+				{ 3, 3, 0 },
+				{ 3, 2, 1 },
+				{ 3, 1, 2 },
+				{ 2, 0, 2 },
+				{ 2, 3, 1 },
+				{ 2, 2, 0 },
+				{ 2, 1, 3 },
+				{ 1, 0, 1 },
+				{ 1, 3, 2 },
+				{ 1, 2, 3 },
+				{ 1, 1, 0 } });
 
 		int order = mgm1.getOrder();
 
@@ -119,8 +119,7 @@ public class MagmaHomomorphismerDemo
 
 		for (int i = 0; i < order; i++)
 		{
-			fixer[i] = new Conjunction(new NaturalNumberFixer(X[i]),
-					new NaturalNumberFixer(Y[i]));
+			fixer[i] = new Conjunction(new NaturalNumberFixer(X[i]), new NaturalNumberFixer(Y[i]));
 		}
 
 		for (int i = 0; i < order; i++)
@@ -131,32 +130,21 @@ public class MagmaHomomorphismerDemo
 				 * dom[i][j]=i*j cod[i][j]=h(i)*h(j)
 				 */
 
-				p[index++] = new Conjunction(new Magmaer(mgm1, X[i], Y[j],
-						dom[i][j]), // dom[i][j]=i*j
+				p[index++] = new Conjunction(new Magmaer(mgm1, X[i], Y[j], dom[i][j]), // dom[i][j]=i*j
 						new Magmaer(mgm2, image[i], image[j], cod[i][j]), // cod[i][j]=h(i)*h(j)
 						new Disjunction(new IProblem[]
-						{
-								new Conjunction(new NaturalNumberFixer(
-										dom[i][j], 0),
-										new NaturalNumberEqualizer(cod[i][j],
-												image[0])),
-								new Conjunction(new NaturalNumberFixer(
-										dom[i][j], 1),
-										new NaturalNumberEqualizer(cod[i][j],
-												image[1])),
-								new Conjunction(new NaturalNumberFixer(
-										dom[i][j], 2),
-										new NaturalNumberEqualizer(cod[i][j],
-												image[2])),
-								new Conjunction(new NaturalNumberFixer(
-										dom[i][j], 3),
-										new NaturalNumberEqualizer(cod[i][j],
-												image[3])) }));
+						{ new Conjunction(new NaturalNumberFixer(dom[i][j], 0),
+								new NaturalNumberEqualizer(cod[i][j], image[0])),
+								new Conjunction(new NaturalNumberFixer(dom[i][j], 1),
+										new NaturalNumberEqualizer(cod[i][j], image[1])),
+								new Conjunction(new NaturalNumberFixer(dom[i][j], 2),
+										new NaturalNumberEqualizer(cod[i][j], image[2])),
+								new Conjunction(new NaturalNumberFixer(dom[i][j], 3),
+										new NaturalNumberEqualizer(cod[i][j], image[3])) }));
 			}
 		}
 
-		IProblem problem = new Conjunction(fix1, fix2, new Conjunction(fixer),
-				new Conjunction(p));
+		IProblem problem = new Conjunction(fix1, fix2, new Conjunction(fixer), new Conjunction(p));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

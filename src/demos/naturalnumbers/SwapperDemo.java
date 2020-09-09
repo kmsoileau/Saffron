@@ -64,8 +64,8 @@ public class SwapperDemo
 			tile1Index[i] = new NaturalNumber();
 			Tile2[i] = new NaturalNumber();
 			tile2Index[i] = new NaturalNumber();
-			validProb[i] = new IndexSwapper(position[i], position[i + 1], Tile1[i],
-					tile1Index[i], Tile2[i], tile2Index[i]);
+			validProb[i] = new IndexSwapper(position[i], position[i + 1], Tile1[i], tile1Index[i], Tile2[i],
+					tile2Index[i]);
 		}
 
 		IProblem q3 = new Conjunction(validProb);
@@ -84,8 +84,7 @@ public class SwapperDemo
 				{
 					for (int j = 0; j < 16; j++)
 					{
-						if (j == tile1Index[i].getValue()
-								|| j == tile2Index[i].getValue())
+						if (j == tile1Index[i].getValue() || j == tile2Index[i].getValue())
 							System.out.print("__ ");
 						else
 							System.out.print("   ");
@@ -93,9 +92,7 @@ public class SwapperDemo
 				}
 				System.out.print("\n");
 				for (int j = 0; j < 16; j++)
-					System.out.print(String.format("%02d",
-							position[i][j].getValue())
-							+ " ");
+					System.out.print(String.format("%02d", position[i][j].getValue()) + " ");
 			}
 
 			// System.out

@@ -84,8 +84,7 @@ public class Sat4j
 				try
 				{
 					currBL = currClause.getLiteralAt(j);
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					e.printStackTrace();
 				}
@@ -95,8 +94,7 @@ public class Sat4j
 			try
 			{
 				getSolver().addClause(currIvi);
-			}
-			catch (ContradictionException e)
+			} catch (ContradictionException e)
 			{
 				int[] d = new int[currIvi.size()];
 				currIvi.copyTo(d);
@@ -121,8 +119,7 @@ public class Sat4j
 				try
 				{
 					currBL = currClause.getLiteralAt(j);
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					e.printStackTrace();
 				}
@@ -134,8 +131,8 @@ public class Sat4j
 		for (int i = 0; i < numberOfLiterals; i++)
 		{
 			IBooleanLiteral currBL = booleanLiterals.get(i);
-			Integer objSat4jLiteral = new Integer((currBL.isBarred() ? -1 : 1)
-					* getSat4jVariable(currBL.getBooleanVariable()));
+			Integer objSat4jLiteral = new Integer(
+					(currBL.isBarred() ? -1 : 1) * getSat4jVariable(currBL.getBooleanVariable()));
 
 			Sat4j.getDirectoryLit().add(currBL, objSat4jLiteral);
 
@@ -157,22 +154,19 @@ public class Sat4j
 				if (clause != null)
 					for (int j = 0; j < clause.size(); j++)
 					{
-						IBooleanVariable bv = clause.getLiteralAt(j)
-								.getBooleanVariable();
+						IBooleanVariable bv = clause.getLiteralAt(j).getBooleanVariable();
 						if (!bvArrayList.contains(bv))
 							bvArrayList.add(bv);
 					}
 			}
 			booleanVariables = bvArrayList;
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
 
 		Sat4j.setNumberOfVariables(booleanVariables.size());
-		Sat4j.getDirectoryVar().setSat4jVariable2BV(
-				new IBooleanVariable[Sat4j.getNumberOfVariables()]);
+		Sat4j.getDirectoryVar().setSat4jVariable2BV(new IBooleanVariable[Sat4j.getNumberOfVariables()]);
 		for (int i = 0; i < Sat4j.getNumberOfVariables(); i++)
 		{
 			Sat4j.getDirectoryVar().add(booleanVariables, i);
@@ -181,8 +175,7 @@ public class Sat4j
 
 	static IBooleanLiteral getBL(int literal)
 	{
-		return (Sat4j.getDirectoryLit().getSat4jLiteral2BL().get(new Integer(
-				literal)));
+		return (Sat4j.getDirectoryLit().getSat4jLiteral2BL().get(new Integer(literal)));
 	}
 
 	public static LiteralDirectory getDirectoryLit()
@@ -207,8 +200,7 @@ public class Sat4j
 
 	private static int getSat4jVariable(IBooleanVariable ib)
 	{
-		return (Sat4j.getDirectoryVar().getBV2sat4jVariable().get(ib))
-				.intValue();
+		return (Sat4j.getDirectoryVar().getBV2sat4jVariable().get(ib)).intValue();
 	}
 
 	public static ISolver getSolver()
@@ -224,11 +216,9 @@ public class Sat4j
 
 	public static void initialize()
 	{
-		setDirectoryLit(new LiteralDirectory(
-				new HashMap<IBooleanLiteral, Integer>(),
-				new HashMap<Integer, IBooleanLiteral>()));
-		setDirectoryVar(new VariableDirectory(
-				new HashMap<IBooleanVariable, Integer>(), null));
+		setDirectoryLit(
+				new LiteralDirectory(new HashMap<IBooleanLiteral, Integer>(), new HashMap<Integer, IBooleanLiteral>()));
+		setDirectoryVar(new VariableDirectory(new HashMap<IBooleanVariable, Integer>(), null));
 	}
 
 	public static void setDirectoryLit(LiteralDirectory directoryLit)
@@ -257,8 +247,7 @@ class VariableDirectory
 	private Map<IBooleanVariable, Integer> BV2sat4jVariable = new HashMap<IBooleanVariable, Integer>();
 	private IBooleanVariable[] sat4jVariable2BV = null;
 
-	public VariableDirectory(Map<IBooleanVariable, Integer> bV2sat4jVariable,
-			IBooleanVariable[] sat4jVariable2BV)
+	public VariableDirectory(Map<IBooleanVariable, Integer> bV2sat4jVariable, IBooleanVariable[] sat4jVariable2BV)
 	{
 		this.setBV2sat4jVariable(bV2sat4jVariable);
 		this.setSat4jVariable2BV(sat4jVariable2BV);
@@ -266,8 +255,7 @@ class VariableDirectory
 
 	public void add(List<IBooleanVariable> booleanVariables, int i)
 	{
-		this.getBV2sat4jVariable().put(booleanVariables.get(i),
-				new Integer(i + 1));
+		this.getBV2sat4jVariable().put(booleanVariables.get(i), new Integer(i + 1));
 		this.getSat4jVariable2BV()[i] = booleanVariables.get(i);
 	}
 
@@ -281,8 +269,7 @@ class VariableDirectory
 		return sat4jVariable2BV;
 	}
 
-	public void setBV2sat4jVariable(
-			Map<IBooleanVariable, Integer> bV2sat4jVariable)
+	public void setBV2sat4jVariable(Map<IBooleanVariable, Integer> bV2sat4jVariable)
 	{
 		BV2sat4jVariable = bV2sat4jVariable;
 	}

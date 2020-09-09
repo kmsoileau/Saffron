@@ -32,16 +32,13 @@ public class NaturalNumberTriangularDemo
 		INaturalNumber Bound = new NaturalNumber("Bound");
 
 		IProblem p = new Conjunction(new IProblem[]
-		{ new NaturalNumberFixer(Two, 2), new NaturalNumberIncrementer(X, Y),
-				new NaturalNumberMultiplier(X, Y, TwoZ),
-				new NaturalNumberFixer(Bound, 100),
-				new NaturalNumberOrderer(Bound, Z),
+		{ new NaturalNumberFixer(Two, 2), new NaturalNumberIncrementer(X, Y), new NaturalNumberMultiplier(X, Y, TwoZ),
+				new NaturalNumberFixer(Bound, 100), new NaturalNumberOrderer(Bound, Z),
 				new NaturalNumberMultiplier(Two, Z, TwoZ), });
 
 		/*
-		 * p=new Conjunction(new NaturalNumberFixer(Two), new
-		 * NaturalNumberFixer(Z,6), new
-		 * NaturalNumberTriangular(X,Two,TwoZ,Y,Z));
+		 * p=new Conjunction(new NaturalNumberFixer(Two), new NaturalNumberFixer(Z,6),
+		 * new NaturalNumberTriangular(X,Two,TwoZ,Y,Z));
 		 */
 		IProblemMessage s = p.findModel();
 		System.out.println(p);
@@ -55,8 +52,7 @@ public class NaturalNumberTriangularDemo
 
 		/*
 		 * PartialSolution ps=new PartialSolution(new ArrayListSet(),p);
-		 * ps.eliminateSingletons();
-		 * System.out.println(ps.getBooleanLiterals());
+		 * ps.eliminateSingletons(); System.out.println(ps.getBooleanLiterals());
 		 * System.out.println(ps.getProblem());
 		 */
 

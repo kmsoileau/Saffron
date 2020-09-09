@@ -17,8 +17,7 @@ public class BitNanderDemo2
 
 		IProblem bitNander1 = new BitNander(x, y, z);
 		System.out.println(bitNander1);
-		BooleanLiteral.interpret(bitNander1.findModel(Problem.defaultSolver())
-				.getLiterals());
+		BooleanLiteral.interpret(bitNander1.findModel(Problem.defaultSolver()).getLiterals());
 		System.out.println("x = " + x.getValue());
 		System.out.println("y = " + y.getValue());
 		System.out.println("z = " + z.getValue());

@@ -44,8 +44,7 @@ public class NaturalNumberListRepeater extends Problem implements IProblem
 		{
 			INaturalNumber b = list.getNaturalNumber(i);
 			for (int j = i + 1; j < list.size(); j++)
-				p = new Disjunction(p, new NaturalNumberEqualizer(b,
-						list.getNaturalNumber(j)));
+				p = new Disjunction(p, new NaturalNumberEqualizer(b, list.getNaturalNumber(j)));
 		}
 		if (p == null)
 			this.setClauses((IClause[]) null);

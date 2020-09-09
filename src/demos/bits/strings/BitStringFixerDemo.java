@@ -70,8 +70,7 @@ public class BitStringFixerDemo
 			System.out.println("No solution.");
 
 		IBitString samp5 = new BitString("myBitString5", new IBooleanVariable[]
-		{ BooleanVariable.getBooleanVariable(true),
-				BooleanVariable.getBooleanVariable("foo", true),
+		{ BooleanVariable.getBooleanVariable(true), BooleanVariable.getBooleanVariable("foo", true),
 				BooleanVariable.getBooleanVariable(false) });
 		problem = new BitStringFixer(samp5);
 		System.out.print(problem);
@@ -86,8 +85,7 @@ public class BitStringFixerDemo
 			System.out.println("No solution.");
 
 		IBitString samp6 = new BitString("myBitString6", new IBooleanVariable[]
-		{ BooleanVariable.getBooleanVariable(true),
-				BooleanVariable.getBooleanVariable("foo", true),
+		{ BooleanVariable.getBooleanVariable(true), BooleanVariable.getBooleanVariable("foo", true),
 				BooleanVariable.getBooleanVariable(false) });
 		problem = new BitStringFixer(samp6, new boolean[]
 		{ false, false, true });

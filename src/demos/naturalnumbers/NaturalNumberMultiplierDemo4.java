@@ -21,9 +21,8 @@ public class NaturalNumberMultiplierDemo4
 		INaturalNumber Z = new NaturalNumber("Z");
 
 		IProblemMessage s = new Conjunction(new IProblem[]
-		{ new NaturalNumberMultiplier(X, Y, Z), new NaturalNumberFixer(X, 595),
-				new NaturalNumberFixer(Y, 35), }).findModel(Problem
-				.defaultSolver());
+		{ new NaturalNumberMultiplier(X, Y, Z), new NaturalNumberFixer(X, 595), new NaturalNumberFixer(Y, 35), })
+				.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

@@ -38,14 +38,12 @@ public class BitStringListMembershipperDemo4
 		IBitString string2 = new BitString("string2", new boolean[4]);
 
 		IBitStringList bsl = new BitStringList("slist", new IBitString[]
-		{ new BitString(4), new BitString(4), new BitString(4),
-				new BitString(4), new BitString(4), new BitString(4) });
+		{ new BitString(4), new BitString(4), new BitString(4), new BitString(4), new BitString(4), new BitString(4) });
 
 		IProblem fix = new BitStringFixer(string1, "1001");
 		IProblem fix2 = new BitStringFixer(string2, "1100");
 
-		IProblem bslm1 = new Conjunction(fix, fix2,
-				new BitStringListMembershipper(string1, bsl),
+		IProblem bslm1 = new Conjunction(fix, fix2, new BitStringListMembershipper(string1, bsl),
 				new BitStringListMembershipper(string2, bsl));
 
 		System.out.println(bslm1);

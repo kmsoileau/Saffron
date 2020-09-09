@@ -37,7 +37,7 @@ import bits.Problem;
  *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- * </pre>
+ *         </pre>
  * 
  *         </blockquote>
  * @version 1.0, 2019/02/26
@@ -45,14 +45,12 @@ import bits.Problem;
 
 public class IntegerSubtracter extends Problem implements IProblem
 {
-	public IntegerSubtracter(IInteger X, IInteger Y, IInteger Z)
-			throws Exception
+	public IntegerSubtracter(IInteger X, IInteger Y, IInteger Z) throws Exception
 	{
 		this.setClauses(new IntegerAdder(Z, Y, X).getClauses());
 	}
 
-	public IntegerSubtracter(IInteger X, IInteger Y, IInteger Z, IInteger C)
-			throws Exception
+	public IntegerSubtracter(IInteger X, IInteger Y, IInteger Z, IInteger C) throws Exception
 	{
 		this.setClauses(new IntegerAdder(Z, Y, X).getClauses());
 	}

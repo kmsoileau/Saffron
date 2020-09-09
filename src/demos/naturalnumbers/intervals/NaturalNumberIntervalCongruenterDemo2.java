@@ -24,17 +24,15 @@ import naturalnumbers.intervals.NaturalNumberIntervalFixer;
  * 
  *
  */
-public class NaturalNumberIntervalCongruenterDemo2 extends Problem implements
-		IProblem
+public class NaturalNumberIntervalCongruenterDemo2 extends Problem implements IProblem
 {
 	public static void main(String[] args) throws Exception
 	{
 		INaturalNumberInterval A = new NaturalNumberInterval("A");
 		INaturalNumberInterval B = new NaturalNumberInterval("B");
 
-		IProblem problem = new Conjunction(new NaturalNumberIntervalFixer(A, 3,
-				7), new NaturalNumberIntervalFixer(B, 7, 11),
-				new NaturalNumberIntervalCongruenter(A, B));
+		IProblem problem = new Conjunction(new NaturalNumberIntervalFixer(A, 3, 7),
+				new NaturalNumberIntervalFixer(B, 7, 11), new NaturalNumberIntervalCongruenter(A, B));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

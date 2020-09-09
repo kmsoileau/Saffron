@@ -36,22 +36,16 @@ public class BitTableEqualizerDemo
 					value = true;
 				else
 					value = false;
-				X.setBooleanVariable(
-						row,
-						column,
-						BooleanVariable.getBooleanVariable(X.getName() + "_"
-								+ row + "_" + column));
+				X.setBooleanVariable(row, column,
+						BooleanVariable.getBooleanVariable(X.getName() + "_" + row + "_" + column));
 				pfix.add(new BitFixer(X.getBooleanVariable(row, column), value));
 			}
 
 		IBitTable Y = new BitTable("Y", new IBooleanVariable[3][4]);
 		for (int row = 0; row < X.numberRows(); row++)
 			for (int column = 0; column < X.numberColumns(); column++)
-				Y.setBooleanVariable(
-						row,
-						column,
-						BooleanVariable.getBooleanVariable(Y.getName() + "_"
-								+ row + "_" + column));
+				Y.setBooleanVariable(row, column,
+						BooleanVariable.getBooleanVariable(Y.getName() + "_" + row + "_" + column));
 
 		IProblem fix = new Conjunction(pfix);
 		IProblem bta = new BitTableEqualizer(X, Y);

@@ -20,8 +20,7 @@ public class ConjunctionDemo
 
 		IProblem fixY = new BitFixer(Y, true);
 		IProblem fixZ = new BitFixer(Y, true);
-		IProblem conjunction1 = new Conjunction(new BitEqualizer(X, Y),
-				new BitEqualizer(Y, Z));
+		IProblem conjunction1 = new Conjunction(new BitEqualizer(X, Y), new BitEqualizer(Y, Z));
 		IProblem problem = new Conjunction(fixY, fixZ, conjunction1);
 		System.out.println(problem);
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

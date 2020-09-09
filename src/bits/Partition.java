@@ -23,8 +23,7 @@ public class Partition
 		{
 			partition[i] = new IBooleanVariable[elements];
 			for (int j = 0; j < elements; j++)
-				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i
-						+ "-" + j);
+				partition[i][j] = BooleanVariable.getBooleanVariable("BV-" + i + "-" + j);
 		}
 	}
 

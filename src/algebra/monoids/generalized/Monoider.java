@@ -20,14 +20,12 @@ import bits.INaturalNumber;
  */
 public class Monoider extends Semigrouper
 {
-	public Monoider(int[][] opTable, INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public Monoider(int[][] opTable, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		super(opTable, X, Y, Z);
 	}
 
-	public Monoider(Monoid mnd, INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public Monoider(Monoid mnd, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		super(mnd, X, Y, Z);
 	}

@@ -38,15 +38,13 @@ public class NaturalNumberArrayMaxerDemo extends Problem implements IProblem
 
 		NaturalNumber.setLargestNaturalNumber(8);
 		INaturalNumber[] d = new INaturalNumber[]
-		{ new NaturalNumber(1), new NaturalNumber(0), new NaturalNumber(2),
-				new NaturalNumber(1) };
+		{ new NaturalNumber(1), new NaturalNumber(0), new NaturalNumber(2), new NaturalNumber(1) };
 
 		INaturalNumber maxIndex = new NaturalNumber();
 		INaturalNumber maxEntry = new NaturalNumber();
 
 		IProblemMessage s = new Conjunction(new NaturalNumberFixer(d),
-				new NaturalNumberArrayMaxer(d, maxIndex, maxEntry))
-				.findModel(Problem.defaultSolver());
+				new NaturalNumberArrayMaxer(d, maxIndex, maxEntry)).findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

@@ -22,8 +22,7 @@ public class NaturalNumberEvener extends Problem implements IProblem
 		INaturalNumber Two = new NaturalNumber();
 		INaturalNumber K = new NaturalNumber();
 
-		IProblem p = new Conjunction(new NaturalNumberFixer(Two, 2),
-				new NaturalNumberMultiplier(Two, K, Z));
+		IProblem p = new Conjunction(new NaturalNumberFixer(Two, 2), new NaturalNumberMultiplier(Two, K, Z));
 
 		this.setClauses(p.getClauses());
 	}

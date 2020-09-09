@@ -40,39 +40,33 @@ import bits.exceptions.BitExclusiveSelectorException;
  */
 public class BitExclusiveSelector extends Problem implements IProblem
 {
-	public BitExclusiveSelector(ArrayList<IBooleanVariable> bitArrayList)
-			throws Exception
+	public BitExclusiveSelector(ArrayList<IBooleanVariable> bitArrayList) throws Exception
 	{
 		this(bitArrayList.toArray(new IBooleanVariable[0]));
 	}
 
 	public BitExclusiveSelector(IBitString string) throws Exception
 	{
-		this.setClauses(new bits.BitExclusiveSelector(string.getBVArray())
-				.getClauses());
+		this.setClauses(new bits.BitExclusiveSelector(string.getBVArray()).getClauses());
 	}
 
-	public BitExclusiveSelector(IBooleanVariable x, IBooleanVariable y)
-			throws Exception
+	public BitExclusiveSelector(IBooleanVariable x, IBooleanVariable y) throws Exception
 	{
 		this(new IBooleanVariable[]
 		{ x, y });
 	}
 
-	public BitExclusiveSelector(IBooleanVariable x, IBooleanVariable y,
-			IBooleanVariable z) throws Exception
+	public BitExclusiveSelector(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z) throws Exception
 	{
 		this(new IBooleanVariable[]
 		{ x, y, z });
 	}
 
-	public BitExclusiveSelector(IBooleanVariable[] bitArrayList)
-			throws Exception
+	public BitExclusiveSelector(IBooleanVariable[] bitArrayList) throws Exception
 	{
 		IProblem problem;
 		if (bitArrayList == null || bitArrayList.length == 0)
-			throw new BitExclusiveSelectorException(
-					"Null or empty partition passed to constructor.");
+			throw new BitExclusiveSelectorException("Null or empty partition passed to constructor.");
 		if (bitArrayList.length == 1)
 			problem = new BitFixer(bitArrayList[0], true);
 		else
@@ -82,20 +76,17 @@ public class BitExclusiveSelector extends Problem implements IProblem
 			problem = Problem.newProblem();
 			IClause build1 = Clause.newClause();
 			for (IBooleanVariable curr : bitArrayList)
-				build1.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(
-						curr, false));
+				build1.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(curr, false));
 			problem.addClause(build1);
 
 			for (int i = 0; i < listSize; i++)
 			{
-				BooleanLiteral curr = (BooleanLiteral) BooleanLiteral
-						.getBooleanLiteral(bitArrayList[i], true);
+				BooleanLiteral curr = (BooleanLiteral) BooleanLiteral.getBooleanLiteral(bitArrayList[i], true);
 				for (int j = i + 1; j < listSize; j++)
 				{
 					IClause build2 = Clause.newClause();
 					build2.add(curr);
-					build2.add((BooleanLiteral) BooleanLiteral
-							.getBooleanLiteral(bitArrayList[j], true));
+					build2.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bitArrayList[j], true));
 					problem.addClause(build2);
 				}
 			}

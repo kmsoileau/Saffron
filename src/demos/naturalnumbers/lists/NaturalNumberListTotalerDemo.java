@@ -31,15 +31,12 @@ public class NaturalNumberListTotalerDemo extends Problem implements IProblem
 	public static void main(String[] args) throws Exception
 	{
 		INaturalNumberList list = new NaturalNumberList(new INaturalNumber[]
-		{ new NaturalNumber(2), new NaturalNumber(1), new NaturalNumber(3),
-				new NaturalNumber(2), new NaturalNumber(1),
-				new NaturalNumber(5), new NaturalNumber(0),
-				new NaturalNumber(2), new NaturalNumber(3) });
+		{ new NaturalNumber(2), new NaturalNumber(1), new NaturalNumber(3), new NaturalNumber(2), new NaturalNumber(1),
+				new NaturalNumber(5), new NaturalNumber(0), new NaturalNumber(2), new NaturalNumber(3) });
 
 		INaturalNumber total = new NaturalNumber();
-		IProblemMessage s = new Conjunction(new NaturalNumberListFixer(list),
-				new NaturalNumberListTotaler(list, total)).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new Conjunction(new NaturalNumberListFixer(list), new NaturalNumberListTotaler(list, total))
+				.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

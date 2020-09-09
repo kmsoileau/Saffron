@@ -30,12 +30,10 @@ public class GraphFixer extends Problem implements IProblem
 	public GraphFixer(IGraph graph) throws Exception
 	{
 		if (graph == null)
-			throw new GraphFixerException(
-					"Null IGeneralizedGraph passed to constructor.");
+			throw new GraphFixerException("Null IGeneralizedGraph passed to constructor.");
 
 		ArrayList<IProblem> p = new ArrayList<IProblem>();
-		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> work = graph
-				.getBacking().getLookup();
+		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> work = graph.getBacking().getLookup();
 		IProblem problem = new NaturalNumberFixer(graph.getVertices().values());
 
 		for (INaturalNumber nn : work.keySet())

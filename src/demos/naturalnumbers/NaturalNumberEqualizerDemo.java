@@ -25,8 +25,7 @@ public class NaturalNumberEqualizerDemo
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 
-		IProblem p = new Conjunction(new NaturalNumberFixer(X, 6),
-				new NaturalNumberEqualizer(X, Y));
+		IProblem p = new Conjunction(new NaturalNumberFixer(X, 6), new NaturalNumberEqualizer(X, Y));
 		System.out.println(p);
 		IProblemMessage s = p.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

@@ -19,8 +19,7 @@ public class NaturalNumberListAdderDemo
 		System.out.println("s1.getName() = " + s1.getName());
 
 		for (int i = 0; i < s1.size(); i++)
-			System.out.println("s1.getNaturalNumber(" + i + ") = "
-					+ s1.getNaturalNumber(i));
+			System.out.println("s1.getNaturalNumber(" + i + ") = " + s1.getNaturalNumber(i));
 
 		INaturalNumberList s2 = new NaturalNumberList("y", new long[]
 		{ 3, 4, 9 });
@@ -29,8 +28,7 @@ public class NaturalNumberListAdderDemo
 
 		System.out.println("s2.getName() = " + s2.getName());
 		for (int i = 0; i < s2.size(); i++)
-			System.out.println("s2.getNaturalNumber(" + i + ") = "
-					+ s2.getNaturalNumber(i));
+			System.out.println("s2.getNaturalNumber(" + i + ") = " + s2.getNaturalNumber(i));
 
 		IProblem f1 = new NaturalNumberListFixer(s1);
 		IProblem f2 = new NaturalNumberListFixer(s2);

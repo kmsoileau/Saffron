@@ -19,8 +19,7 @@ public class SetEqualizerDemo2
 
 		Set setB = new Set();
 
-		IProblem problem = new Conjunction(new BitFixer(setA.contains("B"),
-				true), new SetEqualizer(setA, setB));
+		IProblem problem = new Conjunction(new BitFixer(setA.contains("B"), true), new SetEqualizer(setA, setB));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

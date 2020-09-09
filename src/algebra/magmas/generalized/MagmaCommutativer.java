@@ -46,13 +46,11 @@ public class MagmaCommutativer extends Problem implements IProblem
 		this.setClauses(new Conjunction(p).getClauses());
 	}
 
-	public MagmaCommutativer(Magma g, INaturalNumber X, INaturalNumber Y)
-			throws Exception
+	public MagmaCommutativer(Magma g, INaturalNumber X, INaturalNumber Y) throws Exception
 	{
 		INaturalNumber Product = new NaturalNumber();
 
-		IProblem problem = new Conjunction(new Magmaer(g, X, Y, Product),
-				new Magmaer(g, Y, X, Product));
+		IProblem problem = new Conjunction(new Magmaer(g, X, Y, Product), new Magmaer(g, Y, X, Product));
 
 		this.setClauses(problem.getClauses());
 	}

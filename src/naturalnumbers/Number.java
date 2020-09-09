@@ -40,15 +40,12 @@ public class Number implements INumber
 		this.setName(super.toString());
 	}
 
-	public Number(String name, boolean[] bitArray, boolean overflow)
-			throws NumberException
+	public Number(String name, boolean[] bitArray, boolean overflow) throws NumberException
 	{
 		if (bitArray == null)
-			throw new NumberException(
-					"A null bitArray was passed to a constructor.");
+			throw new NumberException("A null bitArray was passed to a constructor.");
 		if (bitArray.length > NaturalNumber.getLength())
-			throw new NumberException(
-					"Attempted to use too large of a number in Number constructor.");
+			throw new NumberException("Attempted to use too large of a number in Number constructor.");
 		this.setBitArray(bitArray);
 		this.setOverflow(overflow);
 		this.setName(name);
@@ -57,8 +54,7 @@ public class Number implements INumber
 	public Number(String name, long n) throws NumberException
 	{
 		if (n < 0)
-			throw new NumberException(
-					"A negative long was passed to a constructor.");
+			throw new NumberException("A negative long was passed to a constructor.");
 
 		if (n == 0)
 		{
@@ -70,8 +66,7 @@ public class Number implements INumber
 		{
 			int size = (int) (Math.log(n) / Math.log(2)) + 1;
 			if (size > NaturalNumber.getLength())
-				throw new NumberException(
-						"Attempted to use too large of a number in Number constructor.");
+				throw new NumberException("Attempted to use too large of a number in Number constructor.");
 
 			this.setBitArray(new boolean[size]);
 			this.setOverflow(false);
@@ -94,11 +89,9 @@ public class Number implements INumber
 	public Number(String name, Number n, int padsize) throws NumberException
 	{
 		if (n == null)
-			throw new NumberException(
-					"A null Number was passed to a constructor.");
+			throw new NumberException("A null Number was passed to a constructor.");
 		if (padsize < 0)
-			throw new NumberException(
-					"A negative int was passed to a constructor.");
+			throw new NumberException("A negative int was passed to a constructor.");
 		if (n.getSize() < padsize)
 		{
 			this.setBitArray(new boolean[padsize]);
@@ -108,8 +101,7 @@ public class Number implements INumber
 		else
 		{
 			if (n.getSize() > NaturalNumber.getLength())
-				throw new NumberException(
-						"Attempted to use too large of a number in Number constructor.");
+				throw new NumberException("Attempted to use too large of a number in Number constructor.");
 			this.setBitArray(new boolean[n.getSize()]);
 			for (int i = 0; i < n.getSize(); i++)
 				this.setBit(i, n.getBit(i));
@@ -131,8 +123,7 @@ public class Number implements INumber
 	public boolean getBit(int i) throws NumberException
 	{
 		if (i < 0 || i > this.getSize() - 1)
-			throw new NumberException(
-					"Attempted to index out of range in method getBit.");
+			throw new NumberException("Attempted to index out of range in method getBit.");
 		return this.getBitArray()[i];
 	}
 
@@ -163,8 +154,7 @@ public class Number implements INumber
 	public void setBit(int i, boolean b) throws NumberException
 	{
 		if (i < 0 || i > this.getSize() - 1)
-			throw new NumberException(
-					"Attempted to index out of range in method setBit.");
+			throw new NumberException("Attempted to index out of range in method setBit.");
 		this.getBitArray()[i] = b;
 	}
 
@@ -172,8 +162,7 @@ public class Number implements INumber
 	public void setBitArray(boolean[] bitArray) throws NumberException
 	{
 		if (bitArray == null)
-			throw new NumberException(
-					"A null boolean[] was passed to a constructor.");
+			throw new NumberException("A null boolean[] was passed to a constructor.");
 		this.bitArray = bitArray;
 	}
 
@@ -202,8 +191,7 @@ public class Number implements INumber
 					res += "1";
 				else
 					res += "0";
-			}
-			catch (NumberException e)
+			} catch (NumberException e)
 			{
 				e.printStackTrace();
 			}

@@ -19,8 +19,7 @@ public class NaturalNumberMultiplierDemo2
 		INaturalNumber Z = new NaturalNumber("Z");
 
 		IProblem p = new Conjunction(new IProblem[]
-		{ new NaturalNumberMultiplier(X, Y, Z), new NaturalNumberFixer(X, 8),
-				new NaturalNumberFixer(Y, 3), });
+		{ new NaturalNumberMultiplier(X, Y, Z), new NaturalNumberFixer(X, 8), new NaturalNumberFixer(Y, 3), });
 
 		IProblemMessage s = p.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

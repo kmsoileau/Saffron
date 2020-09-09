@@ -20,15 +20,14 @@ public class IntegerFixer extends Problem implements IProblem
 {
 	public IntegerFixer(IInteger ntgr) throws Exception
 	{
-		this.setClauses(new Conjunction(new NaturalNumberFixer(ntgr
-				.getAbsValue()), new BitFixer(ntgr.getSign())).getClauses());
+		this.setClauses(
+				new Conjunction(new NaturalNumberFixer(ntgr.getAbsValue()), new BitFixer(ntgr.getSign())).getClauses());
 	}
 
 	public IntegerFixer(IInteger ntgr, long value) throws Exception
 	{
-		this.setClauses(new Conjunction(new NaturalNumberFixer(ntgr
-				.getAbsValue(), Math.abs(value)), new BitFixer(ntgr.getSign(),
-				value >= 0)).getClauses());
+		this.setClauses(new Conjunction(new NaturalNumberFixer(ntgr.getAbsValue(), Math.abs(value)),
+				new BitFixer(ntgr.getSign(), value >= 0)).getClauses());
 	}
 
 	public IntegerFixer(IInteger[] d) throws Exception

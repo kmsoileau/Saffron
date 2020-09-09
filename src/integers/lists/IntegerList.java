@@ -42,8 +42,7 @@ public class IntegerList implements IIntegerList
 		if (name == null)
 			throw new IntegerListException("Passed null String to constructor.");
 		if (data == null)
-			throw new IntegerListException(
-					"Passed null IInteger[] to constructor.");
+			throw new IntegerListException("Passed null IInteger[] to constructor.");
 		this.name = name;
 		this.arrayI = data;
 	}
@@ -85,7 +84,6 @@ public class IntegerList implements IIntegerList
 	@Override
 	public String toString()
 	{
-		return "IntegerList [arrayI=" + Arrays.toString(arrayI) + ", name="
-				+ name + "]";
+		return "IntegerList [arrayI=" + Arrays.toString(arrayI) + ", name=" + name + "]";
 	}
 }

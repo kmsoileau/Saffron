@@ -16,8 +16,7 @@ public class ProblemDenierDemo9
 	{
 		IBooleanVariable b1 = BooleanVariable.getBooleanVariable("b1");
 
-		IProblem p = new Disjunction(new BitFixer(b1, true), new BitFixer(b1,
-				false));
+		IProblem p = new Disjunction(new BitFixer(b1, true), new BitFixer(b1, false));
 		System.out.println(p);
 
 		IProblem p2 = new ProblemDenier(p);

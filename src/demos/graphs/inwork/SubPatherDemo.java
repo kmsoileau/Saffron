@@ -55,10 +55,8 @@ public class SubPatherDemo
 			membership[i] = BooleanVariable.getBooleanVariable();
 		}
 
-		IProblem problem = new Conjunction(new GraphFixer(G),
-				new NaturalNumberFixer(verticesNumber, 5), new BitArrayTotaler(
-						membership, verticesNumber), new SubPather(G,
-						membership));
+		IProblem problem = new Conjunction(new GraphFixer(G), new NaturalNumberFixer(verticesNumber, 5),
+				new BitArrayTotaler(membership, verticesNumber), new SubPather(G, membership));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

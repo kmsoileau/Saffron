@@ -58,8 +58,7 @@ public class BitStringMoverDemo extends Problem implements IProblem
 		board1.set(14, new BitString("1010"));
 		board1.set(15, new BitString("1011"));
 
-		IProblem problem = new Conjunction(new BitStringListFixer(board1),
-				new BitStringMover(board1, board2, 4, 1));
+		IProblem problem = new Conjunction(new BitStringListFixer(board1), new BitStringMover(board1, board2, 4, 1));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
@@ -72,6 +71,4 @@ public class BitStringMoverDemo extends Problem implements IProblem
 			System.out.println("There is no solution.");
 	}
 
-	
 }
-

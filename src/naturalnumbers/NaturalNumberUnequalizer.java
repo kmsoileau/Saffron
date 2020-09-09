@@ -18,13 +18,11 @@ import bits.Problem;
  */
 public class NaturalNumberUnequalizer extends Problem implements IProblem
 {
-	public NaturalNumberUnequalizer(INaturalNumber X, INaturalNumber Y)
-			throws Exception
+	public NaturalNumberUnequalizer(INaturalNumber X, INaturalNumber Y) throws Exception
 	{
 		BitUnequalizer[] thba = new BitUnequalizer[NaturalNumber.getLength()];
 		for (int i = 0; i < NaturalNumber.getLength(); i++)
-			thba[i] = new BitUnequalizer(X.getBooleanVariable(i),
-					Y.getBooleanVariable(i));
+			thba[i] = new BitUnequalizer(X.getBooleanVariable(i), Y.getBooleanVariable(i));
 		IProblem p1 = new Disjunction(thba);
 		this.setClauses(p1.getClauses());
 	}

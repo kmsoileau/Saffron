@@ -13,8 +13,7 @@ public class SubsetterDemo2
 		Set setA = new Set("Set A");
 		Set setB = new Set("Set B");
 
-		IProblemMessage s = new Subsetter(setA, setB).findModel(Problem
-				.defaultSolver());
+		IProblemMessage s = new Subsetter(setA, setB).findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

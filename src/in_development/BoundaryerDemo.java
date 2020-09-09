@@ -31,8 +31,7 @@ import naturalnumbers.NaturalNumberPair;
  */
 public class BoundaryerDemo
 {
-	static HashMap<Integer, INaturalNumber> hashMap(int[][] data)
-			throws Exception
+	static HashMap<Integer, INaturalNumber> hashMap(int[][] data) throws Exception
 	{
 		HashMap<Integer, INaturalNumber> nnMap = new HashMap<Integer, INaturalNumber>();
 		for (int[] curr : data)
@@ -51,25 +50,24 @@ public class BoundaryerDemo
 	{
 		int[][] data = new int[][]
 		{
-		{ 0, 1 },
-		{ 0, 3 },
-		{ 1, 1 },
-		{ 1, 2 },
-		{ 1, 4 },
-		{ 2, 4 },
-		{ 2, 5 },
-		{ 3, 4 },
-		{ 4, 6 },
-		{ 5, 7 },
-		{ 6, 5 },
-		{ 6, 7 } };
+				{ 0, 1 },
+				{ 0, 3 },
+				{ 1, 1 },
+				{ 1, 2 },
+				{ 1, 4 },
+				{ 2, 4 },
+				{ 2, 5 },
+				{ 3, 4 },
+				{ 4, 6 },
+				{ 5, 7 },
+				{ 6, 5 },
+				{ 6, 7 } };
 
 		HashMap<Integer, INaturalNumber> nnMap = hashMap(data);
 
 		ArrayList<NaturalNumberPair> pairs = new ArrayList<NaturalNumberPair>();
 		for (int i = 0; i < data.length; i++)
-			pairs.add(new NaturalNumberPair(nnMap.get(data[i][0]), nnMap
-					.get(data[i][1])));
+			pairs.add(new NaturalNumberPair(nnMap.get(data[i][0]), nnMap.get(data[i][1])));
 
 		IGraph graph = new Graph(data);
 

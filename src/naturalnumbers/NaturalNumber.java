@@ -44,12 +44,11 @@ public class NaturalNumber extends BitString implements INaturalNumber
 	 * Call this method to set the bit size of NaturalNumbers so that they can
 	 * accommodate natural numbers up to a size specified by you.
 	 */
-	public static void setLargestNaturalNumber(long nn)
-			throws NaturalNumberException
+	public static void setLargestNaturalNumber(long nn) throws NaturalNumberException
 	{
 		if (nn < 1)
-			throw new NaturalNumberException("Error: Attempted to use method "
-					+ "setLargestNaturalNumber with an argument less than 1.");
+			throw new NaturalNumberException(
+					"Error: Attempted to use method " + "setLargestNaturalNumber with an argument less than 1.");
 		int len = (int) Math.ceil(Math.log(nn + 1d) / Math.log(2));
 		setLength(len);
 	}
@@ -101,8 +100,7 @@ public class NaturalNumber extends BitString implements INaturalNumber
 
 	public NaturalNumber(String name, long n) throws Exception
 	{
-		this(name, new Number(new Number(n), NaturalNumber.getLength())
-				.getBitArray());
+		this(name, new Number(new Number(n), NaturalNumber.getLength()).getBitArray());
 	}
 
 	@Override
@@ -132,8 +130,7 @@ public class NaturalNumber extends BitString implements INaturalNumber
 			try
 			{
 				ib = this.getBooleanVariable(i);
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				e.printStackTrace();
 			}

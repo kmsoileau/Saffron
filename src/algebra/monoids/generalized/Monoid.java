@@ -25,13 +25,10 @@ public class Monoid extends Semigroup
 
 	public Monoid()
 	{
-		this(
-				"Monoid-" + monoidCount++,
-				new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
+		this("Monoid-" + monoidCount++, new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
 	}
 
-	public Monoid(
-			HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
+	public Monoid(HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
 	{
 		this("Monoid-" + monoidCount++, composition);
 	}
@@ -43,14 +40,10 @@ public class Monoid extends Semigroup
 
 	public Monoid(String name)
 	{
-		this(
-				name,
-				new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
+		this(name, new HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>>());
 	}
 
-	public Monoid(
-			String name,
-			HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
+	public Monoid(String name, HashMap<INaturalNumber, HashMap<INaturalNumber, INaturalNumber>> composition)
 	{
 		super(name, composition);
 	}
@@ -75,7 +68,6 @@ public class Monoid extends Semigroup
 	@Override
 	public String toString()
 	{
-		return "Monoid [composition=" + super.getComposition() + ", order="
-				+ super.getOrder() + "]";
+		return "Monoid [composition=" + super.getComposition() + ", order=" + super.getOrder() + "]";
 	}
 }

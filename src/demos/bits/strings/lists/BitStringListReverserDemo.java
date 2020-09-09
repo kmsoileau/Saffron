@@ -17,20 +17,17 @@ public class BitStringListReverserDemo
 	public static void main(String[] args) throws Exception
 	{
 		IBitStringList A = new BitStringList("A", new IBitString[]
-		{ new BitString("000"), new BitString("110"), new BitString("010"),
-				new BitString("011") });
+		{ new BitString("000"), new BitString("110"), new BitString("010"), new BitString("011") });
 
 		IBitStringList B = new BitStringList("B", new IBitString[]
-		{ new BitString("000"), new BitString("000"), new BitString("000"),
-				new BitString("000") });
+		{ new BitString("000"), new BitString("000"), new BitString("000"), new BitString("000") });
 
 		System.out.println(B);
 
 		IProblem p1 = new BitStringListReverser(A, B);
 		System.out.println(p1);
 
-		IProblem problem = new Conjunction(new BitStringListReverser(A, B),
-				new BitStringListFixer(A));
+		IProblem problem = new Conjunction(new BitStringListReverser(A, B), new BitStringListFixer(A));
 
 		System.out.println(problem);
 

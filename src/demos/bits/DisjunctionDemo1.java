@@ -178,8 +178,7 @@ public class DisjunctionDemo1
 		// IProblem-7
 		problem = new Conjunction(new Disjunction(new IBooleanVariable[]
 		{ X, Y, Z }, new IProblem[]
-		{ p1, p2, p3, p4 }), new BitFixer(X, false), new BitFixer(Y, false),
-				new BitFixer(Z, false));
+		{ p1, p2, p3, p4 }), new BitFixer(X, false), new BitFixer(Y, false), new BitFixer(Z, false));
 		System.out.println(problem);
 		s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

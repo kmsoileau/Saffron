@@ -18,15 +18,13 @@ import bits.strings.lists.exceptions.BitStringListIncrementerException;
  */
 public class BitStringListIncrementer extends Problem implements IProblem
 {
-	public BitStringListIncrementer(IBitStringList smaller,
-			IBitString singleton, IBitStringList larger) throws Exception
+	public BitStringListIncrementer(IBitStringList smaller, IBitString singleton, IBitStringList larger)
+			throws Exception
 	{
 		if (smaller == null || larger == null)
-			throw new BitStringListIncrementerException(
-					"Passed a null IBitStringList to a constructor.");
+			throw new BitStringListIncrementerException("Passed a null IBitStringList to a constructor.");
 		if (singleton == null)
-			throw new BitStringListIncrementerException(
-					"Passed a null IBitString to a constructor.");
+			throw new BitStringListIncrementerException("Passed a null IBitString to a constructor.");
 
 		// smaller is a subset of larger
 		IProblem p1 = new BitStringListSubsetter(smaller, larger);

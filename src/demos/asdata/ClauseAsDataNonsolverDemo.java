@@ -47,8 +47,8 @@ public class ClauseAsDataNonsolverDemo extends Problem implements IProblem
 
 		IClauseAsData dataclause = new ClauseAsData();
 
-		IProblem prob = new Conjunction(new ClauseAsDataFixer(dataclause,
-				clause), new ClauseAsDataNonsolver(dataclause));
+		IProblem prob = new Conjunction(new ClauseAsDataFixer(dataclause, clause),
+				new ClauseAsDataNonsolver(dataclause));
 
 		System.out.println(prob);
 

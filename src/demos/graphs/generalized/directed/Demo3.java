@@ -37,25 +37,24 @@ public class Demo3 extends Problem implements IProblem
 	{
 		int[][] data = new int[][]
 		{
-		{ 0, 1 },
-		{ 0, 3 },
-		{ 1, 1 },
-		{ 1, 2 },
-		{ 1, 4 },
-		{ 2, 4 },
-		{ 2, 5 },
-		{ 3, 4 },
-		{ 4, 6 },
-		{ 5, 7 },
-		{ 6, 5 },
-		{ 6, 7 } };
+				{ 0, 1 },
+				{ 0, 3 },
+				{ 1, 1 },
+				{ 1, 2 },
+				{ 1, 4 },
+				{ 2, 4 },
+				{ 2, 5 },
+				{ 3, 4 },
+				{ 4, 6 },
+				{ 5, 7 },
+				{ 6, 5 },
+				{ 6, 7 } };
 
 		IDirectedGraph graph = new DirectedGraph("G", data);
 
 		System.out.println(graph.getLookup());
 
-		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> d = graph
-				.getData();
+		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> d = graph.getData();
 		Set<INaturalNumber> ks = d.keySet();
 		for (INaturalNumber nn : ks)
 			System.out.println(nn.getName());
@@ -80,10 +79,10 @@ public class Demo3 extends Problem implements IProblem
 		{
 			BooleanLiteral.interpret(s.getLiterals());
 			System.out.println("Satisfied.");
-			System.out.println("theX = "+theX.getName());
-			System.out.println("theY = "+theY.getName());
-			System.out.println("first = "+first.getName());
-			System.out.println("second = "+second.getName());
+			System.out.println("theX = " + theX.getName());
+			System.out.println("theY = " + theY.getName());
+			System.out.println("first = " + first.getName());
+			System.out.println("second = " + second.getName());
 		}
 		else
 			System.out.println("Unsatisfied.");

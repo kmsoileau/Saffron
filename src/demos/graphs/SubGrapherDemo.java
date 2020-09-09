@@ -45,30 +45,25 @@ public class SubGrapherDemo
 
 		IGraph subG = new DirectedGraph("SubG", G.size());
 		IBooleanVariable[] membership = new IBooleanVariable[]
-		{ BooleanVariable.getBooleanVariable(true),
-				BooleanVariable.getBooleanVariable(true),
-				BooleanVariable.getBooleanVariable(false),
-				BooleanVariable.getBooleanVariable(true),
-				BooleanVariable.getBooleanVariable(true),
-				BooleanVariable.getBooleanVariable(true),
-				BooleanVariable.getBooleanVariable(true),
-				BooleanVariable.getBooleanVariable(true) };
+		{ BooleanVariable.getBooleanVariable(true), BooleanVariable.getBooleanVariable(true),
+				BooleanVariable.getBooleanVariable(false), BooleanVariable.getBooleanVariable(true),
+				BooleanVariable.getBooleanVariable(true), BooleanVariable.getBooleanVariable(true),
+				BooleanVariable.getBooleanVariable(true), BooleanVariable.getBooleanVariable(true) };
 
 		ArrayList<IProblem> p = new ArrayList<IProblem>();
 		for (int i = 0; i < G.size(); i++)
 			for (int j = 0; j < G.size(); j++)
 			{
-				p.add(new Conjunction(new Disjunction(new BitFixer(
-						membership[i], false), new BitFixer(membership[j],
-						false), new BitEqualizer(subG.getData(i, j), G.getData(
-						i, j))), new Disjunction(
-						new Conjunction(new BitFixer(membership[i], true),
-								new BitFixer(membership[j], true)),
-						new BitFixer(subG.getData(i, j), false))));
+				p.add(new Conjunction(
+						new Disjunction(new BitFixer(membership[i], false), new BitFixer(membership[j], false),
+								new BitEqualizer(subG.getData(i, j), G.getData(i, j))),
+						new Disjunction(
+								new Conjunction(new BitFixer(membership[i], true), new BitFixer(membership[j], true)),
+								new BitFixer(subG.getData(i, j), false))));
 			}
 
-		IProblem problem = new Conjunction(new GraphFixer(G), new BitFixer(
-				membership), new SubGrapher(G, membership, subG));
+		IProblem problem = new Conjunction(new GraphFixer(G), new BitFixer(membership),
+				new SubGrapher(G, membership, subG));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

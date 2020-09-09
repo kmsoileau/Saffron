@@ -18,15 +18,12 @@ import naturalnumbers.lists.exceptions.NaturalNumberListMembershipException;
 
 public class NaturalNumberListMembership extends Problem implements IProblem
 {
-	public NaturalNumberListMembership(INaturalNumber inn,
-			INaturalNumberList bsl) throws Exception
+	public NaturalNumberListMembership(INaturalNumber inn, INaturalNumberList bsl) throws Exception
 	{
 		if (bsl == null)
-			throw new NaturalNumberListMembershipException(
-					"Passed a null INaturalNumberList to constructor.");
+			throw new NaturalNumberListMembershipException("Passed a null INaturalNumberList to constructor.");
 		if (inn == null)
-			throw new NaturalNumberListMembershipException(
-					"Passed a null INaturalNumber to constructor.");
+			throw new NaturalNumberListMembershipException("Passed a null INaturalNumber to constructor.");
 		IProblem[] res = new IProblem[bsl.size()];
 		for (int i = 0; i < bsl.size(); i++)
 		{

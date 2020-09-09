@@ -101,57 +101,49 @@ public class BitStringDemo
 		System.out.println("bt3.getName() = " + bt3.getName());
 		System.out.println("bt3.getDataList() = " + bt3.asList());
 		for (int i = 0; i < bt3.size(); i++)
-			System.out.println("bt3.data$" + i + "] = "
-					+ bt3.getBooleanVariable(i));
+			System.out.println("bt3.data$" + i + "] = " + bt3.getBooleanVariable(i));
 
 		IBitString bt4 = new BitString("xyz", new char[0]);
 		System.out.println("bt4.getName() = " + bt4.getName());
 		System.out.println("bt4.getDataList() = " + bt4.asList());
 		for (int i = 0; i < bt4.size(); i++)
-			System.out.println("bt4.getBooleanVariable(" + i + ") = "
-					+ bt4.getBooleanVariable(i));
+			System.out.println("bt4.getBooleanVariable(" + i + ") = " + bt4.getBooleanVariable(i));
 
 		IBitString bt5 = new BitString(new char[]
 		{ '0' });
 		System.out.println("bt5.getName() = " + bt5.getName());
 		System.out.println("bt5.getDataList() = " + bt5.asList());
 		for (int i = 0; i < bt5.size(); i++)
-			System.out.println("bt5.getBooleanVariable(" + i + ") = "
-					+ bt5.getBooleanVariable(i));
+			System.out.println("bt5.getBooleanVariable(" + i + ") = " + bt5.getBooleanVariable(i));
 
 		IBitString bt6 = new BitString(new BitString("xyz", new boolean[4]));
 		System.out.println("bt6.getName() = " + bt6.getName());
 		System.out.println("bt6.getDataList() = " + bt6.asList());
 		for (int i = 0; i < bt6.size(); i++)
-			System.out.println("bt6.getBooleanVariable(" + i + ") = "
-					+ bt6.getBooleanVariable(i));
+			System.out.println("bt6.getBooleanVariable(" + i + ") = " + bt6.getBooleanVariable(i));
 
 		IBitString bt7 = new BitString("xyz", new IBooleanVariable[0]);
 		System.out.println("bt7.getName() = " + bt7.getName());
 		System.out.println("bt7.getDataList() = " + bt7.asList());
 		for (int i = 0; i < bt7.size(); i++)
-			System.out.println("bt7.getBooleanVariable(" + i + ") = "
-					+ bt7.getBooleanVariable(i));
+			System.out.println("bt7.getBooleanVariable(" + i + ") = " + bt7.getBooleanVariable(i));
 
 		IBitString bt8 = new BitString(new IBooleanVariable[7]);
 		System.out.println("bt8.getName() = " + bt8.getName());
 		System.out.println("bt8.getDataList() = " + bt8.asList());
 		for (int i = 0; i < bt8.size(); i++)
-			System.out.println("bt8.getBooleanVariable(" + i + ") = "
-					+ bt8.getBooleanVariable(i));
+			System.out.println("bt8.getBooleanVariable(" + i + ") = " + bt8.getBooleanVariable(i));
 
 		IBitString bt9 = new BitString("xyz", 6);
 		System.out.println("bt9.getName() = " + bt9.getName());
 		System.out.println("bt9.getDataList() = " + bt9.asList());
 		for (int i = 0; i < bt9.size(); i++)
-			System.out.println("bt9.getBooleanVariable(" + i + ") = "
-					+ bt9.getBooleanVariable(i));
+			System.out.println("bt9.getBooleanVariable(" + i + ") = " + bt9.getBooleanVariable(i));
 
 		IBitString bt10 = new BitString("01101101001");
 		System.out.println("bt10.getName() = " + bt10.getName());
 		System.out.println("bt10.getDataList() = " + bt10.asList());
 		for (int i = 0; i < bt10.size(); i++)
-			System.out.println("bt10.getBooleanVariable(" + i + ") = "
-					+ bt10.getBooleanVariable(i));
+			System.out.println("bt10.getBooleanVariable(" + i + ") = " + bt10.getBooleanVariable(i));
 	}
 }

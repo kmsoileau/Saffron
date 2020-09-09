@@ -35,8 +35,8 @@ public class NonnegativeIntegerDemo
 		IInteger b = new Integer(0);
 		IInteger c = new Integer(-12);
 
-		IProblemMessage s = new Conjunction(new IntegerFixer(a),
-				new NonnegativeInteger(a)).findModel(Problem.defaultSolver());
+		IProblemMessage s = new Conjunction(new IntegerFixer(a), new NonnegativeInteger(a))
+				.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
@@ -45,8 +45,7 @@ public class NonnegativeIntegerDemo
 		else
 			System.out.println("No solution.");
 
-		s = new Conjunction(new IntegerFixer(b), new NonnegativeInteger(b))
-				.findModel(Problem.defaultSolver());
+		s = new Conjunction(new IntegerFixer(b), new NonnegativeInteger(b)).findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
@@ -55,8 +54,7 @@ public class NonnegativeIntegerDemo
 		else
 			System.out.println("No solution.");
 
-		s = new Conjunction(new IntegerFixer(c), new NonnegativeInteger(c))
-				.findModel(Problem.defaultSolver());
+		s = new Conjunction(new IntegerFixer(c), new NonnegativeInteger(c)).findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

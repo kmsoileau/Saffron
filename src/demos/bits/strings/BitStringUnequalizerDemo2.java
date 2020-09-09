@@ -30,8 +30,8 @@ public class BitStringUnequalizerDemo2
 		IBitString C1 = new BitString("01001010");
 		IBitString C2 = new BitString("01001010");
 
-		IProblem problem = new Conjunction(new BitStringFixer(C1),
-				new BitStringFixer(C2), new BitStringUnequalizer(C1, C2));
+		IProblem problem = new Conjunction(new BitStringFixer(C1), new BitStringFixer(C2),
+				new BitStringUnequalizer(C1, C2));
 		System.out.println(problem);
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

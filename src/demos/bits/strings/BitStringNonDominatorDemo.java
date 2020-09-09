@@ -27,8 +27,8 @@ public class BitStringNonDominatorDemo
 		IBitString X = new BitString("0101");
 		IBitString Y = new BitString("1101");
 
-		IProblem problem = new Conjunction(new BitStringFixer(X),
-				new BitStringFixer(Y), new BitStringNonDominator(X, Y));
+		IProblem problem = new Conjunction(new BitStringFixer(X), new BitStringFixer(Y),
+				new BitStringNonDominator(X, Y));
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

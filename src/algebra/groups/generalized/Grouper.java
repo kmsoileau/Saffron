@@ -20,14 +20,12 @@ import bits.INaturalNumber;
  */
 public class Grouper extends Monoider
 {
-	public Grouper(Group grp, INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public Grouper(Group grp, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		super(grp, X, Y, Z);
 	}
 
-	public Grouper(int[][] opTable, INaturalNumber X, INaturalNumber Y,
-			INaturalNumber Z) throws Exception
+	public Grouper(int[][] opTable, INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		super(opTable, X, Y, Z);
 	}

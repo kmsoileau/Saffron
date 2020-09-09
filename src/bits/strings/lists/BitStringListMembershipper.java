@@ -17,15 +17,12 @@ import bits.strings.lists.exceptions.BitStringListException;
 
 public class BitStringListMembershipper extends Problem implements IProblem
 {
-	public BitStringListMembershipper(IBitString string, IBitStringList bsl)
-			throws Exception
+	public BitStringListMembershipper(IBitString string, IBitStringList bsl) throws Exception
 	{
 		if (bsl == null)
-			throw new BitStringListException(
-					"Passed a null IBitStringList to constructor.");
+			throw new BitStringListException("Passed a null IBitStringList to constructor.");
 		if (string == null)
-			throw new BitStringListException(
-					"Passed a null IBitString to constructor.");
+			throw new BitStringListException("Passed a null IBitString to constructor.");
 		IProblem[] res = new IProblem[bsl.size()];
 		for (int i = 0; i < bsl.size(); i++)
 		{

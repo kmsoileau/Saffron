@@ -23,8 +23,7 @@ public class BitStringClearer extends Problem implements IProblem
 	public BitStringClearer(IBitString X) throws Exception
 	{
 		if (X == null)
-			throw new BitStringClearerException(
-					"A null IBitString was passed to a constructor.");
+			throw new BitStringClearerException("A null IBitString was passed to a constructor.");
 		else
 		{
 			int commonsize = X.size();

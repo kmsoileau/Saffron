@@ -21,8 +21,7 @@ import naturalnumbers.NaturalNumberMultiplier;
 
 public class IntegerMultiplier extends Problem implements IProblem
 {
-	public IntegerMultiplier(IInteger X, IInteger Y, IInteger Z)
-			throws Exception
+	public IntegerMultiplier(IInteger X, IInteger Y, IInteger Z) throws Exception
 	{
 		INaturalNumber Xabs = X.getAbsValue();
 		IBooleanVariable Xsign = X.getSign();
@@ -40,15 +39,14 @@ public class IntegerMultiplier extends Problem implements IProblem
 		// Zabs=Xabs * Yabs
 
 		IProblem problem = new Conjunction(
-				new Disjunction(new Conjunction(new Disjunction(new BitFixer(
-						Xsign, false), new BitFixer(Ysign, false)),
-						new Disjunction(new BitFixer(Xsign, true),
-								new BitFixer(Ysign, true))), new BitFixer(
-						Zsign, true)), new Disjunction(new Conjunction(
-						new Disjunction(new BitFixer(Xsign, true),
-								new BitFixer(Ysign, false)), new Disjunction(
-								new BitFixer(Xsign, false), new BitFixer(Ysign,
-										true))), new BitFixer(Zsign, false)),
+				new Disjunction(
+						new Conjunction(new Disjunction(new BitFixer(Xsign, false), new BitFixer(Ysign, false)),
+								new Disjunction(new BitFixer(Xsign, true), new BitFixer(Ysign, true))),
+						new BitFixer(Zsign, true)),
+				new Disjunction(
+						new Conjunction(new Disjunction(new BitFixer(Xsign, true), new BitFixer(Ysign, false)),
+								new Disjunction(new BitFixer(Xsign, false), new BitFixer(Ysign, true))),
+						new BitFixer(Zsign, false)),
 				new NaturalNumberMultiplier(Xabs, Yabs, Zabs));
 
 		this.setClauses(problem.getClauses());

@@ -17,24 +17,20 @@ import bits.strings.lists.exceptions.BitStringListException;
 
 public class BitStringListUnioner extends Problem implements IProblem
 {
-	public BitStringListUnioner(IBitStringList union, IBitStringList A,
-			IBitStringList B) throws Exception
+	public BitStringListUnioner(IBitStringList union, IBitStringList A, IBitStringList B) throws Exception
 	{
 		if (union == null || A == null || B == null)
-			throw new BitStringListException(
-					"Passed null IBitStringList to BitStringListAnder constructor.");
+			throw new BitStringListException("Passed null IBitStringList to BitStringListAnder constructor.");
 
 		IProblem problem = null;
 		for (int i = 0; i < A.size(); i++)
 		{
-			IProblem inT = new BitStringListMembershipper(A.getBitString(i),
-					union);
+			IProblem inT = new BitStringListMembershipper(A.getBitString(i), union);
 			problem = new Conjunction(problem, inT);
 		}
 		for (int i = 0; i < B.size(); i++)
 		{
-			IProblem inT = new BitStringListMembershipper(B.getBitString(i),
-					union);
+			IProblem inT = new BitStringListMembershipper(B.getBitString(i), union);
 			problem = new Conjunction(problem, inT);
 		}
 		for (int i = 0; i < union.size(); i++)
@@ -48,9 +44,9 @@ public class BitStringListUnioner extends Problem implements IProblem
 	}
 
 	/*
-	 * public BitStringListUnioner(IBitStringList T,IBitStringList
-	 * A,IBitStringList B) throws Exception { if(T==null || A==null || B==null)
-	 * throw new BitStringListException(
+	 * public BitStringListUnioner(IBitStringList T,IBitStringList A,IBitStringList
+	 * B) throws Exception { if(T==null || A==null || B==null) throw new
+	 * BitStringListException(
 	 * "Passed null IBitStringList to BitStringListAnder constructor.");
 	 * 
 	 * IProblem problem=null; for(int i=0;i<A.size();i++) { IBitString
@@ -62,8 +58,8 @@ public class BitStringListUnioner extends Problem implements IProblem
 	 * BitStringListNonmembershipper(curr,B); IProblem inT=new
 	 * BitStringListMembershipper(curr,T); problem=new Conjunction(problem, new
 	 * Disjunction(notInT,inA,inB), new Disjunction(new
-	 * Conjunction(notInA,notInB),inT)); } for(int i=0;i<B.size();i++) {
-	 * IBitString curr=B.getBitString(i); IProblem p1=new
+	 * Conjunction(notInA,notInB),inT)); } for(int i=0;i<B.size();i++) { IBitString
+	 * curr=B.getBitString(i); IProblem p1=new
 	 * BitStringListNonmembershipper(curr,T); IProblem p2=new
 	 * BitStringListMembershipper(curr,A); IProblem p3=new
 	 * BitStringListMembershipper(curr,B); IProblem p4=new

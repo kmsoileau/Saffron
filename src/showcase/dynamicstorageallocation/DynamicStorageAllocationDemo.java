@@ -91,10 +91,8 @@ public class DynamicStorageAllocationDemo extends Problem implements IProblem
 {
 	private static boolean decide(INaturalNumberRectangle rect, int row, int col)
 	{
-		return rect.getAltitude().getLower().getValue() <= row
-				&& row <= rect.getAltitude().getUpper().getValue()
-				&& rect.getBase().getLower().getValue() <= col
-				&& col <= rect.getBase().getUpper().getValue();
+		return rect.getAltitude().getLower().getValue() <= row && row <= rect.getAltitude().getUpper().getValue()
+				&& rect.getBase().getLower().getValue() <= col && col <= rect.getBase().getUpper().getValue();
 	}
 
 	public static void main(String[] args) throws Exception
@@ -109,8 +107,7 @@ public class DynamicStorageAllocationDemo extends Problem implements IProblem
 
 		// new Allocateable(size, arrivalTime, departureTime)
 		Allocateable[] data = new Allocateable[]
-		{ new Allocateable(2, 2, 3), new Allocateable(3, 3, 4),
-				new Allocateable(1, 1, 5), new Allocateable(5, 5, 7),
+		{ new Allocateable(2, 2, 3), new Allocateable(3, 3, 4), new Allocateable(1, 1, 5), new Allocateable(5, 5, 7),
 				new Allocateable(2, 0, 7) };
 
 		int dataBlocks = data.length;
@@ -118,7 +115,7 @@ public class DynamicStorageAllocationDemo extends Problem implements IProblem
 		System.out.println("\nCONSOLE OUTPUT");
 		System.out.println("\nJOBS");
 		for (int i = 0; i < dataBlocks; i++)
-			System.out.println(data[i].toString(""+i));
+			System.out.println(data[i].toString("" + i));
 
 		/**
 		 * Set globals:
@@ -150,17 +147,14 @@ public class DynamicStorageAllocationDemo extends Problem implements IProblem
 
 		IProblem[] rectangleFixers = new IProblem[dataBlocks];
 		for (int i = 0; i < dataBlocks; i++)
-			rectangleFixers[i] = new NaturalNumberRectangleFixer(rectangle[i],
-					0, data[i].getArrivalTime(), data[i].getSize(),
-					data[i].getDepartureTime() + 1 - data[i].getArrivalTime());
+			rectangleFixers[i] = new NaturalNumberRectangleFixer(rectangle[i], 0, data[i].getArrivalTime(),
+					data[i].getSize(), data[i].getDepartureTime() + 1 - data[i].getArrivalTime());
 
 		IProblem p1 = new Conjunction(rectangleFixers);
 
-		IProblem p2 = new RectanglePacker(rectangle, enclosure,
-				shiftedRectangle, absdx, absdy);
+		IProblem p2 = new RectanglePacker(rectangle, enclosure, shiftedRectangle, absdx, absdy);
 
-		IProblem p3 = new NaturalNumberRectangleFixer(enclosure, 0, 0,
-				memoryUnits, timeSlots);
+		IProblem p3 = new NaturalNumberRectangleFixer(enclosure, 0, 0, memoryUnits, timeSlots);
 
 		IProblem[] p4Array = new IProblem[dataBlocks];
 		for (int i = 0; i < dataBlocks; i++)
@@ -180,7 +174,7 @@ public class DynamicStorageAllocationDemo extends Problem implements IProblem
 		if (message.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(message.getLiterals());
-			
+
 			System.out.println("\nSOLUTION");
 
 			// for (int i = 0; i < dataBlocks; i++)
@@ -202,7 +196,7 @@ public class DynamicStorageAllocationDemo extends Problem implements IProblem
 					{
 						if (decide(shiftedRectangle[j], row, col))
 						{
-							ret += j+ " ";
+							ret += j + " ";
 							continue a;
 						}
 					}

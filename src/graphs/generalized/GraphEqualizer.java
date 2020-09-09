@@ -29,10 +29,8 @@ public class GraphEqualizer extends Problem implements IProblem
 	@SuppressWarnings("unlikely-arg-type")
 	public GraphEqualizer(IGraph g1, IGraph g2) throws Exception
 	{
-		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> data1 = g1
-				.getData();
-		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> data2 = g2
-				.getData();
+		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> data1 = g1.getData();
+		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> data2 = g2.getData();
 
 		ArrayList<IProblem> p = new ArrayList<IProblem>();
 		for (int i = 0; i < data1.size(); i++)

@@ -60,11 +60,9 @@ public class UndirectedGraph extends Graph implements IUndirectedGraph
 		super.getBacking().getLookup().get(j).get(i).setValue(false);
 	}
 
-	private void monoconnect(INaturalNumber i, INaturalNumber j)
-			throws Exception
+	private void monoconnect(INaturalNumber i, INaturalNumber j) throws Exception
 	{
-		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> qq = super
-				.getBacking().getLookup();
+		HashMap<INaturalNumber, HashMap<INaturalNumber, IBooleanVariable>> qq = super.getBacking().getLookup();
 		HashMap<INaturalNumber, IBooleanVariable> qq2 = qq.get(i);
 		if (qq2 == null)
 		{

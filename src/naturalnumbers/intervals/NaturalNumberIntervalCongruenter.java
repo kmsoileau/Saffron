@@ -22,25 +22,21 @@ import naturalnumbers.NaturalNumberAdder;
  * 
  *
  */
-public class NaturalNumberIntervalCongruenter extends Problem implements
-		IProblem
+public class NaturalNumberIntervalCongruenter extends Problem implements IProblem
 {
-	public NaturalNumberIntervalCongruenter(INaturalNumberInterval A,
-			INaturalNumberInterval B) throws Exception
+	public NaturalNumberIntervalCongruenter(INaturalNumberInterval A, INaturalNumberInterval B) throws Exception
 	{
 		this(A, B, new NaturalNumber());
 	}
 
-	public NaturalNumberIntervalCongruenter(INaturalNumberInterval A,
-			INaturalNumberInterval B, INaturalNumber X) throws Exception
+	public NaturalNumberIntervalCongruenter(INaturalNumberInterval A, INaturalNumberInterval B, INaturalNumber X)
+			throws Exception
 	{
-		IProblem p1 = new Conjunction(new NaturalNumberAdder(A.getLower(), X,
-				B.getLower()), new NaturalNumberAdder(A.getUpper(), X,
-				B.getUpper()));
+		IProblem p1 = new Conjunction(new NaturalNumberAdder(A.getLower(), X, B.getLower()),
+				new NaturalNumberAdder(A.getUpper(), X, B.getUpper()));
 
-		IProblem p2 = new Conjunction(new NaturalNumberAdder(B.getLower(), X,
-				A.getLower()), new NaturalNumberAdder(B.getUpper(), X,
-				A.getUpper()));
+		IProblem p2 = new Conjunction(new NaturalNumberAdder(B.getLower(), X, A.getLower()),
+				new NaturalNumberAdder(B.getUpper(), X, A.getUpper()));
 
 		IProblem p = new Disjunction(p1, p2);
 

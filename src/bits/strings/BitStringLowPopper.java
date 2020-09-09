@@ -33,8 +33,7 @@ public class BitStringLowPopper extends Problem implements IProblem
 			IProblem[] p = new IProblem[X.size()];
 			int count = 0;
 			for (int i = 0; i < p.length - 1; i++)
-				p[count++] = new BitEqualizer(X.getBooleanVariable(i + 1),
-						Y.getBooleanVariable(i));
+				p[count++] = new BitEqualizer(X.getBooleanVariable(i + 1), Y.getBooleanVariable(i));
 			this.setClauses(new Conjunction(p).getClauses());
 		}
 	}

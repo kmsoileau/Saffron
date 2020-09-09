@@ -37,8 +37,7 @@ public class WeightedSet
 	{
 		super();
 		if (Set.getSetSupportSize() != weight.length)
-			throw new WeightedSetException(
-					"In constructor call, INaturalNumber array has impropoer size.");
+			throw new WeightedSetException("In constructor call, INaturalNumber array has impropoer size.");
 		this.weight = weight;
 		this.membership = new BitString(weight.length);
 	}
@@ -105,7 +104,6 @@ public class WeightedSet
 	@Override
 	public String toString()
 	{
-		return "WeightedSet [membership=" + membership + ", weight="
-				+ Arrays.toString(weight) + "]";
+		return "WeightedSet [membership=" + membership + ", weight=" + Arrays.toString(weight) + "]";
 	}
 }

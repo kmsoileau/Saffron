@@ -42,9 +42,8 @@ public class VertexSubsetDemo
 
 		GraphVertexSubset bsgv = new GraphVertexSubset(G, membership);
 
-		IProblemMessage s = new Conjunction(new GraphFixer(G), new BitFixer(
-				membership.getBV(2), true), new BitFixer(membership.getBV(4),
-				true)).findModel(Problem.defaultSolver());
+		IProblemMessage s = new Conjunction(new GraphFixer(G), new BitFixer(membership.getBV(2), true),
+				new BitFixer(membership.getBV(4), true)).findModel(Problem.defaultSolver());
 
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
