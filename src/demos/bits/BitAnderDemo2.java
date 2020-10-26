@@ -4,7 +4,6 @@ import bits.BitAnder;
 import bits.BooleanVariable;
 import bits.IBooleanVariable;
 import bits.IProblem;
-import bits.Problem;
 
 public class BitAnderDemo2
 {
@@ -18,8 +17,5 @@ public class BitAnderDemo2
 		// Construct the object that implements the constraint x & y = z :
 		IProblem bitAnder1 = new BitAnder(x, y, z);
 		System.out.println(bitAnder1);
-
-		IProblem compressed = ((Problem) bitAnder1).compress();
-		System.out.println(compressed);
 	}
 }

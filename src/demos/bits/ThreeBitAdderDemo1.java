@@ -21,7 +21,7 @@ public class ThreeBitAdderDemo1
 
 		IProblem threeBitAdder1 = new ThreeBitAdder(w, x, y, z, c).and(new BitFixer(w, false))
 				.and(new BitFixer(x, true)).and(new BitFixer(y, true));
-		threeBitAdder1.sort();
+
 		System.out.println(threeBitAdder1);
 
 		IProblemMessage s = threeBitAdder1.findModel(Problem.defaultSolver());

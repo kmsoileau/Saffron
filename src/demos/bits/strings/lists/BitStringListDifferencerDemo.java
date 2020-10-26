@@ -56,8 +56,6 @@ public class BitStringListDifferencerDemo
 
 		IProblem problem = new Conjunction(slmfix, bslfix, new BitStringListDifferencer(slm, bsl, target));
 
-		problem.sort();
-
 		System.out.println(problem);
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

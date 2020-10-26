@@ -21,14 +21,14 @@ public class NaturalNumberFactorerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		NaturalNumber.setLength(65);
+		NaturalNumber.setLargestNaturalNumber(911111111);
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 		INaturalNumber Z = new NaturalNumber("Z");
 
-		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 9111L), new NaturalNumberFactorer(X, Y, Z));
+		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 911111111L), new NaturalNumberFactorer(X, Y, Z));
 
-		System.out.println(p.size() + "clauses generated...");
+		System.out.println(p.size() + " clauses generated...");
 
 		IProblemMessage s = p.findModel();
 

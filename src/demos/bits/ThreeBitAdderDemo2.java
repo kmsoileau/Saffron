@@ -3,7 +3,6 @@ package demos.bits;
 import bits.BooleanVariable;
 import bits.IBooleanVariable;
 import bits.IProblem;
-import bits.Problem;
 import bits.ThreeBitAdder;
 
 public class ThreeBitAdderDemo2
@@ -17,11 +16,11 @@ public class ThreeBitAdderDemo2
 		IBooleanVariable c = BooleanVariable.getBooleanVariable("c");
 
 		IProblem threeBitAdder1 = new ThreeBitAdder(w, x, y, z, c);
-		threeBitAdder1.sort();
+
 		System.out.println(threeBitAdder1);
 
-		IProblem compressed = ((Problem) threeBitAdder1).compress();
-		System.out.println(compressed);
+//		IProblem compressed = ((Problem) threeBitAdder1).compress();
+//		System.out.println(compressed);
 	}
 }
 // Compressed

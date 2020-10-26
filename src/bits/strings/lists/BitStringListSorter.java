@@ -38,7 +38,6 @@ import bits.Problem;
 import bits.strings.BitStringOrderer;
 import bits.strings.lists.exceptions.BitStringListException;
 
-@SuppressWarnings("unused")
 public class BitStringListSorter extends Problem implements IProblem
 {
 	public BitStringListSorter(IBitStringList source) throws Exception

@@ -1,5 +1,7 @@
 package demos.bits;
 
+import java.util.ArrayList;
+
 import bits.BooleanLiteral;
 import bits.Clause;
 import bits.IClause;
@@ -12,9 +14,9 @@ public class ClauseDemo
 	public static void main(String[] args) throws Exception
 	{
 		IClause clause = new Clause();
-		IProblem problem = new Problem();
-		problem.addClause(clause);
-
+		ArrayList<IClause> ret = new ArrayList<IClause>();
+		ret.add(clause);
+		IProblem problem = new Problem(ret.toArray(new IClause[0]));
 		System.out.println(problem);
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

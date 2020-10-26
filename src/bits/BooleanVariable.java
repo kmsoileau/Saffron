@@ -249,13 +249,18 @@ public class BooleanVariable implements IBooleanVariable
 		return this.value ? "1" : "0";
 	}
 
-	/**
-	 * Returns a string representation of the IBooleanVariable.
-	 */
 	@Override
 	public String toString()
 	{
-		return "<" + getName() + "=" + this.getValue() + ">";
+		return name;
 	}
 
+//	/**
+//	 * Returns a string representation of the IBooleanVariable.
+//	 */
+//	@Override
+//	public String toString()
+//	{
+//		return "<" + getName() + "=" + this.getValue() + ">";
+//	}
 }

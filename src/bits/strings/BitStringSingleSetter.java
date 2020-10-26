@@ -1,5 +1,7 @@
 package bits.strings;
 
+import java.util.ArrayList;
+
 import bits.Clause;
 import bits.IBitString;
 import bits.IClause;
@@ -52,16 +54,16 @@ public class BitStringSingleSetter extends Problem implements IProblem
 		if (bits == 0)
 			throw new BitStringSingleSetterException("Array of length zero passed to constructor");
 
-		IProblem problem = Problem.newProblem();
+		ArrayList<IClause> ret = new ArrayList<IClause>();
 		IClause clause = Clause.newClause();
 		for (int i = 0; i < bits; i++)
 			clause = clause.or(bs.getBooleanVariable(i));
-		problem.addClause(clause);
+		ret.add(clause);
 
 		for (int i = 0; i < bits; i++)
 			for (int j = i + 1; j < bits; j++)
-				problem.addClause(Clause.newClause().orNot(bs.getBooleanVariable(i)).orNot(bs.getBooleanVariable(j)));
+				ret.add(Clause.newClause().orNot(bs.getBooleanVariable(i)).orNot(bs.getBooleanVariable(j)));
 
-		this.setClauses(problem.getClauses());
+		this.setClauses(new Problem(ret.toArray(new IClause[0])).getClauses());
 	}
 }

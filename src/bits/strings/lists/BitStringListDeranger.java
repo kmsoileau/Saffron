@@ -40,7 +40,6 @@ import bits.Problem;
 import bits.strings.BitStringUnequalizer;
 import bits.strings.lists.exceptions.BitStringListException;
 
-@SuppressWarnings("unused")
 public class BitStringListDeranger extends Problem implements IProblem
 {
 	public BitStringListDeranger(IBitStringList source, IBitStringList target) throws Exception

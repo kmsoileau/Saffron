@@ -33,7 +33,6 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
-@SuppressWarnings("unused")
 public class NaturalNumberArrayRepeater extends Problem implements IProblem
 {
 	public NaturalNumberArrayRepeater(INaturalNumber[] array) throws Exception

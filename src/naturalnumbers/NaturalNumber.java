@@ -23,7 +23,6 @@ import bits.INaturalNumber;
 import bits.strings.BitString;
 import naturalnumbers.exceptions.NaturalNumberException;
 
-@SuppressWarnings("unused")
 public class NaturalNumber extends BitString implements INaturalNumber
 {
 	private static int bits = INaturalNumber.DEFAULTLENGTH;

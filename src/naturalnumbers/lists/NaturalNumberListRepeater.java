@@ -34,7 +34,6 @@ import bits.IProblem;
 import bits.Problem;
 import naturalnumbers.NaturalNumberEqualizer;
 
-@SuppressWarnings("unused")
 public class NaturalNumberListRepeater extends Problem implements IProblem
 {
 	public NaturalNumberListRepeater(INaturalNumberList list) throws Exception

@@ -2,6 +2,8 @@ package bits;
 
 import java.util.ArrayList;
 
+import positronic.util.arrays.CompoundList;
+
 /**
  * An extension of the Problem class which implements a Boolean constraint. This
  * constraint is satisfied if and only if the IBooleanVariable x has a given
@@ -46,7 +48,7 @@ public class BitFixer extends Problem implements IProblem
 
 	public BitFixer(IBooleanVariable x, boolean v) throws Exception
 	{
-		this.addClause(Clause.newClause());
+		this.setBacking(new CompoundList(Clause.newClause()));
 
 		if (v)
 			this.getClause(0).or(x);

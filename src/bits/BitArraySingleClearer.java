@@ -1,5 +1,7 @@
 package bits;
 
+import java.util.ArrayList;
+
 import bits.exceptions.BitArraySingleClearerException;
 
 /**
@@ -46,16 +48,16 @@ public class BitArraySingleClearer extends Problem implements IProblem
 		if (bits == 0)
 			throw new BitArraySingleClearerException("Array of length zero passed to constructor");
 
-		IProblem problem = Problem.newProblem();
+		ArrayList<IClause> ret=new ArrayList<IClause>();
 		IClause clause = Clause.newClause();
 		for (int i = 0; i < bits; i++)
 			clause = clause.or(array[i]);
-		problem.addClause(clause);
+		ret.add(clause);
 
 		for (int i = 0; i < bits; i++)
 			for (int j = i + 1; j < bits; j++)
-				problem.addClause(Clause.newClause().or(array[i]).or(array[j]));
+				ret.add(Clause.newClause().or(array[i]).or(array[j]));
 
-		this.setClauses(problem.getClauses());
+		this.setClauses(ret);
 	}
 }

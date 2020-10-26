@@ -21,7 +21,7 @@ public class BitOrerDemo2
 		System.out.println("x = " + x.getValue());
 		System.out.println("y = " + y.getValue());
 		System.out.println("z = " + z.getValue());
-		IProblem compressed = ((Problem) bitOrer1).compress();
-		System.out.println(compressed);
+
+		System.out.println(bitOrer1);
 	}
 }

@@ -1,7 +1,5 @@
 package asdata;
 
-import bits.IProblem;
-
 public interface IProblemAsData
 {
 	// boolean addClause(IClauseAsData c);
@@ -10,5 +8,5 @@ public interface IProblemAsData
 
 	// boolean removeClause(IClauseAsData c);
 	// IClauseAsData removeClause(int index);
-	IProblem toProblem() throws Exception;
+	// IProblem toProblem() throws Exception;
 }

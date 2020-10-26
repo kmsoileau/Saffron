@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class ProblemMessage implements IProblemMessage
 {
 	private ArrayList<IBooleanLiteral> literals;
+
 	private int status;
 
 	public ProblemMessage(int status, ArrayList<IBooleanLiteral> literals)
@@ -44,5 +45,11 @@ public class ProblemMessage implements IProblemMessage
 	public void setStatus(int status)
 	{
 		this.status = status;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "ProblemMessage [literals=" + literals + ", status=" + status + "]";
 	}
 }

@@ -1,5 +1,7 @@
 package demos.bits;
 
+import java.util.ArrayList;
+
 import bits.BooleanVariable;
 import bits.Clause;
 import bits.IBooleanLiteral;
@@ -15,13 +17,15 @@ public class GeoProblemDemo extends Problem implements IProblem
 		IBooleanVariable x = BooleanVariable.getBooleanVariable("x");
 		IBooleanVariable y = BooleanVariable.getBooleanVariable("y");
 
-		IProblem p1 = new Problem();
-		p1.addClause(new Clause().or(x).orNot(y));
-		p1.addClause(new Clause().orNot(x).or(y));
+		ArrayList<IClause> p1 = new ArrayList<IClause>();
+		p1.add(new Clause().or(x).orNot(y));
+		p1.add(new Clause().orNot(x).or(y));
+
+		Problem prob = new Problem(p1.toArray(new IClause[0]));
 
 		// Combine the constraints into a Problem object :
 
-		GeoProblemDemo gee = new GeoProblemDemo((Problem) p1);
+		GeoProblemDemo gee = new GeoProblemDemo(prob);
 		System.out.println(gee);
 		System.out.println(gee.doProblem());
 	}

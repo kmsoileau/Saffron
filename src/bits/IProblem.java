@@ -1,7 +1,6 @@
 package bits;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.sat4j.specs.ISolver;
 
@@ -18,12 +17,8 @@ import org.sat4j.specs.ISolver;
  * @version 1.4
  * @since 2004/08/26
  */
-public interface IProblem extends Iterable<IClause>
+public interface IProblem extends Iterable<Object>
 {
-	boolean addClause(IClause clause) throws Exception;
-
-	void addClauseVoid(IClause clause) throws Exception;
-
 	IProblem and(IProblem problem) throws Exception;
 
 	boolean contains(IClause clause) throws Exception;
@@ -38,17 +33,9 @@ public interface IProblem extends Iterable<IClause>
 
 	IClause getClause(int i);
 
-	List<IClause> getClauses();
+	IClause[] getClauses();
 
-	int numberOfClauses();
-
-	void removeClause(int i);
-
-	void setClause(int i, IClause clause);
-
-	void setClauses(IClause[] clauseArray) throws Exception;
+	void setClauses(IClause[] c) throws Exception;
 
 	int size();
-
-	void sort() throws Exception;
 }

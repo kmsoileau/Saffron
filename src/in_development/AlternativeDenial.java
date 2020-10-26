@@ -45,7 +45,9 @@ public class AlternativeDenial extends Problem implements IProblem
 
 	public AlternativeDenial(IProblem[] array) throws Exception
 	{
-		this.setClauses(new ProblemDenier(new Conjunction(array)).getClauses());
+		IProblem prob = new Conjunction(array);
+		IProblem pd=new ProblemDenier(prob);
+		this.setClauses(pd.getClauses());
 	}
 
 	public AlternativeDenial(List<IProblem> list) throws Exception

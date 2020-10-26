@@ -64,20 +64,19 @@ public class BitExclusiveSelector extends Problem implements IProblem
 
 	public BitExclusiveSelector(IBooleanVariable[] bitArrayList) throws Exception
 	{
-		IProblem problem;
 		if (bitArrayList == null || bitArrayList.length == 0)
 			throw new BitExclusiveSelectorException("Null or empty partition passed to constructor.");
 		if (bitArrayList.length == 1)
-			problem = new BitFixer(bitArrayList[0], true);
+			this.setClauses(new BitFixer(bitArrayList[0], true).getClauses());
 		else
 		{
 			int listSize = bitArrayList.length;
 			BooleanLiteral.getBooleanLiteral(bitArrayList[0], false);
-			problem = Problem.newProblem();
+			ArrayList<IClause> ret = new ArrayList<IClause>();
 			IClause build1 = Clause.newClause();
 			for (IBooleanVariable curr : bitArrayList)
 				build1.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(curr, false));
-			problem.addClause(build1);
+			ret.add(build1);
 
 			for (int i = 0; i < listSize; i++)
 			{
@@ -87,10 +86,10 @@ public class BitExclusiveSelector extends Problem implements IProblem
 					IClause build2 = Clause.newClause();
 					build2.add(curr);
 					build2.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bitArrayList[j], true));
-					problem.addClause(build2);
+					ret.add(build2);
 				}
 			}
+			this.setClauses(ret);
 		}
-		this.setClauses(problem.getClauses());
 	}
 }

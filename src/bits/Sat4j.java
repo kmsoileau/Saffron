@@ -110,7 +110,7 @@ public class Sat4j
 		List<IBooleanLiteral> booleanLiterals = new ArrayList<IBooleanLiteral>();
 		int numberOfLiterals = 0;
 
-		for (int i = 0; i < problem.getClauses().size(); i++)
+		for (int i = 0; i < problem.size(); i++)
 		{
 			IClause currClause = problem.getClause(i);
 			for (int j = 0; j < currClause.size(); j++)
@@ -148,7 +148,7 @@ public class Sat4j
 		try
 		{
 			ArrayList<IBooleanVariable> bvArrayList = new ArrayList<IBooleanVariable>();
-			for (int i = 0; i < problem.numberOfClauses(); i++)
+			for (int i = 0; i < problem.size(); i++)
 			{
 				IClause clause = problem.getClause(i);
 				if (clause != null)

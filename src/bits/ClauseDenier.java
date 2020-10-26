@@ -1,6 +1,9 @@
 package bits;
 
+import java.util.ArrayList;
+
 import bits.exceptions.ClauseDenierException;
+import positronic.util.arrays.CompoundList;
 
 /**
  * An extension of the Problem class which expresses the denial of a given
@@ -31,10 +34,11 @@ public class ClauseDenier extends Problem implements IProblem
 		{
 			if (clause.size() == 0)
 			{
-				this.setClauses(Problem.trivialProblem().getClauses());
+				this.setBacking(new CompoundList(Problem.trivialProblem().getClauses()));
 			}
 			else
 			{
+				ArrayList<IClause> ret = new ArrayList<IClause>();
 				for (IBooleanLiteral ib : clause.toArray())
 				{
 					IBooleanVariable curr = ib.getBooleanVariable();
@@ -47,8 +51,11 @@ public class ClauseDenier extends Problem implements IProblem
 					{
 						cl = Clause.newClause().orNot(curr);
 					}
-					super.addClause(cl);
+					ret.add(cl);
 				}
+				CompoundList cl = new CompoundList(ret.toArray());
+				System.out.println(cl);
+				this.setBacking(cl);
 			}
 		}
 	}

@@ -2,9 +2,6 @@ package asdata;
 
 import java.util.ArrayList;
 
-import bits.IProblem;
-import bits.Problem;
-
 public class ProblemAsData implements IProblemAsData
 {
 	private ArrayList<IClauseAsData> clauses;
@@ -52,14 +49,5 @@ public class ProblemAsData implements IProblemAsData
 	public IClauseAsData removeClause(int index)
 	{
 		return this.clauses.remove(index);
-	}
-
-	@Override
-	public IProblem toProblem() throws Exception
-	{
-		IProblem ret = Problem.newProblem();
-		for (IClauseAsData cl : this.getClauses())
-			ret.addClauseVoid(cl.toClause());
-		return ret;
 	}
 }

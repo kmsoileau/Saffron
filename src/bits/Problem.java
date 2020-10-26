@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -16,6 +15,7 @@ import org.sat4j.specs.ISolver;
 
 import bits.exceptions.ClauseException;
 import bits.exceptions.ProblemException;
+import positronic.util.arrays.CompoundList;
 import utility.EquivalenceRelation;
 
 /**
@@ -63,26 +63,26 @@ public class Problem implements IProblem
 		return new Problem();
 	}
 
-	public static IProblem randomProblem(IBooleanVariable[] bv, int n) throws Exception
-	{
-		Problem p = new Problem();
-		for (int i = 0; i < n; i++)
-			p.addClause(Clause.randomClause(bv));
-		for (int i = 0; i < p.numberOfClauses(); i++)
-			if (p.getClause(i).isEmpty())
-				p.removeClause(i);
-		// p.sortClauses();
-		return p;
-	}
+//	public static IProblem randomProblem(IBooleanVariable[] bv, int n) throws Exception
+//	{
+//		Problem p = new Problem();
+//		for (int i = 0; i < n; i++)
+//			p.addClause(Clause.randomClause(bv));
+//		for (int i = 0; i < p.numberOfClauses(); i++)
+//			if (p.getClause(i).isEmpty())
+//				p.removeClause(i);
+//		// p.sortClauses();
+//		return p;
+//	}
 
 	public static IProblem trivialProblem() throws Exception
 	{
-		IProblem ret = Problem.newProblem();
 		IClause cl = new Clause();
 		IBooleanVariable bv = BooleanVariable.getBooleanVariable();
 		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv, false));
 		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv, true));
-		ret.addClause(cl);
+		IProblem ret = Problem.newProblem();
+		((Problem) ret).setBacking(new CompoundList(cl));
 		return ret;
 	}
 
@@ -92,7 +92,7 @@ public class Problem implements IProblem
 		{ new Clause() });
 	}
 
-	private List<IClause> backing = new ArrayList<IClause>();
+	private CompoundList backing = new CompoundList();
 
 	/**
 	 * Constructs an empty Problem, that is, an instance of Problem which contains
@@ -101,6 +101,11 @@ public class Problem implements IProblem
 	 */
 	public Problem()
 	{
+	}
+
+	public Problem(CompoundList qq)
+	{
+		this.backing = qq;
 	}
 
 	/**
@@ -117,7 +122,7 @@ public class Problem implements IProblem
 
 	public Problem(IProblem iproblem) throws Exception
 	{
-		this.setClauses(iproblem.getClauses());
+		this.backing = ((Problem) iproblem).backing;
 	}
 
 	/**
@@ -127,59 +132,10 @@ public class Problem implements IProblem
 	 * @param v the List of IClauses to comprise the instance of Problem.
 	 * @throws Exception An instance of Exception.
 	 */
-	public Problem(List<IClause> v) throws Exception
-	{
-		if (v != null)
-		{
-			for (int i = 0; i < v.size(); i++)
-			{
-				IClause o = v.get(i);
-				if (o instanceof IClause)
-				{
-					IClause c = o;
-					this.addClause(c);
-				}
-			}
-		}
-	}
-
-	public void add(IClause currcl)
-	{
-		this.getClauses().add(currcl);
-	}
-
-	@Override
-	public boolean addClause(IClause c) throws Exception
-	{
-		if (c == null)
-			return false;
-		if (!this.contains(c))
-		{
-			this.backing.add(c);
-			return true;
-		}
-		else
-			return false;
-	}
-
-	@Override
-	public void addClauseVoid(IClause c) throws Exception
-	{
-		this.addClause(c);
-	}
-
-	/*
-	 * public IProblem and(IProblem p) throws Exception { return new Conjunction(new
-	 * IProblem[]{p,this}); }
-	 */
-
-	public void addClauseVoid(IClause[] c) throws Exception
-	{
-		if (c == null || c.length == 0)
-			return;
-		for (int i = 0; i < c.length; i++)
-			this.addClause(c[i]);
-	}
+//	public Problem(List<IClause> v) throws Exception
+//	{
+//		this(v.toArray(new IClause[0]));
+//	}
 
 	@Override
 	public IProblem and(IProblem p) throws Exception
@@ -191,7 +147,7 @@ public class Problem implements IProblem
 	{
 		EquivalenceRelation e = new EquivalenceRelation();
 
-		for (int i = 0; i < this.numberOfClauses(); i++)
+		for (int i = 0; i < this.size(); i++)
 		{
 			Object[] objary = this.getClause(i).getBooleanVariables();
 			for (int j = 0; j < objary.length; j++)
@@ -204,7 +160,7 @@ public class Problem implements IProblem
 	@Override
 	public Object clone()
 	{
-		List<IClause> cobj = this.getClauses();
+		IClause[] cobj = this.getClauses();
 		IProblem res = null;
 		try
 		{
@@ -216,91 +172,12 @@ public class Problem implements IProblem
 		return res;
 	}
 
-	public IProblem combineSinglyMatchingClauses() throws Exception
-	{
-		int psize = this.size();
-		IProblem ret = Problem.newProblem();
-		for (int i = 0; i < psize; i++)
-		{
-			IClause clausei = this.getClause(i);
-			boolean newclausecreated = false;
-			for (int j = 0; j < psize; j++)
-			{
-				IClause clausej = this.getClause(j);
-				IBooleanLiteral diff = ((Clause) clausei).differsSinglyFrom(clausej);
-				if (diff != null)
-				{
-					IClause newclause = (IClause) clausei.clone();
-					newclause.remove(diff);
-					ret.addClause(newclause);
-					newclausecreated = true;
-				}
-			}
-			if (!newclausecreated)
-				ret.addClause(clausei);
-		}
-		return ret;
-	}
-
-	public IProblem compress() throws Exception
-	{
-		IProblem latest = this;
-		while (true)
-		{
-			IProblem contender = ((Problem) latest).compress0();
-			if (contender.size() == latest.size())
-				break;
-			latest = contender;
-		}
-		return latest;
-	}
-
-	private IProblem compress0() throws Exception
-	{
-		IProblem reduction1 = this.compressReductionPass();
-		IProblem reducedProblem1 = new Problem();
-		for (IClause curr1 : this)
-		{
-			IClause dominatedBy = null;
-			for (IClause curr2 : reduction1)
-			{
-				if (((Clause) curr2).dominates(curr1))
-				{
-					dominatedBy = curr2;
-					break;
-				}
-			}
-
-			if (dominatedBy != null)
-				reducedProblem1.addClause(dominatedBy);
-			else
-				reducedProblem1.addClause(curr1);
-		}
-		return reducedProblem1;
-	}
-
-	private IProblem compressReductionPass() throws Exception
-	{
-		IProblem reduction = new Problem();
-		for (int i = 0; i < this.size(); i++)
-		{
-			Clause c1 = (Clause) this.getClause(i);
-			for (int j = i + 1; j < this.size(); j++)
-			{
-				IClause c2 = this.getClause(j);
-				if (c1.differsSinglyFrom(c2) != null)
-					reduction.addClause(c1.intersection(c2));
-			}
-		}
-		return reduction;
-	}
-
 	@Override
 	public boolean contains(IClause c) throws Exception
 	{
 		if (c == null)
 			return false;
-		for (int i = 0; i < this.numberOfClauses(); i++)
+		for (int i = 0; i < this.size(); i++)
 		{
 			IClause curr = this.getClause(i);
 			if (curr == null)
@@ -313,11 +190,90 @@ public class Problem implements IProblem
 
 	public boolean containsAnEmptyClause()
 	{
-		for (int i = 0; i < this.numberOfClauses(); i++)
+		for (int i = 0; i < this.size(); i++)
 			if (this.getClause(i).isEmpty())
 				return true;
 		return false;
 	}
+
+//	public IProblem combineSinglyMatchingClauses() throws Exception
+//	{
+//		int psize = this.size();
+//		IProblem ret = Problem.newProblem();
+//		for (int i = 0; i < psize; i++)
+//		{
+//			IClause clausei = this.getClause(i);
+//			boolean newclausecreated = false;
+//			for (int j = 0; j < psize; j++)
+//			{
+//				IClause clausej = this.getClause(j);
+//				IBooleanLiteral diff = ((Clause) clausei).differsSinglyFrom(clausej);
+//				if (diff != null)
+//				{
+//					IClause newclause = (IClause) clausei.clone();
+//					newclause.remove(diff);
+//					ret.addClause(newclause);
+//					newclausecreated = true;
+//				}
+//			}
+//			if (!newclausecreated)
+//				ret.addClause(clausei);
+//		}
+//		return ret;
+//	}
+
+//	public IProblem compress() throws Exception
+//	{
+//		IProblem latest = this;
+//		while (true)
+//		{
+//			IProblem contender = ((Problem) latest).compress0();
+//			if (contender.size() == latest.size())
+//				break;
+//			latest = contender;
+//		}
+//		return latest;
+//	}
+
+//	private IProblem compress0() throws Exception
+//	{
+//		IProblem reduction1 = this.compressReductionPass();
+//		IProblem reducedProblem1 = new Problem();
+//		for (IClause curr1 : this)
+//		{
+//			IClause dominatedBy = null;
+//			for (IClause curr2 : reduction1)
+//			{
+//				if (((Clause) curr2).dominates(curr1))
+//				{
+//					dominatedBy = curr2;
+//					break;
+//				}
+//			}
+//
+//			if (dominatedBy != null)
+//				reducedProblem1.addClause(dominatedBy);
+//			else
+//				reducedProblem1.addClause(curr1);
+//		}
+//		return reducedProblem1;
+//	}
+
+//	private IProblem compressReductionPass() throws Exception
+//	{
+//		IProblem reduction = new Problem();
+//		for (int i = 0; i < this.size(); i++)
+//		{
+//			Clause c1 = (Clause) this.getClause(i);
+//			for (int j = i + 1; j < this.size(); j++)
+//			{
+//				IClause c2 = this.getClause(j);
+//				if (c1.differsSinglyFrom(c2) != null)
+//					reduction.addClause(c1.intersection(c2));
+//			}
+//		}
+//		return reduction;
+//	}
 
 	/**
 	 * Removes from each <code>IClause</code> the first occurrence of an
@@ -332,8 +288,9 @@ public class Problem implements IProblem
 	public Problem cull(IBooleanVariable util) throws Exception
 	{
 		ArrayList<IClause> ret = new ArrayList<IClause>();
-		for (IClause c : this)
+		for (Object o : this)
 		{
+			IClause c = (IClause) o;
 			IBooleanLiteral bl = c.getLiteral(util);
 			if (bl != null)
 			{
@@ -342,53 +299,7 @@ public class Problem implements IProblem
 				ret.add(cl);
 			}
 		}
-		return new Problem(ret);
-	}
-
-	public IProblem eliminateComplementaryPairClauses() throws Exception
-	{
-		IProblem dup = Problem.newProblem();
-		for (int i = 0; i < this.numberOfClauses(); i++)
-		{
-			// Get the ith clause in the IProblem p
-			IClause c = this.getClause(i);
-			boolean removeClause = false;
-			// Iterate through the IClause, looking for complementary
-			// IBooleanLiterals
-			for (int j = 0; j < c.size(); j++)
-			{
-				IBooleanLiteral ib = c.getLiteralAt(j);
-				if (!c.contains(ib.complement()))// Detected no complementary
-													// IBooleanLiterals
-					continue;// Continue searching the IClause
-				removeClause = true;// Detected a pair of complementary
-									// IBooleanLiterals
-				break;
-			}
-			if (!removeClause)// No complementary IBooleanLiterals were found in
-								// the IClause
-				dup.addClause(c);// Add the IClause to the IProblem dup
-		}
-		return dup;
-	}
-
-	public void eliminateEmptyClauses()
-	{
-		for (int n = 0; n < this.size(); n++)
-		{
-			if (this.getClause(n).isEmpty())
-				this.removeClause(n);
-		}
-	}
-
-	@SuppressWarnings("unlikely-arg-type")
-	public boolean equals(List<IBooleanLiteral> p)
-	{
-		if (!(p instanceof List))
-			return false;
-		if (this.getClauses().containsAll(p) && ((List<?>) p).containsAll((Collection<?>) this))
-			return true;
-		return false;
+		return new Problem(ret.toArray(new IClause[0]));
 	}
 
 	@Override
@@ -412,6 +323,52 @@ public class Problem implements IProblem
 			return new ProblemMessage(IProblemMessage.UNSATISFIABLE, new ArrayList<IBooleanLiteral>());
 		return new ProblemMessage(IProblemMessage.SATISFIABLE, rl);
 	}
+
+//	public IProblem eliminateComplementaryPairClauses() throws Exception
+//	{
+//		IProblem dup = Problem.newProblem();
+//		for (int i = 0; i < this.numberOfClauses(); i++)
+//		{
+//			// Get the ith clause in the IProblem p
+//			IClause c = this.getClause(i);
+//			boolean removeClause = false;
+//			// Iterate through the IClause, looking for complementary
+//			// IBooleanLiterals
+//			for (int j = 0; j < c.size(); j++)
+//			{
+//				IBooleanLiteral ib = c.getLiteralAt(j);
+//				if (!c.contains(ib.complement()))// Detected no complementary
+//													// IBooleanLiterals
+//					continue;// Continue searching the IClause
+//				removeClause = true;// Detected a pair of complementary
+//									// IBooleanLiterals
+//				break;
+//			}
+//			if (!removeClause)// No complementary IBooleanLiterals were found in
+//								// the IClause
+//				dup.addClause(c);// Add the IClause to the IProblem dup
+//		}
+//		return dup;
+//	}
+
+//	public void eliminateEmptyClauses()
+//	{
+//		for (int n = 0; n < this.size(); n++)
+//		{
+//			if (this.getClause(n).isEmpty())
+//				this.removeClause(n);
+//		}
+//	}
+
+//	@SuppressWarnings("unlikely-arg-type")
+//	public boolean equals(List<IBooleanLiteral> p)
+//	{
+//		if (!(p instanceof List))
+//			return false;
+//		if (this.getClauses().containsAll(p) && ((List<?>) p).containsAll((Collection<?>) this))
+//			return true;
+//		return false;
+//	}
 
 	public List<IBooleanLiteral> findModelList() throws Exception
 	{
@@ -462,11 +419,16 @@ public class Problem implements IProblem
 		return null;
 	}
 
+	public CompoundList getBacking()
+	{
+		return backing;
+	}
+
 	@Override
 	public ArrayList<IBooleanVariable> getBooleanVariables() throws Exception
 	{
 		ArrayList<IBooleanVariable> hs = new ArrayList<IBooleanVariable>();
-		for (int i = 0; i < this.numberOfClauses(); i++)
+		for (int i = 0; i < this.size(); i++)
 		{
 			IClause curr = this.getClause(i);
 			if (curr != null)
@@ -483,18 +445,25 @@ public class Problem implements IProblem
 	@Override
 	public IClause getClause(int n)
 	{
-		return this.backing.get(n);
+		CompoundList b = this.backing;
+		Object r = b.get(n);
+		return (IClause) r;
 	}
 
 	@Override
-	public List<IClause> getClauses()
+	public IClause[] getClauses()
 	{
-		return this.backing;
+		return (IClause[]) this.backing.toArray(new IClause[0]);
 	}
 
 	public PrintStream getStream()
 	{
 		return stream;
+	}
+
+	public boolean isEmpty()
+	{
+		return (this.size() == 0);
 	}
 
 	/*
@@ -515,23 +484,18 @@ public class Problem implements IProblem
 	// return ret;
 	// }
 
-	public boolean isEmpty()
-	{
-		return (this.numberOfClauses() == 0);
-	}
-
 	public boolean isSatisfied()
 	{
-		for (int i = 0; i < this.numberOfClauses(); i++)
+		for (int i = 0; i < this.size(); i++)
 			if (!this.getClause(i).isSatisfied())
 				return false;
 		return true;
 	}
 
 	@Override
-	public Iterator<IClause> iterator()
+	public Iterator<Object> iterator()
 	{
-		return this.getClauses().iterator();
+		return this.backing.iterator();
 	}
 
 	public IBooleanVariable newBooleanVariable() throws Exception
@@ -539,16 +503,10 @@ public class Problem implements IProblem
 		return BooleanVariable.getBooleanVariable();
 	}
 
-	@Override
-	public int numberOfClauses()
-	{
-		return this.backing.size();
-	}
-
 	public int occurrences(IBooleanLiteral bl) throws Exception
 	{
 		int count = 0;
-		for (int i = 0; i < this.numberOfClauses(); i++)
+		for (int i = 0; i < this.size(); i++)
 		{
 			IClause c = this.getClause(i);
 			for (int j = 0; j < c.size(); j++)
@@ -573,33 +531,39 @@ public class Problem implements IProblem
 
 	public void removeAllClauses()
 	{
-		List<IClause> qq = this.getClauses();
-		if (qq != null && qq.size() > 0)
-			qq.clear();
-	}
-
-	@Override
-	public void removeClause(int n)
-	{
-		this.getClauses().remove(n);
+		this.backing = new CompoundList(new Object[]
+		{});
 	}
 
 	public IProblem resolve(IBooleanVariable b, boolean value) throws Exception
 	{
-		IClause[] c = new IClause[this.numberOfClauses()];
-		for (int i = 0; i < this.numberOfClauses(); i++)
+		IClause[] c = new IClause[this.size()];
+		for (int i = 0; i < this.size(); i++)
 			c[i] = this.getClause(i).resolve(b, value);
 		IProblem ret = Problem.newProblem();
 		ret.setClauses(c);
 		return ret;
 	}
 
+//	@Override
+//	public void removeClause(int n)
+//	{
+//		this.getClauses().remove(n);
+//	}
+
 	public IProblem resolve(List<IBooleanLiteral> ib) throws Exception
 	{
-		IProblem res = (IProblem) this.clone();
-		for (int i = 0; i < res.numberOfClauses(); i++)
+		// IProblem res = (IProblem) this.clone();
+
+		Object o1 = this.clone();
+		IProblem o2 = (IProblem) this.clone();
+		IClause[] o3 = o2.getClauses();
+		List<IClause> o4 = Arrays.asList(o3);
+		List<IClause> res = (List<IClause>) o4;
+
+		for (int i = 0; i < res.size(); i++)
 		{
-			IClause c = res.getClause(i);
+			IClause c = res.get(i);
 
 			for (int j = 0; j < ib.size(); j++)
 			{
@@ -616,25 +580,28 @@ public class Problem implements IProblem
 
 				c = newcl;
 			}
-			res.setClause(i, c);
+			res.set(i, c);
 		}
 
 		int pos = 0;
 		while (pos < res.size())
 		{
-			if (res.getClause(pos) != null)
+			if (res.get(pos) != null)
 				pos++;
+			else if (res.get(0) == null)
+			{
+				return Problem.newProblem();
+			}
 			else
-				res.removeClause(pos);
+				res.remove(pos);
 		}
 
-		return res;
+		return new Problem(res.toArray(new IClause[0]));
 	}
 
-	@Override
-	public void setClause(int n, IClause cl)
+	public void setBacking(CompoundList backing)
 	{
-		this.getClauses().set(n, cl);
+		this.backing = backing;
 	}
 
 	@Override
@@ -642,11 +609,12 @@ public class Problem implements IProblem
 	{
 		if (c == null || c.length == 0)
 			return;
-		/*
-		 * for(int i=0;i<c.length;i++) this.getClauses().add(c[i]);
-		 */
+		this.backing = new CompoundList(c);
+	}
 
-		this.backing = Arrays.asList(c);
+	public void setClauses(IProblem prob)
+	{
+		this.backing = new CompoundList(prob.getClauses());
 	}
 
 	public void setClauses(List<IClause> list) throws Exception
@@ -654,7 +622,7 @@ public class Problem implements IProblem
 		// if (this.size() > 0)
 		// this.removeAllClauses();
 		if (list != null)
-			this.backing = list;
+			this.backing = new CompoundList(list.toArray());
 	}
 
 	public void setStream(PrintStream stream)
@@ -665,9 +633,7 @@ public class Problem implements IProblem
 	@Override
 	public int size()
 	{
-		List<IClause> cls = this.getClauses();
-		int ret = cls.size();
-		return ret;
+		return this.backing.size();
 	}
 
 	public boolean solve(ISolver solver) throws Exception
@@ -689,39 +655,39 @@ public class Problem implements IProblem
 		return this.findModel().getLiterals();
 	}
 
-	@Override
-	public void sort() throws Exception
-	{
-		IClause[] ary = this.getClauses().toArray(new IClause[0]);
-		Arrays.sort(ary);
-		this.setClauses(ary);
-	}
+//	@Override
+//	public void sort() throws Exception
+//	{
+//		IClause[] ary = this.getClauses().toArray(new IClause[0]);
+//		Arrays.sort(ary);
+//		this.setClauses(ary);
+//	}
 
-	public IProblem substitute(IBooleanVariable b, boolean value) throws Exception
-	{
-		ArrayList<IClause> h = new ArrayList<IClause>();
-		for (int i = 0; i < this.numberOfClauses(); i++)
-		{
-			IClause cr = (this.getClause(i)).resolve(b, value);
-			if (cr != null && !(cr.isMemberOf(h)))
-				h.add(cr);
-		}
-
-		IProblem res = new Problem();
-		Iterator<IClause> it = h.iterator();
-		while (it.hasNext())
-		{
-			res.addClause((it.next()));
-		}
-		if (res.numberOfClauses() > 0)
-			return res;
-		else
-			return null;
-	}
+//	public IProblem substitute(IBooleanVariable b, boolean value) throws Exception
+//	{
+//		ArrayList<IClause> h = new ArrayList<IClause>();
+//		for (int i = 0; i < this.numberOfClauses(); i++)
+//		{
+//			IClause cr = (this.getClause(i)).resolve(b, value);
+//			if (cr != null && !(cr.isMemberOf(h)))
+//				h.add(cr);
+//		}
+//
+//		IProblem res = new Problem();
+//		Iterator<IClause> it = h.iterator();
+//		while (it.hasNext())
+//		{
+//			res.addClause((it.next()));
+//		}
+//		if (res.numberOfClauses() > 0)
+//			return res;
+//		else
+//			return null;
+//	}
 
 	public IProblem substitute(Map<IBooleanLiteral, IBooleanLiteral> h) throws Exception
 	{
-		for (int i = 0; i < this.numberOfClauses(); i++)
+		for (int i = 0; i < this.size(); i++)
 		{
 			IClause c = this.getClause(i);
 			((Clause) c).substitute(h);
@@ -731,10 +697,11 @@ public class Problem implements IProblem
 
 	public IProblem substitute(Object[] b) throws Exception
 	{
-		IProblem res = (IProblem) this.clone();
-		for (int i = 0; i < res.numberOfClauses(); i++)
+		@SuppressWarnings("unchecked")
+		ArrayList<IClause> res = (ArrayList<IClause>) this.clone();
+		for (int i = 0; i < res.size(); i++)
 		{
-			IClause c = res.getClause(i);
+			IClause c = res.get(i);
 			IClause newc = (IClause) c.clone();
 			for (int j = 0; j < b.length; j++)
 			{
@@ -742,9 +709,9 @@ public class Problem implements IProblem
 					break;
 				newc = newc.resolve((IBooleanLiteral) b[j]);
 			}
-			res.setClause(i, newc);
+			res.set(i, newc);
 		}
-		return res;
+		return new Problem(res.toArray(new IClause[0]));
 	}
 
 	public String toCode() throws ClauseException
@@ -771,7 +738,7 @@ public class Problem implements IProblem
 			System.out.println(curr.getName() + "->" + index);
 			index++;
 		}
-		String ret = "p cnf " + this.getBooleanVariables().size() + " " + this.numberOfClauses() + "\n";
+		String ret = "p cnf " + this.getBooleanVariables().size() + " " + this.size() + "\n";
 		for (IClause currClause : this.getClauses())
 		{
 			for (int i = 0; i < currClause.size(); i++)
@@ -805,10 +772,25 @@ public class Problem implements IProblem
 		return f.length();
 	}
 
+	public ArrayList<HashMap<IBooleanVariable, Integer>> toMapList()
+	{
+		ArrayList<HashMap<IBooleanVariable, Integer>> map = new ArrayList<HashMap<IBooleanVariable, Integer>>();
+		for (int i = 0; i < this.size(); i++)
+		{
+			IClause curr = this.getClause(i);
+			if (curr == null)
+				continue;
+			HashMap<IBooleanVariable, Integer> cm = ((Clause) curr).toMap();
+			map.add(cm);
+
+		}
+		return map;
+	}
+
 	public String toSatSimTable() throws Exception
 	{
 		String ret = "{";
-		for (int clauseindex = 0; clauseindex < this.numberOfClauses() - 1; clauseindex++)
+		for (int clauseindex = 0; clauseindex < this.size() - 1; clauseindex++)
 		{
 			IClause currentClause = this.getClause(clauseindex);
 			ret += "{";
@@ -822,7 +804,7 @@ public class Problem implements IProblem
 			ret += "{" + (currentLiteral.isBarred() ? 1 : 0) + ","
 					+ currentLiteral.getBooleanVariable().getName().toString() + "}},";
 		}
-		IClause currentClause = this.getClause(this.numberOfClauses() - 1);
+		IClause currentClause = this.getClause(this.size() - 1);
 		ret += "{";
 		for (int literalindex = 0; literalindex < currentClause.size() - 1; literalindex++)
 		{
@@ -847,7 +829,7 @@ public class Problem implements IProblem
 	public String toString()
 	{
 		String res = "\n..";
-		for (int i = 0; i < this.numberOfClauses(); i++)
+		for (int i = 0; i < this.size(); i++)
 		{
 			if (this.getClause(i) != null)
 				res += "\n.. " + this.getClause(i).toString();
@@ -891,7 +873,7 @@ public class Problem implements IProblem
 	public String toXML()
 	{
 		String res = "<Problem>\n";
-		for (int i = 0; i < this.numberOfClauses(); i++)
+		for (int i = 0; i < this.size(); i++)
 		{
 			res += "\t<Clause>\n";
 			Object[] obary = (this.getClause(i)).toArray();
@@ -930,7 +912,7 @@ public class Problem implements IProblem
 
 	public IProblem unsatisfiedProblem() throws Exception
 	{
-		int clauses = this.numberOfClauses();
+		int clauses = this.size();
 		if (clauses == 0)
 			return Problem.unsolvableProblem();
 

@@ -56,7 +56,6 @@ public class BitStringListSorterDemo
 
 		IProblem problem = new Conjunction(bslf, bsls);
 
-		problem.sort();
 		System.out.println(problem);
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());

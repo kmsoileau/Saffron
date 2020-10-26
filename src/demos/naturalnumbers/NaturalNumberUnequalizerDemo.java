@@ -26,7 +26,7 @@ public class NaturalNumberUnequalizerDemo
 		INaturalNumber Y = new NaturalNumber("Y");
 
 		IProblem p = new Conjunction(new NaturalNumberFixer(X, 6), new NaturalNumberUnequalizer(X, Y));
-		p.sort();
+
 		System.out.println(p);
 		IProblemMessage s = p.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

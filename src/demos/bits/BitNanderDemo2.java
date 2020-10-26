@@ -22,7 +22,6 @@ public class BitNanderDemo2
 		System.out.println("y = " + y.getValue());
 		System.out.println("z = " + z.getValue());
 
-		IProblem compressed = ((Problem) bitNander1).compress();
-		System.out.println(compressed);
+		System.out.println(bitNander1);
 	}
 }

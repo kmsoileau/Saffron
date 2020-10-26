@@ -28,11 +28,14 @@ import naturalnumbers.lists.NaturalNumberList;
 import naturalnumbers.lists.NaturalNumberListDotter;
 import naturalnumbers.lists.NaturalNumberListFixer;
 import naturalnumbers.lists.NaturalNumberListNonrepeater;
+import utility.Clock;
 
 public class SENDMOREMONEY
 {
 	public static void main(String[] args) throws Exception
 	{
+		Clock c=new Clock("C");
+		c.start();
 		/**
 		 * Set Java variables:
 		 */
@@ -120,5 +123,8 @@ public class SENDMOREMONEY
 		}
 		else
 			System.out.println("No solution.");
+		c.stop();
+		
+		System.out.println(c.getTotalElapsedTime());
 	}
 }

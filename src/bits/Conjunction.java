@@ -1,6 +1,7 @@
 package bits;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import bits.exceptions.ConjunctionException;
 
@@ -48,20 +49,21 @@ public class Conjunction extends Problem implements IProblem
 	{
 		if (p == null)
 			throw new ConjunctionException("Null IProblem array passed to and method.");
-		IProblem res = null;
+		ArrayList<IClause> res = null;
 		for (int i = 0; i < p.length; i++)
 			if (p[i] != null)
 			{
 				if (res == null)
-					res = Problem.newProblem();
-				for (int j = 0; j < p[i].numberOfClauses(); j++)
+					res = new ArrayList<IClause>();
+				for (int j = 0; j < p[i].size(); j++)
 				{
 					IClause c = p[i].getClause(j);
 					if (c != null && !res.contains(c))
-						res.addClauseVoid(c);
+						res.add(c);
 				}
 			}
-		return res;
+	
+		return new Problem(res.toArray(new IClause[0]));
 	}
 
 	public Conjunction(ArrayList<IProblem> problemList) throws Exception
@@ -102,7 +104,11 @@ public class Conjunction extends Problem implements IProblem
 	{
 		IProblem p = Conjunction.and(group);
 		if (p != null)
-			this.setClauses(p.getClauses());
+		{
+			IClause[] q = p.getClauses();
+			this.setClauses(q);
+		}
+			
 	}
 
 	public Conjunction(IProblem[][] p) throws Exception

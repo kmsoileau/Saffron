@@ -29,18 +29,19 @@ public class ProblemDenier extends Problem implements IProblem
 	{
 		if (problem == null)
 			throw new ProblemDenierException("Null IProblem passed to constructor.");
-		if (problem.numberOfClauses() == 0)
+		if (problem.size() == 0)
 			throw new ProblemDenierException("IProblem of zero size passed to constructor.");
 
 		IClause qq = problem.getClause(0);
-		IProblem res = new ClauseDenier(qq);
-		for (int i = 1; i < problem.numberOfClauses(); i++)
-		{
-			IClause cls = problem.getClause(i);
-			IProblem ip = new ClauseDenier(cls);
-			res = new Disjunction(res, ip);
-		}
-		this.setClauses(res.getClauses());
+		IProblem res = (IProblem)new ClauseDenier(qq);
+	
+//		for (int i = 1; i < problem.size(); i++)
+//		{
+//			IClause cls = problem.getClause(i);
+//			IProblem ip = new ClauseDenier(cls);
+//			res = new Disjunction(res, ip);
+//		}
+//		this.setClauses(res.getClauses());
 	}
 }
 

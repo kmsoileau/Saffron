@@ -27,7 +27,7 @@ public class NaturalNumberPair
 		this.first = first;
 		this.second = second;
 	}
-	
+
 	public INaturalNumber getFirst()
 	{
 		return first;

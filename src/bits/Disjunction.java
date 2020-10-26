@@ -1,7 +1,6 @@
 package bits;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import bits.exceptions.DisjunctionException;
 
@@ -49,21 +48,23 @@ public class Disjunction extends Problem implements IProblem
 			{ pfalse }, new IBooleanVariable[]
 			{ b });
 
-		List<IClause> clfalse = pfalse.getClauses();
+		IClause[] clfalse = pfalse.getClauses();
 		ArrayList<IClause> clfalseNew = new ArrayList<IClause>();
-		for (int i = 0; i < clfalse.size(); i++)
+		for (int i = 0; i < clfalse.length; i++)
 		{
-			clfalseNew.add(((IClause) clfalse.get(i).clone()).or(b));
+			Clause q = (Clause) ((Clause) clfalse[i]).clone();
+			clfalseNew.add(q.or(b));
 		}
 
-		List<IClause> cltrue = ptrue.getClauses();
+		IClause[] cltrue = ptrue.getClauses();
 		ArrayList<IClause> cltrueNew = new ArrayList<IClause>();
-		for (int i = 0; i < cltrue.size(); i++)
+		for (int i = 0; i < cltrue.length; i++)
 		{
-			cltrueNew.add(((IClause) cltrue.get(i).clone()).orNot(b));
+			Clause q = (Clause) ((Clause) cltrue[i]).clone();
+			cltrueNew.add(q.orNot(b));
 		}
 
-		return new Conjunction(new Problem(clfalseNew), new Problem(cltrueNew));
+		return new Conjunction(new Problem(clfalseNew.toArray(new IClause[0])), new Problem(cltrueNew.toArray(new IClause[0])));
 	}
 
 	/**

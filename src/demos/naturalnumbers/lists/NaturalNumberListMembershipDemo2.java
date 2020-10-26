@@ -52,7 +52,6 @@ public class NaturalNumberListMembershipDemo2
 		IProblem diff = new NaturalNumberUnequalizer(string1, string2);
 		// Combine all of the IProblems into a single IProblem
 		IProblem problem = new Conjunction(bslm1, bslm2, fix, diff);
-		problem.sort();
 
 		System.out.println(problem);
 

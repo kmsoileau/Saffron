@@ -1,4 +1,4 @@
-package demos.bits;
+package demos.bits.bugs;
 
 import bits.BitFixer;
 import bits.BooleanLiteral;
@@ -36,8 +36,13 @@ public class AlternativeDenialDemo
 		 * Create the IProblem of satisfying all of these constraining problems:
 		 */
 
-		IProblem problem = new AlternativeDenial(new IProblem[]
-		{ new BitFixer(x1, true), new BitFixer(x1, false), new BitFixer(x2, true), new BitFixer(x2, false) });
+		IProblem bf1 = new BitFixer(x1, true);
+		IProblem bf2=new BitFixer(x1, false);
+		IProblem bf3=new BitFixer(x2, true);
+		IProblem bf4=new BitFixer(x2, false);
+		IProblem[] ary = new IProblem[]
+				{ bf1, bf2, bf3, bf4 };
+		IProblem problem = new AlternativeDenial(ary);
 
 		/**
 		 * Solve the IProblem:

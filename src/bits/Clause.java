@@ -2,6 +2,7 @@ package bits;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -733,6 +734,19 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		return ret;
 	}
 
+	public HashMap<IBooleanVariable, Integer> toMap()
+	{
+		if (this.size() < 1)
+			return null;
+		HashMap<IBooleanVariable, Integer> map = new HashMap<IBooleanVariable, Integer>();
+		for (IBooleanLiteral bl : this)
+		{
+			map.put(bl.getBooleanVariable(), bl.isBarred() ? 2 : 1);
+		}
+
+		return map;
+	}
+
 	@Override
 	public IBooleanLiteral[] toSortedArray()
 	{
@@ -757,7 +771,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		if (literals == 0)
 			return Problem.trivialProblem();
 
-		Problem p = new Problem();
+		ArrayList<IClause> toBeAdded = new ArrayList<IClause>();
 		for (int lit = 0; lit < literals; lit++)
 		{
 			BooleanLiteral curr = (BooleanLiteral) this.getLiteralAt(lit);
@@ -765,8 +779,9 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 			IBooleanLiteral newcurr = BooleanLiteral.getBooleanLiteral(currbv, !curr.isBarred());
 			IClause currcl = new Clause();
 			currcl.add((BooleanLiteral) newcurr);
-			p.add(currcl);
+			toBeAdded.add(currcl);
 		}
-		return p;
+
+		return new Problem(toBeAdded.toArray(new IClause[0]));
 	}
 }

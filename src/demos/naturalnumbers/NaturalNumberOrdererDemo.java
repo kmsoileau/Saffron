@@ -21,7 +21,7 @@ public class NaturalNumberOrdererDemo
 		IProblem A = new NaturalNumberOrderer(X, Y);
 
 		IProblem problem = new Conjunction(N1, N2, A);
-		problem.sort();
+
 		System.out.println(problem);
 		// List s=PartialSolution.solveList(problem);
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
