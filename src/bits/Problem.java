@@ -559,7 +559,7 @@ public class Problem implements IProblem
 		IProblem o2 = (IProblem) this.clone();
 		IClause[] o3 = o2.getClauses();
 		List<IClause> o4 = Arrays.asList(o3);
-		List<IClause> res = (List<IClause>) o4;
+		List<IClause> res = o4;
 
 		for (int i = 0; i < res.size(); i++)
 		{

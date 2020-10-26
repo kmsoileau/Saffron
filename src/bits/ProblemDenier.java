@@ -33,15 +33,15 @@ public class ProblemDenier extends Problem implements IProblem
 			throw new ProblemDenierException("IProblem of zero size passed to constructor.");
 
 		IClause qq = problem.getClause(0);
-		IProblem res = (IProblem)new ClauseDenier(qq);
-	
-//		for (int i = 1; i < problem.size(); i++)
-//		{
-//			IClause cls = problem.getClause(i);
-//			IProblem ip = new ClauseDenier(cls);
-//			res = new Disjunction(res, ip);
-//		}
-//		this.setClauses(res.getClauses());
+		IProblem res = new ClauseDenier(qq);
+
+		for (int i = 1; i < problem.size(); i++)
+		{
+			IClause cls = problem.getClause(i);
+			IProblem ip = new ClauseDenier(cls);
+			res = new Disjunction(res, ip);
+		}
+		this.setClauses(res.getClauses());
 	}
 }
 

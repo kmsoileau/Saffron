@@ -1,7 +1,6 @@
 package bits;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import bits.exceptions.ConjunctionException;
 
@@ -62,8 +61,14 @@ public class Conjunction extends Problem implements IProblem
 						res.add(c);
 				}
 			}
-	
-		return new Problem(res.toArray(new IClause[0]));
+		if (res != null)
+		{
+			IClause[] res0 = res.toArray(new IClause[0]);
+			return new Problem(res0);
+		}
+		else
+			return new Problem();
+
 	}
 
 	public Conjunction(ArrayList<IProblem> problemList) throws Exception
@@ -108,7 +113,9 @@ public class Conjunction extends Problem implements IProblem
 			IClause[] q = p.getClauses();
 			this.setClauses(q);
 		}
-			
+		else
+			this.setClauses(new Problem());
+
 	}
 
 	public Conjunction(IProblem[][] p) throws Exception

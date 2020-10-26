@@ -1,4 +1,4 @@
-package demos.bits.bugs;
+package demos.bits;
 
 import bits.BitArrayPartition;
 import bits.BooleanLiteral;
@@ -106,7 +106,7 @@ public class BitArrayPartitionDemo
 
 		// IProblem-3
 		System.out.println("IProblem-3");
-		partition = new IBooleanVariable[1][0];
+		partition = new IBooleanVariable[3][10];
 		partitions = partition.length;
 		bits = partition[0].length;
 		for (int i = 0; i < partitions; i++)

@@ -64,7 +64,8 @@ public class Disjunction extends Problem implements IProblem
 			cltrueNew.add(q.orNot(b));
 		}
 
-		return new Conjunction(new Problem(clfalseNew.toArray(new IClause[0])), new Problem(cltrueNew.toArray(new IClause[0])));
+		return new Conjunction(new Problem(clfalseNew.toArray(new IClause[0])),
+				new Problem(cltrueNew.toArray(new IClause[0])));
 	}
 
 	/**

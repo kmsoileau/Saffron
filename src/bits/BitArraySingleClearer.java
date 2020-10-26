@@ -48,7 +48,7 @@ public class BitArraySingleClearer extends Problem implements IProblem
 		if (bits == 0)
 			throw new BitArraySingleClearerException("Array of length zero passed to constructor");
 
-		ArrayList<IClause> ret=new ArrayList<IClause>();
+		ArrayList<IClause> ret = new ArrayList<IClause>();
 		IClause clause = Clause.newClause();
 		for (int i = 0; i < bits; i++)
 			clause = clause.or(array[i]);

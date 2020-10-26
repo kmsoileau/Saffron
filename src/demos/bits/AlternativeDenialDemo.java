@@ -1,4 +1,4 @@
-package demos.bits.bugs;
+package demos.bits;
 
 import bits.BitFixer;
 import bits.BooleanLiteral;
@@ -36,14 +36,15 @@ public class AlternativeDenialDemo
 		 * Create the IProblem of satisfying all of these constraining problems:
 		 */
 
-		IProblem bf1 = new BitFixer(x1, true);
-		IProblem bf2=new BitFixer(x1, false);
-		IProblem bf3=new BitFixer(x2, true);
-		IProblem bf4=new BitFixer(x2, false);
-		IProblem[] ary = new IProblem[]
-				{ bf1, bf2, bf3, bf4 };
-		IProblem problem = new AlternativeDenial(ary);
+		IProblem bf1 = new BitFixer(x1, false);
+		IProblem bf2 = new BitFixer(x2, true);
+		System.out.println(bf1);
+		System.out.println(bf2);
 
+		IProblem[] ary = new IProblem[]
+		{ bf1, bf2 };
+		IProblem problem = new AlternativeDenial(ary);
+		System.out.println(problem);
 		/**
 		 * Solve the IProblem:
 		 */
@@ -52,8 +53,8 @@ public class AlternativeDenialDemo
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
-			System.out.println(x1);
-			System.out.println(x2);
+			System.out.println(x1.getName() + "=" + x1.getValue());
+			System.out.println(x2.getName() + "=" + x2.getValue());
 		}
 		else
 			System.out.println("There is no solution.");
