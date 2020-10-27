@@ -545,21 +545,9 @@ public class Problem implements IProblem
 		return ret;
 	}
 
-//	@Override
-//	public void removeClause(int n)
-//	{
-//		this.getClauses().remove(n);
-//	}
-
 	public IProblem resolve(List<IBooleanLiteral> ib) throws Exception
 	{
-		// IProblem res = (IProblem) this.clone();
-
-		Object o1 = this.clone();
-		IProblem o2 = (IProblem) this.clone();
-		IClause[] o3 = o2.getClauses();
-		List<IClause> o4 = Arrays.asList(o3);
-		List<IClause> res = o4;
+		List<IClause> res = Arrays.asList(((IProblem) this.clone()).getClauses());
 
 		for (int i = 0; i < res.size(); i++)
 		{
