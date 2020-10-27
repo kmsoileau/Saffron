@@ -1,4 +1,4 @@
-package demos.bits.bugs;
+package demos.bits;
 
 import bits.BooleanLiteral;
 import bits.IProblem;

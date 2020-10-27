@@ -44,7 +44,7 @@ public class BitStringBitAnderDemo
 			BooleanLiteral.interpret(s.getLiterals());
 			for (int i = 0; i < C.length; i++)
 				System.out.println(C[i].toBits());
-			System.out.println("targetBitString\n" + targetBitString.toBits());
+			System.out.println("\ntargetBitString\n" + targetBitString.toBits());
 		}
 		else
 			System.out.println("No solution.");

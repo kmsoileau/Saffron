@@ -16,6 +16,7 @@ import org.sat4j.specs.ISolver;
 import bits.exceptions.ClauseException;
 import bits.exceptions.ProblemException;
 import positronic.util.arrays.CompoundList;
+import positronic.util.arrays.ImmutableList;
 import utility.EquivalenceRelation;
 
 /**
@@ -92,7 +93,7 @@ public class Problem implements IProblem
 		{ new Clause() });
 	}
 
-	private CompoundList backing = new CompoundList();
+	private ImmutableList backing = new CompoundList();
 
 	/**
 	 * Constructs an empty Problem, that is, an instance of Problem which contains
@@ -103,7 +104,7 @@ public class Problem implements IProblem
 	{
 	}
 
-	public Problem(CompoundList qq)
+	public Problem(ImmutableList qq)
 	{
 		this.backing = qq;
 	}
@@ -419,7 +420,7 @@ public class Problem implements IProblem
 		return null;
 	}
 
-	public CompoundList getBacking()
+	public ImmutableList getBacking()
 	{
 		return backing;
 	}
@@ -445,7 +446,7 @@ public class Problem implements IProblem
 	@Override
 	public IClause getClause(int n)
 	{
-		CompoundList b = this.backing;
+		ImmutableList b = this.backing;
 		Object r = b.get(n);
 		return (IClause) r;
 	}
@@ -587,7 +588,7 @@ public class Problem implements IProblem
 		return new Problem(res.toArray(new IClause[0]));
 	}
 
-	public void setBacking(CompoundList backing)
+	public void setBacking(ImmutableList backing)
 	{
 		this.backing = backing;
 	}

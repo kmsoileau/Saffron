@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import bits.exceptions.ClauseDenierException;
 import positronic.util.arrays.CompoundList;
+import positronic.util.arrays.ImmutableList;
 
 /**
  * An extension of the Problem class which expresses the denial of a given
@@ -53,7 +54,7 @@ public class ClauseDenier extends Problem implements IProblem
 					}
 					ret.add(cl);
 				}
-				CompoundList cl = new CompoundList(ret.toArray());
+				ImmutableList cl = new CompoundList(ret.toArray());
 				System.out.println(cl);
 				this.setBacking(cl);
 			}
