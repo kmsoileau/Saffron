@@ -28,7 +28,7 @@ public class BitStringMapper extends Problem implements IProblem
 	public BitStringMapper(IBitString[] ary1, IBitString[] ary2, IBitString X, IBitString Y) throws Exception
 	{
 		if (ary1.length == 0 || ary2.length == 0 || ary1.length != ary2.length)
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			this.setClauses(unsolvableProblem().getClauses());
 		else
 		{
 			this.domainVariable = X;

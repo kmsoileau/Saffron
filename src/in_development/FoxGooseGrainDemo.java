@@ -10,6 +10,7 @@ import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
 import bits.ProblemDenier;
+import enhanced.EnhancedProblem;
 
 class BoatAndFarmerTogether extends Problem implements IProblem
 {
@@ -148,7 +149,7 @@ public class FoxGooseGrainDemo
 		for (int i = 0; i < crossings + 1; i++)
 			problem = new Conjunction(problem, new StatusIsGood(status[i]));
 
-		System.out.println(((Problem) problem).toXML());
+		System.out.println(((EnhancedProblem) problem).toXML());
 
 		boolean solved = ((Problem) problem).solve(Problem.defaultSolver());
 

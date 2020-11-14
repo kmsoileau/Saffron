@@ -36,8 +36,7 @@ public class NaturalNumberOrderer2 extends Problem implements IProblem
 			p01 = new Conjunction(new BitFixer(X.getBooleanVariable(NaturalNumber.getLength() - 1), false),
 					new BitFixer(Y.getBooleanVariable(NaturalNumber.getLength() - 1), true));
 			p10 = new Conjunction(new BitFixer(X.getBooleanVariable(NaturalNumber.getLength() - 1), true),
-					new BitFixer(Y.getBooleanVariable(NaturalNumber.getLength() - 1), false),
-					Problem.unsolvableProblem());
+					new BitFixer(Y.getBooleanVariable(NaturalNumber.getLength() - 1), false), unsolvableProblem());
 		}
 		else
 		{
@@ -51,8 +50,7 @@ public class NaturalNumberOrderer2 extends Problem implements IProblem
 			p01 = new Conjunction(new BitFixer(X.getBooleanVariable(NaturalNumber.getLength() - 1), false),
 					new BitFixer(Y.getBooleanVariable(NaturalNumber.getLength() - 1), true));
 			p10 = new Conjunction(new BitFixer(X.getBooleanVariable(NaturalNumber.getLength() - 1), true),
-					new BitFixer(Y.getBooleanVariable(NaturalNumber.getLength() - 1), false),
-					Problem.unsolvableProblem());
+					new BitFixer(Y.getBooleanVariable(NaturalNumber.getLength() - 1), false), unsolvableProblem());
 		}
 		this.setClauses(new Disjunction(p0011, p01, p10).getClauses());
 	}

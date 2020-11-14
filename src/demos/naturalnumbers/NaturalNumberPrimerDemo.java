@@ -21,8 +21,9 @@ public class NaturalNumberPrimerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		NaturalNumber.setLargestNaturalNumber(140);
 		INaturalNumber Z = new NaturalNumber("Z");
-		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 13L), new NaturalNumberPrimer(Z));
+		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 133L), new NaturalNumberPrimer(Z));
 		IProblemMessage s = p.findModel();
 		System.out.println(s);
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

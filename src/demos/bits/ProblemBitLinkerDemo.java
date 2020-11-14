@@ -14,7 +14,7 @@ public class ProblemBitLinkerDemo
 	{
 		IBooleanVariable b = BooleanVariable.getBooleanVariable("b");
 
-		// IProblem p = Problem.unsolvableProblem();
+		// IProblem p = unsolvableProblem();
 		IProblem p = Problem.trivialProblem();
 
 		IProblem testProblem = new ProblemBitLinker(p, b);

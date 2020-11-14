@@ -55,7 +55,7 @@ public class ClauseDenier extends Problem implements IProblem
 					ret.add(cl);
 				}
 				ImmutableList cl = new CompoundList(ret.toArray());
-				System.out.println(cl);
+				// System.out.println(cl);
 				this.setBacking(cl);
 			}
 		}

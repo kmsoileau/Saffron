@@ -10,8 +10,8 @@ public class PartitionDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		int partitions = 2;
-		int bits = 3;
+		int partitions = 3;
+		int bits = 31;
 
 		Partition partition = new Partition(partitions, bits);
 

@@ -58,7 +58,7 @@ public class BitStringFixer extends Problem implements IProblem
 	public BitStringFixer(IBitString target, boolean[] c) throws Exception
 	{
 		if (target.size() != c.length)
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			this.setClauses(unsolvableProblem().getClauses());
 		else
 		{
 			BitStringBitFixer[] bnnbf = new BitStringBitFixer[c.length];
@@ -92,7 +92,7 @@ public class BitStringFixer extends Problem implements IProblem
 	public BitStringFixer(IBitString target, IBooleanVariable[] data) throws Exception
 	{
 		if (target.size() != data.length)
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			this.setClauses(unsolvableProblem().getClauses());
 		else
 		{
 			BitStringBitFixer[] bnnbf = new BitStringBitFixer[data.length];

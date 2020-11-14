@@ -18,7 +18,7 @@ public class BitTableAnder extends Problem implements IProblem
 	public BitTableAnder(IBitTable bitTable1, IBitTable bitTable2, IBitTable bitTable3) throws Exception
 	{
 		if (!bitTable1.isSameSizeAs(bitTable2) || !bitTable1.isSameSizeAs(bitTable3))
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			this.setClauses(unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[bitTable1.numberRows() * bitTable1.numberColumns()];

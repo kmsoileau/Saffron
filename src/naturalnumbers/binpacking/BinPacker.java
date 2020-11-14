@@ -110,13 +110,8 @@ public class BinPacker
 				(System.currentTimeMillis() - startTimeMillis) / 1000. + ":" + "\tBuilding binPackingProblem...");
 		binPackingProblem = new Conjunction(stagingArray);
 
-		
 		System.out.println(binPackingProblem.size());
-		
-		
-		
-		
-		
+
 		System.out.println((System.currentTimeMillis() - startTimeMillis) / 1000. + ":" + "\tSolving SAT problem...");
 		IProblemMessage blList = binPackingProblem.findModel(Problem.defaultSolver());
 

@@ -21,6 +21,7 @@ import bits.IProblemMessage;
 import bits.Problem;
 import bits.strings.BitString;
 import bits.strings.BitStringEqualizer;
+import enhanced.EnhancedProblem;
 
 public class BitStringEqualizerDemo
 {
@@ -59,6 +60,6 @@ public class BitStringEqualizerDemo
 		else
 			System.out.println("No solution.");
 
-		System.out.println(((Problem) problem).buildEquivalenceRelation().toString());
+		System.out.println(((EnhancedProblem) problem).buildEquivalenceRelation().toString());
 	}
 }

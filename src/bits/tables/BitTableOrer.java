@@ -18,7 +18,7 @@ public class BitTableOrer extends Problem implements IProblem
 	public BitTableOrer(IBitTable X, IBitTable Y, IBitTable Z) throws Exception
 	{
 		if (!X.isSameSizeAs(Y) || !X.isSameSizeAs(Z))
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			this.setClauses(unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[X.numberRows() * X.numberColumns()];

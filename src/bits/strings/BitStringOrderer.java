@@ -39,7 +39,7 @@ public class BitStringOrderer extends Problem implements IProblem
 		if (X.size() == 0)
 			this.setClauses(Problem.trivialProblem().getClauses());
 		else if (Y.size() == 0)
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			this.setClauses(unsolvableProblem().getClauses());
 		else
 		{
 			IBooleanVariable X_0 = X.getBooleanVariable(0);

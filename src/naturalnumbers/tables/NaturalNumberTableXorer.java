@@ -10,7 +10,7 @@ public class NaturalNumberTableXorer extends Problem implements IProblem
 	public NaturalNumberTableXorer(INaturalNumberTable X, INaturalNumberTable Y, INaturalNumberTable Z) throws Exception
 	{
 		if (!X.isSameSizeAs(Y) || !X.isSameSizeAs(Z))
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			this.setClauses(unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[X.getNumberOfRows() * X.getNumberOfColumns()];

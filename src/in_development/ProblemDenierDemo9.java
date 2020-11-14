@@ -9,6 +9,7 @@ import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
 import bits.ProblemDenier;
+import enhanced.EnhancedProblem;
 
 public class ProblemDenierDemo9
 {
@@ -31,6 +32,6 @@ public class ProblemDenierDemo9
 		else
 			System.out.println("No solution.");
 
-		System.out.println(Problem.dump(s.getLiterals()));
+		System.out.println(EnhancedProblem.dump(s.getLiterals()));
 	}
 }

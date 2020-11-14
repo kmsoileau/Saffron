@@ -21,15 +21,23 @@ public class NaturalNumberCompositorDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		NaturalNumber.setLargestNaturalNumber(10000);
 		INaturalNumber Z = new NaturalNumber("Z");
-		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 30L), new NaturalNumberCompositor(Z));
-		IProblemMessage s = p.findModel();
-		if (s.getStatus() == IProblemMessage.SATISFIABLE)
+		INaturalNumber X = new NaturalNumber("X");
+		INaturalNumber Y = new NaturalNumber("Y");
+
+		for (int number = 1000; number <= 10000; number++)
 		{
-			BooleanLiteral.interpret(s.getLiterals());
-			System.out.println(Z + " is composite.");
+			IProblem p = new Conjunction(new NaturalNumberFixer(Z, number), new NaturalNumberCompositor(Z, X, Y));
+			IProblemMessage s = p.findModel();
+			if (s.getStatus() == IProblemMessage.SATISFIABLE)
+			{
+				BooleanLiteral.interpret(s.getLiterals());
+				System.out.println(Z + " is composite: " + X + " * " + Y + " = " + Z);
+				// System.out.println();
+			}
+			// else
+			// System.out.println("No solution.");
 		}
-		else
-			System.out.println("No solution.");
 	}
 }

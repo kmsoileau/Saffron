@@ -8,6 +8,7 @@ import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
 import bits.ProblemDenier;
+import enhanced.EnhancedProblem;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 
@@ -29,8 +30,8 @@ public class ProblemDenierDemo21
 		IProblem problemDenial = new ProblemDenier(problem);
 		System.out.println(problemDenial);
 
-		IProblem r1 = ((Problem) problemDenial).resolve(N0, true);
-		IProblem r2 = ((Problem) r1).resolve(N1, true);
+		IProblem r1 = ((EnhancedProblem) problemDenial).resolve(N0, true);
+		IProblem r2 = ((EnhancedProblem) r1).resolve(N1, true);
 		System.out.println("Resolved: " + r2);
 
 		IProblemMessage s = problemDenial.findModel(Problem.defaultSolver());

@@ -5,6 +5,7 @@ import bits.Disjunction;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
+import enhanced.EnhancedProblem;
 
 /**
  * <pre>
@@ -33,6 +34,6 @@ public class DisjunctionDemo10
 		else
 			System.out.println("No solution.");
 
-		System.out.println(Problem.dump(s.getLiterals()));
+		System.out.println(EnhancedProblem.dump(s.getLiterals()));
 	}
 }

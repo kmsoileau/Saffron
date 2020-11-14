@@ -35,4 +35,21 @@ public class NaturalNumberCompositor extends Problem implements IProblem
 
 		this.setClauses(p.getClauses());
 	}
+
+	public NaturalNumberCompositor(INaturalNumber Z, INaturalNumber X, INaturalNumber Y) throws Exception
+	{
+		INaturalNumber A = new NaturalNumber();
+		INaturalNumber B = new NaturalNumber();
+		INaturalNumber Two = new NaturalNumber();
+
+		NaturalNumberFixer nnf2 = new NaturalNumberFixer(Two, 2);
+		NaturalNumberAdder nnax = new NaturalNumberAdder(A, Two, X);
+		NaturalNumberAdder nnby = new NaturalNumberAdder(B, Two, Y);
+		NaturalNumberMultiplier nnm = new NaturalNumberMultiplier(X, Y, Z);
+
+		IProblem p = new Conjunction(new IProblem[]
+		{ nnf2, nnax, nnby, nnm });
+
+		this.setClauses(p.getClauses());
+	}
 }

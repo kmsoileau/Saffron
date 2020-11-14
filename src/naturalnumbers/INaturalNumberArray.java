@@ -5,7 +5,7 @@ import bits.Disjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 
-public class INaturalNumberArray extends Problem implements IProblem
+public class INaturalNumberArray extends bits.Problem implements IProblem
 {
 	private INaturalNumber X;
 	private INaturalNumber Y;

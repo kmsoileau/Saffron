@@ -2,9 +2,8 @@ package demos.bits;
 
 import bits.BooleanVariable;
 import bits.IBooleanVariable;
-import bits.IProblem;
-import bits.Problem;
 import bits.ThreeBitAdder;
+import enhanced.EnhancedProblem;
 
 public class ThreeSATProblemDemo2
 {
@@ -16,13 +15,13 @@ public class ThreeSATProblemDemo2
 		IBooleanVariable z = BooleanVariable.getBooleanVariable("z");
 		IBooleanVariable c = BooleanVariable.getBooleanVariable("c");
 
-		ThreeBitAdder threeBitAdder1 = new ThreeBitAdder(w, x, y, z, c);
+		EnhancedProblem threeBitAdder1 = new EnhancedProblem(new ThreeBitAdder(w, x, y, z, c));
 
 		System.out.println(threeBitAdder1);
 
-		IProblem p = threeBitAdder1.toThreeSatProblem();
+		EnhancedProblem p = threeBitAdder1.toThreeSatProblem();
 		System.out.println(p);
 
-		System.out.println(((Problem) p).toXML());
+		System.out.println(p.toXML());
 	}
 }

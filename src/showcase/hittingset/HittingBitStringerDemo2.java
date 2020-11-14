@@ -9,6 +9,7 @@ import bits.Problem;
 import bits.strings.BitString;
 import bits.strings.BitStringFixer;
 import bits.strings.HittingBitStringer;
+import utility.RandomBitString;
 
 public class HittingBitStringerDemo2
 {
@@ -18,7 +19,7 @@ public class HittingBitStringerDemo2
 
 		IBitString[] C = new IBitString[20];
 		for (int i = 0; i < C.length; i++)
-			C[i] = new BitString(randomBitstring(8));
+			C[i] = new BitString(RandomBitString.randomBitstring(8));
 
 		IBitString Y = new BitString(C[0].size());
 
@@ -34,13 +35,5 @@ public class HittingBitStringerDemo2
 		}
 		else
 			System.out.println("No solution.");
-	}
-
-	static String randomBitstring(int n)
-	{
-		char[] bits = new char[n];
-		for (int i = 0; i < n; i++)
-			bits[i] = Math.random() > .5 ? '1' : '0';
-		return new String(bits);
 	}
 }

@@ -10,7 +10,7 @@ import in_development.ProblemDifferencer;
 
 /**
  * Change History June 26, 2009 Changed "System.out.println("The difference
- * was\n"+new ProblemDifferencer(Problem.unsolvableProblem(),p2));" to
+ * was\n"+new ProblemDifferencer(unsolvableProblem(),p2));" to
  * "System.out.println("The difference was\n"+new ProblemDifferencer(p1,p2));"
  *
  */

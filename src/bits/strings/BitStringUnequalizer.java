@@ -27,6 +27,6 @@ public class BitStringUnequalizer extends Problem implements IProblem
 			this.setClauses(p1.getClauses());
 		}
 		else
-			this.setClauses(super.trivialProblem().getClauses());
+			this.setClauses(Problem.trivialProblem().getClauses());
 	}
 }

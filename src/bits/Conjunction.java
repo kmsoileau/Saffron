@@ -114,7 +114,7 @@ public class Conjunction extends Problem implements IProblem
 			this.setClauses(q);
 		}
 		else
-			this.setClauses(new Problem());
+			this.setClauses(new Problem().getClauses());
 
 	}
 

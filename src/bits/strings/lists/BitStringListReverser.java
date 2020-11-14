@@ -34,7 +34,7 @@ public class BitStringListReverser extends Problem implements IProblem
 	public BitStringListReverser(IBitStringList X, IBitStringList Y) throws Exception
 	{
 		if (X.size() != Y.size())
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			this.setClauses(unsolvableProblem().getClauses());
 		else
 		{
 			int commonsize = X.size();

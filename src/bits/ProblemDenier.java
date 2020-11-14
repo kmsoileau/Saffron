@@ -132,7 +132,7 @@ public class ProblemDenier extends Problem implements IProblem
 //				}
 //			}
 //
-//			return Problem.unsolvableProblem();
+//			return unsolvableProblem();
 //		}
 //	}
 //
@@ -217,7 +217,7 @@ public class ProblemDenier extends Problem implements IProblem
 //		IProblem ret = null;
 //		if (isTrivial(problem))
 //		{
-//			ret = Problem.unsolvableProblem();
+//			ret = unsolvableProblem();
 //			System.out.println("This problem is trivial: " + ret);
 //		}
 //		else
