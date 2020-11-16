@@ -10,6 +10,7 @@
  */
 package bits.strings.lists;
 
+import bits.EnhancedProblem;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Mapper;
@@ -29,7 +30,7 @@ public class BitStringListMapper extends Problem implements IProblem
 			IBitString rangeVariable) throws Exception
 	{
 		if (L1.size() == 0 || L2.size() == 0 || L1.size() != L2.size())
-			this.setClauses(unsolvableProblem().getClauses());
+			this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			this.domainVariable = domainVariable;

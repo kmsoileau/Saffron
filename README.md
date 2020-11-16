@@ -1,5 +1,5 @@
 https://github.com/kmsoileau/SaffronMachttps://github.com/kmsoileau/SaffronMachttps://github.com/kmsoileau/SaffronMac# Saffron-2.0
-Saffron is a preprocessor which serves as a front end for Sat4j. Saffron is to Sat4j as a higher level language is to an assembler. The user expresses his/her problem by writing a Java application using the Saffron API. When the application is run, Saffron creates a corresponding SAT problem, then applies the Sat4j API to find a solution. The Sat4j solution is analyzed by Saffron, and the bit assignments provided by Sat4j are used to construct the solution values of the original problem.
+Saffron is a preprocessor which serves as a front end for Sat4j. Saffron is to Sat4j as a higher level language is to an assembler. The user expresses his/her problem by writing a Java application using the Saffron API. When the application is run, Saffron creates a corresponding SAT problem, then applies the Sat4j API to find a solution. The Sat4j solution is analyzed by Saffron, and the bit assignments provided by Sat4j are used to construct the solution values of the original Problem.
 
 For more information, see the blog at http://www.kerrysoileau.com/saffronpreprocessor/
 
@@ -58,7 +58,7 @@ import bits.IBitString;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
-import bits.Problem;
+ 
 import bitstrings.BitString;
 
 public class SubsetSumDemo

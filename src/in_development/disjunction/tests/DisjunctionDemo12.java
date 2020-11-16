@@ -2,6 +2,7 @@ package in_development.disjunction.tests;
 
 import bits.BooleanLiteral;
 import bits.Disjunction;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
@@ -20,7 +21,7 @@ public class DisjunctionDemo12
 {
 	public static void main(String[] args) throws Exception
 	{
-		IProblem problem = new Disjunction(Problem.unsolvableProblem(), Problem.trivialProblem());
+		IProblem problem = new Disjunction(EnhancedProblem.unsolvableProblem(), EnhancedProblem.trivialProblem());
 
 		System.out.println(problem);
 

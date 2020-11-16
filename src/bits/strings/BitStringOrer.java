@@ -21,7 +21,7 @@ public class BitStringOrer extends Problem implements IProblem
 	{
 		if (X.size() != Y.size() || X.size() != Z.size())
 			throw new BitStringOrerException("X, Y and Z are not of equal size.");
-		// this.setClauses(unsolvableProblem().getClauses());
+		// this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			int commonsize = X.size();

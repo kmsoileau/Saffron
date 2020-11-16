@@ -1,6 +1,7 @@
 package demos.bits;
 
 import bits.BooleanLiteral;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
@@ -9,7 +10,7 @@ public class TrivialProblemDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		IProblem problem = Problem.trivialProblem();
+		IProblem problem = EnhancedProblem.trivialProblem();
 
 		System.out.println(problem);
 

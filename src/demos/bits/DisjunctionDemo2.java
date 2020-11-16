@@ -1,8 +1,8 @@
 package demos.bits;
 
 import bits.Disjunction;
+import bits.EnhancedProblem;
 import bits.IProblem;
-import bits.Problem;
 
 /**
  * <p>
@@ -25,9 +25,9 @@ public class DisjunctionDemo2
 {
 	public static void main(String[] args) throws Exception
 	{
-		IProblem X = Problem.unsolvableProblem();
+		IProblem X = EnhancedProblem.unsolvableProblem();
 		System.out.println(X);
-		IProblem Y = Problem.trivialProblem();
+		IProblem Y = EnhancedProblem.trivialProblem();
 		System.out.println(Y);
 
 		Disjunction disjunction1 = new Disjunction(new IProblem[]

@@ -25,6 +25,7 @@
 package bits.strings.lists;
 
 import bits.Conjunction;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.Problem;
 import bits.strings.BitStringEqualizer;
@@ -34,7 +35,7 @@ public class BitStringListReverser extends Problem implements IProblem
 	public BitStringListReverser(IBitStringList X, IBitStringList Y) throws Exception
 	{
 		if (X.size() != Y.size())
-			this.setClauses(unsolvableProblem().getClauses());
+			this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			int commonsize = X.size();

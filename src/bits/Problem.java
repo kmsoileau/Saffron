@@ -42,23 +42,6 @@ public class Problem implements IProblem
 		return new Problem();
 	}
 
-	public static IProblem trivialProblem() throws Exception
-	{
-		IClause cl = new Clause();
-		IBooleanVariable bv = BooleanVariable.getBooleanVariable();
-		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv, false));
-		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv, true));
-		IProblem ret = Problem.newProblem();
-		((Problem) ret).setBacking(new CompoundList(cl));
-		return ret;
-	}
-
-	public static IProblem unsolvableProblem() throws Exception
-	{
-		return new Problem(new IClause[]
-		{ new Clause() });
-	}
-
 	private ImmutableList backing = new CompoundList();
 
 	/**
@@ -93,7 +76,6 @@ public class Problem implements IProblem
 		return new Conjunction(this, p);
 	}
 
-	@Override
 	protected Object clone() throws CloneNotSupportedException
 	{
 		IProblem cln = new Problem();

@@ -1,6 +1,7 @@
 package in_development;
 
 import bits.BooleanLiteral;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
@@ -10,7 +11,7 @@ public class ProblemDenierDemo5
 {
 	public static void main(String[] args) throws Exception
 	{
-		IProblem p = Problem.unsolvableProblem();
+		IProblem p = EnhancedProblem.unsolvableProblem();
 		System.out.println(p);
 
 		IProblem p2 = new ProblemDenier(p);

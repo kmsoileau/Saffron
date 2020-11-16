@@ -15,7 +15,7 @@ import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 
-public class BitArrayTotaler extends bits.Problem implements IProblem
+public class BitArrayTotaler extends Problem implements IProblem
 {
 	public BitArrayTotaler(IBooleanVariable[] X, INaturalNumber bitSum) throws Exception
 	{

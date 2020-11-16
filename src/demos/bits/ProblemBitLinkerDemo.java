@@ -2,6 +2,7 @@ package demos.bits;
 
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
+import bits.EnhancedProblem;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.IProblemMessage;
@@ -14,8 +15,8 @@ public class ProblemBitLinkerDemo
 	{
 		IBooleanVariable b = BooleanVariable.getBooleanVariable("b");
 
-		// IProblem p = unsolvableProblem();
-		IProblem p = Problem.trivialProblem();
+		// IProblem p = EnhancedProblem.unsolvableProblem();
+		IProblem p = EnhancedProblem.trivialProblem();
 
 		IProblem testProblem = new ProblemBitLinker(p, b);
 

@@ -24,7 +24,7 @@ public class BitStringSubstringer extends Problem implements IProblem
 		int smaller = X.size();
 		if (smaller > Y.size())
 			throw new BitStringSubstringerException("X.size() > Y.size()");
-		// this.setClauses(unsolvableProblem().getClauses());
+		// this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem problem = null;

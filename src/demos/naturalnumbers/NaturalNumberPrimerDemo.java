@@ -3,7 +3,6 @@ package demos.naturalnumbers;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.INaturalNumber;
-import bits.IProblem;
 import bits.IProblemMessage;
 /**
  * <p>Title: TBS</p>
@@ -23,8 +22,7 @@ public class NaturalNumberPrimerDemo
 	{
 		NaturalNumber.setLargestNaturalNumber(140);
 		INaturalNumber Z = new NaturalNumber("Z");
-		IProblem p = new Conjunction(new NaturalNumberFixer(Z, 133L), new NaturalNumberPrimer(Z));
-		IProblemMessage s = p.findModel();
+		IProblemMessage s = new Conjunction(new NaturalNumberFixer(Z, 133L), new NaturalNumberPrimer(Z)).findModel();
 		System.out.println(s);
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

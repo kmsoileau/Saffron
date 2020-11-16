@@ -20,7 +20,7 @@ import bits.ProblemPair;
  * @version 1.0
  * @since Mar 3, 2019
  */
-public class NNtoNNMapper extends bits.Problem implements IProblem
+public class NNtoNNMapper extends Problem implements IProblem
 {
 	public static ArrayList<NaturalNumberPair> createPairs(int[][] data) throws Exception
 	{

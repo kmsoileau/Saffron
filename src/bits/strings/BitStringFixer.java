@@ -2,6 +2,7 @@ package bits.strings;
 
 import bits.BitFixer;
 import bits.Conjunction;
+import bits.EnhancedProblem;
 import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.IProblem;
@@ -58,7 +59,7 @@ public class BitStringFixer extends Problem implements IProblem
 	public BitStringFixer(IBitString target, boolean[] c) throws Exception
 	{
 		if (target.size() != c.length)
-			this.setClauses(unsolvableProblem().getClauses());
+			this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			BitStringBitFixer[] bnnbf = new BitStringBitFixer[c.length];
@@ -92,7 +93,7 @@ public class BitStringFixer extends Problem implements IProblem
 	public BitStringFixer(IBitString target, IBooleanVariable[] data) throws Exception
 	{
 		if (target.size() != data.length)
-			this.setClauses(unsolvableProblem().getClauses());
+			this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			BitStringBitFixer[] bnnbf = new BitStringBitFixer[data.length];

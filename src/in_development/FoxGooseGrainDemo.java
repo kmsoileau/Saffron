@@ -6,11 +6,11 @@ import bits.BitUnequalizer;
 import bits.BooleanVariable;
 import bits.Conjunction;
 import bits.Disjunction;
+import bits.EnhancedProblem;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
 import bits.ProblemDenier;
-import enhanced.EnhancedProblem;
 
 class BoatAndFarmerTogether extends Problem implements IProblem
 {

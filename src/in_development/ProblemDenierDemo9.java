@@ -4,12 +4,12 @@ import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Disjunction;
+import bits.EnhancedProblem;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
 import bits.ProblemDenier;
-import enhanced.EnhancedProblem;
 
 public class ProblemDenierDemo9
 {

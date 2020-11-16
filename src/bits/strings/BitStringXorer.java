@@ -21,7 +21,7 @@ public class BitStringXorer extends Problem implements IProblem
 	{
 		if (X.size() != Y.size() || X.size() != Z.size())
 			throw new BitStringXorerException("X, Y and Z are not of equal size.");
-		// this.setClauses(unsolvableProblem().getClauses());
+		// this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[X.size()];

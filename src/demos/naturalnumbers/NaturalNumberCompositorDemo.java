@@ -33,11 +33,11 @@ public class NaturalNumberCompositorDemo
 			if (s.getStatus() == IProblemMessage.SATISFIABLE)
 			{
 				BooleanLiteral.interpret(s.getLiterals());
-				System.out.println(Z + " is composite: " + X + " * " + Y + " = " + Z);
-				// System.out.println();
+				System.out.println(Z + " is composite: "+X + " * " + Y + " = " + Z);
+				//System.out.println();
 			}
-			// else
-			// System.out.println("No solution.");
+			//else
+			//	System.out.println("No solution.");
 		}
 	}
 }

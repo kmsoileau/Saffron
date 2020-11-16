@@ -3,6 +3,7 @@ package bits.strings;
 import bits.BitFixer;
 import bits.Conjunction;
 import bits.Disjunction;
+import bits.EnhancedProblem;
 import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.IProblem;
@@ -37,9 +38,9 @@ public class BitStringOrderer extends Problem implements IProblem
 	public BitStringOrderer(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() == 0)
-			this.setClauses(Problem.trivialProblem().getClauses());
+			this.setClauses(EnhancedProblem.trivialProblem().getClauses());
 		else if (Y.size() == 0)
-			this.setClauses(unsolvableProblem().getClauses());
+			this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			IBooleanVariable X_0 = X.getBooleanVariable(0);

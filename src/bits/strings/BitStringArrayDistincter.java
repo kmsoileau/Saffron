@@ -13,6 +13,7 @@ package bits.strings;
 import java.util.ArrayList;
 
 import bits.Conjunction;
+import bits.EnhancedProblem;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
@@ -27,7 +28,7 @@ public class BitStringArrayDistincter extends Problem implements IProblem
 	{
 		IProblem problem;
 		if (X.length == 0)
-			problem = Problem.trivialProblem();
+			problem = EnhancedProblem.trivialProblem();
 		else
 		{
 			ArrayList<IProblem> p = new ArrayList<IProblem>();

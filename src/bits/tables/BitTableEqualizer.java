@@ -10,6 +10,7 @@ package bits.tables;
 
 import bits.BitEqualizer;
 import bits.Conjunction;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.Problem;
 
@@ -18,7 +19,7 @@ public class BitTableEqualizer extends Problem implements IProblem
 	public BitTableEqualizer(IBitTable X, IBitTable Y) throws Exception
 	{
 		if (!X.isSameSizeAs(Y))
-			this.setClauses(unsolvableProblem().getClauses());
+			this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[X.numberRows() * X.numberColumns()];

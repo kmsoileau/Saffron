@@ -68,7 +68,7 @@ public class ProblemDenier extends Problem implements IProblem
 //		if (size == 0)
 //		{
 //			System.out.println("\ndenial: This problem is empty: " + problem);
-//			return Problem.trivialProblem();
+//			return EnhancedProblem.trivialProblem();
 //		}
 //
 //		System.out.println("\ndenial: This problem is not empty: " + problem);
@@ -132,7 +132,7 @@ public class ProblemDenier extends Problem implements IProblem
 //				}
 //			}
 //
-//			return unsolvableProblem();
+//			return EnhancedProblem.unsolvableProblem();
 //		}
 //	}
 //
@@ -217,7 +217,7 @@ public class ProblemDenier extends Problem implements IProblem
 //		IProblem ret = null;
 //		if (isTrivial(problem))
 //		{
-//			ret = unsolvableProblem();
+//			ret = EnhancedProblem.unsolvableProblem();
 //			System.out.println("This problem is trivial: " + ret);
 //		}
 //		else

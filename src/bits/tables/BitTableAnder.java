@@ -10,6 +10,7 @@ package bits.tables;
 
 import bits.BitAnder;
 import bits.Conjunction;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.Problem;
 
@@ -18,7 +19,7 @@ public class BitTableAnder extends Problem implements IProblem
 	public BitTableAnder(IBitTable bitTable1, IBitTable bitTable2, IBitTable bitTable3) throws Exception
 	{
 		if (!bitTable1.isSameSizeAs(bitTable2) || !bitTable1.isSameSizeAs(bitTable3))
-			this.setClauses(unsolvableProblem().getClauses());
+			this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[bitTable1.numberRows() * bitTable1.numberColumns()];

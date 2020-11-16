@@ -32,7 +32,7 @@ public class BitEqualizer extends Problem implements IProblem
 			throw new BitEqualizerException("BitEqualizer constructor was passed a null parameter.");
 
 		if (x.equals(y))
-			this.setClauses(Problem.trivialProblem().getClauses());
+			this.setClauses(EnhancedProblem.trivialProblem().getClauses());
 		else
 			this.setClauses(new IClause[]
 			{ Clause.newClause().or(x).orNot(y), Clause.newClause().orNot(x).or(y) });

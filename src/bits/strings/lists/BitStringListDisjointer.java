@@ -9,6 +9,7 @@
 package bits.strings.lists;
 
 import bits.Conjunction;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.Problem;
 import bits.strings.lists.exceptions.BitStringListDisjointerException;
@@ -28,7 +29,7 @@ public class BitStringListDisjointer extends Problem implements IProblem
 		if (B == null)
 			throw new BitStringListDisjointerException("Passed a null IBitStringList to constructor.");
 		if (A.size() == 0 || B.size() == 0)
-			this.setClauses(Problem.trivialProblem().getClauses());
+			this.setClauses(EnhancedProblem.trivialProblem().getClauses());
 		else
 		{
 			IProblem res[] = new IProblem[A.size() + B.size()];
@@ -46,11 +47,11 @@ public class BitStringListDisjointer extends Problem implements IProblem
 	 * "Passed a null IBitStringList to constructor."); if(B==null) throw new
 	 * BitStringListDisjointerException
 	 * ("Passed a null IBitStringList to constructor."); if(A.size()==0 ||
-	 * B.size()==0) this.setClauses(Problem.trivialProblem().getClauses()); else {
-	 * IProblem res[]=new IProblem[A.size()+B.size()]; for(int i=0;i<A.size();i++)
-	 * res[i]=new BitStringListNonmembershipper(A.getBitString(i),B);
-	 * this.setClauses(new Conjunction(res).getClauses()); for(int
-	 * i=0;i<B.size();i++) res[i]=new
+	 * B.size()==0) this.setClauses(EnhancedProblem.trivialProblem().getClauses());
+	 * else { IProblem res[]=new IProblem[A.size()+B.size()]; for(int
+	 * i=0;i<A.size();i++) res[i]=new
+	 * BitStringListNonmembershipper(A.getBitString(i),B); this.setClauses(new
+	 * Conjunction(res).getClauses()); for(int i=0;i<B.size();i++) res[i]=new
 	 * BitStringListNonmembershipper(B.getBitString(i),A); this.setClauses(new
 	 * Conjunction(res).getClauses()); } }
 	 */

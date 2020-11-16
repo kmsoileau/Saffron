@@ -1,6 +1,7 @@
 package naturalnumbers.tables;
 
 import bits.Conjunction;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.Problem;
 import naturalnumbers.NaturalNumberXorer;
@@ -10,7 +11,7 @@ public class NaturalNumberTableXorer extends Problem implements IProblem
 	public NaturalNumberTableXorer(INaturalNumberTable X, INaturalNumberTable Y, INaturalNumberTable Z) throws Exception
 	{
 		if (!X.isSameSizeAs(Y) || !X.isSameSizeAs(Z))
-			this.setClauses(unsolvableProblem().getClauses());
+			this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[X.getNumberOfRows() * X.getNumberOfColumns()];

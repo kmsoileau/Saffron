@@ -340,7 +340,7 @@ public class Disjunction extends Problem implements IProblem
 		// "IProblem array of zero length passed to or method.");
 		if (problemArray.length == 0)
 		{
-			this.setClauses(unsolvableProblem().getClauses());
+			this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 			return;
 		}
 

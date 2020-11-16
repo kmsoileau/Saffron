@@ -10,6 +10,7 @@
  */
 package bits.strings;
 
+import bits.EnhancedProblem;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Mapper;
@@ -28,7 +29,7 @@ public class BitStringMapper extends Problem implements IProblem
 	public BitStringMapper(IBitString[] ary1, IBitString[] ary2, IBitString X, IBitString Y) throws Exception
 	{
 		if (ary1.length == 0 || ary2.length == 0 || ary1.length != ary2.length)
-			this.setClauses(unsolvableProblem().getClauses());
+			this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			this.domainVariable = X;

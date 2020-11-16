@@ -11,6 +11,7 @@
 package demos.bits;
 
 import bits.BooleanLiteral;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
@@ -19,7 +20,7 @@ public class UnsolvableProblemDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		IProblem p = Problem.unsolvableProblem();
+		IProblem p = EnhancedProblem.unsolvableProblem();
 		System.out.println(p);
 
 		IProblemMessage s = p.findModel(Problem.defaultSolver());

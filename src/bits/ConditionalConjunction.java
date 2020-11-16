@@ -49,7 +49,8 @@ public class ConditionalConjunction extends Problem implements IProblem
 
 		IProblem[] subProblems = new IProblem[numberOfProblems];
 		for (int i = 0; i < numberOfProblems; i++)
-			subProblems[i] = new Disjunction(booleanVariableArray[i], problemArray[i], Problem.trivialProblem());
+			subProblems[i] = new Disjunction(booleanVariableArray[i], problemArray[i],
+					EnhancedProblem.trivialProblem());
 
 		this.setClauses(new Conjunction(subProblems).getClauses());
 	}

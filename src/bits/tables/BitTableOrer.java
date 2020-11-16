@@ -10,6 +10,7 @@ package bits.tables;
 
 import bits.BitOrer;
 import bits.Conjunction;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.Problem;
 
@@ -18,7 +19,7 @@ public class BitTableOrer extends Problem implements IProblem
 	public BitTableOrer(IBitTable X, IBitTable Y, IBitTable Z) throws Exception
 	{
 		if (!X.isSameSizeAs(Y) || !X.isSameSizeAs(Z))
-			this.setClauses(unsolvableProblem().getClauses());
+			this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[X.numberRows() * X.numberColumns()];

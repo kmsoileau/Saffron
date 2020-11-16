@@ -24,7 +24,7 @@ package bits;
  * @version 2.0
  * @since 2004/11/304
  */
-public class ThreeBitAdder extends Problem implements IProblem
+public class ThreeBitAdder extends EnhancedProblem implements IProblem
 {
 	public ThreeBitAdder(IBooleanVariable w, IBooleanVariable x, IBooleanVariable y, IBooleanVariable z,
 			IBooleanVariable c) throws Exception

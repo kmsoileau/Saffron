@@ -2,6 +2,7 @@ package sets;
 
 import bits.BitOrderer;
 import bits.Conjunction;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.Problem;
 import sets.exceptions.SubsetterException;
@@ -17,7 +18,7 @@ public class Subsetter extends Problem implements IProblem
 		if (size == 0)
 		{
 			// The empty set is always a subset.
-			this.setClauses(Problem.trivialProblem().getClauses());
+			this.setClauses(EnhancedProblem.trivialProblem().getClauses());
 		}
 		else
 		{

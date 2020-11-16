@@ -769,7 +769,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	{
 		int literals = this.size();
 		if (literals == 0)
-			return Problem.trivialProblem();
+			return EnhancedProblem.trivialProblem();
 
 		ArrayList<IClause> toBeAdded = new ArrayList<IClause>();
 		for (int lit = 0; lit < literals; lit++)

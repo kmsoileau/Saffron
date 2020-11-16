@@ -2,10 +2,10 @@ package in_development.disjunction.tests;
 
 import bits.BooleanLiteral;
 import bits.Disjunction;
+import bits.EnhancedProblem;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import enhanced.EnhancedProblem;
 
 /**
  * <pre>
@@ -21,7 +21,7 @@ public class DisjunctionDemo10
 {
 	public static void main(String[] args) throws Exception
 	{
-		IProblem problem = new Disjunction(Problem.trivialProblem());
+		IProblem problem = new Disjunction(EnhancedProblem.trivialProblem());
 
 		System.out.println(problem);
 

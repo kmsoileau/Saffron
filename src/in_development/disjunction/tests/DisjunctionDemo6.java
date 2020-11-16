@@ -4,6 +4,7 @@ import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Disjunction;
+import bits.EnhancedProblem;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.IProblemMessage;
@@ -25,7 +26,7 @@ public class DisjunctionDemo6
 	{
 		IBooleanVariable X = BooleanVariable.getBooleanVariable("X");
 
-		IProblem problem = new Disjunction(new BitFixer(X, true), Problem.unsolvableProblem());
+		IProblem problem = new Disjunction(new BitFixer(X, true), EnhancedProblem.unsolvableProblem());
 
 		System.out.println(problem);
 

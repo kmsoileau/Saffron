@@ -3,6 +3,7 @@ package demos.bits;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Clause;
+import bits.EnhancedProblem;
 import bits.IBooleanVariable;
 import bits.IClause;
 import bits.IProblem;
@@ -28,7 +29,7 @@ public class ExclusiveDisjunctionDemo
 		{ new Clause().or(bva[0]).orNot(bva[1]).or(bva[2]), new Clause().orNot(bva[0]).orNot(bva[1]).orNot(bva[2]) });
 		System.out.println(p2);
 
-		IProblem p3 = new ExclusiveDisjunction(p1, p2, Problem.unsolvableProblem());
+		IProblem p3 = new ExclusiveDisjunction(p1, p2, EnhancedProblem.unsolvableProblem());
 		System.out.println(p3);
 		IProblemMessage s = p3.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

@@ -2,13 +2,13 @@ package in_development;
 
 import bits.BooleanLiteral;
 import bits.Disjunction;
+import bits.EnhancedProblem;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
 import bits.ProblemDenier;
-import enhanced.EnhancedProblem;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 

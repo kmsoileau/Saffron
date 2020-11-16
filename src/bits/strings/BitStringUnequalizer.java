@@ -10,6 +10,7 @@ package bits.strings;
 
 import bits.BitUnequalizer;
 import bits.Disjunction;
+import bits.EnhancedProblem;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
@@ -27,6 +28,6 @@ public class BitStringUnequalizer extends Problem implements IProblem
 			this.setClauses(p1.getClauses());
 		}
 		else
-			this.setClauses(Problem.trivialProblem().getClauses());
+			this.setClauses(EnhancedProblem.trivialProblem().getClauses());
 	}
 }

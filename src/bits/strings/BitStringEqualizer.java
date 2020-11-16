@@ -24,7 +24,8 @@ public class BitStringEqualizer extends Problem implements IProblem
 	public BitStringEqualizer(IBitString X, IBitString Y) throws Exception
 	{
 		/*
-		 * if(X.size()!=Y.size()) this.setClauses(unsolvableProblem().getClauses());
+		 * if(X.size()!=Y.size())
+		 * this.setClauses(EnhancedProblem.unsolvableProblem().getClauses());
 		 */
 		if (X.size() != Y.size())
 			throw new BitStringEqualizerException("IBitStrings of unequal size were passed to the constructor.");

@@ -3,13 +3,13 @@ package in_development;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Clause;
+import bits.EnhancedProblem;
 import bits.IBooleanVariable;
 import bits.IClause;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
 import bits.ProblemDenier;
-import enhanced.EnhancedProblem;
 
 public class ProblemDenierDemo3
 {

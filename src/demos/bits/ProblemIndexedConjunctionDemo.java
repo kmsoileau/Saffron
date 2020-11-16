@@ -14,6 +14,7 @@ import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Conjunction;
+import bits.EnhancedProblem;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.IProblemMessage;
@@ -28,7 +29,7 @@ public class ProblemIndexedConjunctionDemo
 		IProblem[] P = new IProblem[]
 		{ new BitFixer(x, true) };
 		IProblem[] Q = new IProblem[]
-		{ Problem.unsolvableProblem() };
+		{ EnhancedProblem.unsolvableProblem() };
 
 		IProblem pic = new ProblemIndexedConjunction(P, Q);
 		IProblem problem = new Conjunction(new BitFixer(x, false), pic);

@@ -42,7 +42,7 @@ public class ProblemIndexedConjunction extends Problem implements IProblem
 			throw new ProblemIndexedConjunctionException("IProblem arrays of unequal length passed to constructor.");
 		if (P.length == 0 || Q.length == 0)
 		{
-			this.setClauses(Problem.trivialProblem().getClauses());
+			this.setClauses(EnhancedProblem.trivialProblem().getClauses());
 		}
 		else
 		{
@@ -54,7 +54,7 @@ public class ProblemIndexedConjunction extends Problem implements IProblem
 			{
 				bitLink[i] = BooleanVariable.getBooleanVariable();
 				pbl[i] = new ProblemBitLinker(P[i], bitLink[i]);
-				pf[i] = new ProblemFork(bitLink[i], Q[i], Problem.trivialProblem());
+				pf[i] = new ProblemFork(bitLink[i], Q[i], EnhancedProblem.trivialProblem());
 			}
 			IProblem problem = new Conjunction(new Conjunction(pbl), new Conjunction(pf));
 			this.setClauses(problem.getClauses());

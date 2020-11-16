@@ -13,7 +13,7 @@ import bits.IProblemMessage;
  * @version 1.0
  * @since Mar 3, 2019
  */
-public class Problem extends bits.Problem
+public class Problem extends bits.EnhancedProblem
 {
 	public IProblemMessage[] findTwoModels(INaturalNumber n) throws Exception
 	{

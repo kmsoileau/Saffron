@@ -15,6 +15,7 @@ import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Conjunction;
 import bits.Disjunction;
+import bits.EnhancedProblem;
 import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
@@ -30,8 +31,8 @@ public class ProblemForkDemo2
 		INaturalNumber N = new NaturalNumber();
 
 		// IProblem A = new NaturalNumberFixer(N, 5);
-		IProblem A = Problem.unsolvableProblem();
-		IProblem B = Problem.trivialProblem();
+		IProblem A = EnhancedProblem.unsolvableProblem();
+		IProblem B = EnhancedProblem.trivialProblem();
 
 		// (!b | P) & (b | Q)
 		IProblem p1 = new Disjunction(new BitFixer(b, false), A);
