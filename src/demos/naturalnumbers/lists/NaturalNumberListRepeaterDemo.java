@@ -4,6 +4,7 @@ import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.IProblemMessage;
+import bits.Problem;
 import naturalnumbers.lists.INaturalNumberList;
 import naturalnumbers.lists.NaturalNumberList;
 import naturalnumbers.lists.NaturalNumberListFixer;
@@ -18,7 +19,7 @@ public class NaturalNumberListRepeaterDemo
 		IProblem problem = new Conjunction(new NaturalNumberListFixer(testList),
 				new NaturalNumberListRepeater(testList));
 		System.out.println(problem);
-		IProblemMessage s = problem.findModel();
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());

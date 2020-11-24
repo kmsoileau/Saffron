@@ -5,6 +5,7 @@ import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
+import bits.Problem;
 /**
  * <p>Title: TBS</p>
  * <p>Description: TBS</p>
@@ -29,7 +30,7 @@ public class NaturalNumberCompositorDemo
 		for (int number = 1000; number <= 10000; number++)
 		{
 			IProblem p = new Conjunction(new NaturalNumberFixer(Z, number), new NaturalNumberCompositor(Z, X, Y));
-			IProblemMessage s = p.findModel();
+			IProblemMessage s = p.findModel(Problem.defaultSolver());
 			if (s.getStatus() == IProblemMessage.SATISFIABLE)
 			{
 				BooleanLiteral.interpret(s.getLiterals());

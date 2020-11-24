@@ -70,8 +70,7 @@ public class Problem implements IProblem
 		this.backing = ((Problem) iproblem).backing;
 	}
 
-	@Override
-	public IProblem and(IProblem p) throws Exception
+	public Problem and(Problem p) throws Exception
 	{
 		return new Conjunction(this, p);
 	}
@@ -105,7 +104,6 @@ public class Problem implements IProblem
 		return false;
 	}
 
-	@Override
 	public IProblemMessage findModel() throws Exception
 	{
 		return findModel(Problem.defaultSolver());
@@ -127,7 +125,6 @@ public class Problem implements IProblem
 		return new ProblemMessage(IProblemMessage.SATISFIABLE, rl);
 	}
 
-	@Override
 	public IProblemMessage[] findTwoModels(IBooleanVariable b) throws Exception
 	{
 		IProblemMessage[] res = new IProblemMessage[2];

@@ -1,9 +1,5 @@
 package bits;
 
-import java.util.ArrayList;
-
-import org.sat4j.specs.ISolver;
-
 /**
  * The <code>IProblem</code> interface must be implemented by any class
  * definition of <code>Problem</code> contemplated as an alternative to the
@@ -19,17 +15,11 @@ import org.sat4j.specs.ISolver;
  */
 public interface IProblem extends Iterable<Object>
 {
-	IProblem and(IProblem problem) throws Exception;
-
 	boolean contains(IClause clause) throws Exception;
 
-	IProblemMessage findModel() throws Exception;
+	IProblemMessage findModel(org.sat4j.specs.ISolver solver) throws Exception;
 
-	IProblemMessage findModel(ISolver solver) throws Exception;
-
-	IProblemMessage[] findTwoModels(IBooleanVariable booleanVariable) throws Exception;
-
-	ArrayList<IBooleanVariable> getBooleanVariables() throws Exception;
+	java.util.List<?> getBooleanVariables() throws Exception;
 
 	IClause getClause(int i);
 

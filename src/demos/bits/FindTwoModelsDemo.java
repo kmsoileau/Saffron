@@ -5,6 +5,7 @@ import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
+import bits.Problem;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberAdder;
 import naturalnumbers.NaturalNumberFixer;
@@ -29,7 +30,7 @@ public class FindTwoModelsDemo
 		IProblem p = new Conjunction(bnnfy, NaturalNumberAdder1);
 
 		System.out.println(p);
-		IProblemMessage[] s = p.findTwoModels(X.getBooleanVariable(3));
+		IProblemMessage[] s = ((Problem) p).findTwoModels(X.getBooleanVariable(3));
 		System.out.println("First model found:");
 		if (s[0].getLiterals() != null && s[0].getLiterals().size() > 0)
 		{

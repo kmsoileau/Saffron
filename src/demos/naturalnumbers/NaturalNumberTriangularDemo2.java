@@ -5,6 +5,7 @@ import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
+import bits.Problem;
 /**
  * <p>Title: TBS</p>
  * <p>Description: TBS</p>
@@ -34,7 +35,7 @@ public class NaturalNumberTriangularDemo2
 				new NaturalNumberMultiplier(X, Y, TwoZ), new NaturalNumberFixer(Z, 6),
 				new NaturalNumberDoubler(Z, TwoZ), });
 
-		IProblemMessage s = p.findModel();
+		IProblemMessage s = p.findModel(Problem.defaultSolver());
 		System.out.println(p);
 		System.out.println(s);
 		BooleanLiteral.interpret(s.getLiterals());

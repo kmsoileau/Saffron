@@ -5,6 +5,7 @@ import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
+import bits.Problem;
 /**
  * <p>Title: TBS</p>
  * <p>Description: TBS</p>
@@ -30,7 +31,7 @@ public class NaturalNumberFactorerDemo
 
 		System.out.println(p.size() + " clauses generated...");
 
-		IProblemMessage s = p.findModel();
+		IProblemMessage s = p.findModel(Problem.defaultSolver());
 
 		BooleanLiteral.interpret(s.getLiterals());
 

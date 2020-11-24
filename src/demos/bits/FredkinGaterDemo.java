@@ -36,7 +36,7 @@ public class FredkinGaterDemo
 		System.out.println(p1);
 
 		// Find a solution to the Problem object :
-		IProblemMessage v1 = p1.findModel();
+		IProblemMessage v1 = p1.findModel(Problem.defaultSolver());
 		System.out.println(v1);
 		BooleanLiteral.interpret(v1.getLiterals());
 
