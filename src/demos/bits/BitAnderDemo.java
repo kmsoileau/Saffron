@@ -74,7 +74,7 @@ public class BitAnderDemo
 		System.out.println("y = " + y.getValue());
 		System.out.println("z = " + z.getValue());
 
-		IProblem rp = ((Problem) p6).resolve(v6.getLiterals());
+		IProblem rp = p6.resolve(v6.getLiterals());
 		System.out.println("::::::::::");
 		System.out.println(rp);
 

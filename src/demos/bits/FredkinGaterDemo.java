@@ -48,7 +48,7 @@ public class FredkinGaterDemo
 		System.out.println("Q = " + Q.getValue());
 		System.out.println("R = " + R.getValue());
 
-		IProblem rp = ((Problem) p1).resolve(v1.getLiterals());
+		IProblem rp = p1.resolve(v1.getLiterals());
 		System.out.println("::::::::::");
 		System.out.println(rp);
 	}
