@@ -1,5 +1,7 @@
 package naturalnumbers;
 
+import java.util.ArrayList;
+
 import bits.BitFixer;
 import bits.Conjunction;
 import bits.IBooleanVariable;
@@ -9,6 +11,7 @@ import bits.IProblem;
 import bits.Problem;
 import bits.ThreeBitAdder;
 import bits.TwoBitAdder;
+import naturalnumbers.exceptions.NaturalNumberAdderException;
 
 /**
  * An extension of the Problem class which implements an adder of two
@@ -56,6 +59,36 @@ import bits.TwoBitAdder;
 
 public class NaturalNumberAdder extends Problem implements IProblem
 {
+	public NaturalNumberAdder(ArrayList<INaturalNumber> addend, INaturalNumber Z)
+	{
+		try
+		{
+			int sz = addend.size();
+			if (sz == 0)
+				throw new NaturalNumberAdderException("Empty ArrayList<INaturalNumber> passed to constructor.");
+			else
+			{
+				IProblem[] p = new IProblem[sz];
+
+				INaturalNumber[] Zz = new INaturalNumber[sz - 1];
+				Zz[0] = new NaturalNumber();
+				p[0] = new NaturalNumberEqualizer(addend.get(0), Zz[0]);
+				for (int i = 1; i < sz - 1; i++)
+				{
+					Zz[i] = new NaturalNumber();
+					p[i] = new NaturalNumberAdder(Zz[i - 1], addend.get(i), Zz[i]);
+				}
+				p[sz - 1] = new NaturalNumberAdder(Zz[sz - 2], addend.get(sz - 1), Z);
+
+				IProblem prob = new Conjunction(p);
+				this.setClauses(prob.getClauses());
+			}
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
 	public NaturalNumberAdder(INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
 	{
 		this(X, Y, Z, new NaturalNumber());
@@ -72,5 +105,18 @@ public class NaturalNumberAdder extends Problem implements IProblem
 					X.getBooleanVariable(i), Z.getBooleanVariable(i), C.getBooleanVariable(i));
 		stagingArray[stagingIndex++] = new BitFixer(C.getBooleanVariable(NaturalNumber.getLength() - 1), false);
 		this.setClauses(new Conjunction(stagingArray).getClauses());
+	}
+
+	public NaturalNumberAdder(INaturalNumber X, long i, INaturalNumber Z)
+	{
+		try
+		{
+			INaturalNumber C1 = new NaturalNumber();
+			IProblem p3 = new Conjunction(new NaturalNumberFixer(C1, i), new NaturalNumberAdder(X, C1, Z));
+			this.setClauses(p3.getClauses());
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

@@ -80,4 +80,21 @@ public class NaturalNumberMultiplier extends Problem implements IProblem
 			this.setClauses(p.getClauses());
 		}
 	}
+
+	public NaturalNumberMultiplier(INaturalNumber X, long i, INaturalNumber Z)
+	{
+		try
+		{
+			INaturalNumber C1=new NaturalNumber();
+			IProblem p1=new NaturalNumberFixer(C1,i);
+			IProblem p2=new NaturalNumberMultiplier(X,C1,Z);
+			IProblem p3=new Conjunction(p1,p2);
+			this.setClauses(p3.getClauses());
+			
+		} catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
