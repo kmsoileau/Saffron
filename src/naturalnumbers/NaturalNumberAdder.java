@@ -12,6 +12,7 @@ import bits.Problem;
 import bits.ThreeBitAdder;
 import bits.TwoBitAdder;
 import naturalnumbers.exceptions.NaturalNumberAdderException;
+import naturalnumbers.lists.INaturalNumberList;
 
 /**
  * An extension of the Problem class which implements an adder of two
@@ -61,32 +62,7 @@ public class NaturalNumberAdder extends Problem implements IProblem
 {
 	public NaturalNumberAdder(ArrayList<INaturalNumber> addend, INaturalNumber Z)
 	{
-		try
-		{
-			int sz = addend.size();
-			if (sz == 0)
-				throw new NaturalNumberAdderException("Empty ArrayList<INaturalNumber> passed to constructor.");
-			else
-			{
-				IProblem[] p = new IProblem[sz];
-
-				INaturalNumber[] Zz = new INaturalNumber[sz - 1];
-				Zz[0] = new NaturalNumber();
-				p[0] = new NaturalNumberEqualizer(addend.get(0), Zz[0]);
-				for (int i = 1; i < sz - 1; i++)
-				{
-					Zz[i] = new NaturalNumber();
-					p[i] = new NaturalNumberAdder(Zz[i - 1], addend.get(i), Zz[i]);
-				}
-				p[sz - 1] = new NaturalNumberAdder(Zz[sz - 2], addend.get(sz - 1), Z);
-
-				IProblem prob = new Conjunction(p);
-				this.setClauses(prob.getClauses());
-			}
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+		this(addend.toArray(new INaturalNumber[0]), Z);
 	}
 
 	public NaturalNumberAdder(INaturalNumber X, INaturalNumber Y, INaturalNumber Z) throws Exception
@@ -118,5 +94,40 @@ public class NaturalNumberAdder extends Problem implements IProblem
 		{
 			e.printStackTrace();
 		}
+	}
+
+	public NaturalNumberAdder(INaturalNumber[] addend, INaturalNumber Z)
+	{
+		try
+		{
+			int sz = addend.length;
+			if (sz == 0)
+				throw new NaturalNumberAdderException("Empty INaturalNumber array passed to constructor.");
+			else
+			{
+				IProblem[] p = new IProblem[sz];
+
+				INaturalNumber[] Zz = new INaturalNumber[sz - 1];
+				Zz[0] = new NaturalNumber();
+				p[0] = new NaturalNumberEqualizer(addend[0], Zz[0]);
+				for (int i = 1; i < sz - 1; i++)
+				{
+					Zz[i] = new NaturalNumber();
+					p[i] = new NaturalNumberAdder(Zz[i - 1], addend[i], Zz[i]);
+				}
+				p[sz - 1] = new NaturalNumberAdder(Zz[sz - 2], addend[sz - 1], Z);
+
+				IProblem prob = new Conjunction(p);
+				this.setClauses(prob.getClauses());
+			}
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public NaturalNumberAdder(INaturalNumberList addend, INaturalNumber Z)
+	{
+		this(addend.getNaturalNumberArray(), Z);
 	}
 }
