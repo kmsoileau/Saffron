@@ -60,6 +60,7 @@ naturalnumbers.rectangles.packing
 naturalnumbers.scheduling
 naturalnumbers.tables
 naturalnumbers.tables.exceptions
+positronic.util.arrays
 sets
 sets.exceptions
 showcase

@@ -20,15 +20,31 @@ import bits.strings.exceptions.BitStringBitAtomerException;
 
 public class BitStringBitAtomer extends Problem implements IProblem
 {
+	public BitStringBitAtomer(IBitString[] bitStrings, IBitString[] atom) throws Exception
+	{
+		if (atom == null)
+			throw (new BitStringBitAtomerException("A null atom variable was passed to constructor."));
+		if (atom.length == 0)
+			throw (new BitStringBitAtomerException("An atom array of length zero was passed to constructor."));
+
+		IProblem[] stagingArray = new IProblem[atom.length];
+
+		for (int pos = 0; pos < stagingArray.length; pos++)
+		{
+			stagingArray[pos] = new BitStringBitAtomer(bitStrings, pos, atom[pos]);
+		}
+		
+		this.setClauses(new Conjunction(stagingArray).getClauses());
+	}
+
 	public BitStringBitAtomer(IBitString[] bitStrings, int pos, IBitString atom) throws Exception
 	{
 		if (bitStrings.length == 0)
-			throw (new BitStringBitAtomerException(
-					"IBitString or IBooleanVariable array of zero length was passed to constructor."));
+			throw (new BitStringBitAtomerException("IBitString array of zero length was passed to constructor."));
 		if (atom == null)
-			throw (new BitStringBitAtomerException("A null conditionalResult variable was passed to constructor."));
+			throw (new BitStringBitAtomerException("A null atom variable was passed to constructor."));
 		if (atom.size() == 0)
-			throw (new BitStringBitAtomerException("A conditionalResult of size zero was passed to constructor."));
+			throw (new BitStringBitAtomerException("An atom of size zero was passed to constructor."));
 
 		int stagingIndex = 0;
 		IProblem[] stagingArray = new IProblem[bitStrings.length + 2];
