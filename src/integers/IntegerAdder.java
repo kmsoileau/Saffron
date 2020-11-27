@@ -29,7 +29,7 @@ public class IntegerAdder extends Problem implements IProblem
 	{
 		this(addend.toArray(new IInteger[0]), Z);
 	}
-	
+
 	public IntegerAdder(IInteger X, IInteger Y, IInteger Z) throws Exception
 	{
 		IProblem[] p = new IProblem[6];
@@ -56,7 +56,7 @@ public class IntegerAdder extends Problem implements IProblem
 
 		this.setClauses(new Conjunction(p).getClauses());
 	}
-	
+
 	public IntegerAdder(IInteger X, long i, IInteger Z)
 	{
 		try
@@ -69,7 +69,7 @@ public class IntegerAdder extends Problem implements IProblem
 			e.printStackTrace();
 		}
 	}
-	
+
 	public IntegerAdder(IInteger[] addend, IInteger Z)
 	{
 		try
