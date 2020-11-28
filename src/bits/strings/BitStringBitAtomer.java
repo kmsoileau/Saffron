@@ -17,6 +17,7 @@ import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
 import bits.strings.exceptions.BitStringBitAtomerException;
+import bits.strings.lists.IBitStringList;
 
 public class BitStringBitAtomer extends Problem implements IProblem
 {
@@ -33,7 +34,7 @@ public class BitStringBitAtomer extends Problem implements IProblem
 		{
 			stagingArray[pos] = new BitStringBitAtomer(bitStrings, pos, atom[pos]);
 		}
-		
+
 		this.setClauses(new Conjunction(stagingArray).getClauses());
 	}
 
@@ -79,5 +80,28 @@ public class BitStringBitAtomer extends Problem implements IProblem
 		stagingArray[stagingIndex++] = new BitStringEqualizer(atom, subTotal[bitStrings.length - 1]);
 
 		this.setClauses(new Conjunction(stagingArray).getClauses());
+	}
+
+	public BitStringBitAtomer(IBitStringList bitStrings, IBitStringList atom) throws Exception
+	{
+
+		if (atom == null)
+			throw (new BitStringBitAtomerException("A null atom variable was passed to constructor."));
+		if (atom.size() == 0)
+			throw (new BitStringBitAtomerException("An IBitStringList of size zero was passed to constructor."));
+
+		IProblem[] stagingArray = new IProblem[atom.size()];
+
+		for (int pos = 0; pos < stagingArray.length; pos++)
+		{
+			stagingArray[pos] = new BitStringBitAtomer(bitStrings, pos, atom.getBitString(pos));
+		}
+
+		this.setClauses(new Conjunction(stagingArray).getClauses());
+	}
+
+	public BitStringBitAtomer(IBitStringList bitStrings, int pos, IBitString atom) throws Exception
+	{
+		this(bitStrings.toArray(), pos, atom);
 	}
 }

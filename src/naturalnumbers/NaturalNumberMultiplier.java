@@ -4,6 +4,8 @@ import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.exceptions.NaturalNumberMultiplierException;
+import naturalnumbers.lists.INaturalNumberList;
 
 /**
  *
@@ -85,16 +87,48 @@ public class NaturalNumberMultiplier extends Problem implements IProblem
 	{
 		try
 		{
-			INaturalNumber C1=new NaturalNumber();
-			IProblem p1=new NaturalNumberFixer(C1,i);
-			IProblem p2=new NaturalNumberMultiplier(X,C1,Z);
-			IProblem p3=new Conjunction(p1,p2);
-			this.setClauses(p3.getClauses());
-			
+			INaturalNumber C1 = new NaturalNumber();
+			this.setClauses(
+					new Conjunction(new NaturalNumberFixer(C1, i), new NaturalNumberMultiplier(X, C1, Z)).getClauses());
+
 		} catch (Exception e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public NaturalNumberMultiplier(INaturalNumber[] addend, INaturalNumber Z)
+	{
+		try
+		{
+			int sz = addend.length;
+			if (sz == 0)
+				throw new NaturalNumberMultiplierException("Empty INaturalNumber array passed to constructor.");
+			else
+			{
+				IProblem[] p = new IProblem[sz];
+
+				INaturalNumber[] Zz = new INaturalNumber[sz - 1];
+				Zz[0] = new NaturalNumber();
+				p[0] = new NaturalNumberEqualizer(addend[0], Zz[0]);
+				for (int i = 1; i < sz - 1; i++)
+				{
+					Zz[i] = new NaturalNumber();
+					p[i] = new NaturalNumberMultiplier(Zz[i - 1], addend[i], Zz[i]);
+				}
+				p[sz - 1] = new NaturalNumberMultiplier(Zz[sz - 2], addend[sz - 1], Z);
+
+				IProblem prob = new Conjunction(p);
+				this.setClauses(prob.getClauses());
+			}
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public NaturalNumberMultiplier(INaturalNumberList addend, INaturalNumber Z)
+	{
+		this(addend.getNaturalNumberArray(), Z);
 	}
 }
