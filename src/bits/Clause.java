@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import bits.exceptions.ClauseException;
 
@@ -108,32 +107,13 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	}
 
 	/**
-	 * This method returns an exact copy of this.
-	 * 
-	 * @return Object
-	 */
-	@Override
-	public Object clone()
-	{
-		try
-		{
-			return this.duplicate();
-		} catch (Exception e)
-		{
-			System.out.println("Attempt failed to use method clone.");
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	/**
 	 * This method compares this to an IClause. The comparison is first done
 	 * according to size, then on the "lowest" IBooleanLiteral in each IClause.
 	 * 
 	 * @return int
 	 * @throws ClauseException An instance of Exception
+	 * @param o IClause
 	 */
-	@Override
 	public int compareTo(IClause o) throws Exception
 	{
 		if (o == null)
@@ -165,7 +145,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	{
 		try
 		{
-			return compareTo((IClause) o);
+			return compareTo(o);
 		} catch (Exception e)
 		{
 			System.out.println("The compareTo method failed on Object " + o + ".");
@@ -179,8 +159,8 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * 
 	 * @return boolean
 	 * @throws ClauseException An instance of Exception
+	 * @param bl IBooleanLiteral
 	 */
-	@Override
 	public boolean contains(IBooleanLiteral bl) throws Exception
 	{
 		if (bl == null)
@@ -202,8 +182,8 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * 
 	 * @return boolean
 	 * @throws ClauseException An instance of Exception
+	 * @param bv IBooleanVariable
 	 */
-	@Override
 	public boolean contains(IBooleanVariable bv) throws Exception
 	{
 		if (bv == null)
@@ -221,115 +201,10 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	}
 
 	/**
-	 * This method returns non-null if and only if the following conditions are all
-	 * true:
-	 * 
-	 * <pre>
-	 * 1. this.size()==c.size() 
-	 * 2. this.minus(c) contains exactly one literal 
-	 * 3. c.minus(this) contains exactly one literal 
-	 * 4. this.minus(c).getBooleanVariable()==c.minus(this).getBooleanVariable()
-	 * </pre>
-	 * 
-	 * @return IBooleanLiteral
-	 * @throws Exception An instance of Exception
-	 * @param c IClause
-	 */
-	public IBooleanLiteral differsSinglyFrom(IClause c) throws Exception
-	{
-		if (c == null)
-			return null;
-		if (this.size() != c.size())
-			return null;
-		IClause thisminusc = this.minus(c);
-		if (thisminusc.size() != 1)
-			return null;
-		IClause cminusthis = ((Clause) c).minus(this);
-		if (cminusthis.size() != 1)
-			return null;
-		IBooleanLiteral thisminuscbl = thisminusc.getLiteralAt(0);
-		IBooleanVariable thisminuscbv = thisminuscbl.getBooleanVariable();
-		IBooleanVariable cminusthisbv = cminusthis.getLiteralAt(0).getBooleanVariable();
-		if (!thisminuscbv.equals(cminusthisbv))
-			return null;
-		return thisminuscbl;
-	}
-
-	/**
-	 * An IClause A dominates an IClause B if and only if every IBooleanLiteral in A
-	 * can be found in B. In that case, A &amp; B &lt;--&gt; A. Practically
-	 * speaking, if A dominates B, then B is redundant and may be deleted from any
-	 * IProblem which includes the IClause A.
-	 * 
-	 * @return boolean
-	 * @throws Exception An instance of Exception
-	 * @param clause IClause
-	 */
-	public boolean dominates(IClause clause) throws Exception
-	{
-		if (clause == null)
-			return true;
-		if (this.isEmpty())
-			return true; // An empty IClause dominates every other IClause
-		// if(this.size()>clause.size()) return false;
-		for (int i = 0; i < this.size(); i++)
-			if (!clause.contains(this.getLiteralAt(i)))
-				return false;
-		return true;
-	}
-
-	/**
-	 * This method returns an exact copy of this.
-	 * 
-	 * @return Object
-	 * @throws Exception An instance of Exception
-	 */
-	public Object duplicate() throws Exception
-	{
-		IClause cl = new Clause();
-		for (int i = 0; i < this.size(); i++)
-			cl.add((BooleanLiteral) this.getLiteralAt(i));
-		return cl;
-	}
-
-	/**
-	 * This method determines whether a given IClause is equal to this.
-	 * 
-	 * @return boolean
-	 * @throws Exception An instance of Exception
-	 */
-	@Override
-	public boolean equals(IClause o) throws Exception
-	{
-		if (o == null)
-			throw new ClauseException("Null IClause was passed to method equals.");
-		if (o == this)
-			return true;
-		// if (!(o instanceof IClause))
-		// return false;
-
-		// if(this.size()!=((ArrayList)o).size())
-		// return false;
-
-		/*
-		 * for(int i=0;i<this.size();i++) {
-		 * if(!this.contains(((IClause)o).getLiteralAt(i))) return false; }
-		 */
-
-		IClause ic = o;
-		if (!this.dominates(ic))
-			return false;
-		if (!((Clause) o).dominates(this))
-			return false;
-		return true;
-	}
-
-	/**
 	 * This method determines whether a given IClause is true.
 	 * 
 	 * @return boolean
 	 */
-	@Override
 	public boolean evaluate()
 	{
 		Iterator<IBooleanLiteral> it = this.iterator();
@@ -389,37 +264,6 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		return res;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see bits.IClause#getIndex(bits.IBooleanLiteral)
-	 */
-	@Override
-	public int getIndex(IBooleanLiteral bl)
-	{
-		return this.indexOf(bl);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see bits.IClause#getLiteral(bits.IBooleanVariable)
-	 */
-	@Override
-	public IBooleanLiteral getLiteral(IBooleanVariable bv) throws ClauseException
-	{
-		for (int i = 0; i < this.size(); i++)
-		{
-			IBooleanLiteral currBL = this.getLiteralAt(i);
-
-			if (currBL.getBooleanVariable().compareTo(bv) == 0)
-			{
-				return currBL;
-			}
-		}
-		return null;
-	}
-
 	/**
 	 * This method returns the IBooleanLiteral at a given index position in this.
 	 * 
@@ -434,129 +278,10 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		return (super.get(n));
 	}
 
-	/**
-	 * This method finds the IClause consisting of the IBooleanLiterals that appear
-	 * if both this and clause, if any.
-	 * 
-	 * @return IClause
-	 * @throws Exception An instance of Exception
-	 * @param clause IClause
-	 */
-	public IClause intersection(IClause clause) throws Exception
-	{
-		if (clause == null)
-			return null;
-		if (this.isEmpty())
-			return this;
-
-		IClause ret = Clause.newClause();
-		for (IBooleanLiteral curr : this)
-		{
-			if (clause.contains(curr))
-				ret.add((BooleanLiteral) curr);
-		}
-		return ret;
-	}
-
-	@Override
-	public boolean isEmpty()
-	{
-		return (this.size() == 0);
-	}
-
-	@Override
-	public boolean isMemberOf(List<IClause> h) throws Exception
-	{
-		if (h == null)
-			throw new ClauseException("A null List was passed to isMemberOf method.");
-		Iterator<IClause> it = h.iterator();
-		while (it.hasNext())
-		{
-			Object obj = it.next();
-			IClause curr = (IClause) obj;
-			if (curr.equals(this))
-				return true;
-		}
-		return false;
-	}
-
-	@Override
-	public boolean isSatisfied()
-	{
-		return this.evaluate();
-	}
-
-	public boolean isSensitiveTo(IBooleanVariable bv) throws ClauseException
-	{
-		if (bv == null)
-			throw new ClauseException("A null IBooleanVariable was passed to isSensitiveTo method.");
-
-		Iterator<IBooleanLiteral> it = this.iterator();
-
-		while (it.hasNext())
-		{
-			IBooleanLiteral bl = (it.next());
-			if (bv.equals(bl.getBooleanVariable()))
-			{
-				boolean startValue = this.evaluate();
-				bv.setValue(!bv.getValue());
-				boolean endValue = this.evaluate();
-				bv.setValue(!bv.getValue());
-				if (startValue != endValue)
-					return true;
-			}
-		}
-		return false;
-	}
-
-	public boolean isSingleton()
-	{
-		return (this.size() == 1);
-	}
-
-	/**
-	 * An IClause is trivial if and only if it contains some IBooleanVariable that
-	 * is barred and the same IBooleanVariable that is unbarred. This makes the
-	 * IClause trivially satisfied, and makes it eligible for deletion from the
-	 * IProblem in which it resides.
-	 * 
-	 * @return boolean
-	 */
-	public boolean isTrivial()
-	{
-		for (int i = 0; i < this.size(); i++)
-		{
-			IBooleanLiteral first = this.get(i);
-			for (int j = i + 1; j < this.size(); j++)
-			{
-				IBooleanLiteral second = this.get(j);
-				if (first.getBooleanVariable().equals(second.getBooleanVariable())
-						&& first.isBarred() != second.isBarred())
-					return true;
-			}
-		}
-		return false;
-	}
-
 	@Override
 	public Iterator<IBooleanLiteral> iterator()
 	{
 		return super.iterator();
-	}
-
-	public IClause minus(IClause o) throws Exception
-	{
-		// if (o == this)
-		// return new Clause();
-		// if (!(o instanceof IClause))
-		// return this;
-		if (o == null)
-			throw new ClauseException("Null IClause was passed to minus method.");
-
-		IClause ret = (IClause) this.clone();
-		for (int i = 0; i < o.size(); i++)
-			ret.remove(o.getLiteralAt(i));
-		return ret;
 	}
 
 	@Override
@@ -640,58 +365,6 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		return super.size();
 	}
 
-	public IClause substitute(Map<IBooleanLiteral, IBooleanLiteral> h) throws Exception
-	{
-		if (h == null)
-			throw new ClauseException("Null java.util.Map was passed to substitute method.");
-
-		boolean didsomething = true;
-		while (didsomething)
-		{
-			didsomething = false;
-			for (int i = 0; i < this.size(); i++)
-			{
-				IBooleanLiteral ib = this.getLiteralAt(i);
-				Object tr = h.get(ib);
-				if (tr != null && tr instanceof IBooleanLiteral && !((IBooleanLiteral) tr).equals(ib))
-				{
-					// System.out.println("Substituting "+(IBooleanLiteral)tr+"
-					// for "+this.get(i));
-					this.removeBooleanLiteral(i);
-					this.add((IBooleanLiteral) tr);
-					didsomething = true;
-				}
-			}
-		}
-		return this;
-	}
-
-	public IClause substitute(Map<IBooleanLiteral, IBooleanLiteral> h, IClause c) throws Exception
-	{
-		if (h == null)
-			throw new ClauseException("Null java.util.Map was passed to substitute method.");
-
-		boolean didsomething = true;
-		while (didsomething)
-		{
-			didsomething = false;
-			for (int i = 0; i < c.size(); i++)
-			{
-				IBooleanLiteral ib = c.getLiteralAt(i);
-				Object tr = h.get(ib);
-				if (tr != null && tr instanceof IBooleanLiteral && !((IBooleanLiteral) tr).equals(ib))
-				{
-					// System.out.println("Substituting "+(IBooleanLiteral)tr+"
-					// for "+this.get(i));
-					c.removeBooleanLiteral(i);
-					c.add((BooleanLiteral) tr);
-					didsomething = true;
-				}
-			}
-		}
-		return this;
-	}
-
 	public IProblem ThreeSATProblem() throws Exception
 	{
 		if (this.size() < 4)
@@ -715,23 +388,10 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		return problem;
 	}
 
-	// Implementation-specific methods
-
 	@Override
 	public IBooleanLiteral[] toArray()
 	{
 		return super.toArray(new IBooleanLiteral[0]);
-	}
-
-	@Override
-	public String toCode() throws ClauseException
-	{
-		if (this.size() < 1)
-			return null;
-		String ret = ((BooleanLiteral) this.getLiteralAt(0)).toCode();
-		for (int i = 1; i < this.size(); i++)
-			ret += "*" + ((BooleanLiteral) this.getLiteralAt(i)).toCode();
-		return ret;
 	}
 
 	public HashMap<IBooleanVariable, Integer> toMap()
@@ -748,40 +408,12 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	}
 
 	@Override
-	public IBooleanLiteral[] toSortedArray()
-	{
-		IBooleanLiteral[] obj = this.toArray(new IBooleanLiteral[0]);
-		Arrays.sort(obj);
-		return obj;
-	}
-
-	@Override
 	public String toString()
 	{
 		String res = "{";
-		Object[] obj = this.toSortedArray();
+		Object[] obj = this.toArray();
 		for (int j = 0; j < obj.length; j++)
 			res += obj[j];
 		return res + "}";
-	}
-
-	public IProblem unsatisfiedClause() throws Exception
-	{
-		int literals = this.size();
-		if (literals == 0)
-			return EnhancedProblem.trivialProblem();
-
-		ArrayList<IClause> toBeAdded = new ArrayList<IClause>();
-		for (int lit = 0; lit < literals; lit++)
-		{
-			BooleanLiteral curr = (BooleanLiteral) this.getLiteralAt(lit);
-			IBooleanVariable currbv = curr.getBooleanVariable();
-			IBooleanLiteral newcurr = BooleanLiteral.getBooleanLiteral(currbv, !curr.isBarred());
-			IClause currcl = new Clause();
-			currcl.add((BooleanLiteral) newcurr);
-			toBeAdded.add(currcl);
-		}
-
-		return new Problem(toBeAdded.toArray(new IClause[0]));
 	}
 }

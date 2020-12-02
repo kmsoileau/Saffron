@@ -12,13 +12,34 @@ public class BitEqualizerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		IBooleanVariable x = BooleanVariable.getBooleanVariable("x");
 		IBooleanVariable y = BooleanVariable.getBooleanVariable("y");
 
-		IProblem bitEqualizer1 = new BitEqualizer(x, y);
-		System.out.println(bitEqualizer1);
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
 
-		System.out.println("DIMACS:\n" + ((Problem) bitEqualizer1).toDIMACS());
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
+		IProblem bitEqualizer1 = new BitEqualizer(x, y);
+
+		/**
+		 * Solve the IProblem:
+		 */
 
 		IProblemMessage s = bitEqualizer1.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

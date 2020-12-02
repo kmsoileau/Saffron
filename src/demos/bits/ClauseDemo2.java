@@ -2,7 +2,6 @@ package demos.bits;
 
 import bits.BooleanVariable;
 import bits.Clause;
-import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IClause;
 
@@ -30,9 +29,5 @@ public class ClauseDemo2
 
 		System.out.println(clause[0]);
 		System.out.println(clause[1]);
-
-		IBooleanLiteral q = ((Clause) clause[0]).differsSinglyFrom(clause[1]);
-		if (q != null)
-			System.out.println(((Clause) clause[0]).intersection(clause[1]));
 	}
 }
