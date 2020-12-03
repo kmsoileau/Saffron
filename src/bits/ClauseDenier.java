@@ -40,7 +40,7 @@ public class ClauseDenier extends Problem implements IProblem
 			else
 			{
 				ArrayList<IClause> ret = new ArrayList<IClause>();
-				for (IBooleanLiteral ib : clause.toArray())
+				for (IBooleanLiteral ib : clause.getBooleanLiterals())
 				{
 					IBooleanVariable curr = ib.getBooleanVariable();
 					IClause cl;
@@ -55,7 +55,7 @@ public class ClauseDenier extends Problem implements IProblem
 					ret.add(cl);
 				}
 				ImmutableList cl = new CompoundList(ret.toArray());
-				//System.out.println(cl);
+				// System.out.println(cl);
 				this.setBacking(cl);
 			}
 		}

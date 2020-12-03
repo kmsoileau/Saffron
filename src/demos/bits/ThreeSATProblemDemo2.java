@@ -19,7 +19,7 @@ public class ThreeSATProblemDemo2
 
 		System.out.println(threeBitAdder1);
 
-		EnhancedProblem p = (EnhancedProblem) threeBitAdder1.toThreeSatProblem();
+		EnhancedProblem p = threeBitAdder1.toThreeSatProblem();
 		System.out.println(p);
 
 		System.out.println(p.toXML());

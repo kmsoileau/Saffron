@@ -42,7 +42,7 @@ public class ClauseAsDataSolverDemo extends Problem implements IProblem
 		ClauseAsData.declare(ary);
 
 		IClause[] clauses = new IClause[]
-		{ Clause.newClause().or(A).nor(B), Clause.newClause().or(A).or(B) };
+		{ Clause.newClause().or(A).orNot(B), Clause.newClause().or(A).or(B) };
 
 		IClauseAsData[] dataclauses = new IClauseAsData[]
 		{ new ClauseAsData(), new ClauseAsData() };

@@ -37,11 +37,11 @@ public class BitAnderDemo2
 		 */
 
 		IProblem bitAnder1 = new BitAnder(x, y, z);
-		
+
 		/**
 		 * Solve the IProblem:
 		 */
-		
+
 		IProblemMessage s = bitAnder1.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

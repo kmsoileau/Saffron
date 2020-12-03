@@ -66,7 +66,7 @@ public class IntegerMultiplier extends Problem implements IProblem
 			e.printStackTrace();
 		}
 	}
-	
+
 	public IntegerMultiplier(IInteger[] addend, IInteger Z)
 	{
 		try

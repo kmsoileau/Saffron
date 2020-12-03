@@ -75,7 +75,7 @@ public class BitExclusiveSelector extends Problem implements IProblem
 			ArrayList<IClause> ret = new ArrayList<IClause>();
 			IClause build1 = Clause.newClause();
 			for (IBooleanVariable curr : bitArrayList)
-				build1.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(curr, false));
+				((Clause) build1).add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(curr, false));
 			ret.add(build1);
 
 			for (int i = 0; i < listSize; i++)
@@ -84,8 +84,8 @@ public class BitExclusiveSelector extends Problem implements IProblem
 				for (int j = i + 1; j < listSize; j++)
 				{
 					IClause build2 = Clause.newClause();
-					build2.add(curr);
-					build2.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bitArrayList[j], true));
+					((Clause) build2).add(curr);
+					((Clause) build2).add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bitArrayList[j], true));
 					ret.add(build2);
 				}
 			}

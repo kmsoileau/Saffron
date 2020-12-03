@@ -75,6 +75,7 @@ public class Problem implements IProblem
 		return new Conjunction(this, p);
 	}
 
+	@Override
 	protected Object clone() throws CloneNotSupportedException
 	{
 		IProblem cln = new Problem();
@@ -183,6 +184,7 @@ public class Problem implements IProblem
 		return this.backing.iterator();
 	}
 
+	@Override
 	public IProblem resolve(List<IBooleanLiteral> ib) throws Exception
 	{
 		List<IClause> res = Arrays.asList(((IProblem) this.clone()).getClauses());
@@ -199,7 +201,7 @@ public class Problem implements IProblem
 				IClause newcl = null;
 				try
 				{
-					newcl = c.resolve(ibcurr.getBooleanVariable(), !ibcurr.isBarred());
+					newcl = ((Clause) c).resolve(ibcurr.getBooleanVariable(), !ibcurr.isBarred());
 				} catch (NullPointerException err)
 				{
 				}

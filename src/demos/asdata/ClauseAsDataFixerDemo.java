@@ -50,7 +50,7 @@ public class ClauseAsDataFixerDemo
 		ClauseAsData.declare(ary);
 
 		IClauseAsData c1 = new ClauseAsData();
-		IClause clause1 = Clause.newClause().nor(A).or(B);
+		IClause clause1 = Clause.newClause().orNot(A).or(B);
 		IClauseAsData c2 = new ClauseAsData();
 		IClause clause2 = Clause.randomClause(ClauseAsData.getVARIABLES().toArray(new IBooleanVariable[0]));
 

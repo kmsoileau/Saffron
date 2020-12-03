@@ -32,7 +32,6 @@ public class NaturalNumberListMultiplierDemo
 		{ new NaturalNumberMultiplier(addend, P), new NaturalNumberFixer(W, 13L), new NaturalNumberFixer(X, 19L),
 				new NaturalNumberFixer(Y, 11L), new NaturalNumberFixer(Z, 20L) });
 
-
 		IProblemMessage s = p.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

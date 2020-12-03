@@ -22,7 +22,7 @@ public class NQueensDemo
 		 * Set Java constants:
 		 */
 
-		int N = 20;
+		int N = 30;
 
 		/**
 		 * Set globals:

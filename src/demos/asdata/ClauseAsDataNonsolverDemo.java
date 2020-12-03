@@ -43,7 +43,7 @@ public class ClauseAsDataNonsolverDemo extends Problem implements IProblem
 		ary.add(B);
 		ClauseAsData.declare(ary);
 
-		IClause clause = Clause.newClause().nor(B);
+		IClause clause = Clause.newClause().orNot(B);
 
 		IClauseAsData dataclause = new ClauseAsData();
 

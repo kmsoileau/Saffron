@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 
 import bits.exceptions.ClauseException;
 
@@ -30,7 +29,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		IClause ret = Clause.newClause();
 		for (int i = 0; i < bl.length; i++)
 		{
-			ret.add((BooleanLiteral) bl[i]);
+			((Clause) ret).add((BooleanLiteral) bl[i]);
 		}
 		return ret;
 	}
@@ -65,9 +64,9 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 			if (choice == 0)
 				;
 			if (choice == 1)
-				ret.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv[i], false));
+				((Clause) ret).add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv[i], false));
 			if (choice == 2)
-				ret.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv[i], true));
+				((Clause) ret).add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv[i], true));
 		}
 		return ret;
 	}
@@ -78,8 +77,8 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * @return boolean
 	 * @throws ClauseException An instance of Exception
 	 * @throws Exception       An instance of Exception
+	 * @param b BooleanLiteral
 	 */
-	@Override
 	public boolean add(BooleanLiteral b) throws Exception
 	{
 		if (b == null)
@@ -98,13 +97,13 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * 
 	 * @throws ClauseException An instance of Exception
 	 */
-	@Override
-	public void addLiteral(IBooleanLiteral bl) throws Exception
-	{
-		if (bl == null)
-			throw new ClauseException("Null IBooleanLiteral was passed to addLiteral method.");
-		this.add(bl);
-	}
+//	@Override
+//	public void addLiteral(IBooleanLiteral bl) throws Exception
+//	{
+//		if (bl == null)
+//			throw new ClauseException("Null IBooleanLiteral was passed to addLiteral method.");
+//		this.add(bl);
+//	}
 
 	/**
 	 * This method compares this to an IClause. The comparison is first done
@@ -124,10 +123,10 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 			return d;
 		else
 		{
-			Object[] thisIt = this.toArray();
+			Object[] thisIt = this.getBooleanLiterals();
 			Arrays.sort(thisIt);
 			IBooleanLiteral thisFirst = (IBooleanLiteral) (thisIt[0]);
-			Object[] oIt = o.toArray();
+			Object[] oIt = o.getBooleanLiterals();
 			Arrays.sort(oIt);
 			IBooleanLiteral oFirst = (IBooleanLiteral) (oIt[0]);
 			return thisFirst.compareTo(oFirst);
@@ -216,6 +215,12 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		return false;
 	}
 
+	@Override
+	public IBooleanLiteral[] getBooleanLiterals()
+	{
+		return super.toArray(new IBooleanLiteral[0]);
+	}
+
 	/**
 	 * This method returns an Object[] of the IBooleanVariables appearing in this.
 	 * 
@@ -228,31 +233,14 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	}
 
 	/**
-	 * This method writes to the given List, the IBooleanVariables appearing in
-	 * this.
-	 * 
-	 */
-	@Override
-	public void getBooleanVariables(List<IBooleanVariable> hs) throws Exception
-	{
-		if (hs == null)
-			throw new ClauseException("A null List was passed to the getBooleanVariables method.");
-
-		IBooleanLiteral[] bl = this.toArray(new IBooleanLiteral[0]);
-		for (int i = 0; i < bl.length; i++)
-			hs.add(bl[i].getBooleanVariable());
-	}
-
-	/**
 	 * This method returns an ArrayList of the IBooleanVariables appearing in this.
 	 * 
 	 * @return ArrayList
 	 */
-	@Override
 	public ArrayList<IBooleanVariable> getBooleanVariablesList()
 	{
 		ArrayList<IBooleanVariable> res = new ArrayList<IBooleanVariable>();
-		Object[] bl = this.toArray();
+		Object[] bl = this.getBooleanLiterals();
 		// for (int i = 0; i < bl.length; i++)
 		for (int i = 0; i < bl.length; i++)
 		{
@@ -285,18 +273,12 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	}
 
 	@Override
-	public IClause nor(IBooleanVariable bv) throws Exception
-	{
-		return orNot(bv);
-	}
-
-	@Override
 	public IClause or(IBooleanVariable bv) throws Exception
 	{
 		if (bv == null)
 			throw new ClauseException("A null IBooleanVariable was passed to the or method.");
 
-		this.addLiteral(BooleanLiteral.getBooleanLiteral(bv, false));
+		this.add(BooleanLiteral.getBooleanLiteral(bv, false));
 		return this;
 	}
 
@@ -306,7 +288,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		if (bv == null)
 			throw new ClauseException("A null IBooleanVariable was passed to the orNot method.");
 
-		this.addLiteral(BooleanLiteral.getBooleanLiteral(bv, true));
+		this.add(BooleanLiteral.getBooleanLiteral(bv, true));
 		return this;
 	}
 
@@ -316,24 +298,23 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		return super.remove(b);
 	}
 
+//	@Override
+//	public IClause resolve(IBooleanLiteral ib) throws Exception
+//	{
+//		if (ib == null)
+//			throw new ClauseException("Null IBooleanLiteral was passed to resolve method.");
+//
+//		return this.resolve(ib.getBooleanVariable(), !ib.isBarred());
+//	}
+
 	@Override
 	public IBooleanLiteral removeBooleanLiteral(int i)
 	{
 		return super.remove(i);
 	}
 
-	@Override
-	public IClause resolve(IBooleanLiteral ib) throws Exception
-	{
-		if (ib == null)
-			throw new ClauseException("Null IBooleanLiteral was passed to resolve method.");
-
-		return this.resolve(ib.getBooleanVariable(), !ib.isBarred());
-	}
-
 	// An empty IClause ={} cannot be satisfied.
 	// A null IClause =null is satisfied trivially.
-	@Override
 	public IClause resolve(IBooleanVariable b, boolean value) throws Exception
 	{
 		if (b == null)
@@ -388,12 +369,6 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		return problem;
 	}
 
-	@Override
-	public IBooleanLiteral[] toArray()
-	{
-		return super.toArray(new IBooleanLiteral[0]);
-	}
-
 	public HashMap<IBooleanVariable, Integer> toMap()
 	{
 		if (this.size() < 1)
@@ -411,7 +386,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	public String toString()
 	{
 		String res = "{";
-		Object[] obj = this.toArray();
+		Object[] obj = this.getBooleanLiterals();
 		for (int j = 0; j < obj.length; j++)
 			res += obj[j];
 		return res + "}";

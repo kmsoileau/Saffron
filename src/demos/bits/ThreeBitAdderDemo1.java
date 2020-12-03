@@ -41,11 +41,11 @@ public class ThreeBitAdderDemo1
 
 		IProblem threeBitAdder1 = new ThreeBitAdder(w, x, y, z, c).and(new BitFixer(w, false))
 				.and(new BitFixer(x, true)).and(new BitFixer(y, true));
-		
+
 		/**
 		 * Solve the IProblem:
 		 */
-		 
+
 		IProblemMessage s = threeBitAdder1.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
@@ -58,11 +58,6 @@ public class ThreeBitAdderDemo1
 		}
 		else
 			System.out.println("No solution.");
-		
-		
 
-		
-
-		
 	}
 }

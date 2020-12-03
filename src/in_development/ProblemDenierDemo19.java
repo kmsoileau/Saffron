@@ -28,7 +28,7 @@ public class ProblemDenierDemo19
 		IBooleanVariable N00 = N0.getBooleanVariable(0);
 		IBooleanVariable N01 = N0.getBooleanVariable(1);
 
-		IClause c1 = new Clause().or(b0).nor(N00);
+		IClause c1 = new Clause().or(b0).orNot(N00);
 		IClause c2 = new Clause().or(b0).or(N01);
 
 		Problem problem = new Problem(new IClause[]

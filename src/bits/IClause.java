@@ -1,8 +1,5 @@
 package bits;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * The <code>IClause</code> interface must be implemented by any class
  * definition of <code>Clause</code> contemplated as an alternative to the
@@ -18,19 +15,11 @@ import java.util.List;
  */
 public interface IClause extends Comparable<Object>
 {
-	boolean add(BooleanLiteral b) throws Exception;
-
-	void addLiteral(IBooleanLiteral bl) throws Exception;
+	IBooleanLiteral[] getBooleanLiterals();
 
 	IBooleanVariable[] getBooleanVariables();
 
-	void getBooleanVariables(List<IBooleanVariable> hs) throws Exception;
-
-	ArrayList<IBooleanVariable> getBooleanVariablesList();
-
 	IBooleanLiteral getLiteralAt(int n) throws Exception;
-
-	IClause nor(IBooleanVariable bv) throws Exception;
 
 	IClause or(IBooleanVariable bv) throws Exception;
 
@@ -40,11 +29,5 @@ public interface IClause extends Comparable<Object>
 
 	IBooleanLiteral removeBooleanLiteral(int i);
 
-	IClause resolve(IBooleanLiteral ib) throws Exception;
-
-	IClause resolve(IBooleanVariable b, boolean value) throws Exception;
-
 	int size();
-
-	IBooleanLiteral[] toArray();
 }

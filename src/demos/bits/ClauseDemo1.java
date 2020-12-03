@@ -1,8 +1,5 @@
 package demos.bits;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Clause;
@@ -55,19 +52,10 @@ public class ClauseDemo1
 		System.out.println(clause[2]);
 
 		System.out.println("-----------------------------------");
-		System.out.println(clause[0].resolve(bva[1], false));
-		System.out.println(clause[1].resolve(bva[1], false));
-		System.out.println(clause[2].resolve(bva[1], false));
-
-		System.out.println("-----------------------------------");
 		System.out.println(clause[0]);
 		IBooleanVariable iv = BooleanVariable.getBooleanVariable("foo23");
 		IBooleanLiteral il = BooleanLiteral.getBooleanLiteral(iv, true);
 		System.out.println(il);
-		IClause newc = clause[0].resolve(iv, false);
-		System.out.println(newc);
-		IClause newc2 = clause[0].resolve(il);
-		System.out.println(newc2);
 
 		Object[] res = clause[2].getBooleanVariables();
 		for (int i = 0; i < res.length; i++)
@@ -76,9 +64,8 @@ public class ClauseDemo1
 		for (int i = 0; i < res.length; i++)
 			System.out.println(((IBooleanVariable) res[i]).getName());
 
-		List<IBooleanVariable> reslist = new ArrayList<IBooleanVariable>();
-		clause[2].getBooleanVariables(reslist);
+		IBooleanVariable[] reslist = clause[2].getBooleanVariables();
 		for (int i = 0; i < res.length; i++)
-			System.out.println((reslist.get(i)).getName());
+			System.out.println((reslist[i]).getName());
 	}
 }

@@ -25,8 +25,8 @@ public class EnhancedProblem extends Problem implements IProblem
 	{
 		IClause cl = new Clause();
 		IBooleanVariable bv = BooleanVariable.getBooleanVariable();
-		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv, false));
-		cl.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv, true));
+		((Clause) cl).add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv, false));
+		((Clause) cl).add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv, true));
 		IProblem ret = Problem.newProblem();
 		((Problem) ret).setBacking(new CompoundList(cl));
 		return ret;
@@ -86,7 +86,7 @@ public class EnhancedProblem extends Problem implements IProblem
 	{
 		IClause[] c = new IClause[this.size()];
 		for (int i = 0; i < this.size(); i++)
-			c[i] = this.getClause(i).resolve(b, value);
+			c[i] = ((Clause) this.getClause(i)).resolve(b, value);
 		IProblem ret = Problem.newProblem();
 		ret.setClauses(c);
 		return ret;
@@ -128,7 +128,7 @@ public class EnhancedProblem extends Problem implements IProblem
 		for (int i = 0; i < this.size(); i++)
 		{
 			res += "\t<Clause>\n";
-			Object[] obary = (this.getClause(i)).toArray();
+			Object[] obary = (this.getClause(i)).getBooleanLiterals();
 			for (int j = 0; j < obary.length; j++)
 			{
 				IBooleanLiteral b = (IBooleanLiteral) (obary[j]);
