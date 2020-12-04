@@ -5,7 +5,6 @@ import bits.IBitString;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import in_development.BitStringIntersector;
 import naturalnumbers.BitStringTotaler;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;

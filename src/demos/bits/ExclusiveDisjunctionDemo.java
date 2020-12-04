@@ -4,12 +4,12 @@ import bits.BooleanLiteral;
 import bits.BooleanVariable;
 import bits.Clause;
 import bits.EnhancedProblem;
+import bits.ExclusiveDisjunction;
 import bits.IBooleanVariable;
 import bits.IClause;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import in_development.ExclusiveDisjunction;
 
 public class ExclusiveDisjunctionDemo
 {

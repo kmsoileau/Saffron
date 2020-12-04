@@ -1,7 +1,5 @@
 package bits;
 
-import java.util.List;
-
 import bits.exceptions.BooleanLiteralException;
 
 /**
@@ -63,6 +61,4 @@ public interface IBooleanLiteral extends Comparable<Object>
 
 	@Override
 	String toString();
-
-	String toString(List<IBooleanLiteral> l) throws BooleanLiteralException;
 }

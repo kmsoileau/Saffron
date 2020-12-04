@@ -8,15 +8,7 @@ import bits.IProblemMessage;
 import bits.Problem;
 import bits.strings.BitString;
 import bits.strings.BitStringFixer;
-/**
- * <p>Title: TBS</p>
- * <p>Description: TBS</p>
- * <p>Copyright: Copyright (c) 2005</p>
- * <p>Company: Positronic Software</p>
- * @author Kerry Michael Soileau
- * @version 1.0
- */
-import in_development.BitStringIntersector;
+import bits.strings.BitStringIntersector;
 
 public class BitStringIntersectorDemo
 {

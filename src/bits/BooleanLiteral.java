@@ -257,7 +257,6 @@ public class BooleanLiteral implements IBooleanLiteral
 			return " " + this.getBooleanVariable().getName() + " ";
 	}
 
-	@Override
 	public String toString(List<IBooleanLiteral> l) throws BooleanLiteralException
 	{
 		if (l == null)

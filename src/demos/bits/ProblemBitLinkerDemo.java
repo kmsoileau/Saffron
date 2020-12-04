@@ -7,7 +7,7 @@ import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import in_development.ProblemBitLinker;
+import bits.ProblemBitLinker;
 
 public class ProblemBitLinkerDemo
 {

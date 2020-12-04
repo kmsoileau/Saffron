@@ -9,7 +9,7 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Problem;
-import in_development.ProblemBitLinker;
+import bits.ProblemBitLinker;
 import naturalnumbers.NaturalNumber;
 import naturalnumbers.NaturalNumberFixer;
 

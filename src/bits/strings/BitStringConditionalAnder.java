@@ -6,7 +6,7 @@ import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
-import tbs.exceptions.BitStringConditionalAnderException;
+import bits.strings.exceptions.BitStringConditionalAnderException;
 
 /*
  * Given a collection C of IBitStrings each of size n, and an IBitString targetBitString of size n,
