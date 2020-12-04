@@ -61,7 +61,7 @@ public class GeoProblemDemo extends Problem implements IProblem
 		IBooleanLiteral bl;
 		for (int i = 0; i < sz; i++)
 		{
-			bl = c.getLiteralAt(i);
+			bl = ((Clause) c).getLiteralAt(i);
 			if (i == 0)
 				ret += doBooleanLiteral(bl);
 			else

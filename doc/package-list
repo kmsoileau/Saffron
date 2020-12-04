@@ -1,10 +1,3 @@
-algebra
-algebra.groups.generalized
-algebra.magmas.generalized
-algebra.monoids.generalized
-algebra.semigroups.generalized
-asdata
-asdata.inwork
 bits
 bits.exceptions
 bits.strings
@@ -13,19 +6,11 @@ bits.strings.lists
 bits.strings.lists.exceptions
 bits.tables
 bits.tables.exceptions
-demos.algebra.groups.generalized
-demos.algebra.magmas
-demos.algebra.monoids
-demos.algebra.semigroups
-demos.asdata
 demos.bits
 demos.bits.strings
 demos.bits.strings.lists
 demos.bits.tables
 demos.graphs
-demos.graphs.generalized.directed
-demos.graphs.generalized.undirected
-demos.graphs.inwork
 demos.integers
 demos.integers.intervals
 demos.naturalnumbers
@@ -35,11 +20,7 @@ demos.naturalnumbers.rectangles
 demos.sets
 graphs
 graphs.exceptions
-graphs.generalized
-graphs.generalized.exceptions
 graphs.lists
-in_development
-in_development.disjunction.tests
 integers
 integers.exceptions
 integers.intervals
@@ -76,7 +57,6 @@ showcase.bitstringlistsort
 showcase.commonsuperbitstring
 showcase.dynamicstorageallocation
 showcase.fifteenpuzzle
-showcase.graphpathfinder
 showcase.hittingset
 showcase.mapcoloring
 showcase.minimumcover
@@ -88,5 +68,4 @@ showcase.setpacker
 showcase.subsetsum
 showcase.testset
 showcase.vertexcover
-tbs.exceptions
 utility

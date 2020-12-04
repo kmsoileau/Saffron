@@ -24,6 +24,18 @@ public class BitStringArraySplitterDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		IBitString[] C = new IBitString[]
 		{ new BitString("01001"), new BitString("10111"), new BitString("10101"), new BitString("01100"),
 				new BitString("11101") };
@@ -33,7 +45,22 @@ public class BitStringArraySplitterDemo
 		IBitString S1 = new BitString(size);
 		IBitString S2 = new BitString(size);
 
-		IProblem problem = new Conjunction(new BitStringFixer(C), new BitStringArraySplitter(C, S1, S2));
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
+
+		IProblem p1 = new BitStringFixer(C);
+		IProblem p2 = new BitStringArraySplitter(C, S1, S2);
+
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
+		IProblem problem = new Conjunction(p1, p2);
+
+		/**
+		 * Solve the IProblem:
+		 */
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

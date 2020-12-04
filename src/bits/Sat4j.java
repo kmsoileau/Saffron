@@ -83,7 +83,7 @@ public class Sat4j
 				IBooleanLiteral currBL = null;
 				try
 				{
-					currBL = currClause.getLiteralAt(j);
+					currBL = ((Clause) currClause).getLiteralAt(j);
 				} catch (Exception e)
 				{
 					e.printStackTrace();
@@ -118,7 +118,7 @@ public class Sat4j
 				IBooleanLiteral currBL = null;
 				try
 				{
-					currBL = currClause.getLiteralAt(j);
+					currBL = ((Clause) currClause).getLiteralAt(j);
 				} catch (Exception e)
 				{
 					e.printStackTrace();
@@ -154,7 +154,7 @@ public class Sat4j
 				if (clause != null)
 					for (int j = 0; j < clause.size(); j++)
 					{
-						IBooleanVariable bv = clause.getLiteralAt(j).getBooleanVariable();
+						IBooleanVariable bv = ((Clause) clause).getLiteralAt(j).getBooleanVariable();
 						if (!bvArrayList.contains(bv))
 							bvArrayList.add(bv);
 					}

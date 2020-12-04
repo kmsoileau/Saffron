@@ -258,7 +258,6 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * @return IBooleanLiteral
 	 * @throws ClauseException An instance of Exception
 	 */
-	@Override
 	public IBooleanLiteral getLiteralAt(int n) throws ClauseException
 	{
 		if (n < 0)
@@ -292,7 +291,6 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		return this;
 	}
 
-	@Override
 	public boolean remove(IBooleanLiteral b)
 	{
 		return super.remove(b);
@@ -307,7 +305,6 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 //		return this.resolve(ib.getBooleanVariable(), !ib.isBarred());
 //	}
 
-	@Override
 	public IBooleanLiteral removeBooleanLiteral(int i)
 	{
 		return super.remove(i);
@@ -327,7 +324,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 			IBooleanLiteral bl = (IBooleanLiteral) obj;
 			if (bl.getBooleanVariable().equals(b))
 				if (bl.isBarred() == value)
-					c.remove(bl);
+					((Clause) c).remove(bl);
 				else
 				{
 					c = null;

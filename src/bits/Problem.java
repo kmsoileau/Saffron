@@ -281,7 +281,7 @@ public class Problem implements IProblem
 		{
 			for (int i = 0; i < currClause.size(); i++)
 			{
-				IBooleanLiteral currBL = currClause.getLiteralAt(i);
+				IBooleanLiteral currBL = ((Clause) currClause).getLiteralAt(i);
 				int num = lookup.get(currBL.getBooleanVariable());
 				if (currBL.isBarred())
 					ret += "-";

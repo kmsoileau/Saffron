@@ -19,15 +19,11 @@ public interface IClause extends Comparable<Object>
 
 	IBooleanVariable[] getBooleanVariables();
 
-	IBooleanLiteral getLiteralAt(int n) throws Exception;
-
 	IClause or(IBooleanVariable bv) throws Exception;
 
 	IClause orNot(IBooleanVariable bv) throws Exception;
 
-	boolean remove(IBooleanLiteral b);
-
-	IBooleanLiteral removeBooleanLiteral(int i);
+	// boolean remove(IBooleanLiteral b);
 
 	int size();
 }
