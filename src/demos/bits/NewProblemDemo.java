@@ -9,7 +9,31 @@ public class NewProblemDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
+
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
 		IProblem unsat = Problem.newProblem();
+
+		/**
+		 * Solve the IProblem:
+		 */
 
 		System.out.println(unsat);
 

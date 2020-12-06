@@ -2,6 +2,7 @@ package demos.bits;
 
 import bits.BitArrayPartition;
 import bits.BooleanLiteral;
+import bits.IProblem;
 import bits.IProblemMessage;
 import bits.Partition;
 import bits.Problem;
@@ -10,13 +11,40 @@ public class PartitionDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
 		int partitions = 3;
 		int bits = 31;
+		
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
 
 		Partition partition = new Partition(partitions, bits);
 
-		IProblemMessage s = new BitArrayPartition(partition).findModel(Problem.defaultSolver());
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
 
+		
+
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
+		IProblem problem=new BitArrayPartition(partition);
+
+		/**
+		 * Solve the IProblem:
+		 */
+
+		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
 			BooleanLiteral.interpret(s.getLiterals());
@@ -31,5 +59,14 @@ public class PartitionDemo
 		}
 		else
 			System.out.println("No solution.");
+		
+		
+		
+
+		
+
+		
+
+		
 	}
 }

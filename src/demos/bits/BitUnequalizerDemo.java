@@ -14,15 +14,39 @@ public class BitUnequalizerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		IBooleanVariable x = BooleanVariable.getBooleanVariable("x");
 		IBooleanVariable y = BooleanVariable.getBooleanVariable("y");
+
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
 
 		IProblem fixx = new BitFixer(x, true);
 		IProblem fixy = new BitFixer(y, false);
 		IProblem bitUnequalizer1 = new BitUnequalizer(x, y);
 
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
 		IProblem problem = new Conjunction(fixx, fixy, bitUnequalizer1);
-		System.out.println(problem);
+
+		/**
+		 * Solve the IProblem:
+		 */
+
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

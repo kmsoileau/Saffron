@@ -14,20 +14,42 @@ public class FindTwoModelsDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
 		NaturalNumber.setLength(9);
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 		INaturalNumber Z = new NaturalNumber("Z");
 		INaturalNumber C = new NaturalNumber("C");
 
-		// NaturalNumberFixer bnnfx=new NaturalNumberFixer(X,127);
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
+
 		NaturalNumberFixer bnnfy = new NaturalNumberFixer(Y, 121);
 
 		NaturalNumberAdder NaturalNumberAdder1 = new NaturalNumberAdder(X, Y, Z, C);
 
-		// IProblem p=new Conjunction(new
-		// Conjunction(bnnfx,bnnfy),NaturalNumberAdder1);
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
 		IProblem p = new Conjunction(bnnfy, NaturalNumberAdder1);
+
+		/**
+		 * Solve the IProblem:
+		 */
 
 		System.out.println(p);
 		IProblemMessage[] s = ((Problem) p).findTwoModels(X.getBooleanVariable(3));

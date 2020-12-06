@@ -18,12 +18,36 @@ public class ProblemBitLinkerDemo4
 {
 	public static void main(String[] args) throws Exception
 	{
-		IBooleanVariable b = BooleanVariable.getBooleanVariable("b");
+		/**
+		 * Set Java variables:
+		 */
 
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
+		IBooleanVariable b = BooleanVariable.getBooleanVariable("b");
 		INaturalNumber N = new NaturalNumber();
+
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
+
 		IProblem p = new Disjunction(new NaturalNumberFixer(N, 3), new NaturalNumberFixer(N, 13));
 
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
 		IProblem testProblem = new Conjunction(new ProblemBitLinker(p, b), new BitFixer(b, true));
+
+		/**
+		 * Solve the IProblem:
+		 */
 
 		System.out.println(testProblem);
 

@@ -15,11 +15,26 @@ public class ExclusiveDisjunctionDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		IBooleanVariable[] bva = new IBooleanVariable[3];
+		/**
+		 * Set Java variables:
+		 */
 
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
+		IBooleanVariable[] bva = new IBooleanVariable[3];
 		bva[0] = BooleanVariable.getBooleanVariable("x_1");
 		bva[1] = BooleanVariable.getBooleanVariable("x_2");
 		bva[2] = BooleanVariable.getBooleanVariable("x_3");
+
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
 
 		IProblem p1 = new Problem(new IClause[]
 		{ new Clause().orNot(bva[0]).orNot(bva[1]).orNot(bva[2]) });
@@ -29,8 +44,16 @@ public class ExclusiveDisjunctionDemo
 		{ new Clause().or(bva[0]).orNot(bva[1]).or(bva[2]), new Clause().orNot(bva[0]).orNot(bva[1]).orNot(bva[2]) });
 		System.out.println(p2);
 
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
 		IProblem p3 = new ExclusiveDisjunction(p1, p2, EnhancedProblem.unsolvableProblem());
-		System.out.println(p3);
+
+		/**
+		 * Solve the IProblem:
+		 */
+
 		IProblemMessage s = p3.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
@@ -41,6 +64,6 @@ public class ExclusiveDisjunctionDemo
 			BooleanLiteral.reset(s.getLiterals());
 		}
 		else
-			System.out.println("There is no solution.");
+			System.out.println("No solution.");
 	}
 }

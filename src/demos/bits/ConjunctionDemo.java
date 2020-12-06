@@ -14,15 +14,40 @@ public class ConjunctionDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		IBooleanVariable X = BooleanVariable.getBooleanVariable("X");
 		IBooleanVariable Y = BooleanVariable.getBooleanVariable("Y");
 		IBooleanVariable Z = BooleanVariable.getBooleanVariable("Z");
 
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
+
 		IProblem fixY = new BitFixer(Y, true);
 		IProblem fixZ = new BitFixer(Y, true);
 		IProblem conjunction1 = new Conjunction(new BitEqualizer(X, Y), new BitEqualizer(Y, Z));
+
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
 		IProblem problem = new Conjunction(fixY, fixZ, conjunction1);
-		System.out.println(problem);
+
+		/**
+		 * Solve the IProblem:
+		 */
+
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

@@ -25,13 +25,38 @@ public class ProblemIndexedConjunctionDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		IBooleanVariable x = BooleanVariable.getBooleanVariable();
+
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
+
 		IProblem[] P = new IProblem[]
 		{ new BitFixer(x, true) };
 		IProblem[] Q = new IProblem[]
 		{ EnhancedProblem.unsolvableProblem() };
-
 		IProblem pic = new ProblemIndexedConjunction(P, Q);
+
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
+		/**
+		 * Solve the IProblem:
+		 */
+
 		IProblem problem = new Conjunction(new BitFixer(x, false), pic);
 		System.out.println(problem);
 

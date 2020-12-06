@@ -14,16 +14,39 @@ public class BitXorerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		IBooleanVariable x = BooleanVariable.getBooleanVariable("x");
 		IBooleanVariable y = BooleanVariable.getBooleanVariable("y");
 		IBooleanVariable z = BooleanVariable.getBooleanVariable("z");
+
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
 
 		IProblem fixx = new BitFixer(x, false);
 		IProblem fixz = new BitFixer(z, true);
 		IProblem bitXorer1 = new BitXorer(x, y, z);
 
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
 		IProblem problem = new Conjunction(fixx, fixz, bitXorer1);
-		System.out.println(bitXorer1);
+
+		/**
+		 * Solve the IProblem:
+		 */
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

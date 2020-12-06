@@ -257,6 +257,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * 
 	 * @return IBooleanLiteral
 	 * @throws ClauseException An instance of Exception
+	 * @param n int
 	 */
 	public IBooleanLiteral getLiteralAt(int n) throws ClauseException
 	{
