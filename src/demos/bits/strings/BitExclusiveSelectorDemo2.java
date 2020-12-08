@@ -14,6 +14,18 @@ public class BitExclusiveSelectorDemo2
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		IBooleanVariable W = BooleanVariable.getBooleanVariable("W");
 		IBooleanVariable X = BooleanVariable.getBooleanVariable("X");
 		IBooleanVariable Y = BooleanVariable.getBooleanVariable("Y");
@@ -22,9 +34,21 @@ public class BitExclusiveSelectorDemo2
 		IBitString string = new BitString(new IBooleanVariable[]
 		{ W, X, Y, Z });
 
-		IProblem problem = new BitExclusiveSelector(string);
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
 
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
+		IProblem problem = new BitExclusiveSelector(string);
 		System.out.println(problem);
+
+		/**
+		 * Solve the IProblem:
+		 */
+
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{

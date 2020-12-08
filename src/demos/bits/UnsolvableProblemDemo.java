@@ -20,8 +20,32 @@ public class UnsolvableProblemDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
+
 		IProblem p = EnhancedProblem.unsolvableProblem();
 		System.out.println(p);
+
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
+		/**
+		 * Solve the IProblem:
+		 */
 
 		IProblemMessage s = p.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

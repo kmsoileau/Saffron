@@ -25,6 +25,18 @@ public class TriMapperDemo2
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 		INaturalNumber Z = new NaturalNumber("Z");
@@ -62,9 +74,21 @@ public class TriMapperDemo2
 				new ProblemTriplet(new NaturalNumberFixer(X, 3), new NaturalNumberFixer(Y, 3),
 						new NaturalNumberFixer(Z, 0)) };
 
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
+
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
 		TriMapper grouper = new TriMapper(array);
 
 		IProblem problem = new Conjunction(new NaturalNumberFixer(Z, 1), grouper);
+
+		/**
+		 * Solve the IProblem:
+		 */
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

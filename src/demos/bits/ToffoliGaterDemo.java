@@ -14,6 +14,18 @@ public class ToffoliGaterDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		// Create the BooleanVariables:
 		IBooleanVariable A = BooleanVariable.getBooleanVariable("A");
 		IBooleanVariable B = BooleanVariable.getBooleanVariable("B");
@@ -21,6 +33,10 @@ public class ToffoliGaterDemo
 		IBooleanVariable P = BooleanVariable.getBooleanVariable("P");
 		IBooleanVariable Q = BooleanVariable.getBooleanVariable("Q");
 		IBooleanVariable R = BooleanVariable.getBooleanVariable("R");
+
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
 
 		// Construct the object that implements the constraint x & y = z :
 		IProblem toffoliGater1 = new ToffoliGater(A, B, C, P, Q, R);
@@ -31,9 +47,17 @@ public class ToffoliGaterDemo
 		IProblem b1 = new BitFixer(B, true);
 		IProblem c1 = new BitFixer(C, false);
 
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
 		// Combine the constraints into a Problem object :
 		IProblem p1 = new Conjunction(toffoliGater1, a1, b1, c1);
 		System.out.println(p1);
+
+		/**
+		 * Solve the IProblem:
+		 */
 
 		// Find a solution to the Problem object :
 		IProblemMessage v1 = p1.findModel(Problem.defaultSolver());
@@ -47,9 +71,5 @@ public class ToffoliGaterDemo
 		System.out.println("P = " + P.getValue());
 		System.out.println("Q = " + Q.getValue());
 		System.out.println("R = " + R.getValue());
-
-		IProblem rp = p1.resolve(v1.getLiterals());
-		System.out.println("::::::::::");
-		System.out.println(rp);
 	}
 }
