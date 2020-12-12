@@ -28,15 +28,39 @@ public class BitStringBitAnderDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		int pos = 7;
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		IBitString[] C = new IBitString[]
 		{ new BitString("011110000000000"), new BitString("000011110000000"), new BitString("000000010000111"),
 				new BitString("001100000111000"), new BitString("100000000000000") };
 
 		IBitString targetBitString = new BitString(C[0].size());
 
-		int pos = 7;
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
+
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
 
 		IProblem problem = new Conjunction(new BitStringFixer(C), new BitStringBitAnder(C, pos, targetBitString));
+
+		/**
+		 * Solve the IProblem:
+		 */
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)

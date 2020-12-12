@@ -24,11 +24,35 @@ public class BitStringArrayDistincterDemo extends Problem implements IProblem
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		IBitString[] C = new IBitString[]
 		{ new BitString("01001010"), new BitString("10101010"), new BitString("00001000"), new BitString("00100000"),
 				new BitString("00101000") };
 
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
+
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
+
 		IProblem problem = new Conjunction(new BitStringArrayDistincter(C), new BitStringFixer(C));
+
+		/**
+		 * Solve the IProblem:
+		 */
 
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
@@ -38,6 +62,5 @@ public class BitStringArrayDistincterDemo extends Problem implements IProblem
 		}
 		else
 			System.out.println("Some or all elements are equal.");
-
 	}
 }

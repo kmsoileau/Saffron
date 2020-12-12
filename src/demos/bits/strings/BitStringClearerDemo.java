@@ -26,7 +26,28 @@ public class BitStringClearerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
+		/**
+		 * Set Java variables:
+		 */
+
+		/**
+		 * Set globals:
+		 */
+
+		/**
+		 * Create Saffron objects and arrays:
+		 */
+
 		IBitString X = new BitString("X", new IBooleanVariable[3]);
+
+		IBitString Y = new BitString("Y", new IBooleanVariable[3]);
+		for (int row = 0; row < X.size(); row++)
+			Y.setBooleanVariable(row, BooleanVariable.getBooleanVariable(Y.getName() + "_" + row));
+
+		/**
+		 * Create problems which constrain the values of these Saffron objects:
+		 */
+
 		ArrayList<IProblem> pfix = new ArrayList<IProblem>();
 		for (int row = 0; row < X.size(); row++)
 		{
@@ -37,12 +58,17 @@ public class BitStringClearerDemo
 			pfix.add(new BitFixer(X.getBooleanVariable(row), value));
 		}
 
-		IBitString Y = new BitString("Y", new IBooleanVariable[3]);
-		for (int row = 0; row < X.size(); row++)
-			Y.setBooleanVariable(row, BooleanVariable.getBooleanVariable(Y.getName() + "_" + row));
+		/**
+		 * Create the IProblem of satisfying all of these constraining problems:
+		 */
 
 		IProblem problem = new Conjunction(new Conjunction(pfix), new BitStringClearer(X));
 		System.out.println(problem);
+
+		/**
+		 * Solve the IProblem:
+		 */
+
 		IProblemMessage s = problem.findModel(Problem.defaultSolver());
 		if (s.getStatus() == IProblemMessage.SATISFIABLE)
 		{
