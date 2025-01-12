@@ -5,7 +5,7 @@ For more information, see the blog at http://www.kerrysoileau.com/saffronpreproc
 ## Getting Started
 
 1.	Download Saffron source files.
-2.	Download the this (or a later) version of the following Sat4j library: org.sat4j.core_2.3.5.v201308161310.jar
+2.	Download the this version of the Sat4j library: org.sat4j.core_2.3.5.v201308161310.jar
 3.	To familiarize yourself with the use of Saffron, run the numerous demo applications in the package named (of all things): demos. Extensive javadoc files can be found in the folder called: doc
 
 ## Built With
